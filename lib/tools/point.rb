@@ -20,11 +20,7 @@ module Plan
       @y += y
     end
 
-    def hash
-      @x*@y
-    end
-
-    def -(point)
+    def dist(point)
       Math.hypot(@x - point.x, @y - point.y)
     end
   end
