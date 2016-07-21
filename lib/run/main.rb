@@ -54,9 +54,9 @@ module Plan
   min_vertex, max_vertex = Plan.bounds(rooms.map(&:vertices).flatten)
 
   rooms.each { |room| room.translate(-min_vertex.x + 50, -min_vertex.y + 50) }
-  svg = SVG.new(1)
+  svg = SVG.new
 
   rooms.each {|room| room.svg_elements.each {|line| svg.contents << line}}
-  svg.contents << SVGText.new("Total: #{rooms.map(&:area).reduce(0,:+)} m²", max_vertex.x + 50, max_vertex.y + 50)
+  svg.contents << SVGText.new("Total: #{rooms.map(&:area).reduce(0,:+)} m²", max_vertex.x + 50, max_vertex.y + 150)
   svg.write File.new('test.svg', 'w')
 end

@@ -1,8 +1,9 @@
-require_relative 'room/room'
-require_relative 'room/wall'
+require 'nokogiri'
+
+require_relative 'objects/wall'
+require_relative 'objects/room'
 
 # tools
-require_relative 'tools/console'
 require_relative 'tools/point'
 
 # svg

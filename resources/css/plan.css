@@ -1,0 +1,11 @@
+
+.show_hover {
+    opacity: 0.0;
+}
+.show_hover:hover {
+    opacity: 1.0;
+}
+
+.floor {
+    fill: gainsboro;
+}
