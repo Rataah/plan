@@ -17,7 +17,7 @@ module Plan
     end
 
     def distance
-      @vertex1 - @vertex2
+      @vertex1.dist @vertex2
     end
 
     def translate(x, y)
