@@ -6,6 +6,11 @@ module Plan
       @args = {}
     end
 
+    def css_class(name)
+      @args['class'] ||= SVGArg.new('', false)
+      @args['class'].value << "#{name} "
+    end
+
     def stroke_width(value)
       @args['stroke-width'] = SVGArg.new(value, true, 'cm')
     end
@@ -18,34 +23,22 @@ module Plan
       @args['fill'] = SVGArg.new(value, false)
     end
 
-    def show_on_mouse_over
-      @args['visibility'] = SVGArg.new('hidden', false)
-      @args['onmouseover'] = SVGArg.new("evt.target.setAttribute('visibility', 'visible');", false)
-      @args['onmouseout'] = SVGArg.new("evt.target.setAttribute('visibility', 'hidden');", false)
+    def xml_element(xml_builder)
+      puts "generating #{@name}"
+      svg_args = Hash[@args.map { |key, value| [key, SVGElement.prepare_value(value.value)] }]
+      xml_builder.send("#{@name.downcase}_".to_sym, @data, svg_args)
     end
 
-    def xml_element(scale)
-      ''.tap do |element|
-        element << %Q(<#{@name.downcase} )
-        @args.each do |key, svg_arg|
-          svg_arg.value = SVGElement.scale_value(svg_arg.value, scale, svg_arg.cm) if svg_arg.scalable
-          element << %Q(#{key}="#{svg_arg.value}" )
-        end
-        element << %Q(>)
-
-        element << (@data.is_a?(SVGElement) ? @data.xml_element(scale) : (@data || ''))
-        element << %Q(</#{@name.downcase}>)
-      end
-    end
-
-    def self.scale_value(value, scale, cm)
+    def self.prepare_value(value)
       case value
+        when String
+          value
         when Array then
-          value.map { |v| scale_value(v, scale, cm) }.join(' ')
+          value.map { |v| prepare_value(v) }.join(' ')
         when Point then
-          %Q(#{value.x.to_f / scale},#{value.y.to_f / scale})
+          %Q(#{value.x.to_f},#{value.y.to_f})
         else
-          "#{value.to_f / scale}"
+          "#{value.to_f}"
       end
     end
   end
