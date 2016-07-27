@@ -14,6 +14,7 @@ module Plan
             if @walls.first.A1 != @walls.last.A2
               Plan.log.debug("Room '#{name}': connect last wall to the first")
               @walls << Wall.connect("#{@name}_last", @walls.last, @walls.first, DEFAULT_WALL_WIDTH)
+              WallCache.store_wall @walls.last
             end
 
             @vertices = @walls.map { |wall| [wall.A1, wall.A2] }.flatten.uniq
@@ -30,9 +31,10 @@ module Plan
       end
     end
 
-    def wall(wall_size, angle, name = nil)
+    def wall(wall_size, angle, width: DEFAULT_WALL_WIDTH, name: nil)
       last_point = @walls.empty? ? @point : @walls.last.A2
-      @walls << Wall.create(name, last_point, wall_size, angle, DEFAULT_WALL_WIDTH)
+      @walls << Wall.create(name, last_point, wall_size, angle, width)
+      WallCache.store_wall @walls.last
 
       @walls.last
     end

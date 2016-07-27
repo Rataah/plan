@@ -20,3 +20,4 @@ require 'svg/elements/svg_polygon'
 # main
 require 'run/loader'
 require 'run/runner'
+require 'run/wall_cache'

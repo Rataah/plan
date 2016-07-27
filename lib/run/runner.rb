@@ -15,6 +15,11 @@ module Plan
         opts.on('-o', '--output FILE', 'Output file') do |output_file|
           @options.output_file = output_file
         end
+
+        opts.on('-h', '--help', 'Display this screen') do
+          puts opts
+          exit
+        end
       end.parse!(args)
     end
 
