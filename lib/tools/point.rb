@@ -25,6 +25,13 @@ module Plan
     end
     alias translate add!
 
+    def round(digit)
+      @x = @x.round(digit)
+      @y = @y.round(digit)
+
+      self
+    end
+
     def dist(point)
       Math.hypot(@x - point.x, @y - point.y)
     end

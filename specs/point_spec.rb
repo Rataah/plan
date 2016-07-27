@@ -15,7 +15,7 @@ module Plan
 
     describe :operations do
       it 'adds new x and y to a point' do
-        point.add(2, 0.3)
+        point.add!(2, 0.3)
         expect(point.x).to eq 3
         expect(point.y).to eq 0.8
       end

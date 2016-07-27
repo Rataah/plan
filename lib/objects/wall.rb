@@ -6,7 +6,7 @@ module Plan
       right: 0.0
   }
 
-  DEFAULT_WALL_WIDTH = 3.freeze
+  DEFAULT_WALL_WIDTH = 2.freeze
 
   class Wall
     attr_accessor :vertex_a1, :vertex_a2, :vertex_b1, :vertex_b2, :name, :angle, :length, :width
@@ -26,8 +26,8 @@ module Plan
           @width = width
 
           # compute the points
-          @vertex_a1 = origin.dup
-          @vertex_a2 = @vertex_a1.add(length * Math.cos(@angle), length * Math.sin(@angle))
+          @vertex_a1 = origin.dup.round(2)
+          @vertex_a2 = @vertex_a1.add(length * Math.cos(@angle), length * Math.sin(@angle)).round(2)
         end
       end
     end
@@ -38,8 +38,8 @@ module Plan
           @name = name
           @width = width
 
-          @vertex_a1 = wall1.A2.dup
-          @vertex_a2 = wall2.A1.dup
+          @vertex_a1 = wall1.A2.dup.round(2)
+          @vertex_a2 = wall2.A1.dup.round(2)
 
           @length = @vertex_a1.dist @vertex_a2
           @angle = Math.atan2(*(@vertex_a1 - @vertex_a2).xy).deg.round(2) - 90.0
@@ -50,8 +50,8 @@ module Plan
 
     def apply_width(ref_point)
       direction = -90.0 * (((@vertex_a2.x - @vertex_a1.x) * (ref_point.y - @vertex_a1.y) - (@vertex_a2.y - @vertex_a1.y) * (ref_point.x - @vertex_a1.x)) <=> 0.0)
-      @vertex_b1 = @vertex_a1.add(@width * Math.cos(@angle + direction.rad), @width * Math.sin(@angle + direction.rad))
-      @vertex_b2 = @vertex_a2.add(@width * Math.cos(@angle + direction.rad), @width * Math.sin(@angle + direction.rad))
+      @vertex_b1 = @vertex_a1.add(@width * Math.cos(@angle + direction.rad), @width * Math.sin(@angle + direction.rad)).round(2)
+      @vertex_b2 = @vertex_a2.add(@width * Math.cos(@angle + direction.rad), @width * Math.sin(@angle + direction.rad)).round(2)
     end
 
     def vertices
@@ -67,7 +67,7 @@ module Plan
     end
 
     def svg_element
-      SVGPolygon.new(vertices)
+      SVGPolygon.new(vertices).stroke('black').fill('gray')
     end
   end
 end
