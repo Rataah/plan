@@ -12,7 +12,7 @@ module Plan
 
         xml.doc.create_internal_subset('svg', '-//W3C//DTD SVG 1.1//EN', 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd')
         xml.svg(width: 1000, height: 1000, version: '1.1', xmlns: 'http://www.w3.org/2000/svg') do
-          css = File.read('../resources/css/plan.css')
+          css = File.read('./resources/css/plan.css')
           xml.style(css)
 
           xml.defs do

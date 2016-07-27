@@ -1,14 +1,22 @@
 require 'nokogiri'
-
-require_relative 'objects/wall'
-require_relative 'objects/room'
+require 'logger'
 
 # tools
-require_relative 'tools/point'
+require 'tools/point'
+require 'tools/numeric'
+require 'tools/logger'
+
+# elements
+require 'objects/wall'
+require 'objects/room'
 
 # svg
-require_relative 'svg/svg'
-require_relative 'svg/elements/svg_element'
-require_relative 'svg/elements/svg_line'
-require_relative 'svg/elements/svg_text'
-require_relative 'svg/elements/svg_polygon'
+require 'svg/svg'
+require 'svg/elements/svg_element'
+require 'svg/elements/svg_line'
+require 'svg/elements/svg_text'
+require 'svg/elements/svg_polygon'
+
+# main
+require 'run/loader'
+require 'run/runner'
