@@ -63,9 +63,8 @@ module Plan
 
     def svg_elements
       [].tap do |elements|
-        floor = SVGPolygon.new(@walls.map(&:vertices).flatten.uniq)
-        floor.css_class 'floor'
-        floor.css_class 'show_hover'
+        floor = SVGPolygon.new(@walls.map(&:vertices).flatten.uniq).fill('white')
+        #floor.css_class 'show_hover'
         elements << floor
 
         elements << @walls.map { |wall| wall.svg_element }
