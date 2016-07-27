@@ -63,7 +63,7 @@ module Plan
     end
 
     def translate(x, y)
-      vertices.each { |vertex| vertex.add!(x, y) }
+      vertices.each { |vertex| vertex.translate(x, y) }
     end
 
     def svg_element

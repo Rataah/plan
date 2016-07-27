@@ -23,6 +23,7 @@ module Plan
       @x += x
       @y += y
     end
+    alias translate add!
 
     def dist(point)
       Math.hypot(@x - point.x, @y - point.y)

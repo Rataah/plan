@@ -42,8 +42,8 @@ module Plan
     end
 
     def translate(x, y)
-      @point.add!(x, y)
-      @center.add!(x, y)
+      @point.translate(x, y)
+      @center.translate(x, y)
       @walls.each { |wall| wall.translate(x, y) }
     end
 

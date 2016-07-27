@@ -3,8 +3,6 @@ require 'ostruct'
 require 'fileutils'
 
 module Plan
-  logger = Logger.new(STDOUT)
-
   class Runner
 
     def initialize(args)
