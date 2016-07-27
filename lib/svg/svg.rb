@@ -28,8 +28,6 @@ module Plan
             defs << load_pattern('carbon')
           end
 
-          xml.rect(width: WIDTH, height: HEIGHT, fill: 'url(#blueprint)')
-
           @contents.each do |content|
             content.xml_element(xml)
           end
