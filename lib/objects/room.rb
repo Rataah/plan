@@ -1,48 +1,40 @@
 module Plan
   class Room
 
-    def create(name, x, y, &block)
-      @name = name
-      @point = Point.new(x, y)
-      @walls = []
+    def self.create(name, x, y, &block)
+      Room.new.tap do |room|
+        room.instance_eval do
+          @name = name
+          @point = Point.new(x, y)
+          @walls = []
 
-      if block
-        instance_eval &block
+          if block
+            instance_eval &block
 
-        @walls << Wall.new(@walls.last.vertex2, @point, nil)
-        @vertices = @walls.map { |wall| [wall.vertex1, wall.vertex2] }.flatten.uniq
+            if @walls.first.A1 != @walls.last.A2
+              Plan.log.debug("Room '#{name}': connect last wall to the first")
+              @walls << Wall.connect("#{@name}_last", @walls.last, @walls.first, DEFAULT_WALL_WIDTH)
+            end
 
-        min_x = @vertices.min_by(&:x).x
-        max_x = @vertices.max_by(&:x).x
-        min_y = @vertices.min_by(&:y).y
-        max_y = @vertices.max_by(&:y).y
+            @vertices = @walls.map { |wall| [wall.A1, wall.A2] }.flatten.uniq
 
-        @center = Point.new(min_x + (max_x - min_x)/2.0, min_y + (max_y - min_y)/2.0)
+            min_x = @vertices.min_by(&:x).x
+            max_x = @vertices.max_by(&:x).x
+            min_y = @vertices.min_by(&:y).y
+            max_y = @vertices.max_by(&:y).y
+
+            @center = Point.new(min_x + (max_x - min_x)/2.0, min_y + (max_y - min_y)/2.0)
+            @walls.each { |wall| wall.apply_width(@center) }
+          end
+        end
       end
-      self
     end
 
-    def wall(wall_size, direction, name = nil)
-      last_point = @walls.empty? ? @point : @walls.last.vertex2
-
-      case direction
-        when :down
-          @walls << Wall.new(last_point, Point.new(last_point.x, last_point.y + wall_size), name)
-        when :up
-          @walls << Wall.new(last_point, Point.new(last_point.x, last_point.y - wall_size), name)
-        when :left
-          @walls << Wall.new(last_point, Point.new(last_point.x - wall_size, last_point.y), name)
-        when :right
-          @walls << Wall.new(last_point, Point.new(last_point.x + wall_size, last_point.y), name)
-        else
-          raise 'Direction unknown'
-      end
+    def wall(wall_size, angle, name = nil)
+      last_point = @walls.empty? ? @point : @walls.last.A2
+      @walls << Wall.create(name, last_point, wall_size, angle, DEFAULT_WALL_WIDTH)
 
       @walls.last
-    end
-
-    def floor
-      @floor = true
     end
 
     def vertices
@@ -50,8 +42,8 @@ module Plan
     end
 
     def translate(x, y)
-      @point.add(x, y)
-      @center.add(x, y)
+      @point.add!(x, y)
+      @center.add!(x, y)
       @walls.each { |wall| wall.translate(x, y) }
     end
 

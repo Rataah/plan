@@ -1,5 +1,6 @@
 module Plan
-  SVGArg = Struct.new(:value, :scalable, :cm)
+  SVGArg = Struct.new(:value, :scalable)
+
   class SVGElement
     def initialize(name)
       @name = name
@@ -12,7 +13,7 @@ module Plan
     end
 
     def stroke_width(value)
-      @args['stroke-width'] = SVGArg.new(value, true, 'cm')
+      @args['stroke-width'] = SVGArg.new(value, true)
     end
 
     def stroke(value = 'black')

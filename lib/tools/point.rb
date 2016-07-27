@@ -16,12 +16,28 @@ module Plan
     end
 
     def add(x, y)
+      Point.new(@x + x, @y + y)
+    end
+
+    def add!(x, y)
       @x += x
       @y += y
     end
 
     def dist(point)
       Math.hypot(@x - point.x, @y - point.y)
+    end
+
+    def xy
+      [@x, @y]
+    end
+
+    def !=(point)
+      @x != point.x || @y != point.y
+    end
+
+    def -(point)
+      Point.new(@x - point.x, @y - point.y)
     end
   end
 end
