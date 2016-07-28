@@ -1,8 +1,13 @@
 module Plan
   class WallCache
-    def self.store_wall(wall)
+    def self.create_and_store
       @wall_cache ||= {}
-      @wall_cache[wall.name] = wall
+
+      wall = Wall.new
+      yield wall if block_given?
+
+      @wall_cache[wall.name] = wall if wall.name
+      wall
     end
 
     def self.[](wall_name)

@@ -1,23 +1,22 @@
 module Plan
   class Room
 
-    def self.create(name, x, y, &block)
+    def self.create(name, x = nil, y = nil, anchor: nil, &block)
       Room.new.tap do |room|
         room.instance_eval do
           @name = name
-          @point = Point.new(x, y)
+          @point = (anchor || Point.new(x, y)).dup
           @walls = []
 
           if block
             instance_eval &block
 
-            if @walls.first.A1 != @walls.last.A2
+            if @walls.first.AB1(self) != @walls.last.AB2(self)
               Plan.log.debug("Room '#{name}': connect last wall to the first")
-              @walls << Wall.connect("#{@name}_last", @walls.last, @walls.first, DEFAULT_WALL_WIDTH)
-              WallCache.store_wall @walls.last
+              @walls << Wall.connect(self, "#{@name}_last", @walls.last, @walls.first, DEFAULT_WALL_WIDTH)
             end
 
-            @vertices = @walls.map { |wall| [wall.A1, wall.A2] }.flatten.uniq
+            @vertices = @walls.map { |wall| wall.room_vertices(self) }.flatten.uniq
 
             min_x = @vertices.min_by(&:x).x
             max_x = @vertices.max_by(&:x).x
@@ -32,11 +31,14 @@ module Plan
     end
 
     def wall(wall_size, angle, width: DEFAULT_WALL_WIDTH, name: nil)
-      last_point = @walls.empty? ? @point : @walls.last.A2
-      @walls << Wall.create(name, last_point, wall_size, angle, width)
-      WallCache.store_wall @walls.last
+      last_point = @walls.empty? ? @point : @walls.last.AB2(self)
+      @walls << Wall.create(self, name, last_point, wall_size, angle, width)
 
       @walls.last
+    end
+
+    def use_wall(name, wall_size, angle)
+      last_point = @walls.empty? ? @point : @walls.last.AB2(self)
     end
 
     def vertices
@@ -63,8 +65,8 @@ module Plan
 
     def svg_elements
       [].tap do |elements|
-        floor = SVGPolygon.new(@walls.map(&:vertices).flatten.uniq).fill('white')
-        #floor.css_class 'show_hover'
+        floor = SVGPolygon.new(@walls.select{ |wall| wall.primary?(self) }.map(&:vertices).flatten.uniq).fill('white')
+        floor.css_class 'show_hover'
         elements << floor
 
         elements << @walls.map { |wall| wall.svg_element }
