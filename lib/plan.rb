@@ -2,6 +2,7 @@ require 'nokogiri'
 require 'logger'
 
 # tools
+require 'tools/tools'
 require 'tools/point'
 require 'tools/numeric'
 require 'tools/logger'
@@ -19,6 +20,7 @@ require 'objects/wall'
 require 'objects/room'
 
 # main
-require 'run/loader'
+require 'run/ruby_data_loader'
+require 'run/yaml_data_loader'
 require 'run/runner'
 require 'run/wall_cache'

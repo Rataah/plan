@@ -37,10 +37,6 @@ module Plan
       @walls.last
     end
 
-    def use_wall(name, wall_size, angle)
-      last_point = @walls.empty? ? @point : @walls.last.AB2(self)
-    end
-
     def vertices
       @walls.map(&:vertices).flatten
     end

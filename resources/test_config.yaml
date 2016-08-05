@@ -1,0 +1,38 @@
+---
+rooms:
+  - name: Dinning Room
+    coordinates: [0, 0]
+    walls:
+        - length: 368
+          direction: right
+          width: 5
+        - length: 570
+          direction: down
+          width: 5
+        - length: 368
+          direction: left
+          width: 5
+        - length: 570
+          direction: up
+          name: dining_room_hall
+
+  - name: 'Hall'
+    anchor: dining_room_hall.B2
+    walls:
+        - length: 335
+          direction: left
+          width: 5
+        - length: 182
+          direction: down
+        - length: 117
+          direction: right
+        - length: 65
+          direction: up
+        - length: 130
+          direction: right
+        - length: 64
+          direction: down
+        - length: 88
+          direction: right
+        - length: 182
+          direction: up
