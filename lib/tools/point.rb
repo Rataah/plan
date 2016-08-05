@@ -40,6 +40,10 @@ module Plan
       [@x, @y]
     end
 
+    def on_segment(a, b)
+      dist(a) + dist(b) == a.dist(b)
+    end
+
     def !=(point)
       @x != point.x || @y != point.y
     end
@@ -47,5 +51,15 @@ module Plan
     def -(point)
       Point.new(@x - point.x, @y - point.y)
     end
+
+    def >=(point)
+      dist(ZERO) >= point.dist(ZERO)
+    end
+
+    def <=(point)
+      dist(ZERO) <= point.dist(ZERO)
+    end
+
+    ZERO = Point.new(0, 0).freeze
   end
 end

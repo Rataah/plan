@@ -45,14 +45,10 @@ module Plan
           @vertex_a2 = wall2.A1.dup.round(2)
 
           @length = @vertex_a1.dist @vertex_a2
-          @angle = Math.atan2(*(@vertex_a1 - @vertex_a2).xy).deg.round(2) - 90.0
+          @angle = Math.atan2(*(@vertex_a1 - @vertex_a2).xy).round(2)
           Plan.log.debug("Wall '#{name}' connect angle: #{@angle}")
         end
       end
-    end
-
-    def self.link(room)
-      @room_b = room
     end
 
     def AB1(room)
