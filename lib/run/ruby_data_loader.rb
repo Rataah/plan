@@ -1,5 +1,5 @@
 module Plan
-  class DataLoader
+  class RubyDataLoader
 
     def self.load_data_from_file(filename)
       parse( File.read(filename, encoding: "BOM|UTF-8", mode: 'rb'), filename )

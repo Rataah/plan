@@ -10,6 +10,10 @@ module Plan
       wall
     end
 
+    def self.contains?(wall_name)
+      @wall_cache.key? wall_name
+    end
+
     def self.[](wall_name)
       @wall_cache[wall_name]
     end
