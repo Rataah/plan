@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" version="1.1">
+  <style>
+.show_hover {
+    opacity: 0.0;
+}
+.show_hover:hover {
+    opacity: 1.0;
+}
+
+.floor {
+    fill: gainsboro;
+}</style>
+  <defs>
+    <pattern id="tiles" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+  <rect width="20" height="20" fill="#fff"/>
+  <rect width="10" height="10" fill="#ccc"/>
+  <rect x="10" y="10" width="10" height="10" fill="#ccc"/>
+</pattern>
+    <pattern id="blueprint" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+  <rect width="100" height="100" fill="#d5e8f6"/>
+  <g fill="#b9cfdf">
+    <rect width="100" height="1" y="20"/>
+    <rect width="100" height="1" y="40"/>
+    <rect width="100" height="1" y="60"/>
+    <rect width="100" height="1" y="80"/>
+    <rect width="1" height="100" x="20"/>
+    <rect width="1" height="100" x="40"/>
+    <rect width="1" height="100" x="60"/>
+    <rect width="1" height="100" x="80"/>
+  </g>
+  <rect width="100" height="100" fill="none" stroke-width="2" stroke="#fff"/>
+</pattern>
+    <pattern id="carbon" x="0" y="0" width="15" height="15" patternUnits="userSpaceOnUse">
+  <rect width="50" height="50" fill="#282828"/>
+  <circle cx="3" cy="4.3" r="1.8" fill="#393939"/>
+  <circle cx="3" cy="3" r="1.8" fill="black"/>
+  <circle cx="10.5" cy="12.5" r="1.8" fill="#393939"/>
+  <circle cx="10.5" cy="11.3" r="1.8" fill="black"/>
+</pattern>
+  </defs>
+  <polygon points="389.0,55.0 757.0,55.0 757.0,50.0 389.0,50.0 757.0,55.0 757.0,625.0 762.0,625.0 762.0,55.0 757.0,625.0 389.0,625.0 389.0,630.0 757.0,630.0 389.0,625.0 389.0,55.0 387.0,55.0 387.0,625.0" fill="white" class="show_hover "/>
+  <polygon points="389.0,55.0 757.0,55.0 757.0,50.0 389.0,50.0" stroke="black" fill="gray"/>
+  <polygon points="757.0,55.0 757.0,625.0 762.0,625.0 762.0,55.0" stroke="black" fill="gray"/>
+  <polygon points="757.0,625.0 389.0,625.0 389.0,630.0 757.0,630.0" stroke="black" fill="gray"/>
+  <polygon points="389.0,625.0 389.0,55.0 387.0,55.0 387.0,625.0" stroke="black" fill="gray"/>
+  <text x="573.0" y="340.0">Dinning Room</text>
+  <text x="573.0" y="360.0">20.976 m²</text>
+  <polygon points="387.0,55.0 52.0,55.0 52.0,50.0 387.0,50.0 52.0,55.0 52.0,237.0 50.0,237.0 50.0,55.0 52.0,237.0 169.0,237.0 169.0,239.0 52.0,239.0 169.0,237.0 169.0,172.0 167.0,172.0 167.0,237.0 169.0,172.0 299.0,172.0 299.0,174.0 169.0,174.0 299.0,172.0 299.0,236.0 301.0,236.0 301.0,172.0 299.0,236.0 387.0,236.0 387.0,238.0 299.0,238.0 387.0,236.0 387.0,54.0 389.0,54.0 389.0,236.0 387.0,54.0 387.0,55.0 387.0,57.0 387.0,56.0" fill="white" class="show_hover "/>
+  <polygon points="387.0,55.0 52.0,55.0 52.0,50.0 387.0,50.0" stroke="black" fill="gray"/>
+  <polygon points="52.0,55.0 52.0,237.0 50.0,237.0 50.0,55.0" stroke="black" fill="gray"/>
+  <polygon points="52.0,237.0 169.0,237.0 169.0,239.0 52.0,239.0" stroke="black" fill="gray"/>
+  <polygon points="169.0,237.0 169.0,172.0 167.0,172.0 167.0,237.0" stroke="black" fill="gray"/>
+  <polygon points="169.0,172.0 299.0,172.0 299.0,174.0 169.0,174.0" stroke="black" fill="gray"/>
+  <polygon points="299.0,172.0 299.0,236.0 301.0,236.0 301.0,172.0" stroke="black" fill="gray"/>
+  <polygon points="299.0,236.0 387.0,236.0 387.0,238.0 299.0,238.0" stroke="black" fill="gray"/>
+  <polygon points="387.0,236.0 387.0,54.0 389.0,54.0 389.0,236.0" stroke="black" fill="gray"/>
+  <polygon points="387.0,54.0 387.0,55.0 387.0,57.0 387.0,56.0" stroke="black" fill="gray"/>
+  <text x="219.5" y="145.5">Hall</text>
+  <text x="219.5" y="165.5">5.2432 m²</text>
+  <text x="423.0" y="725.0">Total: 26.2192 m²</text>
+</svg>

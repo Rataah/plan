@@ -16,47 +16,16 @@ module Plan
     alias_method :B1, :vertex_b1
     alias_method :B2, :vertex_b2
 
-    def self.create(room, name, origin, length, angle, width)
-      WallCache.create_and_store do |wall|
-        wall.instance_eval do
-          @name = name
-          @room_a = room
-
-          # retrieve the angle
-          @angle = (angle.is_a?(Symbol) ? ANGLE_SHORTCUTS[angle] : angle).rad
-          @length = length
-          @width = width
-
-          # compute the points
-          @vertex_a1 = origin.dup.round(2)
-          @vertex_a2 = @vertex_a1.add(length * Math.cos(@angle), length * Math.sin(@angle)).round(2)
-        end
-      end
-    end
-
-    def self.connect(room, name, wall1, wall2, width)
-      WallCache.create_and_store do |wall|
-        wall.instance_eval do
-          @name = name
-          @room_a = room
-          @width = width
-
-          @vertex_a1 = wall1.A2.dup.round(2)
-          @vertex_a2 = wall2.A1.dup.round(2)
-
-          @length = @vertex_a1.dist @vertex_a2
-          @angle = Math.atan2(*(@vertex_a1 - @vertex_a2).xy).round(2)
-          Plan.log.debug("Wall '#{name}' connect angle: #{@angle}")
-        end
-      end
-    end
-
     def AB1(room)
       primary?(room) ? @vertex_a1 : @vertex_b1
     end
 
     def AB2(room)
       primary?(room) ? @vertex_a2 : @vertex_b2
+    end
+
+    def initialized?
+      @vertex_b1 && @vertex_b2
     end
 
     def primary?(room)
@@ -94,7 +63,7 @@ module Plan
     end
 
     def svg_element
-      SVGPolygon.new(vertices).stroke('black').fill('gray').merge(self)
+      SVGPolygon.new(vertices).stroke('black').merge(self)
     end
   end
 end

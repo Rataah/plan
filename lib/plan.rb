@@ -16,8 +16,10 @@ require 'svg/elements/svg_text'
 require 'svg/elements/svg_polygon'
 
 # elements
-require 'objects/wall'
+require 'objects/factories/room_factory'
+require 'objects/factories/wall_factory'
 require 'objects/room'
+require 'objects/wall'
 
 # main
 require 'run/ruby_data_loader'

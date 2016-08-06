@@ -32,7 +32,7 @@ module Plan
       self
     end
 
-    def dist(point)
+    def dist(point = ZERO)
       Math.hypot(@x - point.x, @y - point.y)
     end
 
