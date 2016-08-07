@@ -6,7 +6,6 @@ module Plan
     end
 
     def xml_element(xml_builder)
-      puts "generating #{@name}"
       svg_args = Hash[@args.map { |key, value| [key, SVGElement.prepare_value(value.value)] }]
       xml_builder.send("#{@name.downcase}_".to_sym, @data, svg_args)
     end
