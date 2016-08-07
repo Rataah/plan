@@ -30,5 +30,22 @@ module Plan
         end
       end
     end
+
+    describe :on_segment do
+      let(:point_a) { Point.new(0, 0) }
+      let(:point_b) { Point.new(10, 10) }
+
+      it 'returns true if the point is on the segment' do
+        expect(Point.new(5,5).on_segment(point_a, point_b)).to be true
+        expect(Point.new(0,0).on_segment(point_a, point_b)).to be true
+        expect(Point.new(10,10).on_segment(point_a, point_b)).to be true
+      end
+
+      it 'returns false if the point is not on the segment' do
+        expect(Point.new(30, -50).on_segment(point_a, point_b)).to be false
+        expect(Point.new(-1, -1).on_segment(point_a, point_b)).to be false
+        expect(Point.new(11, 11).on_segment(point_a, point_b)).to be false
+      end
+    end
   end
 end
