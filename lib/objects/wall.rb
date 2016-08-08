@@ -32,7 +32,12 @@ module Plan
       @room_a == room
     end
 
+    def belongs_to?(room)
+      @room_a == room || @room_b == room
+    end
+
     def apply_width(ref_point)
+      return if initialized?
       direction = -90.0 * (((@vertex_a2.x - @vertex_a1.x) * (ref_point.y - @vertex_a1.y) - (@vertex_a2.y - @vertex_a1.y) * (ref_point.x - @vertex_a1.x)) <=> 0.0)
       @vertex_b1 = @vertex_a1.add(@width * Math.cos(@angle + direction.rad), @width * Math.sin(@angle + direction.rad)).round(2)
       @vertex_b2 = @vertex_a2.add(@width * Math.cos(@angle + direction.rad), @width * Math.sin(@angle + direction.rad)).round(2)
@@ -63,7 +68,7 @@ module Plan
     end
 
     def svg_element
-      SVGPolygon.new(vertices).stroke('black').merge(self)
+      SVGPolygon.new(vertices).stroke('black').merge!(self)
     end
   end
 end
