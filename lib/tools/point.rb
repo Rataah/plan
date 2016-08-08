@@ -36,6 +36,10 @@ module Plan
       Math.hypot(@x - point.x, @y - point.y)
     end
 
+    def abs
+      Point.new(@x.abs, @y.abs)
+    end
+
     def xy
       [@x, @y]
     end

@@ -14,7 +14,7 @@ module Plan
 
           if @room.walls.first.AB1(self) != @room.walls.last.AB2(self)
             Plan.log.debug("Room '#{name}': connect last wall to the first")
-            @room.walls << Wall.connect(self, "#{@room.name}_last", @room.walls.last, @room.walls.first, DEFAULT_WALL_WIDTH)
+            @room.walls << WallFactory.connect(self, "#{@room.name}_last", @room.walls.last, @room.walls.first, DEFAULT_WALL_WIDTH)
           end
 
           vertices = @room.walls.map { |wall| wall.room_vertices(@room) }.flatten.uniq
@@ -36,9 +36,19 @@ module Plan
 
     def wall(wall_size, angle, width: DEFAULT_WALL_WIDTH, name: nil)
       last_point = @room.walls.empty? ? @room.origin : @room.walls.last.AB2(@room)
-      WallFactory.check_and_merge(@room, name, last_point, wall_size, angle, width)
+      merged_walls, wall_to_remove = WallFactory.check_and_merge(@room, name, last_point, wall_size, angle, width)
+      if merged_walls.any?
+        @room.walls.concat(merged_walls.select { |wall| wall.belongs_to? @room })
 
-      @room.walls << WallFactory.create(@room, name, last_point, wall_size, angle, width)
+        p merged_walls.select { |wall| wall.belongs_to? @room }.map(&:name)
+
+        linked_room = wall_to_remove.room_a
+        linked_room.walls.delete(wall_to_remove)
+        linked_room.walls.concat(merged_walls.select { |wall| wall.belongs_to? room })
+        linked_room.walls.each { |wall| wall.apply_width(linked_room.center) }
+      else
+        @room.walls << WallFactory.create(@room, name, last_point, wall_size, angle, width)
+      end
       @room.walls.last
     end
   end
