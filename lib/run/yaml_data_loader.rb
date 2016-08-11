@@ -21,7 +21,7 @@ module Plan
             anchor = WallCache[anchor_name].send(anchor_point.to_sym)
           end
 
-          result << Room.create(room_def[:name], *coordinates, anchor: anchor) do
+          result << RoomFactory.create(room_def[:name], *coordinates, anchor: anchor) do
             room_def[:walls].each do |wall_def|
               width = wall_def[:width] || DEFAULT_WALL_WIDTH
               wall(wall_def[:length], wall_def[:direction].to_sym, width: width, name: wall_def[:name])
