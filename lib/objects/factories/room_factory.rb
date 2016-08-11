@@ -12,19 +12,8 @@ module Plan
         if block
           instance_eval(&block)
 
-          if @room.walls.first.AB1(self) != @room.walls.last.AB2(self)
-            Plan.log.debug("Room '#{name}': connect last wall to the first")
-            @room.walls << WallFactory.connect(self, "#{@room.name}_last", @room.walls.last, @room.walls.first, DEFAULT_WALL_WIDTH)
-          end
-
           vertices = @room.walls.map { |wall| wall.room_vertices(@room) }.flatten.uniq
-
-          min_x = vertices.min_by(&:x).x
-          max_x = vertices.max_by(&:x).x
-          min_y = vertices.min_by(&:y).y
-          max_y = vertices.max_by(&:y).y
-
-          center = Point.new(min_x + (max_x - min_x)/2.0, min_y + (max_y - min_y)/2.0)
+          center = Plan.center(vertices)
           @room.walls.each { |wall| wall.apply_width(center) }
 
           @room.center = center
@@ -38,18 +27,19 @@ module Plan
       last_point = @room.walls.empty? ? @room.origin : @room.walls.last.AB2(@room)
       merged_walls, wall_to_remove = WallFactory.check_and_merge(@room, name, last_point, wall_size, angle, width)
       if merged_walls.any?
-        @room.walls.concat(merged_walls.select { |wall| wall.belongs_to? @room })
-
-        p merged_walls.select { |wall| wall.belongs_to? @room }.map(&:name)
+        Plan.log.debug("Room '#{@room.name}': wall(s) shared with '#{wall_to_remove.room_a.name}': #{name} => #{wall_to_remove.name}")
 
         linked_room = wall_to_remove.room_a
         linked_room.walls.delete(wall_to_remove)
-        linked_room.walls.concat(merged_walls.select { |wall| wall.belongs_to? room })
+        linked_room.walls.concat(merged_walls.select { |wall| wall.belongs_to? linked_room })
         linked_room.walls.each { |wall| wall.apply_width(linked_room.center) }
+
+        new_walls = merged_walls.select { |wall| wall.belongs_to? @room }
+        @room.walls.concat(new_walls)
+        new_walls
       else
-        @room.walls << WallFactory.create(@room, name, last_point, wall_size, angle, width)
+        (@room.walls << WallFactory.create(@room, name, last_point, wall_size, angle, width)).last
       end
-      @room.walls.last
     end
   end
 end

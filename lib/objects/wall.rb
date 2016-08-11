@@ -47,7 +47,7 @@ module Plan
       case room
         when @room_a then [@vertex_a1, @vertex_a2]
         when @room_b then [@vertex_b1, @vertex_b2]
-        else raise StandardError.new 'Unknown room'
+        else raise StandardError.new "Unknown room #{room.name} (#{@room_a.name}, #{@room_b.name})"
       end
     end
 
@@ -68,7 +68,7 @@ module Plan
     end
 
     def svg_element
-      SVGPolygon.new(vertices).stroke('black').merge!(self)
+      SVGPolygon.new(vertices).stroke('black').css_class('highlight').merge!(self)
     end
   end
 end

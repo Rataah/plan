@@ -9,3 +9,8 @@
 .floor {
     fill: gainsboro;
 }
+
+.highlight:hover {
+    stroke: darkred;
+    fill: red;
+}
