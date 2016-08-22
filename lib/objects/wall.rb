@@ -68,7 +68,7 @@ module Plan
     end
 
     def svg_element
-      SVGPolygon.new(vertices).stroke('black').css_class('highlight').merge!(self)
+      SVGPolygon.new(vertices).stroke('black').css_class('highlight').comments(@name).merge!(self)
     end
   end
 end
