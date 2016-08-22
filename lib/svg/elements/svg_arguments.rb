@@ -2,7 +2,7 @@ module Plan
   SVGArg = Struct.new(:value, :scalable)
 
   class SVGArgument
-    attr_accessor :args
+    attr_accessor :args, :xml_comments
 
     def initialize
       @args = {}
@@ -36,6 +36,11 @@ module Plan
 
     def opacity(value)
       @args['opacity'] = SVGArg.new(value, false)
+      self
+    end
+
+    def comments(comment)
+      @xml_comments = comment
       self
     end
   end

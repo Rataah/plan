@@ -30,6 +30,7 @@ module Plan
                    else
                      RubyDataLoader.load_data_from_file(@options.configuration_file)
                  end
+      Plan.merge_walls
 
       min_vertex, max_vertex = Plan.bounds(elements.map(&:vertices).flatten)
 

@@ -16,6 +16,10 @@ module Plan
       WallCache.hash[wall_name]
     end
 
+    def self.all
+      WallCache.hash.values
+    end
+
     def self.each
       WallCache.hash.each_value do |value|
         yield value
