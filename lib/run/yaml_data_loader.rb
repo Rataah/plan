@@ -15,10 +15,10 @@ module Plan
 
           if room_def.key? :anchor
             anchor_name, _, anchor_point = room_def[:anchor].rpartition('.')
-            raise "Anchor #{anchor_name} not found" unless WallCache.contains? anchor_name
+            raise "Anchor #{anchor_name} not found" unless WallPool.contains? anchor_name
             raise 'Incorrect anchor point' unless %w(A1 A2 B1 B2).include? anchor_point
 
-            anchor = WallCache[anchor_name].send(anchor_point.to_sym)
+            anchor = WallPool[anchor_name].send(anchor_point.to_sym)
           end
 
           result << RoomFactory.create(room_def[:name], *coordinates, anchor: anchor) do
