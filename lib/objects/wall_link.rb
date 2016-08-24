@@ -1,4 +1,16 @@
 module Plan
+  class WallFilter
+    attr_accessor :side, :index
+
+    def initialize(side, index)
+      @side = side
+      @index = index
+    end
+
+    def a?; @side == :a end
+    def b?; @side == :b end
+  end
+
   class WallLink
     attr_accessor :wall, :vertex1, :vertex2
 

@@ -9,36 +9,46 @@ module Plan
   DEFAULT_WALL_WIDTH = 2.freeze
 
   class Wall < SVGArgument
-    attr_accessor :vertex_a1, :vertex_a2, :vertex_b1, :vertex_b2, :name, :angle, :length, :width
+    attr_accessor :vertices_a, :vertices_b, :name, :angle, :length, :width
+
+    def vertex_a1; @vertices_a.first end
     alias_method :a1, :vertex_a1
+    def vertex_a2; @vertices_a.last end
     alias_method :a2, :vertex_a2
+    def vertex_b1; @vertices_b.first end
     alias_method :b1, :vertex_b1
+    def vertex_b2; @vertices_b.last end
     alias_method :b2, :vertex_b2
 
+    def initialize
+      super
+      @vertices_a = []
+      @vertices_b = []
+    end
+
     def ab1
-      Plan.center([@vertex_a1, @vertex_b1])
+      Plan.center([vertex_a1, vertex_b1])
     end
 
     def ab2
-      Plan.center([@vertex_a2, @vertex_b2])
+      Plan.center([vertex_a2, vertex_b2])
     end
 
     def initialized?
-      @vertex_b1 && @vertex_b2
+      @vertices_b.any?
     end
 
     def apply_width(ref_point)
       return if initialized?
-      direction = -90.0 * (((@vertex_a2.x - @vertex_a1.x) * (ref_point.y - @vertex_a1.y) - (@vertex_a2.y - @vertex_a1.y) * (ref_point.x - @vertex_a1.x)) <=> 0.0)
-      @vertex_b1 = @vertex_a1.add(@width * Math.cos(@angle + direction.rad), @width * Math.sin(@angle + direction.rad)).round(2)
-      @vertex_b2 = @vertex_a2.add(@width * Math.cos(@angle + direction.rad), @width * Math.sin(@angle + direction.rad)).round(2)
+      direction = -90.0 * (((vertex_a2.x - vertex_a1.x) * (ref_point.y - vertex_a1.y) - (vertex_a2.y - vertex_a1.y) * (ref_point.x - vertex_a1.x)) <=> 0.0)
+      @vertices_b << vertex_a1.add(@width * Math.cos(@angle + direction.rad), @width * Math.sin(@angle + direction.rad)).round(2)
+      @vertices_b << vertex_a2.add(@width * Math.cos(@angle + direction.rad), @width * Math.sin(@angle + direction.rad)).round(2)
     end
 
-    def vertices(filters = nil)
-      @vertices = { a1: @vertex_a1, a2: @vertex_a2, b2: @vertex_b2, b1: @vertex_b1 }
-      return @vertices.values if filters.nil?
+    def vertices(filters = [])
+      return @vertices_a + @vertices_b.reverse if filters.empty?
 
-      filters.map { |filter| @vertices[filter] }
+      @vertices_a.values_at(*filters.select(&:a?).map(&:index)) + @vertices_b.values_at(*filters.select(&:b?).map(&:index)).reverse
     end
 
     def translate(x, y)
