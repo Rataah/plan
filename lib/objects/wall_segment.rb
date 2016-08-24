@@ -1,5 +1,5 @@
 module Plan
-  class WallFilter
+  class SegmentIndex
     attr_accessor :side, :index
 
     def initialize(side, index)
@@ -9,9 +9,13 @@ module Plan
 
     def a?; @side == :a end
     def b?; @side == :b end
+
+    def other_side
+      SegmentIndex.new(a? ? :b : :a, @index)
+    end
   end
 
-  class WallLink
+  class WallSegment
     attr_accessor :wall, :vertex1, :vertex2
 
     def initialize(wall, vertex1, vertex2)
@@ -22,6 +26,14 @@ module Plan
 
     def vertices
       @wall.vertices [@vertex1, @vertex2]
+    end
+
+    def centers
+      [].tap do |center_points|
+        @wall.vertices([@vertex1, @vertex2]).zip @wall.vertices([@vertex1.other_side, @vertex2.other_side]) do |points|
+          center_points << Plan.center(points)
+        end
+      end
     end
 
     def distance
