@@ -8,7 +8,7 @@ module Plan
             wall.vertices.count { |vertex| vertex.on_segment(other.a1, other.a2) || vertex.on_segment(other.b1, other.b2)} >= 2
           Plan.log.debug("Wall links #{wall.name} - #{other.name}")
 
-          [wall.ab1, wall.ab2, other.ab1, other.ab2].uniq!.sort_by!(&:dist).each_cons(2) do |segment|
+          [wall.ab1, wall.ab2, other.ab1, other.ab2].uniq.sort_by!(&:dist).each_cons(2) do |segment|
 
           end
         end
