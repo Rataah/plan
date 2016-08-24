@@ -76,6 +76,10 @@ module Plan
       dist(ZERO) <= point.dist(ZERO)
     end
 
+    def ==(point)
+      eql?(point)
+    end
+
     def to_s
       "#{@x}:#{@y}"
     end

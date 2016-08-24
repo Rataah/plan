@@ -34,6 +34,15 @@ module Plan
       Plan.center([vertex_a2, vertex_b2])
     end
 
+    def vertices_center
+      {}.tap do |vertices_indexed|
+        @vertices_a.each_with_index do |v_a, index|
+          vertices_center = Plan.center([v_a, @vertices_b[index]])
+          vertices_indexed[vertices_center] = [WallSegment.new(self, SegmentIndex.new(:a, index), SegmentIndex.new(:b, index))]
+        end
+      end
+    end
+
     def initialized?
       @vertices_b.any?
     end
@@ -48,7 +57,7 @@ module Plan
     def vertices(filters = [])
       return @vertices_a + @vertices_b.reverse if filters.empty?
 
-      @vertices_a.values_at(*filters.select(&:a?).map(&:index)) + @vertices_b.values_at(*filters.select(&:b?).map(&:index)).reverse
+      @vertices_a.values_at(*filters.select(&:a?).map(&:index)) + @vertices_b.values_at(*filters.select(&:b?).map(&:index))
     end
 
     def translate(x, y)

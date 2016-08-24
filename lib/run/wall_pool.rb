@@ -20,6 +20,10 @@ module Plan
       WallPool.pool.values
     end
 
+    def self.delete(wall_name)
+      WallPool.pool.delete(wall_name)
+    end
+
     def self.each
       WallPool.pool.each_value do |value|
         yield value
@@ -28,11 +32,25 @@ module Plan
 
     def self.add_link(room, wall, vertex1, vertex2)
       WallPool.link[room] ||= []
-      WallPool.link[room] << WallLink.new(wall, vertex1, vertex2)
+      WallPool.link[room] << WallSegment.new(wall, vertex1, vertex2)
     end
 
     def self.walls(room)
       WallPool.link[room] ||= []
+    end
+
+    def self.remove_walls(room, wall_segment)
+      WallPool.link[room].delete(wall_segment)
+    end
+
+    def self.rooms(wall)
+      WallPool.link.select do |_, wall_segments|
+        wall_segments.count { |wall_segment| wall_segment.wall == wall } > 0
+      end.keys
+    end
+
+    def self.segment(room, wall)
+      walls(room).select { |wall_segment| wall_segment.wall == wall }.first
     end
 
     private

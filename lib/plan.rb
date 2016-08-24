@@ -18,7 +18,7 @@ require 'svg/elements/svg_polygon'
 # elements
 require 'objects/factories/room_factory'
 require 'objects/factories/wall_factory'
-require 'objects/wall_link'
+require 'objects/wall_segment'
 require 'objects/wall_merger'
 require 'objects/room'
 require 'objects/wall'
