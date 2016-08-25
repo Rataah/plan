@@ -3,7 +3,8 @@ module Plan
   def self.merge_walls
     walls = WallPool.all
     walls.each do |wall|
-      walls.select { |other_wall| other_wall != wall }.each do |other|
+      Plan.log.debug("Check #{wall.name}...")
+      WallPool.all.select { |other_wall| other_wall != wall }.each do |other|
 
         # check if the 2 walls have to be merged
         if (wall.angle % (2 * Math::PI) == other.angle % (2 * Math::PI) || ((wall.angle + Math::PI) % (2 * Math::PI)) == other.angle % (2 * Math::PI)) &&
@@ -28,15 +29,15 @@ module Plan
             new_wall.name = "#{wall.name}_#{other.name}"
             new_wall.width = wall.width
             new_wall.angle = wall.angle
-            new_wall.stroke('green')
+            new_wall.stroke('red').fill('red')
 
             sorted_points.each do |point|
-              if indexed_points[point].first.wall == wall || wall.angle == other.angle
+              if indexed_points[point].first.wall == wall && wall.angle == other.angle
                 new_wall.vertices_a << indexed_points[point].first.vertices.first.dup
                 new_wall.vertices_b << indexed_points[point].first.vertices.last.dup
               else
-                new_wall.vertices_a << indexed_points[point].first.vertices.first.dup
-                new_wall.vertices_b << indexed_points[point].first.vertices.last.dup
+                new_wall.vertices_b << indexed_points[point].first.vertices.first.dup
+                new_wall.vertices_a << indexed_points[point].first.vertices.last.dup
               end
             end
           end
@@ -46,9 +47,8 @@ module Plan
               vertex1 = sorted_points.index { |point| point == wall_segment.centers.first }
               vertex2 = sorted_points.index { |point| point == wall_segment.centers.last }
 
-              side1 = indexed_points[wall_segment.centers.first].first.wall == wall || wall.angle == other.angle ? :a : :b
-              side2 = indexed_points[wall_segment.centers.last].first.wall == wall || wall.angle == other.angle ? :a : :b
-              WallPool.add_link(room, new_wall, SegmentIndex.new(side1, vertex1), SegmentIndex.new(side2, vertex2))
+              side = indexed_points[wall_segment.centers.first].first.wall == wall || wall.angle == other.angle ? :a : :b
+              WallPool.add_link(room, new_wall, SegmentIndex.new(side, vertex1), SegmentIndex.new(side, vertex2))
               WallPool.remove_walls(room, wall_segment)
             end
 
@@ -56,9 +56,8 @@ module Plan
               vertex1 = sorted_points.index { |point| point == other_segment.centers.first }
               vertex2 = sorted_points.index { |point| point == other_segment.centers.last }
 
-              side1 = indexed_points[other_segment.centers.first].first.wall == wall || wall.angle == other.angle ? :b : :a
-              side2 = indexed_points[other_segment.centers.last].first.wall == wall || wall.angle == other.angle ? :b : :a
-              WallPool.add_link(room, new_wall, SegmentIndex.new(side1, vertex1), SegmentIndex.new(side2, vertex2))
+              side = indexed_points[other_segment.centers.last].first.wall == wall || wall.angle == other.angle ? :b : :a
+              WallPool.add_link(room, new_wall, SegmentIndex.new(side, vertex1), SegmentIndex.new(side, vertex2))
               WallPool.remove_walls(room, other_segment)
             end
           end

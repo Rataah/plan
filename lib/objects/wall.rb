@@ -66,8 +66,7 @@ module Plan
 
     def svg_elements
       Plan.log.debug("Draw SVG elements for Wall: #{@name}")
-      [SVGPolygon.new(vertices).fill('white').stroke('black').comments(@name).merge!(self),
-       SVGLine.new(*[ab1.xy, ab2.xy].flatten).stroke('red')]
+      [SVGPolygon.new(vertices).fill('white').stroke('black').comments(@name).merge!(self)]
     end
   end
 end
