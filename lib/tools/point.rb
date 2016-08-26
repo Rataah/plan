@@ -7,6 +7,10 @@ module Plan
     [Point.new(min_x, min_y), Point.new(max_x, max_y)]
   end
 
+  def self.center(points)
+    Plan.bounds(points).reduce(&:+)  / 2
+  end
+
   class Point
     attr_accessor :x, :y
 
@@ -36,6 +40,10 @@ module Plan
       Math.hypot(@x - point.x, @y - point.y)
     end
 
+    def abs
+      Point.new(@x.abs, @y.abs)
+    end
+
     def xy
       [@x, @y]
     end
@@ -48,8 +56,16 @@ module Plan
       @x != point.x || @y != point.y
     end
 
+    def +(point)
+      Point.new(@x + point.x, @y + point.y)
+    end
+
     def -(point)
       Point.new(@x - point.x, @y - point.y)
+    end
+
+    def /(value)
+      Point.new(@x / value, @y / value)
     end
 
     def >=(point)
@@ -58,6 +74,22 @@ module Plan
 
     def <=(point)
       dist(ZERO) <= point.dist(ZERO)
+    end
+
+    def ==(point)
+      eql?(point)
+    end
+
+    def to_s
+      "#{@x}:#{@y}"
+    end
+
+    def hash
+      [@x, @y].hash
+    end
+
+    def eql?(point)
+      @x == point.x && @y == point.y
     end
 
     ZERO = Point.new(0, 0).freeze

@@ -2,13 +2,13 @@ module Plan
   SVGArg = Struct.new(:value, :scalable)
 
   class SVGArgument
-    attr_accessor :args
+    attr_accessor :args, :xml_comments
 
     def initialize
       @args = {}
     end
 
-    def merge(svg_arguments)
+    def merge!(svg_arguments)
       @args.merge!(svg_arguments.args)
       self
     end
@@ -31,6 +31,16 @@ module Plan
 
     def fill(value)
       @args['fill'] = SVGArg.new(value, false)
+      self
+    end
+
+    def opacity(value)
+      @args['opacity'] = SVGArg.new(value, false)
+      self
+    end
+
+    def comments(comment)
+      @xml_comments = comment
       self
     end
   end
