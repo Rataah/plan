@@ -9,61 +9,64 @@ module Plan
   DEFAULT_WALL_WIDTH = 2.freeze
 
   class Wall < SVGArgument
-    attr_accessor :vertex_a1, :vertex_a2, :vertex_b1, :vertex_b2, :name, :angle, :length, :width,
-                  :room_a, :room_b
-    alias_method :A1, :vertex_a1
-    alias_method :A2, :vertex_a2
-    alias_method :B1, :vertex_b1
-    alias_method :B2, :vertex_b2
+    attr_accessor :vertices_a, :vertices_b, :name, :angle, :length, :width
 
-    def AB1(room)
-      primary?(room) ? @vertex_a1 : @vertex_b1
+    def vertex_a1; @vertices_a.first end
+    alias_method :a1, :vertex_a1
+    def vertex_a2; @vertices_a.last end
+    alias_method :a2, :vertex_a2
+    def vertex_b1; @vertices_b.first end
+    alias_method :b1, :vertex_b1
+    def vertex_b2; @vertices_b.last end
+    alias_method :b2, :vertex_b2
+
+    def initialize
+      super
+      @vertices_a = []
+      @vertices_b = []
     end
 
-    def AB2(room)
-      primary?(room) ? @vertex_a2 : @vertex_b2
+    def ab1
+      Plan.center([vertex_a1, vertex_b1])
+    end
+
+    def ab2
+      Plan.center([vertex_a2, vertex_b2])
+    end
+
+    def vertices_center
+      {}.tap do |vertices_indexed|
+        @vertices_a.each_with_index do |v_a, index|
+          vertices_center = Plan.center([v_a, @vertices_b[index]])
+          vertices_indexed[vertices_center] = [WallSegment.new(self, SegmentIndex.new(:a, index), SegmentIndex.new(:b, index))]
+        end
+      end
     end
 
     def initialized?
-      @vertex_b1 && @vertex_b2
-    end
-
-    def primary?(room)
-      @room_a == room
+      @vertices_b.any?
     end
 
     def apply_width(ref_point)
-      direction = -90.0 * (((@vertex_a2.x - @vertex_a1.x) * (ref_point.y - @vertex_a1.y) - (@vertex_a2.y - @vertex_a1.y) * (ref_point.x - @vertex_a1.x)) <=> 0.0)
-      @vertex_b1 = @vertex_a1.add(@width * Math.cos(@angle + direction.rad), @width * Math.sin(@angle + direction.rad)).round(2)
-      @vertex_b2 = @vertex_a2.add(@width * Math.cos(@angle + direction.rad), @width * Math.sin(@angle + direction.rad)).round(2)
+      return if initialized?
+      direction = -90.0 * (((vertex_a2.x - vertex_a1.x) * (ref_point.y - vertex_a1.y) - (vertex_a2.y - vertex_a1.y) * (ref_point.x - vertex_a1.x)) <=> 0.0)
+      @vertices_b << vertex_a1.add(@width * Math.cos(@angle + direction.rad), @width * Math.sin(@angle + direction.rad)).round(2)
+      @vertices_b << vertex_a2.add(@width * Math.cos(@angle + direction.rad), @width * Math.sin(@angle + direction.rad)).round(2)
     end
 
-    def room_vertices(room)
-      case room
-        when @room_a then [@vertex_a1, @vertex_a2]
-        when @room_b then [@vertex_b1, @vertex_b2]
-        else raise StandardError.new 'Unknown room'
-      end
-    end
+    def vertices(filters = [])
+      return @vertices_a + @vertices_b.reverse if filters.empty?
 
-    def vertices
-      [@vertex_a1, @vertex_a2, @vertex_b2, @vertex_b1]
-    end
-
-    def distance(room)
-      case room
-        when @room_a then @vertex_a1.dist @vertex_a2
-        when @room_b then @vertex_b1.dist @vertex_b2
-        else raise StandardError.new 'Unknown room'
-      end
+      @vertices_a.values_at(*filters.select(&:a?).map(&:index)) + @vertices_b.values_at(*filters.select(&:b?).map(&:index))
     end
 
     def translate(x, y)
       vertices.each { |vertex| vertex.translate(x, y) }
     end
 
-    def svg_element
-      SVGPolygon.new(vertices).stroke('black').merge(self)
+    def svg_elements
+      Plan.log.debug("Draw SVG elements for Wall: #{@name}")
+      [SVGPolygon.new(vertices).fill('white').stroke('black').comments(@name).merge!(self)]
     end
   end
 end

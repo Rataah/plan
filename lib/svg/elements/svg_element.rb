@@ -7,6 +7,7 @@ module Plan
 
     def xml_element(xml_builder)
       svg_args = Hash[@args.map { |key, value| [key, SVGElement.prepare_value(value.value)] }]
+      xml_builder.send(:comment, @xml_comments) if @xml_comments
       xml_builder.send("#{@name.downcase}_".to_sym, @data, svg_args)
     end
 

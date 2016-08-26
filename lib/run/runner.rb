@@ -24,20 +24,24 @@ module Plan
     end
 
     def run
-      elements = case File.extname(@options.configuration_file)
+      rooms = case File.extname(@options.configuration_file)
                    when '.yml', '.yaml'
                      YamlDataLoader.load_data_from_file(@options.configuration_file)
                    else
                      RubyDataLoader.load_data_from_file(@options.configuration_file)
                  end
+      Plan.merge_walls
 
-      min_vertex, max_vertex = Plan.bounds(elements.map(&:vertices).flatten)
+      min_vertex, max_vertex = Plan.bounds(WallPool.all.map(&:vertices).flatten)
 
-      elements.each { |element| element.translate(-min_vertex.x + 50, -min_vertex.y + 50) }
+      rooms.each { |room| room.translate(-min_vertex.x + 50, -min_vertex.y + 50) }
+      WallPool.each { |wall| wall.translate(-min_vertex.x + 50, -min_vertex.y + 50) }
       svg = SVG.new
 
-      elements.each { |element| element.svg_elements.each { |line| svg.contents << line } }
-      svg.contents << SVGText.new("Total: #{elements.map(&:area).reduce(0, :+)} m²", max_vertex.x + 50, max_vertex.y + 150)
+      rooms.each { |room| room.svg_elements.each { |line| svg.contents << line } }
+      WallPool.each { |wall| wall.svg_elements.each { |line| svg.contents << line } }
+
+      svg.contents << SVGText.new("Total: #{rooms.map(&:area).reduce(0, :+)} m²", max_vertex.x + 50, max_vertex.y + 150)
 
       FileUtils.mkdir_p(File.dirname(@options.output_file))
       svg.write File.new(@options.output_file, 'w')
