@@ -3,15 +3,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" version="1.1">
   <style>
 .show_hover {
-    opacity: 0.0;
+    fill: transparent;
 }
 .show_hover:hover {
-    opacity: 1.0;
-}
-
-.floor {
     fill: gainsboro;
-}</style>
+}
+</style>
   <defs>
     <pattern id="tiles" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
   <rect width="20" height="20" fill="#fff"/>
@@ -40,27 +37,89 @@
   <circle cx="10.5" cy="11.3" r="1.8" fill="black"/>
 </pattern>
   </defs>
-  <polygon points="389.0,55.0 757.0,55.0 757.0,50.0 389.0,50.0 757.0,55.0 757.0,625.0 762.0,625.0 762.0,55.0 757.0,625.0 389.0,625.0 389.0,630.0 757.0,630.0 778.0,110.0 1556.0,220.0 778.0,108.0 778.0,108.0 1945.0,457.0 780.0,292.0 780.0,110.0 778.0,680.0 780.0,680.0 780.0,292.0" fill="white" class="show_hover "/>
-  <polygon points="389.0,55.0 757.0,55.0 757.0,50.0 389.0,50.0" stroke="black" fill="blue"/>
-  <polygon points="757.0,55.0 757.0,625.0 762.0,625.0 762.0,55.0" stroke="black" fill="red"/>
-  <polygon points="757.0,625.0 389.0,625.0 389.0,630.0 757.0,630.0" stroke="black" fill="green"/>
-  <polygon points="778.0,110.0 1556.0,220.0 778.0,108.0 778.0,108.0" stroke="black" fill="blue"/>
-  <polygon points="1556.0,220.0 1945.0,457.0 780.0,292.0 780.0,110.0" stroke="black" fill="blue"/>
-  <polygon points="1945.0,457.0 778.0,680.0 780.0,680.0 780.0,292.0" stroke="black" fill="blue"/>
-  <text x="573.0" y="340.0">dining room</text>
-  <text x="573.0" y="360.0">72.4018 m²</text>
-  <polygon points="387.0,55.0 52.0,55.0 52.0,50.0 387.0,50.0 52.0,55.0 52.0,237.0 50.0,237.0 50.0,55.0 52.0,237.0 169.0,237.0 169.0,235.0 52.0,235.0 169.0,237.0 169.0,173.0 167.0,173.0 167.0,237.0 169.0,173.0 299.0,173.0 299.0,171.0 169.0,171.0 299.0,173.0 299.0,237.0 301.0,237.0 301.0,173.0 299.0,237.0 1945.0,457.0 389.0,235.0 299.0,235.0" fill="white" class="show_hover "/>
-  <polygon points="387.0,55.0 52.0,55.0 52.0,50.0 387.0,50.0" stroke="black" fill="blue"/>
-  <polygon points="52.0,55.0 52.0,237.0 50.0,237.0 50.0,55.0" stroke="black"/>
-  <polygon points="52.0,237.0 169.0,237.0 169.0,235.0 52.0,235.0" stroke="black"/>
-  <polygon points="169.0,237.0 169.0,173.0 167.0,173.0 167.0,237.0" stroke="black"/>
-  <polygon points="169.0,173.0 299.0,173.0 299.0,171.0 169.0,171.0" stroke="black"/>
-  <polygon points="299.0,173.0 299.0,237.0 301.0,237.0 301.0,173.0" stroke="black"/>
-  <polygon points="299.0,237.0 1945.0,457.0 389.0,235.0 299.0,235.0" stroke="black"/>
-  <polygon points="778.0,110.0 1556.0,220.0 778.0,108.0 778.0,108.0" stroke="black" fill="blue"/>
-  <polygon points="1556.0,220.0 1945.0,457.0 780.0,292.0 780.0,110.0" stroke="black" fill="blue"/>
-  <polygon points="1945.0,457.0 778.0,680.0 780.0,680.0 780.0,292.0" stroke="black" fill="blue"/>
-  <text x="221.5" y="339.0">hall</text>
-  <text x="221.5" y="359.0">1.8939 m²</text>
-  <text x="423.0" y="725.0">Total: 74.2957 m²</text>
+  <polygon points="589.0,55.0 957.0,55.0 957.0,625.0 589.0,625.0" stroke="red" class="show_hover "/>
+  <text x="773.0" y="340.0">dining room</text>
+  <text x="773.0" y="360.0">20.976 m²</text>
+  <polygon points="587.0,55.0 252.0,55.0 252.0,237.0 369.0,237.0 369.0,173.0 499.0,173.0 499.0,237.0 587.0,237.0" stroke="red" class="show_hover "/>
+  <text x="419.5" y="146.0">hall</text>
+  <text x="419.5" y="166.0">5.265 m²</text>
+  <polygon points="250.0,55.0 250.0,140.0 106.0,140.0 106.0,55.0" stroke="red" class="show_hover "/>
+  <text x="178.0" y="97.5">toilets</text>
+  <text x="178.0" y="117.5">1.224 m²</text>
+  <polygon points="104.0,55.0 104.0,140.0 55.0,140.0 55.0,55.0" stroke="red" class="show_hover "/>
+  <text x="79.5" y="97.5">CMV</text>
+  <text x="79.5" y="117.5">0.4165 m²</text>
+  <polygon points="250.0,142.0 55.0,142.0 55.0,336.0 230.0,336.0 230.0,267.0 250.0,267.0" stroke="red" class="show_hover "/>
+  <text x="152.5" y="239.0">bathroom</text>
+  <text x="152.5" y="259.0">3.645 m²</text>
+  <polygon points="55.0,338.0 230.0,338.0 230.0,269.0 250.0,269.0 250.0,239.0 335.0,239.0 335.0,625.0 55.0,625.0" stroke="red" class="show_hover "/>
+  <text x="195.0" y="432.0">bedroom</text>
+  <text x="195.0" y="452.0">9.0155 m²</text>
+  <polygon points="337.0,625.0 587.0,625.0 587.0,239.0 397.0,239.0 397.0,299.0 337.0,299.0 337.0,617.0" stroke="red" class="show_hover "/>
+  <text x="462.0" y="432.0">kitchen</text>
+  <text x="462.0" y="452.0">9.4248 m²</text>
+  <polygon points="337.0,239.0 395.0,239.0 395.0,297.0 337.0,297.0" stroke="red" class="show_hover "/>
+  <text x="366.0" y="268.0">gas line</text>
+  <text x="366.0" y="288.0">0.3364 m²</text>
+  <!--dining room_0-->
+  <polygon points="589.0,55.0 957.0,55.0 957.0,50.0 589.0,50.0" fill="white" stroke="black"/>
+  <!--dining room_1-->
+  <polygon points="957.0,55.0 957.0,625.0 962.0,625.0 962.0,55.0" fill="white" stroke="black"/>
+  <!--dining room_2-->
+  <polygon points="957.0,625.0 589.0,625.0 589.0,630.0 957.0,630.0" fill="white" stroke="black"/>
+  <!--hall_0-->
+  <polygon points="587.0,55.0 252.0,55.0 252.0,50.0 587.0,50.0" fill="white" stroke="black"/>
+  <!--hall_3-->
+  <polygon points="369.0,237.0 369.0,173.0 367.0,173.0 367.0,237.0" fill="white" stroke="black"/>
+  <!--hall_4-->
+  <polygon points="369.0,173.0 499.0,173.0 499.0,175.0 369.0,175.0" fill="white" stroke="black"/>
+  <!--hall_5-->
+  <polygon points="499.0,173.0 499.0,237.0 501.0,237.0 501.0,173.0" fill="white" stroke="black"/>
+  <!--toilets_3-->
+  <polygon points="106.0,55.0 250.0,55.0 250.0,50.0 106.0,50.0" fill="white" stroke="black"/>
+  <!--CMV_2-->
+  <polygon points="55.0,140.0 55.0,55.0 50.0,55.0 50.0,140.0" fill="white" stroke="black"/>
+  <!--CMV_3-->
+  <polygon points="55.0,55.0 104.0,55.0 104.0,50.0 55.0,50.0" fill="white" stroke="black"/>
+  <!--bathroom_1-->
+  <polygon points="55.0,142.0 55.0,336.0 50.0,336.0 50.0,142.0" fill="white" stroke="black"/>
+  <!--bedroom_6-->
+  <polygon points="335.0,625.0 55.0,625.0 55.0,630.0 335.0,630.0" fill="white" stroke="black"/>
+  <!--bedroom_7-->
+  <polygon points="55.0,625.0 55.0,338.0 50.0,338.0 50.0,625.0" fill="white" stroke="black"/>
+  <!--kitchen_0-->
+  <polygon points="337.0,625.0 587.0,625.0 587.0,630.0 337.0,630.0" fill="white" stroke="black"/>
+  <!--CMV_0_toilets_cmv_CMV_0-->
+  <polygon points="106.0,55.0 106.0,140.0 104.0,140.0 104.0,55.0" fill="white" stroke="black"/>
+  <!--bathroom_0_CMV_1_toilets_bathroom_bathroom_0-->
+  <polygon points="250.0,142.0 106.0,142.0 104.0,142.0 55.0,142.0 55.0,140.0 104.0,140.0 106.0,140.0 250.0,140.0" fill="white" stroke="black"/>
+  <!--bathroom_bedroom2_bathroom_bedroom_bathroom_bedroom2-->
+  <polygon points="55.0,336.0 230.0,336.0 230.0,338.0 55.0,338.0" fill="white" stroke="black"/>
+  <!--bedroom_1_bathroom_3_bedroom_1-->
+  <polygon points="230.0,338.0 230.0,336.0 230.0,269.0 230.0,267.0 232.0,267.0 232.0,269.0 232.0,336.0 232.0,338.0" fill="white" stroke="black"/>
+  <!--bedroom_2_bathroom_4_bedroom_2-->
+  <polygon points="230.0,267.0 250.0,267.0 250.0,269.0 230.0,269.0" fill="white" stroke="black"/>
+  <!--bedroom_3_bathroom_hall_bedroom_3-->
+  <polygon points="250.0,269.0 250.0,267.0 250.0,239.0 250.0,142.0 252.0,142.0 252.0,239.0 252.0,267.0 252.0,269.0" fill="white" stroke="black"/>
+  <!--bedroom_3_bathroom_hall_toilets_hall_hall_toilets_toilets_hall-->
+  <polygon points="250.0,269.0 250.0,267.0 250.0,239.0 250.0,237.0 250.0,142.0 250.0,140.0 250.0,55.0 252.0,55.0 252.0,140.0 252.0,142.0 252.0,237.0 252.0,239.0 252.0,267.0 252.0,269.0" fill="white" stroke="black"/>
+  <!--bedroom_3_bathroom_hall_toilets_hall_hall_toilets_bathroom_hall-->
+  <polygon points="250.0,269.0 250.0,267.0 250.0,239.0 250.0,237.0 250.0,142.0 250.0,140.0 250.0,55.0 252.0,55.0 252.0,140.0 252.0,142.0 252.0,237.0 252.0,239.0 252.0,267.0 252.0,269.0" fill="white" stroke="black"/>
+  <!--kitchen_dining_room_hall2_dining_room_hall_dining_room_hall2-->
+  <polygon points="587.0,625.0 587.0,239.0 587.0,237.0 587.0,55.0 589.0,55.0 589.0,237.0 589.0,239.0 589.0,625.0" fill="white" stroke="black"/>
+  <!--kitchen_dining_room_hall2_dining_room_hall_kitchen-->
+  <polygon points="587.0,625.0 587.0,239.0 587.0,237.0 587.0,55.0 589.0,55.0 589.0,237.0 589.0,239.0 589.0,625.0" fill="white" stroke="black"/>
+  <!--kitchen_2_hall_6_kitchen_2-->
+  <polygon points="587.0,239.0 499.0,239.0 397.0,239.0 397.0,237.0 499.0,237.0 587.0,237.0" fill="white" stroke="black"/>
+  <!--gas line_0_bedroom_4_hall_2_bedroom_4-->
+  <polygon points="250.0,237.0 252.0,237.0 335.0,237.0 337.0,237.0 369.0,237.0 395.0,237.0 395.0,239.0 369.0,239.0 337.0,239.0 335.0,239.0 252.0,239.0 250.0,239.0" fill="white" stroke="black"/>
+  <!--gas line_0_bedroom_4_hall_2_gas line_0-->
+  <polygon points="250.0,237.0 252.0,237.0 335.0,237.0 337.0,237.0 369.0,237.0 395.0,237.0 395.0,239.0 369.0,239.0 337.0,239.0 335.0,239.0 252.0,239.0 250.0,239.0" fill="white" stroke="black"/>
+  <!--gas line_1_kitchen_3_gas line_1-->
+  <polygon points="397.0,239.0 397.0,297.0 397.0,299.0 395.0,299.0 395.0,297.0 395.0,239.0" fill="white" stroke="black"/>
+  <!--gas line_2_kitchen_4_gas line_2-->
+  <polygon points="397.0,299.0 395.0,299.0 337.0,299.0 337.0,297.0 395.0,297.0 397.0,297.0" fill="white" stroke="black"/>
+  <!--gas line_3_kitchen_5_bedroom_kitchen_gas line_3-->
+  <polygon points="335.0,625.0 335.0,617.0 335.0,299.0 335.0,297.0 335.0,239.0 337.0,239.0 337.0,297.0 337.0,299.0 337.0,617.0 337.0,625.0" fill="white" stroke="black"/>
+  <text x="423.0" y="725.0">Total: 50.3032 m²</text>
 </svg>

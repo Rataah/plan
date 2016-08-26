@@ -39,29 +39,29 @@ store(RoomFactory.create('bathroom', anchor: WallPool['toilets_bathroom'].b1) do
   wall(125, :up, name: 'bathroom_hall')
 end)
 
-# store(RoomFactory.create('bedroom', anchor: WallPool['bathroom_bedroom'].b1) do
-#   wall(175, :right, name: 'bathroom_bedroom2')
-#   wall(69, :up)
-#   wall(20, :right)
-#   wall(30, :up)
-#   wall(85, :right)
-#   wall(386, :down, name: 'bedroom_kitchen')
-#   wall(280, :left, width: 5).fill('green')
-#   wall(287, :up, width: 5).fill('yellow')
-# end)
-#
-# store(RoomFactory.create('kitchen', anchor: WallPool['bedroom_kitchen'].b2) do
-#   wall(250, :right, width: 5).fill('green')
-#   wall(386, :up, name: 'kitchen')
-#   wall(190, :left)
-#   wall(60, :down)
-#   wall(60, :left)
-#   wall(318, :down)
-# end)
-#
-# store(RoomFactory.create('gas line', anchor: WallPool['bedroom_kitchen'].b1) do
-#   wall(58, :right)
-#   wall(58, :down)
-#   wall(58, :left)
-#   wall(58, :up)
-# end)
+store(RoomFactory.create('bedroom', anchor: WallPool['bathroom_bedroom'].b1) do
+  wall(175, :right, name: 'bathroom_bedroom2')
+  wall(69, :up)
+  wall(20, :right)
+  wall(30, :up)
+  wall(85, :right)
+  wall(386, :down, name: 'bedroom_kitchen')
+  wall(280, :left, width: 5)
+  wall(287, :up, width: 5)
+end)
+
+store(RoomFactory.create('kitchen', anchor: WallPool['bedroom_kitchen'].b2) do
+  wall(250, :right, width: 5)
+  wall(386, :up, name: 'kitchen')
+  wall(190, :left)
+  wall(60, :down)
+  wall(60, :left)
+  wall(318, :down)
+end)
+
+store(RoomFactory.create('gas line', anchor: WallPool['bedroom_kitchen'].b1) do
+  wall(58, :right)
+  wall(58, :down)
+  wall(58, :left)
+  wall(58, :up)
+end)

@@ -22,7 +22,7 @@ module Plan
     def svg_elements
       Plan.log.debug("Draw SVG elements for Room: #{@name}")
       [].tap do |elements|
-        floor = SVGPolygon.new(vertices.uniq).css_class('floor')
+        floor = SVGPolygon.new(vertices.uniq).stroke('red')
         floor.css_class 'show_hover'
         elements << floor
 

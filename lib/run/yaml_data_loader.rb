@@ -16,7 +16,7 @@ module Plan
           if room_def.key? :anchor
             anchor_name, _, anchor_point = room_def[:anchor].rpartition('.')
             raise "Anchor #{anchor_name} not found" unless WallPool.contains? anchor_name
-            raise 'Incorrect anchor point' unless %w(A1 A2 B1 B2).include? anchor_point
+            raise 'Incorrect anchor point' unless %w(a1 a2 b1 b2).include? anchor_point
 
             anchor = WallPool[anchor_name].send(anchor_point.to_sym)
           end
