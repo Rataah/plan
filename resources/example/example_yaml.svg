@@ -3,14 +3,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" version="1.1">
   <style>
 .show_hover {
-    opacity: 0.0;
+    fill: transparent;
 }
 .show_hover:hover {
-    opacity: 1.0;
+    fill: gainsboro;
 }
 
 .floor {
     fill: gainsboro;
+}
+
+.highlight:hover {
+    stroke: darkred;
+    fill: red;
 }</style>
   <defs>
     <pattern id="tiles" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
@@ -40,24 +45,33 @@
   <circle cx="10.5" cy="11.3" r="1.8" fill="black"/>
 </pattern>
   </defs>
-  <polygon points="389.0,55.0 757.0,55.0 757.0,50.0 389.0,50.0 757.0,55.0 757.0,625.0 762.0,625.0 762.0,55.0 757.0,625.0 389.0,625.0 389.0,630.0 757.0,630.0 389.0,625.0 389.0,55.0 387.0,55.0 387.0,625.0" fill="white" class="show_hover "/>
-  <polygon points="389.0,55.0 757.0,55.0 757.0,50.0 389.0,50.0" stroke="black" fill="gray"/>
-  <polygon points="757.0,55.0 757.0,625.0 762.0,625.0 762.0,55.0" stroke="black" fill="gray"/>
-  <polygon points="757.0,625.0 389.0,625.0 389.0,630.0 757.0,630.0" stroke="black" fill="gray"/>
-  <polygon points="389.0,625.0 389.0,55.0 387.0,55.0 387.0,625.0" stroke="black" fill="gray"/>
+  <polygon points="389.0,55.0 757.0,55.0 757.0,625.0 389.0,625.0" stroke="red" class="show_hover "/>
   <text x="573.0" y="340.0">Dinning Room</text>
   <text x="573.0" y="360.0">20.976 m²</text>
-  <polygon points="387.0,55.0 52.0,55.0 52.0,50.0 387.0,50.0 52.0,55.0 52.0,237.0 50.0,237.0 50.0,55.0 52.0,237.0 169.0,237.0 169.0,239.0 52.0,239.0 169.0,237.0 169.0,172.0 167.0,172.0 167.0,237.0 169.0,172.0 299.0,172.0 299.0,174.0 169.0,174.0 299.0,172.0 299.0,236.0 301.0,236.0 301.0,172.0 299.0,236.0 387.0,236.0 387.0,238.0 299.0,238.0 387.0,236.0 387.0,54.0 389.0,54.0 389.0,236.0 387.0,54.0 387.0,55.0 387.0,57.0 387.0,56.0" fill="white" class="show_hover "/>
-  <polygon points="387.0,55.0 52.0,55.0 52.0,50.0 387.0,50.0" stroke="black" fill="gray"/>
-  <polygon points="52.0,55.0 52.0,237.0 50.0,237.0 50.0,55.0" stroke="black" fill="gray"/>
-  <polygon points="52.0,237.0 169.0,237.0 169.0,239.0 52.0,239.0" stroke="black" fill="gray"/>
-  <polygon points="169.0,237.0 169.0,172.0 167.0,172.0 167.0,237.0" stroke="black" fill="gray"/>
-  <polygon points="169.0,172.0 299.0,172.0 299.0,174.0 169.0,174.0" stroke="black" fill="gray"/>
-  <polygon points="299.0,172.0 299.0,236.0 301.0,236.0 301.0,172.0" stroke="black" fill="gray"/>
-  <polygon points="299.0,236.0 387.0,236.0 387.0,238.0 299.0,238.0" stroke="black" fill="gray"/>
-  <polygon points="387.0,236.0 387.0,54.0 389.0,54.0 389.0,236.0" stroke="black" fill="gray"/>
-  <polygon points="387.0,54.0 387.0,55.0 387.0,57.0 387.0,56.0" stroke="black" fill="gray"/>
+  <polygon points="387.0,55.0 52.0,55.0 52.0,237.0 169.0,237.0 169.0,172.0 299.0,172.0 299.0,236.0 387.0,236.0 387.0,54.0" stroke="red" class="show_hover "/>
   <text x="219.5" y="145.5">Hall</text>
-  <text x="219.5" y="165.5">5.2432 m²</text>
-  <text x="423.0" y="725.0">Total: 26.2192 m²</text>
+  <text x="219.5" y="165.5">5.26255 m²</text>
+  <!--Dinning Room_0-->
+  <polygon points="389.0,55.0 757.0,55.0 757.0,50.0 389.0,50.0" fill="white" stroke="black"/>
+  <!--Dinning Room_1-->
+  <polygon points="757.0,55.0 757.0,625.0 762.0,625.0 762.0,55.0" fill="white" stroke="black"/>
+  <!--Dinning Room_2-->
+  <polygon points="757.0,625.0 389.0,625.0 389.0,630.0 757.0,630.0" fill="white" stroke="black"/>
+  <!--Hall_0-->
+  <polygon points="387.0,55.0 52.0,55.0 52.0,50.0 387.0,50.0" fill="white" stroke="black"/>
+  <!--Hall_1-->
+  <polygon points="52.0,55.0 52.0,237.0 50.0,237.0 50.0,55.0" fill="white" stroke="black"/>
+  <!--Hall_2-->
+  <polygon points="52.0,237.0 169.0,237.0 169.0,239.0 52.0,239.0" fill="white" stroke="black"/>
+  <!--Hall_3-->
+  <polygon points="169.0,237.0 169.0,172.0 167.0,172.0 167.0,237.0" fill="white" stroke="black"/>
+  <!--Hall_4-->
+  <polygon points="169.0,172.0 299.0,172.0 299.0,174.0 169.0,174.0" fill="white" stroke="black"/>
+  <!--Hall_5-->
+  <polygon points="299.0,172.0 299.0,236.0 301.0,236.0 301.0,172.0" fill="white" stroke="black"/>
+  <!--Hall_6-->
+  <polygon points="299.0,236.0 387.0,236.0 387.0,238.0 299.0,238.0" fill="white" stroke="black"/>
+  <!--Hall_7_dining_room_hall_Hall_7-->
+  <polygon points="387.0,625.0 387.0,236.0 387.0,55.0 387.0,54.0 389.0,54.0 389.0,55.0 389.0,236.0 389.0,625.0" fill="red" stroke="red"/>
+  <text x="423.0" y="725.0">Total: 26.23855 m²</text>
 </svg>

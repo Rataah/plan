@@ -39,8 +39,8 @@ module Plan
       WallPool.link[room] ||= []
     end
 
-    def self.remove_walls(room, wall_segment)
-      WallPool.link[room].delete(wall_segment)
+    def self.replace_segment(room, old_wall_segment, new_segment)
+      WallPool.link[room].map! { |wall_segment| wall_segment == old_wall_segment ? new_segment : wall_segment }
     end
 
     def self.rooms(wall)

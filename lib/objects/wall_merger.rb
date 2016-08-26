@@ -8,7 +8,7 @@ module Plan
 
         # check if the 2 walls have to be merged
         if (wall.angle % (2 * Math::PI) == other.angle % (2 * Math::PI) || ((wall.angle + Math::PI) % (2 * Math::PI)) == other.angle % (2 * Math::PI)) &&
-            [wall.ab1, wall.ab2].count { |vertex| vertex.on_segment(other.ab1, other.ab2) } >= 2
+            [wall.ab1, wall.ab2].count { |vertex| vertex.on_segment(other.ab1, other.ab2) } >= 1
           Plan.log.debug("Wall links #{wall.name} - #{other.name}")
 
           # retrieve all the couple of vertices (A/B) of the 2 walls and merge them.
@@ -29,36 +29,32 @@ module Plan
             new_wall.name = "#{wall.name}_#{other.name}"
             new_wall.width = wall.width
             new_wall.angle = wall.angle
-            new_wall.stroke('red').fill('red')
 
             sorted_points.each do |point|
-              if indexed_points[point].first.wall == wall && wall.angle == other.angle
-                new_wall.vertices_a << indexed_points[point].first.vertices.first.dup
-                new_wall.vertices_b << indexed_points[point].first.vertices.last.dup
-              else
+              ref_point = indexed_points[point].first.vertices.first
+              is_vertex_b = (((sorted_points.last.x - sorted_points.first.x) * (ref_point.y - sorted_points.first.y) -
+                  (sorted_points.last.y - sorted_points.first.y) * (ref_point.x - sorted_points.first.x)) <=> 0.0) == 1
+
+              if is_vertex_b
                 new_wall.vertices_b << indexed_points[point].first.vertices.first.dup
                 new_wall.vertices_a << indexed_points[point].first.vertices.last.dup
+              else
+                new_wall.vertices_a << indexed_points[point].first.vertices.first.dup
+                new_wall.vertices_b << indexed_points[point].first.vertices.last.dup
               end
             end
           end
 
           (WallPool.rooms(wall) + WallPool.rooms(other)).each do |room|
-            if (wall_segment = WallPool.segment(room, wall))
+            side = (((sorted_points.last.x - sorted_points.first.x) * (room.center.y - sorted_points.first.y) -
+                (sorted_points.last.y - sorted_points.first.y) * (room.center.x - sorted_points.first.x)) <=> 0.0) == 1 ? :b : :a
+
+            [WallPool.segment(room, wall), WallPool.segment(room, other)].compact.each do |wall_segment|
               vertex1 = sorted_points.index { |point| point == wall_segment.centers.first }
               vertex2 = sorted_points.index { |point| point == wall_segment.centers.last }
 
-              side = indexed_points[wall_segment.centers.first].first.wall == wall || wall.angle == other.angle ? :a : :b
-              WallPool.add_link(room, new_wall, SegmentIndex.new(side, vertex1), SegmentIndex.new(side, vertex2))
-              WallPool.remove_walls(room, wall_segment)
-            end
-
-            if (other_segment = WallPool.segment(room, other))
-              vertex1 = sorted_points.index { |point| point == other_segment.centers.first }
-              vertex2 = sorted_points.index { |point| point == other_segment.centers.last }
-
-              side = indexed_points[other_segment.centers.last].first.wall == wall || wall.angle == other.angle ? :b : :a
-              WallPool.add_link(room, new_wall, SegmentIndex.new(side, vertex1), SegmentIndex.new(side, vertex2))
-              WallPool.remove_walls(room, other_segment)
+              new_segment = WallSegment.new(new_wall, SegmentIndex.new(side, vertex1), SegmentIndex.new(side, vertex2))
+              WallPool.replace_segment(room, wall_segment, new_segment)
             end
           end
 
