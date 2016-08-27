@@ -1,6 +1,7 @@
 module Plan
   SVGArg = Struct.new(:value, :scalable)
 
+  # Manage SVG element's arguments
   class SVGArgument
     attr_accessor :args, :xml_comments
 

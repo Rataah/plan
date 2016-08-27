@@ -1,4 +1,5 @@
 module Plan
+  # Wall factory. Create a wall
   class WallFactory
     def self.create(name, origin, length, angle, width)
       Plan.log.debug("Creating new Wall:#{name}")

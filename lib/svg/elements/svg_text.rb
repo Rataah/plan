@@ -1,4 +1,5 @@
 module Plan
+  # SVG Text element
   class SVGText < SVGElement
     def initialize(text, x, y)
       super('text')

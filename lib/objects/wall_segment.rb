@@ -1,4 +1,5 @@
 module Plan
+  # Represent a single point on a wall. Two SegmentIndex are needed to build a WallSegment
   class SegmentIndex
     attr_accessor :side, :index
 
@@ -7,14 +8,20 @@ module Plan
       @index = index
     end
 
-    def a?; @side == :a end
-    def b?; @side == :b end
+    def a?
+      @side == :a
+    end
+
+    def b?
+      @side == :b
+    end
 
     def other_side
       SegmentIndex.new(a? ? :b : :a, @index)
     end
   end
 
+  # Represent the link between a room and a wall
   class WallSegment
     attr_accessor :wall, :vertex1, :vertex2
 

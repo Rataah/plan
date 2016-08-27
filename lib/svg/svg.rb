@@ -1,4 +1,5 @@
 module Plan
+  # SVG Generation handler
   class SVG
     WIDTH = 1600
     HEIGHT = 900
@@ -17,8 +18,8 @@ module Plan
     def write(output)
       Plan.log.debug("Generating SVG file #{output.path}")
       svg = Nokogiri::XML::Builder.new(encoding: 'UTF-8') do |xml|
-
-        xml.doc.create_internal_subset('svg', '-//W3C//DTD SVG 1.1//EN', 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd')
+        xml.doc.create_internal_subset('svg', '-//W3C//DTD SVG 1.1//EN',
+                                       'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd')
         xml.svg(width: WIDTH, height: HEIGHT, version: '1.1', xmlns: 'http://www.w3.org/2000/svg') do
           css = File.read('./resources/css/plan.css')
           xml.style(css)
@@ -34,7 +35,7 @@ module Plan
           end
         end
       end
-      output.write(svg.to_xml.gsub(%Q(<?xml version="1.0"?>), %Q(<?xml version="1.0" standalone="no"?>)))
+      output.write(svg.to_xml.gsub(%(<?xml version="1.0"?>), %(<?xml version="1.0" standalone="no"?>)))
     end
   end
 end
