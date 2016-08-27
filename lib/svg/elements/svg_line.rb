@@ -1,4 +1,5 @@
 module Plan
+  # SVG line element
   class SVGLine < SVGElement
     def initialize(x1, y1, x2, y2)
       super('line')

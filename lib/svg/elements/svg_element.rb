@@ -1,4 +1,5 @@
 module Plan
+  # Abstract svg element
   class SVGElement < SVGArgument
     def initialize(name)
       super()
@@ -13,14 +14,14 @@ module Plan
 
     def self.prepare_value(value)
       case value
-        when String
-          value
-        when Array then
-          value.map { |v| prepare_value(v) }.join(' ')
-        when Point then
-          %Q(#{value.x.to_f},#{value.y.to_f})
-        else
-          "#{value.to_f}"
+      when String
+        value
+      when Array then
+        value.map { |v| prepare_value(v) }.join(' ')
+      when Point then
+        %(#{value.x.to_f},#{value.y.to_f})
+      else
+        value.to_f.to_s
       end
     end
   end

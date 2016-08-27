@@ -1,8 +1,8 @@
 module Plan
+  # Load and parse Ruby config file
   class RubyDataLoader
-
     def self.load_data_from_file(filename)
-      parse( File.read(filename, encoding: "BOM|UTF-8", mode: 'rb'), filename )
+      parse(File.read(filename, encoding: 'BOM|UTF-8', mode: 'rb'), filename)
     end
 
     def self.parse(content, filename)
@@ -11,6 +11,7 @@ module Plan
       result
     end
 
+    # Parse the data. A ruby config file is evaluated on the DataParser instance
     class DataParser
       def initialize(result)
         @data = result

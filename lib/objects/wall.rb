@@ -1,24 +1,33 @@
 module Plan
   ANGLE_SHORTCUTS = {
-      up: 270.0,
-      down: 90.0,
-      left: 180.0,
-      right: 0.0
-  }
+    up: 270.0,
+    down: 90.0,
+    left: 180.0,
+    right: 0.0
+  }.freeze
 
-  DEFAULT_WALL_WIDTH = 2.freeze
+  DEFAULT_WALL_WIDTH = 2
 
+  # Represent a wall.
   class Wall < SVGArgument
     attr_accessor :vertices_a, :vertices_b, :name, :angle, :length, :width
 
-    def vertex_a1; @vertices_a.first end
-    alias_method :a1, :vertex_a1
-    def vertex_a2; @vertices_a.last end
-    alias_method :a2, :vertex_a2
-    def vertex_b1; @vertices_b.first end
-    alias_method :b1, :vertex_b1
-    def vertex_b2; @vertices_b.last end
-    alias_method :b2, :vertex_b2
+    def vertex_a1
+      @vertices_a.first
+    end
+    alias a1 vertex_a1
+    def vertex_a2
+      @vertices_a.last
+    end
+    alias a2 vertex_a2
+    def vertex_b1
+      @vertices_b.first
+    end
+    alias b1 vertex_b1
+    def vertex_b2
+      @vertices_b.last
+    end
+    alias b2 vertex_b2
 
     def initialize
       super
@@ -38,7 +47,9 @@ module Plan
       {}.tap do |vertices_indexed|
         @vertices_a.each_with_index do |v_a, index|
           vertices_center = Plan.center([v_a, @vertices_b[index]])
-          vertices_indexed[vertices_center] = [WallSegment.new(self, SegmentIndex.new(:a, index), SegmentIndex.new(:b, index))]
+          vertices_indexed[vertices_center] = [
+            WallSegment.new(self, SegmentIndex.new(:a, index), SegmentIndex.new(:b, index))
+          ]
         end
       end
     end
@@ -49,15 +60,18 @@ module Plan
 
     def apply_width(ref_point)
       return if initialized?
-      direction = -90.0 * (((vertex_a2.x - vertex_a1.x) * (ref_point.y - vertex_a1.y) - (vertex_a2.y - vertex_a1.y) * (ref_point.x - vertex_a1.x)) <=> 0.0)
-      @vertices_b << vertex_a1.add(@width * Math.cos(@angle + direction.rad), @width * Math.sin(@angle + direction.rad)).round(2)
-      @vertices_b << vertex_a2.add(@width * Math.cos(@angle + direction.rad), @width * Math.sin(@angle + direction.rad)).round(2)
+      direction = -90.0 * Plan.position_against(ref_point, vertex_a1, vertex_a2)
+      @vertices_b << vertex_a1.add(@width * Math.cos(@angle + direction.rad),
+                                   @width * Math.sin(@angle + direction.rad)).round(2)
+      @vertices_b << vertex_a2.add(@width * Math.cos(@angle + direction.rad),
+                                   @width * Math.sin(@angle + direction.rad)).round(2)
     end
 
     def vertices(filters = [])
       return @vertices_a + @vertices_b.reverse if filters.empty?
 
-      @vertices_a.values_at(*filters.select(&:a?).map(&:index)) + @vertices_b.values_at(*filters.select(&:b?).map(&:index))
+      @vertices_a.values_at(*filters.select(&:a?).map(&:index)) +
+        @vertices_b.values_at(*filters.select(&:b?).map(&:index))
     end
 
     def translate(x, y)

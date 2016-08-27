@@ -1,4 +1,5 @@
 module Plan
+  # Pool of wall. Handle the links between a room and a wall with a wall segment
   class WallPool
     def self.create_and_store
       wall = Wall.new
@@ -53,7 +54,7 @@ module Plan
       walls(room).select { |wall_segment| wall_segment.wall == wall }.first
     end
 
-    private
+    private_class_method
 
     def self.pool
       @wall_pool ||= {}

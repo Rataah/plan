@@ -1,4 +1,5 @@
 module Plan
+  # SVG Polygon element
   class SVGPolygon < SVGElement
     def initialize(points)
       super('polygon')

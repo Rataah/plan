@@ -1,12 +1,12 @@
 require 'plan'
 
+# Spec file for Point class
 module Plan
-
   describe :point do
     let(:x) { 1 }
     let(:y) { 0.5 }
 
-    subject(:point) { Point.new(x, y)}
+    subject(:point) { Point.new(x, y) }
 
     it 'initializes a point with x and y values' do
       expect(point.x).to eq x
@@ -36,9 +36,9 @@ module Plan
       let(:point_b) { Point.new(10, 10) }
 
       it 'returns true if the point is on the segment' do
-        expect(Point.new(5,5).on_segment(point_a, point_b)).to be true
-        expect(Point.new(0,0).on_segment(point_a, point_b)).to be true
-        expect(Point.new(10,10).on_segment(point_a, point_b)).to be true
+        expect(Point.new(5, 5).on_segment(point_a, point_b)).to be true
+        expect(Point.new(0, 0).on_segment(point_a, point_b)).to be true
+        expect(Point.new(10, 10).on_segment(point_a, point_b)).to be true
       end
 
       it 'returns false if the point is not on the segment' do

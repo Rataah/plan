@@ -1,3 +1,4 @@
+# Non standard operation on a Point
 module Plan
   def self.bounds(points)
     min_x = points.min_by(&:x).x
@@ -8,9 +9,20 @@ module Plan
   end
 
   def self.center(points)
-    Plan.bounds(points).reduce(&:+)  / 2
+    Plan.bounds(points).reduce(&:+) / 2
   end
 
+  def self.position_against(point, segment_a, segment_b)
+    ((segment_b.x - segment_a.x) * (point.y - segment_a.y) -
+      (segment_b.y - segment_a.y) * (point.x - segment_b.x)) <=> 0.0
+  end
+
+  def self.angle_aligned?(angle1, angle2)
+    angle1 % (2 * Math::PI) == angle2 % (2 * Math::PI) ||
+      ((angle1 + Math::PI) % (2 * Math::PI)) == angle2 % (2 * Math::PI)
+  end
+
+  # Represent a point
   class Point
     attr_accessor :x, :y
 
@@ -52,32 +64,32 @@ module Plan
       dist(a) + dist(b) == a.dist(b)
     end
 
-    def !=(point)
-      @x != point.x || @y != point.y
+    def !=(other)
+      @x != other.x || @y != other.y
     end
 
-    def +(point)
-      Point.new(@x + point.x, @y + point.y)
+    def +(other)
+      Point.new(@x + other.x, @y + other.y)
     end
 
-    def -(point)
-      Point.new(@x - point.x, @y - point.y)
+    def -(other)
+      Point.new(@x - other.x, @y - other.y)
     end
 
-    def /(value)
-      Point.new(@x / value, @y / value)
+    def /(other)
+      Point.new(@x / other, @y / other)
     end
 
-    def >=(point)
-      dist(ZERO) >= point.dist(ZERO)
+    def >=(other)
+      dist(ZERO) >= other.dist(ZERO)
     end
 
-    def <=(point)
-      dist(ZERO) <= point.dist(ZERO)
+    def <=(other)
+      dist(ZERO) <= other.dist(ZERO)
     end
 
-    def ==(point)
-      eql?(point)
+    def ==(other)
+      eql?(other)
     end
 
     def to_s
@@ -88,8 +100,8 @@ module Plan
       [@x, @y].hash
     end
 
-    def eql?(point)
-      @x == point.x && @y == point.y
+    def eql?(other)
+      @x == other.x && @y == other.y
     end
 
     ZERO = Point.new(0, 0).freeze
