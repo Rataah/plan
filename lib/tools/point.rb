@@ -1,5 +1,6 @@
 # Non standard operation on a Point
 module Plan
+
   def self.bounds(points)
     min_x = points.min_by(&:x).x
     min_y = points.min_by(&:y).y
@@ -13,18 +14,18 @@ module Plan
   end
 
   def self.position_against(point, segment_a, segment_b)
-    ((segment_b.x - segment_a.x) * (point.y - segment_a.y) -
-      (segment_b.y - segment_a.y) * (point.x - segment_b.x)) <=> 0.0
+    segment = segment_b - segment_a
+    (segment.x * (point.y - segment_a.y) -
+      segment.y * (point.x - segment_b.x)) <=> 0.0
   end
 
-  def self.angle_aligned?(angle1, angle2)
-    angle1 % (2 * Math::PI) == angle2 % (2 * Math::PI) ||
-      ((angle1 + Math::PI) % (2 * Math::PI)) == angle2 % (2 * Math::PI)
+  def self.angle_aligned?(first_angle, second_angle)
+    first_angle == second_angle || (first_angle + Math::PI) % (2 * Math::PI) == second_angle
   end
 
   # Represent a point
   class Point
-    attr_accessor :x, :y
+    attr_reader :x, :y
 
     def initialize(x, y)
       @x = x

@@ -1,12 +1,12 @@
 module Plan
   # SVG line element
   class SVGLine < SVGElement
-    def initialize(point1, point2)
+    def initialize(start_point, end_point)
       super('line')
-      @args['x1'] = SVGArg.new(point1.x, true)
-      @args['y1'] = SVGArg.new(point1.y, true)
-      @args['x2'] = SVGArg.new(point2.x, true)
-      @args['y2'] = SVGArg.new(point2.y, true)
+      @args['x1'] = SVGArg.new(start_point.x, true)
+      @args['y1'] = SVGArg.new(start_point.y, true)
+      @args['x2'] = SVGArg.new(end_point.x, true)
+      @args['y2'] = SVGArg.new(end_point.y, true)
     end
   end
 end
