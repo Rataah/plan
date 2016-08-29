@@ -1,6 +1,6 @@
 
 .show_hover {
-    opacity: 0.0;
+    opacity: 0.1;
 }
 .show_hover:hover {
     opacity: 1.0;
