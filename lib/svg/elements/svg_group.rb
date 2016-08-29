@@ -1,4 +1,5 @@
 module Plan
+  # Represent a group of SVG element
   class SVGGroup < SVGElement
     def initialize(id)
       super('g', id)
@@ -6,7 +7,7 @@ module Plan
     end
 
     def add(elements)
-      @elements.push(*elements)
+      @elements.concat(elements)
       self
     end
 

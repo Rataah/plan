@@ -35,15 +35,18 @@ module Plan
           end
         end
       end
+      validate(svg.doc)
+      output.write(svg.to_xml.gsub(%(<?xml version="1.0"?>), %(<?xml version="1.0" standalone="no"?>)))
+    end
 
+    def validate(doc)
       Dir.chdir('./resources/xsd/') do
         Plan.log.debug('Validating XML')
         xsd = Nokogiri::XML::Schema(File.read('SVG.xsd'))
-        xsd.validate(svg.doc).each do |error|
+        xsd.validate(doc).each do |error|
           Plan.log.error(error.message)
         end
       end
-      output.write(svg.to_xml.gsub(%(<?xml version="1.0"?>), %(<?xml version="1.0" standalone="no"?>)))
     end
   end
 end

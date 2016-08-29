@@ -22,7 +22,7 @@ module Plan
     def css_class(name)
       @args['class'] ||= SVGArg.new('', false)
       @args['class'].value << ' ' unless @args['class'].value.empty?
-      @args['class'].value << "#{name}"
+      @args['class'].value << name
       self
     end
 
