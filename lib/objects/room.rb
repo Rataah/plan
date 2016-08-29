@@ -27,7 +27,7 @@ module Plan
 
     def svg_elements
       Plan.log.debug("Draw SVG elements for Room: #{@name}")
-      SVGGroup.new(@name).add([].tap do |elements|
+      SVGGroup.new(@name.to_id).add([].tap do |elements|
         elements << SVGPolygon.new(vertices.uniq).fill('lightgray').stroke('red')
         elements << SVGText.new(@name.to_s, @center)
         elements << SVGText.new("#{area} m²", @center.add(0, 20))

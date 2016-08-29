@@ -3,7 +3,7 @@ module Plan
   class SVGElement < SVGArgument
     def initialize(name, id = nil)
       super()
-      id(id)
+      id(id) if id
       @name = name
     end
 

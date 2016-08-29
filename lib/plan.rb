@@ -4,6 +4,7 @@ require 'logger'
 # tools
 require 'tools/tools'
 require 'tools/point'
+require 'tools/string'
 require 'tools/numeric'
 require 'tools/logger'
 

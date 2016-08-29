@@ -16,13 +16,13 @@ module Plan
     end
 
     def write(output)
-      Plan.log.debug("Generating SVG file #{output.path}")
+      Plan.log.info("Generating SVG file #{output.path}")
       svg = Nokogiri::XML::Builder.new(encoding: 'UTF-8') do |xml|
         xml.doc.create_internal_subset('svg', '-//W3C//DTD SVG 1.1//EN',
                                        'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd')
-        xml.svg(width: WIDTH, height: HEIGHT, version: '1.1', xmlns: 'http://www.w3.org/2000/svg') do
+        xml.svg(width: WIDTH, height: HEIGHT, xmlns: 'http://www.w3.org/2000/svg') do
           css = File.read('./resources/css/plan.css')
-          xml.style(css)
+          xml.style(css, type: 'text/css')
 
           xml.defs do |defs|
             defs << load_pattern('tiles')
@@ -33,6 +33,14 @@ module Plan
           @contents.each do |content|
             content.xml_element(xml)
           end
+        end
+      end
+
+      Dir.chdir('./resources/xsd/') do
+        Plan.log.debug('Validating XML')
+        xsd = Nokogiri::XML::Schema(File.read('SVG.xsd'))
+        xsd.validate(svg.doc).each do |error|
+          Plan.log.error(error.message)
         end
       end
       output.write(svg.to_xml.gsub(%(<?xml version="1.0"?>), %(<?xml version="1.0" standalone="no"?>)))

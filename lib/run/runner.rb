@@ -35,9 +35,11 @@ module Plan
 
       FileUtils.mkdir_p(File.dirname(@options.output_file))
       svg.write File.new(@options.output_file, 'w')
+      Plan.log.info('Generation done')
     end
 
     def eval_configuration_file
+      Plan.log.info("Loading configuration from #{@options.configuration_file}")
       case File.extname(@options.configuration_file)
       when '.yml', '.yaml'
         YamlDataLoader.load_data_from_file(@options.configuration_file)
