@@ -18,7 +18,7 @@ module Plan
       when String
         value
       when Array then
-        value.map { |v| prepare_value(v) }.join(' ')
+        value.map { |item| prepare_value(item) }.join(' ')
       when Point then
         %(#{value.x.to_f},#{value.y.to_f})
       else
