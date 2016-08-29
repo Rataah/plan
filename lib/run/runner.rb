@@ -31,7 +31,7 @@ module Plan
 
       svg = SVG.new
       svg_elements(rooms).each { |svg_element| svg.contents << svg_element }
-      svg.contents << SVGText.new("Total: #{rooms.map(&:area).reduce(0, :+)} m²", max_vertex.x + 50, max_vertex.y + 150)
+      svg.contents << SVGText.new("Total: #{rooms.map(&:area).reduce(0, :+)} m²", max_vertex.add(50, 150))
 
       FileUtils.mkdir_p(File.dirname(@options.output_file))
       svg.write File.new(@options.output_file, 'w')

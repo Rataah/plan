@@ -56,7 +56,7 @@ store(RoomFactory.create('kitchen', anchor: WallPool['bedroom_kitchen'].b2) do
   wall(190, :left)
   wall(60, :down)
   wall(60, :left)
-  wall(318, :down)
+  wall(326, :down)
 end)
 
 store(RoomFactory.create('gas line', anchor: WallPool['bedroom_kitchen'].b1) do
