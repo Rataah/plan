@@ -32,7 +32,7 @@ module Plan
         elements << SVGText.new(@name.to_s, @center)
         elements << SVGText.new("#{area} m²", @center.add(0, 20))
 
-        WallPool.walls(self).each { |wall_segment|  elements.push(*wall_segment.svg_elements(@center)) }
+        WallPool.walls(self).each { |wall_segment| elements.concat(wall_segment.svg_elements(@center)) }
       end.flatten).comments(@name).css_class 'show_hover'
     end
   end

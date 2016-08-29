@@ -9,7 +9,8 @@ module Plan
     end
 
     def rotate(angle)
-      @args['transform'] = SVGArg.new("rotate(#{(angle.deg+90.0) % 180.0} #{@args['x'].value}, #{@args['y'].value})", false)
+      @args['transform'] = SVGArg.new("rotate(#{(angle.deg + 90.0) % 180.0} #{@args['x'].value}, #{@args['y'].value})",
+                                      false)
       self
     end
   end

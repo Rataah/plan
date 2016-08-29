@@ -57,12 +57,13 @@ module Plan
       direction = Plan.position_against(ref_point, segment_vertices.first, segment_vertices.last)
       offset_angle = @wall.angle + (90.rad * -direction)
 
-      label_vertices = segment_vertices.map { |vertex| vertex.translate(offset_angle, 15)}
+      label_vertices = segment_vertices.map { |vertex| vertex.translate(offset_angle, 15) }
       [
-          SVGLine.new(segment_vertices.first, label_vertices.first).stroke('red'),
-          SVGLine.new(segment_vertices.last, label_vertices.last).stroke('red'),
-          SVGLine.new(*label_vertices).stroke('red'),
-          SVGText.new("#{distance.to_i}cm", Plan.center(label_vertices).translate(offset_angle, 15)).rotate(offset_angle),
+        SVGLine.new(segment_vertices.first, label_vertices.first).stroke('red'),
+        SVGLine.new(segment_vertices.last, label_vertices.last).stroke('red'),
+        SVGLine.new(*label_vertices).stroke('red'),
+        SVGText.new("#{distance.to_i}cm",
+                    Plan.center(label_vertices).translate(offset_angle, 15)).rotate(offset_angle)
       ]
     end
   end
