@@ -1,7 +1,8 @@
 
 .show_hover {
-    fill: transparent;
+    opacity: 0.0;
 }
 .show_hover:hover {
-    fill: gainsboro;
+    opacity: 1.0;
 }
+

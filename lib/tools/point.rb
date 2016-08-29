@@ -39,7 +39,10 @@ module Plan
       @x += x
       @y += y
     end
-    alias translate add!
+
+    def translate(angle, length)
+      add(length * Math.cos(angle), length * Math.sin(angle))
+    end
 
     def round(digit)
       @x = @x.round(digit)

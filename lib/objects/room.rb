@@ -13,8 +13,8 @@ module Plan
     end
 
     def translate(x, y)
-      @origin.translate(x, y)
-      @center.translate(x, y)
+      @origin.add!(x, y)
+      @center.add!(x, y)
     end
 
     def area
@@ -27,14 +27,13 @@ module Plan
 
     def svg_elements
       Plan.log.debug("Draw SVG elements for Room: #{@name}")
-      [].tap do |elements|
-        floor = SVGPolygon.new(vertices.uniq).stroke('red')
-        floor.css_class 'show_hover'
-        elements << floor
+      SVGGroup.new(@name).add([].tap do |elements|
+        elements << SVGPolygon.new(vertices.uniq).fill('lightgray').stroke('red')
+        elements << SVGText.new(@name.to_s, @center)
+        elements << SVGText.new("#{area} m²", @center.add(0, 20))
 
-        elements << SVGText.new(@name.to_s, @center.x, @center.y)
-        elements << SVGText.new("#{area} m²", @center.x, @center.y + 20)
-      end.flatten
+        WallPool.walls(self).each { |wall_segment|  elements.push(*wall_segment.svg_elements(@center)) }
+      end.flatten).comments(@name).css_class 'show_hover'
     end
   end
 end
