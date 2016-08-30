@@ -20,7 +20,7 @@ module Plan
       new_wall = WallFactory.create(name ? name : "#{@room.name}_#{WallPool.walls(@room).size}",
                                     @last_point, wall_size, angle, width)
       @last_point = new_wall.a2
-      WallPool.add_link(@room, new_wall, SegmentIndex.new(:a, 0), SegmentIndex.new(:a, 1))
+      WallPool.add_link(@room, new_wall, SegmentIndex.new(:a, 0), SegmentIndex.new(:a, 1), new_wall.angle)
       new_wall
     end
   end

@@ -35,9 +35,9 @@ module Plan
       end
     end
 
-    def self.add_link(room, wall, vertex1, vertex2)
+    def self.add_link(room, wall, vertex1, vertex2, angle)
       WallPool.link[room] ||= []
-      WallPool.link[room] << WallSegment.new(wall, vertex1, vertex2)
+      WallPool.link[room] << WallSegment.new(wall, vertex1, vertex2, angle)
     end
 
     def self.walls(room)

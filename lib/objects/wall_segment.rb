@@ -23,12 +23,13 @@ module Plan
 
   # Represent the link between a room and a wall
   class WallSegment
-    attr_accessor :wall, :vertex1, :vertex2
+    attr_accessor :wall, :vertex1, :vertex2, :angle
 
-    def initialize(wall, vertex1, vertex2)
+    def initialize(wall, vertex1, vertex2, angle)
       @wall = wall
       @vertex1 = vertex1
       @vertex2 = vertex2
+      @angle = angle
     end
 
     def vertices
@@ -55,15 +56,15 @@ module Plan
     def svg_elements(ref_point)
       segment_vertices = vertices
       direction = Plan.position_against(ref_point, segment_vertices.first, segment_vertices.last)
-      offset_angle = @wall.angle + (90.rad * -direction)
+      offset_angle = @angle + (90.rad * -direction)
 
-      label_vertices = segment_vertices.map { |vertex| vertex.translate(offset_angle, 15) }
+      label_vertices = segment_vertices.map { |vertex| vertex.translate(offset_angle, @wall.width + 10) }
       [
-        SVGLine.new(segment_vertices.first, label_vertices.first).stroke('red'),
-        SVGLine.new(segment_vertices.last, label_vertices.last).stroke('red'),
-        SVGLine.new(*label_vertices).stroke('red'),
-        SVGText.new("#{distance.to_i}cm",
-                    Plan.center(label_vertices).translate(offset_angle, 15)).rotate(offset_angle)
+        SVGLine.new(segment_vertices.first, label_vertices.first).stroke('black'),
+        SVGLine.new(segment_vertices.last, label_vertices.last).stroke('black'),
+        SVGLine.new(*label_vertices).stroke('black'),
+        SVGText.new("#{distance.to_i}cm", Plan.center(label_vertices)
+          .translate(offset_angle, 15)).rotate(offset_angle).css_class('dimension')
       ]
     end
   end

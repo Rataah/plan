@@ -1,6 +1,5 @@
 # Non standard operation on a Point
 module Plan
-
   def self.bounds(points)
     min_x = points.min_by(&:x).x
     min_y = points.min_by(&:y).y

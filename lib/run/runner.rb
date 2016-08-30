@@ -31,10 +31,13 @@ module Plan
 
       svg = SVG.new
       svg_elements(rooms).each { |svg_element| svg.contents << svg_element }
-      svg.contents << SVGText.new("Total: #{rooms.map(&:area).reduce(0, :+)} m²", max_vertex.add(50, 150))
+      svg.contents << SVGText.new(
+        "Total: #{rooms.map(&:area).reduce(0, :+)} m²",
+        Point.new(max_vertex.x / 2, max_vertex.y + 50)
+      ).anchor(:middle)
 
       FileUtils.mkdir_p(File.dirname(@options.output_file))
-      svg.write File.new(@options.output_file, 'w')
+      svg.write File.new(@options.output_file, 'w'), max_vertex.x + 100, max_vertex.y + 100
       Plan.log.info('Generation done')
     end
 
@@ -53,7 +56,7 @@ module Plan
 
       rooms.each { |room| room.translate(-min_vertex.x + 50, -min_vertex.y + 50) }
       WallPool.each { |wall| wall.translate(-min_vertex.x + 50, -min_vertex.y + 50) }
-      max_vertex
+      max_vertex.add(-min_vertex.x + 50, -min_vertex.y + 50)
     end
 
     def svg_elements(rooms)
