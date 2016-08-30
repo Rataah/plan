@@ -13,5 +13,10 @@ module Plan
                                       false)
       self
     end
+
+    def anchor(value)
+      @args['text-anchor'] = SVGArg.new(value.to_s, false)
+      self
+    end
   end
 end

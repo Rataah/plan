@@ -34,8 +34,7 @@ module Plan
     end
 
     def comparator(left_point, right_point, cos_angle, sin_angle)
-      left_point.x * cos_angle - left_point.y * sin_angle <=>
-          right_point.x * cos_angle - right_point.y * sin_angle
+      left_point.x * cos_angle - left_point.y * sin_angle <=> right_point.x * cos_angle - right_point.y * sin_angle
     end
 
     def build_wall(wall, other, sorted_points, indexed_points)
@@ -68,8 +67,11 @@ module Plan
           start_vertex = sorted_points.index { |point| point == wall_segment.centers.first }
           end_vertex = sorted_points.index { |point| point == wall_segment.centers.last }
 
-          new_segment = WallSegment.new(merged_wall,
-                                        SegmentIndex.new(side, start_vertex), SegmentIndex.new(side, end_vertex))
+          new_segment = WallSegment.new(
+            merged_wall,
+            SegmentIndex.new(side, start_vertex), SegmentIndex.new(side, end_vertex),
+            wall_segment.angle
+          )
           WallPool.replace_segment(room, wall_segment, new_segment)
         end
       end

@@ -5,6 +5,6 @@ class Array
   end
 
   def deep_dup
-    map { |item| item.dup }
+    map(&:dup)
   end
 end

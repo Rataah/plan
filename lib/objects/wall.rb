@@ -6,7 +6,7 @@ module Plan
     right: 0.0
   }.freeze
 
-  DEFAULT_WALL_WIDTH = 2
+  DEFAULT_WALL_WIDTH = 5
 
   # Represent a wall.
   class Wall < SVGArgument
@@ -48,7 +48,7 @@ module Plan
         @vertices_a.each_with_index do |v_a, index|
           vertices_center = Plan.center([v_a, @vertices_b[index]])
           vertices_indexed[vertices_center] = [
-            WallSegment.new(self, SegmentIndex.new(:a, index), SegmentIndex.new(:b, index))
+            WallSegment.new(self, SegmentIndex.new(:a, index), SegmentIndex.new(:b, index), @angle)
           ]
         end
       end
@@ -60,9 +60,9 @@ module Plan
 
     def apply_width(ref_point)
       return if initialized?
-      direction = @angle + (-90.0 * Plan.position_against(ref_point, vertex_a1, vertex_a2).rad)
-      @vertices_b << vertex_a1.translate(@width, direction).round(2)
-      @vertices_b << vertex_a2.translate(@width, direction).round(2)
+      direction = @angle + (-90.0 * Plan.position_against(ref_point, vertex_a1, vertex_a2)).rad
+      @vertices_b << vertex_a1.translate(direction, @width).round(2)
+      @vertices_b << vertex_a2.translate(direction, @width).round(2)
     end
 
     def vertices(filters = [])
@@ -78,7 +78,7 @@ module Plan
 
     def svg_elements
       Plan.log.debug("Draw SVG elements for Wall: #{@name}")
-      [SVGPolygon.new(vertices).fill('white').stroke('black').comments(@name).merge!(self)]
+      [SVGPolygon.new(vertices).fill('gray').stroke('black').comments(@name).merge!(self)]
     end
 
     def aligned?(other)

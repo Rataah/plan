@@ -1,8 +1,19 @@
+svg {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
 
 .show_hover {
-    opacity: 0.1;
+    opacity: 0.0;
 }
 .show_hover:hover {
     opacity: 1.0;
 }
 
+.room-name {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.dimension {
+    font-weight: bold;
+}
