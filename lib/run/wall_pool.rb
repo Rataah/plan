@@ -21,8 +21,12 @@ module Plan
       WallPool.pool.values
     end
 
-    def self.delete(wall_name)
-      WallPool.pool.delete(wall_name)
+    def self.without(wall)
+      WallPool.pool.values.select { |other_wall| other_wall != wall }
+    end
+
+    def self.delete(*wall_names)
+      WallPool.pool.delete_if { |name| wall_names.include? name }
     end
 
     def self.each
@@ -31,9 +35,9 @@ module Plan
       end
     end
 
-    def self.add_link(room, wall, vertex1, vertex2)
+    def self.add_link(room, wall, vertex1, vertex2, angle)
       WallPool.link[room] ||= []
-      WallPool.link[room] << WallSegment.new(wall, vertex1, vertex2)
+      WallPool.link[room] << WallSegment.new(wall, vertex1, vertex2, angle)
     end
 
     def self.walls(room)

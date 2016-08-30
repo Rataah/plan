@@ -12,8 +12,7 @@ module Plan
         wall.length = length
 
         # compute the points
-        wall.vertices_a = [origin.dup.round(2),
-                           origin.add(length * Math.cos(wall.angle), length * Math.sin(wall.angle)).round(2)]
+        wall.vertices_a = [origin.dup.round(2), origin.translate(wall.angle, wall.length).round(2)]
       end
     end
   end

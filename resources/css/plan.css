@@ -1,7 +1,19 @@
+svg {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
 
 .show_hover {
-    fill: transparent;
+    opacity: 0.0;
 }
 .show_hover:hover {
-    fill: gainsboro;
+    opacity: 1.0;
+}
+
+.room-name {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.dimension {
+    font-weight: bold;
 }

@@ -14,9 +14,15 @@ module Plan
       self
     end
 
+    def id(value)
+      @args['id'] = SVGArg.new(value, false)
+      self
+    end
+
     def css_class(name)
       @args['class'] ||= SVGArg.new('', false)
-      @args['class'].value << "#{name} "
+      @args['class'].value << ' ' unless @args['class'].value.empty?
+      @args['class'].value << name
       self
     end
 
