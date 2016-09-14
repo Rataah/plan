@@ -13,7 +13,6 @@ module Plan
                     value
                   end
       result[new_key] = new_value
-
       result
     end
   end
