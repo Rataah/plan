@@ -272,67 +272,133 @@
     <line x1="338.0" y1="307.0" x2="338.0" y2="252.0" stroke="black"/>
     <text x="323.0" y="279.5" transform="rotate(90.0 323.0, 279.5)" class="dimension">55cm</text>
   </g>
-  <!--dining room_0-->
-  <polygon points="608.0,65.0 976.0,65.0 976.0,50.0 608.0,50.0" fill="gray" stroke="black"/>
-  <!--dining room_1-->
-  <polygon points="976.0,65.0 976.0,635.0 991.0,635.0 991.0,65.0" fill="gray" stroke="black"/>
-  <!--dining room_2-->
-  <polygon points="976.0,635.0 608.0,635.0 608.0,650.0 976.0,650.0" fill="gray" stroke="black"/>
-  <!--hall_0-->
-  <polygon points="603.0,65.0 268.0,65.0 268.0,50.0 603.0,50.0" fill="gray" stroke="black"/>
-  <!--hall_3-->
-  <polygon points="385.0,247.0 385.0,183.0 380.0,183.0 380.0,247.0" fill="gray" stroke="black"/>
-  <!--hall_4-->
-  <polygon points="385.0,183.0 515.0,183.0 515.0,188.0 385.0,188.0" fill="gray" stroke="black"/>
-  <!--hall_5-->
-  <polygon points="515.0,183.0 515.0,247.0 520.0,247.0 520.0,183.0" fill="gray" stroke="black"/>
-  <!--toilets_3-->
-  <polygon points="119.0,65.0 263.0,65.0 263.0,50.0 119.0,50.0" fill="gray" stroke="black"/>
-  <!--CMV_2-->
-  <polygon points="65.0,150.0 65.0,65.0 50.0,65.0 50.0,150.0" fill="gray" stroke="black"/>
-  <!--CMV_3-->
-  <polygon points="65.0,65.0 114.0,65.0 114.0,50.0 65.0,50.0" fill="gray" stroke="black"/>
-  <!--bathroom_1-->
-  <polygon points="65.0,155.0 65.0,349.0 50.0,349.0 50.0,155.0" fill="gray" stroke="black"/>
-  <!--bedroom_6-->
-  <polygon points="348.0,635.0 65.0,635.0 65.0,650.0 348.0,650.0" fill="gray" stroke="black"/>
-  <!--bedroom_7-->
-  <polygon points="65.0,635.0 65.0,354.0 50.0,354.0 50.0,635.0" fill="gray" stroke="black"/>
-  <!--kitchen_0-->
-  <polygon points="353.0,635.0 603.0,635.0 603.0,650.0 353.0,650.0" fill="gray" stroke="black"/>
-  <!--CMV_0_toilets_cmv_CMV_0-->
-  <polygon points="119.0,65.0 119.0,150.0 114.0,150.0 114.0,65.0" fill="gray" stroke="black"/>
-  <!--bathroom_0_CMV_1_toilets_bathroom_bathroom_0-->
-  <polygon points="263.0,155.0 119.0,155.0 114.0,155.0 65.0,155.0 65.0,150.0 114.0,150.0 119.0,150.0 263.0,150.0" fill="gray" stroke="black"/>
-  <!--bathroom_bedroom2_bathroom_bedroom_bathroom_bedroom2-->
-  <polygon points="65.0,349.0 243.0,349.0 243.0,354.0 65.0,354.0" fill="gray" stroke="black"/>
-  <!--bedroom_1_bathroom_3_bedroom_1-->
-  <polygon points="243.0,354.0 243.0,349.0 243.0,285.0 243.0,280.0 248.0,280.0 248.0,285.0 248.0,349.0 248.0,354.0" fill="gray" stroke="black"/>
-  <!--bedroom_2_bathroom_4_bedroom_2-->
-  <polygon points="243.0,280.0 263.0,280.0 263.0,285.0 243.0,285.0" fill="gray" stroke="black"/>
-  <!--bedroom_3_bathroom_hall_bedroom_3-->
-  <polygon points="263.0,285.0 263.0,280.0 263.0,252.0 263.0,155.0 268.0,155.0 268.0,252.0 268.0,280.0 268.0,285.0" fill="gray" stroke="black"/>
-  <!--bedroom_3_bathroom_hall_toilets_hall_hall_toilets_toilets_hall-->
-  <polygon points="263.0,285.0 263.0,280.0 263.0,252.0 263.0,247.0 263.0,155.0 263.0,150.0 263.0,65.0 268.0,65.0 268.0,150.0 268.0,155.0 268.0,247.0 268.0,252.0 268.0,280.0 268.0,285.0" fill="gray" stroke="black"/>
-  <!--bedroom_3_bathroom_hall_toilets_hall_hall_toilets_bathroom_hall-->
-  <polygon points="263.0,285.0 263.0,280.0 263.0,252.0 263.0,247.0 263.0,155.0 263.0,150.0 263.0,65.0 268.0,65.0 268.0,150.0 268.0,155.0 268.0,247.0 268.0,252.0 268.0,280.0 268.0,285.0" fill="gray" stroke="black"/>
-  <!--kitchen_dining_room_hall2_dining_room_hall_dining_room_hall2-->
-  <polygon points="603.0,635.0 603.0,252.0 603.0,247.0 603.0,65.0 608.0,65.0 608.0,247.0 608.0,252.0 608.0,635.0" fill="gray" stroke="black"/>
-  <!--kitchen_dining_room_hall2_dining_room_hall_kitchen-->
-  <polygon points="603.0,635.0 603.0,252.0 603.0,247.0 603.0,65.0 608.0,65.0 608.0,247.0 608.0,252.0 608.0,635.0" fill="gray" stroke="black"/>
-  <!--kitchen_2_hall_6_kitchen_2-->
-  <polygon points="603.0,252.0 515.0,252.0 413.0,252.0 413.0,247.0 515.0,247.0 603.0,247.0" fill="gray" stroke="black"/>
-  <!--gas line_0_bedroom_4_hall_2_bedroom_4-->
-  <polygon points="263.0,247.0 268.0,247.0 348.0,247.0 353.0,247.0 385.0,247.0 408.0,247.0 408.0,252.0 385.0,252.0 353.0,252.0 348.0,252.0 268.0,252.0 263.0,252.0" fill="gray" stroke="black"/>
-  <!--gas line_0_bedroom_4_hall_2_gas line_0-->
-  <polygon points="263.0,247.0 268.0,247.0 348.0,247.0 353.0,247.0 385.0,247.0 408.0,247.0 408.0,252.0 385.0,252.0 353.0,252.0 348.0,252.0 268.0,252.0 263.0,252.0" fill="gray" stroke="black"/>
-  <!--gas line_1_kitchen_3_gas line_1-->
-  <polygon points="413.0,252.0 413.0,307.0 413.0,312.0 408.0,312.0 408.0,307.0 408.0,252.0" fill="gray" stroke="black"/>
-  <!--gas line_2_kitchen_4_gas line_2-->
-  <polygon points="413.0,312.0 408.0,312.0 353.0,312.0 353.0,307.0 408.0,307.0 413.0,307.0" fill="gray" stroke="black"/>
-  <!--gas line_3_kitchen_5_bedroom_kitchen_kitchen_5-->
-  <polygon points="348.0,635.0 348.0,312.0 348.0,307.0 348.0,252.0 353.0,252.0 353.0,307.0 353.0,312.0 353.0,635.0" fill="gray" stroke="black"/>
-  <!--gas line_3_kitchen_5_bedroom_kitchen_gas line_3-->
-  <polygon points="348.0,635.0 348.0,312.0 348.0,307.0 348.0,252.0 353.0,252.0 353.0,307.0 353.0,312.0 353.0,635.0" fill="gray" stroke="black"/>
+  <g id="dining_room_0">
+    <!--dining room_0-->
+    <polygon points="608.0,65.0 976.0,65.0 976.0,50.0 608.0,50.0" fill="gray" stroke="black"/>
+  </g>
+  <g id="dining_room_1">
+    <!--dining room_1-->
+    <polygon points="976.0,65.0 976.0,635.0 991.0,635.0 991.0,65.0" fill="gray" stroke="black"/>
+  </g>
+  <g id="dining_room_2">
+    <!--dining room_2-->
+    <polygon points="976.0,635.0 608.0,635.0 608.0,650.0 976.0,650.0" fill="gray" stroke="black"/>
+    <polygon points="916.0,635.0 916.0,650.0 671.0,650.0 671.0,635.0" fill="white" stroke="black"/>
+    <line x1="916.0" y1="642.5" x2="671.0" y2="642.5" stroke="black"/>
+  </g>
+  <g id="hall_0">
+    <!--hall_0-->
+    <polygon points="603.0,65.0 268.0,65.0 268.0,50.0 603.0,50.0" fill="gray" stroke="black"/>
+  </g>
+  <g id="hall_3">
+    <!--hall_3-->
+    <polygon points="385.0,247.0 385.0,183.0 380.0,183.0 380.0,247.0" fill="gray" stroke="black"/>
+  </g>
+  <g id="hall_4">
+    <!--hall_4-->
+    <polygon points="385.0,183.0 515.0,183.0 515.0,188.0 385.0,188.0" fill="gray" stroke="black"/>
+  </g>
+  <g id="hall_5">
+    <!--hall_5-->
+    <polygon points="515.0,183.0 515.0,247.0 520.0,247.0 520.0,183.0" fill="gray" stroke="black"/>
+  </g>
+  <g id="toilets_3">
+    <!--toilets_3-->
+    <polygon points="119.0,65.0 263.0,65.0 263.0,50.0 119.0,50.0" fill="gray" stroke="black"/>
+  </g>
+  <g id="cmv_2">
+    <!--CMV_2-->
+    <polygon points="65.0,150.0 65.0,65.0 50.0,65.0 50.0,150.0" fill="gray" stroke="black"/>
+  </g>
+  <g id="cmv_3">
+    <!--CMV_3-->
+    <polygon points="65.0,65.0 114.0,65.0 114.0,50.0 65.0,50.0" fill="gray" stroke="black"/>
+  </g>
+  <g id="bathroom_1">
+    <!--bathroom_1-->
+    <polygon points="65.0,155.0 65.0,349.0 50.0,349.0 50.0,155.0" fill="gray" stroke="black"/>
+  </g>
+  <g id="bedroom_6">
+    <!--bedroom_6-->
+    <polygon points="348.0,635.0 65.0,635.0 65.0,650.0 348.0,650.0" fill="gray" stroke="black"/>
+  </g>
+  <g id="bedroom_7">
+    <!--bedroom_7-->
+    <polygon points="65.0,635.0 65.0,354.0 50.0,354.0 50.0,635.0" fill="gray" stroke="black"/>
+  </g>
+  <g id="kitchen_0">
+    <!--kitchen_0-->
+    <polygon points="353.0,635.0 603.0,635.0 603.0,650.0 353.0,650.0" fill="gray" stroke="black"/>
+    <polygon points="471.0,635.0 471.0,650.0 581.0,650.0 581.0,635.0" fill="white" stroke="black"/>
+    <line x1="471.0" y1="642.5" x2="581.0" y2="642.5" stroke="black"/>
+  </g>
+  <g id="cmv_0_toilets_cmv_cmv_0">
+    <!--CMV_0_toilets_cmv_CMV_0-->
+    <polygon points="119.0,65.0 119.0,150.0 114.0,150.0 114.0,65.0" fill="gray" stroke="black"/>
+  </g>
+  <g id="bathroom_0_cmv_1_toilets_bathroom_bathroom_0">
+    <!--bathroom_0_CMV_1_toilets_bathroom_bathroom_0-->
+    <polygon points="263.0,155.0 119.0,155.0 114.0,155.0 65.0,155.0 65.0,150.0 114.0,150.0 119.0,150.0 263.0,150.0" fill="gray" stroke="black"/>
+  </g>
+  <g id="bathroom_bedroom2_bathroom_bedroom_bathroom_bedroom2">
+    <!--bathroom_bedroom2_bathroom_bedroom_bathroom_bedroom2-->
+    <polygon points="65.0,349.0 243.0,349.0 243.0,354.0 65.0,354.0" fill="gray" stroke="black"/>
+  </g>
+  <g id="bedroom_1_bathroom_3_bedroom_1">
+    <!--bedroom_1_bathroom_3_bedroom_1-->
+    <polygon points="243.0,354.0 243.0,349.0 243.0,285.0 243.0,280.0 248.0,280.0 248.0,285.0 248.0,349.0 248.0,354.0" fill="gray" stroke="black"/>
+  </g>
+  <g id="bedroom_2_bathroom_4_bedroom_2">
+    <!--bedroom_2_bathroom_4_bedroom_2-->
+    <polygon points="243.0,280.0 263.0,280.0 263.0,285.0 243.0,285.0" fill="gray" stroke="black"/>
+  </g>
+  <g id="bedroom_3_bathroom_hall_bedroom_3">
+    <!--bedroom_3_bathroom_hall_bedroom_3-->
+    <polygon points="263.0,285.0 263.0,280.0 263.0,252.0 263.0,155.0 268.0,155.0 268.0,252.0 268.0,280.0 268.0,285.0" fill="gray" stroke="black"/>
+  </g>
+  <g id="bedroom_3_bathroom_hall_toilets_hall_hall_toilets_toilets_hall">
+    <!--bedroom_3_bathroom_hall_toilets_hall_hall_toilets_toilets_hall-->
+    <polygon points="263.0,285.0 263.0,280.0 263.0,252.0 263.0,247.0 263.0,155.0 263.0,150.0 263.0,65.0 268.0,65.0 268.0,150.0 268.0,155.0 268.0,247.0 268.0,252.0 268.0,280.0 268.0,285.0" fill="gray" stroke="black"/>
+  </g>
+  <g id="bedroom_3_bathroom_hall_toilets_hall_hall_toilets_bathroom_hall">
+    <!--bedroom_3_bathroom_hall_toilets_hall_hall_toilets_bathroom_hall-->
+    <polygon points="263.0,285.0 263.0,280.0 263.0,252.0 263.0,247.0 263.0,155.0 263.0,150.0 263.0,65.0 268.0,65.0 268.0,150.0 268.0,155.0 268.0,247.0 268.0,252.0 268.0,280.0 268.0,285.0" fill="gray" stroke="black"/>
+  </g>
+  <g id="kitchen_dining_room_hall2_dining_room_hall_dining_room_hall2">
+    <!--kitchen_dining_room_hall2_dining_room_hall_dining_room_hall2-->
+    <polygon points="603.0,635.0 603.0,252.0 603.0,247.0 603.0,65.0 608.0,65.0 608.0,247.0 608.0,252.0 608.0,635.0" fill="gray" stroke="black"/>
+  </g>
+  <g id="kitchen_dining_room_hall2_dining_room_hall_kitchen">
+    <!--kitchen_dining_room_hall2_dining_room_hall_kitchen-->
+    <polygon points="603.0,635.0 603.0,252.0 603.0,247.0 603.0,65.0 608.0,65.0 608.0,247.0 608.0,252.0 608.0,635.0" fill="gray" stroke="black"/>
+  </g>
+  <g id="kitchen_2_hall_6_kitchen_2">
+    <!--kitchen_2_hall_6_kitchen_2-->
+    <polygon points="603.0,252.0 515.0,252.0 413.0,252.0 413.0,247.0 515.0,247.0 603.0,247.0" fill="gray" stroke="black"/>
+  </g>
+  <g id="gas_line_0_bedroom_4_hall_2_bedroom_4">
+    <!--gas line_0_bedroom_4_hall_2_bedroom_4-->
+    <polygon points="263.0,247.0 268.0,247.0 348.0,247.0 353.0,247.0 385.0,247.0 408.0,247.0 408.0,252.0 385.0,252.0 353.0,252.0 348.0,252.0 268.0,252.0 263.0,252.0" fill="gray" stroke="black"/>
+  </g>
+  <g id="gas_line_0_bedroom_4_hall_2_gas_line_0">
+    <!--gas line_0_bedroom_4_hall_2_gas line_0-->
+    <polygon points="263.0,247.0 268.0,247.0 348.0,247.0 353.0,247.0 385.0,247.0 408.0,247.0 408.0,252.0 385.0,252.0 353.0,252.0 348.0,252.0 268.0,252.0 263.0,252.0" fill="gray" stroke="black"/>
+  </g>
+  <g id="gas_line_1_kitchen_3_gas_line_1">
+    <!--gas line_1_kitchen_3_gas line_1-->
+    <polygon points="413.0,252.0 413.0,307.0 413.0,312.0 408.0,312.0 408.0,307.0 408.0,252.0" fill="gray" stroke="black"/>
+  </g>
+  <g id="gas_line_2_kitchen_4_gas_line_2">
+    <!--gas line_2_kitchen_4_gas line_2-->
+    <polygon points="413.0,312.0 408.0,312.0 353.0,312.0 353.0,307.0 408.0,307.0 413.0,307.0" fill="gray" stroke="black"/>
+  </g>
+  <g id="gas_line_3_kitchen_5_bedroom_kitchen_kitchen_5">
+    <!--gas line_3_kitchen_5_bedroom_kitchen_kitchen_5-->
+    <polygon points="348.0,635.0 348.0,312.0 348.0,307.0 348.0,252.0 353.0,252.0 353.0,307.0 353.0,312.0 353.0,635.0" fill="gray" stroke="black"/>
+  </g>
+  <g id="gas_line_3_kitchen_5_bedroom_kitchen_gas_line_3">
+    <!--gas line_3_kitchen_5_bedroom_kitchen_gas line_3-->
+    <polygon points="348.0,635.0 348.0,312.0 348.0,307.0 348.0,252.0 353.0,252.0 353.0,307.0 353.0,312.0 353.0,635.0" fill="gray" stroke="black"/>
+  </g>
   <text x="495.5" y="700.0" text-anchor="middle">Total: 50.05950000000001 m²</text>
 </svg>
