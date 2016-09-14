@@ -25,6 +25,7 @@ require 'objects/wall_segment'
 require 'objects/wall_merger'
 require 'objects/room'
 require 'objects/wall'
+require 'objects/window'
 
 # main
 require 'run/ruby_data_loader'

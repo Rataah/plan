@@ -4,10 +4,12 @@ module Plan
     def initialize(id)
       super('g', id)
       @elements = []
+
+      yield self if block_given?
     end
 
-    def add(elements)
-      @elements.concat(elements)
+    def add(*elements)
+      @elements.concat(elements.flatten)
       self
     end
 

@@ -1,7 +1,9 @@
 store(RoomFactory.create('dining room', 0, 0) do
   wall(368, :right, width: 15)
   wall(570, :down, width: 15)
-  wall(368, :left, width: 15)
+  wall(368, :left, width: 15) do
+    window(60, 245)
+  end
   wall(570, :up, name: 'dining_room_hall')
 end)
 
@@ -51,7 +53,9 @@ store(RoomFactory.create('bedroom', anchor: WallPool['bathroom_bedroom'].b1) do
 end)
 
 store(RoomFactory.create('kitchen', anchor: WallPool['bedroom_kitchen'].b2) do
-  wall(250, :right, width: 15)
+  wall(250, :right, width: 15) do
+    window(118, 110)
+  end
   wall(383, :up, name: 'kitchen')
   wall(190, :left)
   wall(60, :down)

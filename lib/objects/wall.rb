@@ -10,7 +10,7 @@ module Plan
 
   # Represent a wall.
   class Wall < SVGArgument
-    attr_accessor :vertices_a, :vertices_b, :name, :angle, :length, :width
+    attr_accessor :vertices_a, :vertices_b, :name, :angle, :length, :width, :windows
 
     def vertex_a1
       @vertices_a.first
@@ -33,6 +33,7 @@ module Plan
       super
       @vertices_a = []
       @vertices_b = []
+      @windows = []
     end
 
     def ab1
@@ -78,7 +79,10 @@ module Plan
 
     def svg_elements
       Plan.log.debug("Draw SVG elements for Wall: #{@name}")
-      [SVGPolygon.new(vertices).fill('gray').stroke('black').comments(@name).merge!(self)]
+      SVGGroup.new(@name.to_id) do |group|
+        group.add SVGPolygon.new(vertices).fill('gray').stroke('black').comments(@name).merge!(self)
+        group.add @windows.map { |window| window.svg_elements(self) }
+      end
     end
 
     def aligned?(other)

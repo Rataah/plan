@@ -27,13 +27,13 @@ module Plan
 
     def svg_elements
       Plan.log.debug("Draw SVG elements for Room: #{@name}")
-      SVGGroup.new(@name.to_id).add([].tap do |elements|
-        elements << SVGPolygon.new(vertices.uniq).fill('beige').stroke('red')
-        elements << SVGText.new(@name.to_s, @center).css_class('room-name').anchor(:middle)
-        elements << SVGText.new("#{area} m²", @center.add(0, 20)).anchor(:middle)
+      SVGGroup.new(@name.to_id) do |group|
+        group.add SVGPolygon.new(vertices.uniq).fill('beige').stroke('red')
+        group.add SVGText.new(@name.to_s, @center).css_class('room-name').anchor(:middle)
+        group.add SVGText.new("#{area} m²", @center.add(0, 20)).anchor(:middle)
 
-        WallPool.walls(self).each { |wall_segment| elements.concat(wall_segment.svg_elements(@center)) }
-      end.flatten).comments(@name).css_class 'show_hover'
+        group.add WallPool.walls(self).map { |wall_segment| wall_segment.svg_elements(@center) }
+      end.comments(@name).css_class 'show_hover'
     end
   end
 end
