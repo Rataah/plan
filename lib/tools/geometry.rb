@@ -20,6 +20,6 @@ module Plan
 
   def self.angle_aligned?(first_angle, second_angle)
     first_angle % (2 * Math::PI) - second_angle % (2 * Math::PI) < 1E-6 ||
-      (first_angle + Math::PI) % (2 * Math::PI) - (second_angle) % (2 * Math::PI) < 1E-6
+      (first_angle + Math::PI) % (2 * Math::PI) - second_angle % (2 * Math::PI) < 1E-6
   end
 end
