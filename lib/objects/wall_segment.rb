@@ -54,18 +54,7 @@ module Plan
     end
 
     def svg_elements(ref_point)
-      segment_vertices = vertices
-      direction = Plan.position_against(ref_point, segment_vertices.first, segment_vertices.last)
-      offset_angle = @angle + (90.rad * -direction)
-
-      label_vertices = segment_vertices.map { |vertex| vertex.translate(offset_angle, @wall.width + 10) }
-      [
-        SVGLine.new(segment_vertices.first, label_vertices.first).stroke('black'),
-        SVGLine.new(segment_vertices.last, label_vertices.last).stroke('black'),
-        SVGLine.new(*label_vertices).stroke('black'),
-        SVGText.new("#{distance.to_i}cm", Plan.center(label_vertices)
-          .translate(offset_angle, 15)).rotate(offset_angle).css_class('dimension')
-      ]
+      SVGTools.dimensions("segment_#{object_id}", vertices, ref_point, @wall.width + 10)
     end
   end
 end

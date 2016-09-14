@@ -2,7 +2,7 @@ module Plan
   # Represent a group of SVG element
   class SVGGroup < SVGElement
     def initialize(id)
-      super('g', id)
+      super('g', id.to_s.to_id)
       @elements = []
     end
 
