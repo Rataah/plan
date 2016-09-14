@@ -4,7 +4,7 @@ module Plan
       {
         'test1' => 1,
         test2: 2,
-        test3: [1, 2, 3, { 'test5' =>  'value' }],
+        test3: [1, 2, 3, { 'test5' => 'value' }],
         test4: {
           'test6' => 1,
           test7: 2

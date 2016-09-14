@@ -1,5 +1,5 @@
 <pattern id="blueprint" x="0" y="0" width='100' height='100' patternUnits="userSpaceOnUse">
-  <rect width='100' height='100' fill='#d5e8f6'/>
+  <rect width='100' height='100' fill='#edf3f8'/>
   <g fill='#b9cfdf'>
     <rect width='100' height='1' y='20'/>
     <rect width='100' height='1' y='40'/>
