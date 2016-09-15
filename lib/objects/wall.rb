@@ -79,10 +79,10 @@ module Plan
 
     def svg_elements
       Plan.log.debug("Draw SVG elements for Wall: #{@name}")
-      SVGGroup.new(@name).add([].tap do |group|
-        group << SVGPolygon.new(vertices).fill('gray').stroke('black')
+      SVGGroup.new("wall_#{@name}").add([].tap do |group|
+        group << SVGPolygon.new(vertices).css_class('wall')
         group << @windows.map { |window| window.svg_elements(self) }
-        # group << SVGTools.dimensions("#{@name}-dimension", @vertices_b, @vertices_a.first, @width + 10)
+        group << SVGTools.dimensions("#{@name}-dimension", @vertices_b, @vertices_a.first, @width + 10)
       end).comments(@name).merge!(self)
     end
 

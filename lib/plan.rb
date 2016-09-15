@@ -12,13 +12,14 @@ require 'tools/logger'
 
 # svg
 require 'svg/svg'
-# require 'svg/svg_tools'
+require 'svg/svg_tools'
 require 'svg/elements/svg_arguments'
 require 'svg/elements/svg_element'
 require 'svg/elements/svg_group'
 require 'svg/elements/svg_line'
 require 'svg/elements/svg_text'
 require 'svg/elements/svg_polygon'
+require 'svg/elements/svg_path'
 
 # elements
 require 'objects/factories/room_factory'
