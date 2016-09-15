@@ -17,3 +17,13 @@ svg {
 .dimension {
     font-weight: bold;
 }
+
+.wall {
+    fill: grey;
+    stroke: darkgrey;
+}
+
+.window {
+    fill: none;
+    stroke: darkgrey;
+}

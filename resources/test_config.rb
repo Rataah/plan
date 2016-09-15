@@ -54,7 +54,7 @@ end)
 
 store(RoomFactory.create('kitchen', anchor: WallPool['bedroom_kitchen'].b2) do
   wall(250, :right, width: 15) do
-    window(118, 110)
+    window(118, 110).wing(110)
   end
   wall(383, :up, name: 'kitchen')
   wall(190, :left)

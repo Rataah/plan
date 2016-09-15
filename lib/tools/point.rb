@@ -68,6 +68,10 @@ module Plan
       "#{@x}:#{@y}"
     end
 
+    def to_svg
+      %(#{@x},#{@y})
+    end
+
     def hash
       xy.hash
     end
