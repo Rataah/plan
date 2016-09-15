@@ -79,10 +79,11 @@ module Plan
 
     def svg_elements
       Plan.log.debug("Draw SVG elements for Wall: #{@name}")
-      SVGGroup.new(@name.to_id) do |group|
-        group.add SVGPolygon.new(vertices).fill('gray').stroke('black').comments(@name).merge!(self)
-        group.add @windows.map { |window| window.svg_elements(self) }
-      end
+      SVGGroup.new(@name).add([].tap do |group|
+        group << SVGPolygon.new(vertices).fill('gray').stroke('black')
+        group << @windows.map { |window| window.svg_elements(self) }
+        # group << SVGTools.dimensions("#{@name}-dimension", @vertices_b, @vertices_a.first, @width + 10)
+      end).comments(@name).merge!(self)
     end
 
     def aligned?(other)

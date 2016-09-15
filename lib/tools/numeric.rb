@@ -5,6 +5,6 @@ class Numeric
   end
 
   def deg
-    self / Math::PI * 180.0
+    (self / Math::PI * 180.0) % 360.0
   end
 end

@@ -3,5 +3,9 @@ Metrics/LineLength:
 Metrics/MethodLength:
   CountComments: false  # count full line comments?
   Max: 20
+Metrics/ModuleLength:
+  Max: 150 # spec fils
 Metrics/AbcSize:
   Enabled: false
+Documentation:
+    Enabled: false
