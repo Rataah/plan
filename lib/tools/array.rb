@@ -5,6 +5,8 @@ class Array
   end
 
   def deep_dup
-    map(&:dup)
+    map do |element|
+      element.respond_to?(:dup) && !element.is_a?(Numeric) ? element.dup : element
+    end
   end
 end

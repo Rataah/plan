@@ -11,6 +11,10 @@ module Plan
       @defs = []
     end
 
+    def use_pattern(pattern_name)
+      (@patterns ||= []) << pattern_name
+    end
+
     def load_pattern(pattern_name)
       Nokogiri::XML::DocumentFragment.parse(File.read("./resources/patterns/#{pattern_name}.xml")).to_xml
     end
@@ -25,10 +29,8 @@ module Plan
           xml.style(css, type: 'text/css')
 
           xml.defs do |defs|
-            defs << load_pattern('tiles')
-            defs << load_pattern('blueprint')
-            defs << load_pattern('carbon')
-          end
+            @patterns.each { |pattern_name| defs << load_pattern(pattern_name) }
+          end unless @patterns.nil?
 
           @contents.each do |content|
             content.xml_element(xml)

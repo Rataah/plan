@@ -4,6 +4,7 @@ require 'logger'
 # tools
 require 'tools/tools'
 require 'tools/point'
+require 'tools/geometry'
 require 'tools/array'
 require 'tools/string'
 require 'tools/numeric'
@@ -11,6 +12,7 @@ require 'tools/logger'
 
 # svg
 require 'svg/svg'
+# require 'svg/svg_tools'
 require 'svg/elements/svg_arguments'
 require 'svg/elements/svg_element'
 require 'svg/elements/svg_group'
