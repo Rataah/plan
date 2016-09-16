@@ -27,3 +27,10 @@ svg {
     fill: none;
     stroke: darkgrey;
 }
+
+.window path {
+    opacity: 0.0;
+}
+.window:hover path {
+    opacity:  1.0
+}
