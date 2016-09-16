@@ -1,6 +1,6 @@
 module Plan
   class Window
-    Wing = Struct.new(:origin, :length, :reverse)
+    Wing = Struct.new(:origin, :length, :angle, :reverse, :side)
 
     attr_accessor :origin, :length
 
@@ -11,9 +11,15 @@ module Plan
       @wings = []
     end
 
-    def wing(length, reverse = false, origin = nil)
-      origin ||= @wings.any? ? @wings.last.origin : @origin
-      @wings << Wing.new(origin, length, reverse)
+    def wing(length, reverse: false, origin: nil, angle: Math::PI / 2.0, outside: false)
+
+      origin ||= @wings.any? ? @wings.last.origin + @wings.last.length : 0
+
+      origin += length if reverse
+      reverse = reverse ? -1.0 : 1.0
+
+      @wings << Wing.new(origin, length * reverse, angle * reverse, reverse, outside)
+      self
     end
 
     def svg_elements(wall)
@@ -27,16 +33,18 @@ module Plan
       SVGGroup.new("window_#{object_id}").add([].tap do |group|
         group << SVGPolygon.new([window_a1, window_b1, window_b2, window_a2]).fill('white').stroke('black')
         group << SVGLine.new(window_center, window_center.translate(wall.angle, @length)).stroke('black')
-        group.push(@wings.map{ |wing| wing_svg_element(wall, wing, window_a1) })
+        group.push(@wings.map { |wing| wing_svg_element(wall.angle, wing, window_center) })
       end).css_class('window')
     end
 
-    def wing_svg_element(wall, wing, window_a1)
-      angle = wing.reverse ? -wall.angle : wall.angle
-      wing_origin = window_a1.translate(angle, wing.origin)
+    def wing_svg_element(angle, wing, window_anchor)
+      angle *= wing.reverse
+      wing_origin = window_anchor.translate(angle, wing.origin)
+      wing_angle = angle.rotate_rad(wing.angle)
+
       SVGPath.new(wing_origin).line_to(wing_origin.translate(angle, wing.length)).arc(
-                   Point.new(wing.length, wing.length),
-                   wing_origin.translate(-angle.rotate_rad, wing.length)
+        Point.new(wing.length.abs, wing.length.abs),
+        wing_origin.translate(wing_angle, wing.length), 0, wing.reverse.positive? ? 1 : 0
       ).close_path
     end
   end
