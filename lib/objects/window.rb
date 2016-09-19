@@ -12,7 +12,6 @@ module Plan
     end
 
     def wing(length, reverse: false, origin: nil, angle: Math::PI / 2.0, outside: false)
-
       origin ||= @wings.any? ? @wings.last.origin + @wings.last.length : 0
 
       origin += length if reverse
