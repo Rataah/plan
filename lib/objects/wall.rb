@@ -59,9 +59,9 @@ module Plan
       @vertices_b.any?
     end
 
-    def apply_width(ref_point)
+    def apply_width(vertices)
       return if initialized?
-      direction = @angle + (-90.0 * Plan.position_against(ref_point, vertex_a1, vertex_a2)).rad
+      direction = Plan.normal_angle(vertices, vertex_a1, vertex_a2, @angle)
       @vertices_b << vertex_a1.translate(direction, @width).round(2)
       @vertices_b << vertex_a2.translate(direction, @width).round(2)
     end
@@ -82,7 +82,6 @@ module Plan
       SVGGroup.new("wall_#{@name}").add([].tap do |group|
         group << SVGPolygon.new(vertices).css_class('wall')
         group << @windows.map { |window| window.svg_elements(self) }
-        group << SVGTools.dimensions("#{@name}-dimension", @vertices_b, @vertices_a.first, @width + 10)
       end).comments(@name).merge!(self)
     end
 

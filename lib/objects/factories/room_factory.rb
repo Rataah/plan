@@ -11,7 +11,7 @@ module Plan
 
         vertices = WallPool.walls(@room).map(&:vertices).flatten.uniq
         @room.center = Plan.center(vertices)
-        WallPool.walls(@room).map { |wall_link| wall_link.apply_width(@room.center) }
+        WallPool.walls(@room).map { |wall_link| wall_link.apply_width(@room.vertices) }
         @room
       end
     end

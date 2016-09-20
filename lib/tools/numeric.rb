@@ -8,6 +8,10 @@ class Numeric
     (self * Math::PI / 180.0) % (2 * Math::PI)
   end
 
+  def rad_modulo
+    self % (2 * Math::PI)
+  end
+
   def deg
     (self / Math::PI * 180.0) % 360.0
   end
