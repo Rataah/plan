@@ -42,11 +42,11 @@ store(RoomFactory.create('bathroom', anchor: WallPool['toilets_bathroom'].b1) do
 end)
 
 store(RoomFactory.create('bedroom', anchor: WallPool['bathroom_bedroom'].b1) do
-  wall(178, :right, name: 'bathroom_bedroom2')
+  wall(183, :right, name: 'bathroom_bedroom2')
   wall(69, :up)
   wall(20, :right)
   wall(33, :up)
-  wall(85, :right)
+  wall(80, :right)
   wall(383, :down, name: 'bedroom_kitchen')
   wall(283, :left, width: 15)
   wall(281, :up, width: 15)

@@ -3,6 +3,8 @@ module Plan
   class WallMerger
     def merge_walls
       WallPool.all.each do |wall|
+        next unless WallPool.contains? wall.name
+
         Plan.log.debug("Check #{wall.name}...")
         WallPool.without(wall).each do |other|
           # check if the 2 walls have to be merged
@@ -61,11 +63,17 @@ module Plan
 
     def rebuild_segments(merged_wall, wall, other, sorted_points)
       (WallPool.rooms(wall) + WallPool.rooms(other)).each do |room|
-        side = Plan.position_against(room.center, sorted_points.first, sorted_points.last) == 1 ? :b : :a
-
+        room_vertices = room.vertices.uniq
         [WallPool.segment(room, wall), WallPool.segment(room, other)].compact.each do |wall_segment|
           start_vertex = sorted_points.index { |point| point == wall_segment.centers.first }
           end_vertex = sorted_points.index { |point| point == wall_segment.centers.last }
+
+          side_angle = Plan.normal_angle(
+            [merged_wall.a1, merged_wall.a2, merged_wall.b2, merged_wall.b1],
+            merged_wall.vertices_a[start_vertex], merged_wall.vertices_a[end_vertex], merged_wall.angle
+          )
+          side_a = Plan.center [merged_wall.vertices_a[start_vertex], merged_wall.vertices_a[end_vertex]]
+          side = Plan.point_in_polygon?(side_a.translate(side_angle, merged_wall.width / 2.0), room_vertices) ? :a : :b
 
           new_segment = WallSegment.new(
             merged_wall,
