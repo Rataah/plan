@@ -29,6 +29,7 @@ require 'objects/wall_merger'
 require 'objects/room'
 require 'objects/wall'
 require 'objects/window'
+require 'objects/door'
 
 # main
 require 'run/ruby_data_loader'

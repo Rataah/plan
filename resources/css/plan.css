@@ -9,6 +9,9 @@ svg {
     opacity: 1.0;
 }
 
+.room-floor {
+    fill: rgba(245, 245, 220, 0.72);
+}
 .room-name {
     font-weight: bold;
     text-decoration: underline;
@@ -19,18 +22,28 @@ svg {
 }
 
 .wall {
-    fill: grey;
-    stroke: darkgrey;
+    fill: darkgrey;
+    stroke: black;
 }
 
 .window {
     fill: none;
-    stroke: darkgrey;
+    stroke: blue;
 }
-
 .window path {
-    opacity: 0.0;
+    opacity: 0.3;
 }
 .window:hover path {
+    opacity:  1.0
+}
+
+.door {
+    fill: none;
+    stroke: maroon;
+}
+.door path {
+    opacity: 0.3;
+}
+.door:hover path {
     opacity:  1.0
 }

@@ -25,6 +25,7 @@ module Plan
 
           rebuild_segments(merged_wall, wall, other, sorted_points)
           WallPool.delete(wall.name, other.name)
+          break
         end
       end
     end
@@ -48,6 +49,30 @@ module Plan
         sorted_points.each do |point|
           add_vertices(new_wall, sorted_points, *indexed_points[point].first.vertices.first_and_last.deep_dup)
         end
+
+        add_windows_doors(new_wall, wall, other)
+      end
+    end
+
+    def add_windows_doors(new_wall, wall, other)
+      wall.windows.each do |window|
+        window.origin += wall.ab1.dist new_wall.ab1
+        new_wall.windows << window
+      end
+
+      other.windows.each do |window|
+        window.origin += other.ab1.dist new_wall.ab1
+        new_wall.windows << window
+      end
+
+      wall.doors.each do |door|
+        door.origin += wall.ab1.dist new_wall.ab1
+        new_wall.doors << door
+      end
+
+      other.doors.each do |door|
+        door.origin += other.ab1.dist new_wall.ab1
+        new_wall.doors << door
       end
     end
 
