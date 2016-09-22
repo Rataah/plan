@@ -7,5 +7,7 @@ Metrics/ModuleLength:
   Max: 150 # spec fils
 Metrics/AbcSize:
   Enabled: false
+Metrics/ParameterLists:
+  Max: 6
 Documentation:
-    Enabled: false
+  Enabled: false
