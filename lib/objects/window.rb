@@ -16,8 +16,9 @@ module Plan
 
       origin += length if reverse
       reverse = reverse ? -1.0 : 1.0
+      side = outside ? -1.0 : 1.0
 
-      @wings << Wing.new(origin, length * reverse, angle * reverse, reverse, outside)
+      @wings << Wing.new(origin, length * reverse, angle * reverse, reverse, side)
       self
     end
 
@@ -39,11 +40,16 @@ module Plan
     def wing_svg_element(angle, wing, window_anchor)
       angle *= wing.reverse
       wing_origin = window_anchor.translate(angle, wing.origin)
-      wing_angle = angle.rotate_rad(wing.angle)
+      wing_angle = angle.rotate_rad(wing.angle * wing.side)
+      sweep_flag = if wing.reverse.positive?
+                     1
+                   else
+                     wing.side.positive? ? 0 : 1
+                   end
 
       SVGPath.new(wing_origin).line_to(wing_origin.translate(angle, wing.length)).arc(
         Point.new(wing.length.abs, wing.length.abs),
-        wing_origin.translate(wing_angle, wing.length), 0, wing.reverse.positive? ? 1 : 0
+        wing_origin.translate(wing_angle, wing.length), 0, sweep_flag
       ).close_path
     end
   end
