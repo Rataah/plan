@@ -24,5 +24,10 @@ module Plan
       @wall.windows << Window.new(origin, length)
       @wall.windows.last
     end
+
+    def door(origin, length)
+      @wall.doors << Door.new(origin, length)
+      @wall.doors.last
+    end
   end
 end

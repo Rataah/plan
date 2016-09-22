@@ -10,7 +10,7 @@ module Plan
 
   # Represent a wall.
   class Wall < SVGArgument
-    attr_accessor :vertices_a, :vertices_b, :name, :angle, :length, :width, :windows
+    attr_accessor :vertices_a, :vertices_b, :name, :angle, :length, :width, :windows, :doors
 
     def vertex_a1
       @vertices_a.first
@@ -34,6 +34,7 @@ module Plan
       @vertices_a = []
       @vertices_b = []
       @windows = []
+      @doors = []
     end
 
     def ab1
@@ -82,6 +83,7 @@ module Plan
       SVGGroup.new("wall_#{@name}").add([].tap do |group|
         group << SVGPolygon.new(vertices).css_class('wall')
         group << @windows.map { |window| window.svg_elements(self) }
+        group << @doors.map { |door| door.svg_elements(self) }
       end).comments(@name).merge!(self)
     end
 
