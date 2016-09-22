@@ -12,16 +12,22 @@ module Plan
           wall.angle = (angle.is_a?(Symbol) ? ANGLE_SHORTCUTS[angle] : angle).rad
           wall.length = length
 
-        # compute the points
-        wall.vertices_a = [origin.dup.round(2), origin.translate(wall.angle, wall.length).round(2)]
+          # compute the points
+          wall.vertices_a = [origin.dup.round(2), origin.translate(wall.angle, wall.length).round(2)]
         end
-        instance_eval &block if block_given?
+        instance_eval(&block) if block_given?
         @wall
       end
     end
 
     def window(origin, length)
       @wall.windows << Window.new(origin, length)
+      @wall.windows.last
+    end
+
+    def door(origin, length)
+      @wall.doors << Door.new(origin, length)
+      @wall.doors.last
     end
   end
 end

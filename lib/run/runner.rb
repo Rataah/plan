@@ -32,7 +32,7 @@ module Plan
       svg = SVG.new
       svg_elements(rooms).each { |svg_element| svg.contents << svg_element }
       svg.contents << SVGText.new(
-        "Total: #{rooms.map(&:area).reduce(0, :+)} m²",
+        "Total: #{rooms.map(&:area).reduce(0, :+).round(2)} m²",
         Point.new(max_vertex.x / 2, max_vertex.y + 50)
       ).anchor(:middle)
 
