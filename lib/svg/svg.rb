@@ -39,6 +39,7 @@ module Plan
       end
       validate(svg.doc)
       output.write(svg.to_xml.gsub(%(<?xml version="1.0"?>), %(<?xml version="1.0" standalone="no"?>)))
+      Plan.log.info("File size: #{File.size(output.path).to_file_size}")
     end
 
     def validate(doc)

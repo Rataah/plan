@@ -1,5 +1,5 @@
 module Plan
-  class Window
+  class Door
     Leave = Struct.new(:origin, :length, :angle, :reverse, :side)
 
     attr_accessor :origin, :length
@@ -18,18 +18,17 @@ module Plan
     end
 
     def svg_elements(wall)
-      Plan.log.debug("Draw SVG elements for Window of wall: #{wall.name}")
+      Plan.log.debug("Draw SVG elements for Door of wall: #{wall.name}")
       window_a1 = wall.vertex_a1.translate(wall.angle, @origin)
       window_b1 = wall.vertex_b1.translate(wall.angle, @origin)
       window_a2 = window_a1.translate(wall.angle, @length)
       window_b2 = window_b1.translate(wall.angle, @length)
 
       window_center = wall.ab1.translate(wall.angle, @origin)
-      SVGGroup.new("window_#{object_id}").add([].tap do |group|
+      SVGGroup.new("door_#{object_id}").add([].tap do |group|
         group.push(@leaves.map { |leave| leave_svg_element(wall.angle, leave, window_center) })
         group << SVGPolygon.new([window_a1, window_b1, window_b2, window_a2])
-        group << SVGLine.new(window_center, window_center.translate(wall.angle, @length))
-      end).css_class('window')
+      end).css_class('door')
     end
 
     def leave_svg_element(angle, leave, window_anchor)

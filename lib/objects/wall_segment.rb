@@ -49,12 +49,12 @@ module Plan
       segment.first.dist segment.last
     end
 
-    def apply_width(ref_point)
-      @wall.apply_width(ref_point)
+    def apply_width(vertices)
+      @wall.apply_width(vertices)
     end
 
-    def svg_elements(ref_point)
-      [] #SVGTools.dimensions("segment_#{object_id}", vertices, ref_point, @wall.width + 10)
+    def svg_elements
+      SVGTools.dimensions("segment_#{object_id}", vertices, @wall.vertices, @wall.angle, @wall.width + 10)
     end
   end
 end

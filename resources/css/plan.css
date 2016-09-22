@@ -9,11 +9,41 @@ svg {
     opacity: 1.0;
 }
 
+.room-floor {
+    fill: rgba(245, 245, 220, 0.72);
+}
 .room-name {
     font-weight: bold;
     text-decoration: underline;
 }
 
 .dimension {
-    font-weight: bold;
+    font-weight: lighter;
+}
+
+.wall {
+    fill: darkgrey;
+    stroke: black;
+}
+
+.window {
+    fill: none;
+    stroke: blue;
+}
+.window path {
+    opacity: 0.3;
+}
+.window:hover path {
+    opacity:  1.0
+}
+
+.door {
+    fill: none;
+    stroke: maroon;
+}
+.door path {
+    opacity: 0.3;
+}
+.door:hover path {
+    opacity:  1.0
 }

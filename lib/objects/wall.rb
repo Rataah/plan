@@ -10,7 +10,7 @@ module Plan
 
   # Represent a wall.
   class Wall < SVGArgument
-    attr_accessor :vertices_a, :vertices_b, :name, :angle, :length, :width, :windows
+    attr_accessor :vertices_a, :vertices_b, :name, :angle, :length, :width, :windows, :doors
 
     def vertex_a1
       @vertices_a.first
@@ -34,6 +34,7 @@ module Plan
       @vertices_a = []
       @vertices_b = []
       @windows = []
+      @doors = []
     end
 
     def ab1
@@ -59,9 +60,9 @@ module Plan
       @vertices_b.any?
     end
 
-    def apply_width(ref_point)
+    def apply_width(vertices)
       return if initialized?
-      direction = @angle + (-90.0 * Plan.position_against(ref_point, vertex_a1, vertex_a2)).rad
+      direction = Plan.normal_angle(vertices, vertex_a1, vertex_a2, @angle)
       @vertices_b << vertex_a1.translate(direction, @width).round(2)
       @vertices_b << vertex_a2.translate(direction, @width).round(2)
     end
@@ -79,10 +80,10 @@ module Plan
 
     def svg_elements
       Plan.log.debug("Draw SVG elements for Wall: #{@name}")
-      SVGGroup.new(@name).add([].tap do |group|
-        group << SVGPolygon.new(vertices).fill('gray').stroke('black')
+      SVGGroup.new("wall_#{@name}").add([].tap do |group|
+        group << SVGPolygon.new(vertices).css_class('wall')
         group << @windows.map { |window| window.svg_elements(self) }
-        # group << SVGTools.dimensions("#{@name}-dimension", @vertices_b, @vertices_a.first, @width + 10)
+        group << @doors.map { |door| door.svg_elements(self) }
       end).comments(@name).merge!(self)
     end
 
