@@ -9,6 +9,7 @@ require 'tools/array'
 require 'tools/string'
 require 'tools/numeric'
 require 'tools/logger'
+require 'tools/hash'
 
 # svg
 require 'svg/svg'
@@ -32,7 +33,10 @@ require 'objects/window'
 require 'objects/door'
 
 # main
-require 'run/ruby_data_loader'
-require 'run/yaml_data_loader'
+require 'run/ruby_parser/ruby_data_loader'
+require 'run/ruby_parser/ruby_to_yaml_loader'
 require 'run/runner'
 require 'run/wall_pool'
+require 'run/yaml_parser/yaml_data_loader'
+require 'run/yaml_parser/yaml_room_factory'
+require 'run/yaml_parser/yaml_wall_factory'

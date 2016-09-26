@@ -16,6 +16,10 @@ module Plan
           @options.output_file = output_file
         end
 
+        opts.on('--ruby-to-yaml FILE', 'Translate Ruby blueprint to this YAML file') do |to_yaml_file|
+          @options.ruby_to_yaml = to_yaml_file
+        end
+
         opts.on('-h', '--help', 'Display this screen') do
           puts opts
           exit
@@ -25,6 +29,7 @@ module Plan
 
     def run
       rooms = eval_configuration_file
+
       WallMerger.new.merge_walls
 
       max_vertex = translate_elements(rooms)
@@ -47,7 +52,12 @@ module Plan
       when '.yml', '.yaml'
         YamlDataLoader.load_data_from_file(@options.configuration_file)
       else
-        RubyDataLoader.load_data_from_file(@options.configuration_file)
+        if @options.ruby_to_yaml
+          RubyToYamlLoader.load_data_from_file(@options.configuration_file, @options.ruby_to_yaml)
+          exit
+        else
+          RubyDataLoader.load_data_from_file(@options.configuration_file)
+        end
       end
     end
 

@@ -23,7 +23,7 @@ svg {
 
 .wall {
     fill: darkgrey;
-    stroke: black;
+    stroke: #4f4f4f;
 }
 
 .window {
@@ -38,7 +38,7 @@ svg {
 }
 
 .door {
-    fill: none;
+    fill: white;
     stroke: maroon;
 }
 .door path {

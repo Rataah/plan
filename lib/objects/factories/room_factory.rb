@@ -7,7 +7,8 @@ module Plan
       RoomFactory.new.instance_eval do
         @room = Room.new(name, anchor.dup)
         @last_point = @room.origin
-        instance_eval(&block)
+
+        instance_exec(@room, &block)
 
         vertices = WallPool.walls(@room).map(&:vertices).flatten.uniq
         @room.center = Plan.center(vertices)

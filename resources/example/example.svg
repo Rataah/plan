@@ -26,7 +26,7 @@
 
 .wall {
     fill: darkgrey;
-    stroke: black;
+    stroke: #4f4f4f;
 }
 
 .window {
@@ -41,7 +41,7 @@
 }
 
 .door {
-    fill: none;
+    fill: white;
     stroke: maroon;
 }
 .door path {
@@ -56,25 +56,25 @@
     <polygon points="608.0,65.0 976.0,65.0 976.0,65.0 976.0,635.0 976.0,635.0 608.0,635.0 608.0,635.0 608.0,65.0" class="room-floor"/>
     <text x="792.0" y="350.0" class="room-name" text-anchor="middle">dining room</text>
     <text x="792.0" y="370.0" text-anchor="middle">20.98 m²</text>
-    <g id="segment_29621360">
+    <g id="segment_27755660">
       <line x1="608.0" y1="65.0" x2="608.0" y2="40.0" stroke="black"/>
       <line x1="976.0" y1="65.0" x2="976.0" y2="40.0" stroke="black"/>
       <line x1="608.0" y1="40.0" x2="976.0" y2="40.0" stroke="black"/>
       <text x="792.0" y="25.0" text-anchor="middle" transform="rotate(0.0 792.0, 25.0)" class="dimension">368cm</text>
     </g>
-    <g id="segment_29620820">
+    <g id="segment_27755120">
       <line x1="976.0" y1="65.0" x2="1001.0" y2="65.0" stroke="black"/>
       <line x1="976.0" y1="635.0" x2="1001.0" y2="635.0" stroke="black"/>
       <line x1="1001.0" y1="65.0" x2="1001.0" y2="635.0" stroke="black"/>
       <text x="1016.0" y="350.0" text-anchor="middle" transform="rotate(90.0 1016.0, 350.0)" class="dimension">570cm</text>
     </g>
-    <g id="segment_29620140">
+    <g id="segment_24133480">
       <line x1="976.0" y1="635.0" x2="976.0" y2="660.0" stroke="black"/>
       <line x1="608.0" y1="635.0" x2="608.0" y2="660.0" stroke="black"/>
       <line x1="976.0" y1="660.0" x2="608.0" y2="660.0" stroke="black"/>
       <text x="792.0" y="675.0" text-anchor="middle" transform="rotate(0.0 792.0, 675.0)" class="dimension">368cm</text>
     </g>
-    <g id="segment_29725540">
+    <g id="segment_27874080">
       <line x1="608.0" y1="635.0" x2="593.0" y2="635.0" stroke="black"/>
       <line x1="608.0" y1="65.0" x2="593.0" y2="65.0" stroke="black"/>
       <line x1="593.0" y1="635.0" x2="593.0" y2="65.0" stroke="black"/>
@@ -86,49 +86,49 @@
     <polygon points="603.0,65.0 268.0,65.0 268.0,65.0 268.0,247.0 268.0,247.0 385.0,247.0 385.0,247.0 385.0,183.0 385.0,183.0 515.0,183.0 515.0,183.0 515.0,247.0 515.0,247.0 603.0,247.0 603.0,247.0 603.0,65.0" class="room-floor"/>
     <text x="435.5" y="156.0" class="room-name" text-anchor="middle">hall</text>
     <text x="435.5" y="176.0" text-anchor="middle">5.27 m²</text>
-    <g id="segment_29635460">
+    <g id="segment_27771120">
       <line x1="603.0" y1="65.0" x2="603.0" y2="40.0" stroke="black"/>
       <line x1="268.0" y1="65.0" x2="268.0" y2="40.0" stroke="black"/>
       <line x1="603.0" y1="40.0" x2="268.0" y2="40.0" stroke="black"/>
       <text x="435.5" y="25.0" text-anchor="middle" transform="rotate(0.0 435.5, 25.0)" class="dimension">335cm</text>
     </g>
-    <g id="segment_28903420">
+    <g id="segment_27004720">
       <line x1="268.0" y1="65.0" x2="253.0" y2="65.0" stroke="black"/>
       <line x1="268.0" y1="247.0" x2="253.0" y2="247.0" stroke="black"/>
       <line x1="253.0" y1="65.0" x2="253.0" y2="247.0" stroke="black"/>
       <text x="238.0" y="156.0" text-anchor="middle" transform="rotate(90.0 238.0, 156.0)" class="dimension">182cm</text>
     </g>
-    <g id="segment_28889080">
+    <g id="segment_27061620">
       <line x1="268.0" y1="247.0" x2="268.0" y2="262.0" stroke="black"/>
       <line x1="385.0" y1="247.0" x2="385.0" y2="262.0" stroke="black"/>
       <line x1="268.0" y1="262.0" x2="385.0" y2="262.0" stroke="black"/>
       <text x="326.5" y="277.0" text-anchor="middle" transform="rotate(0.0 326.5, 277.0)" class="dimension">117cm</text>
     </g>
-    <g id="segment_29633860">
+    <g id="segment_24109920">
       <line x1="385.0" y1="247.0" x2="400.0" y2="247.0" stroke="black"/>
       <line x1="385.0" y1="183.0" x2="400.0" y2="183.0" stroke="black"/>
       <line x1="400.0" y1="247.0" x2="400.0" y2="183.0" stroke="black"/>
       <text x="415.0" y="215.0" text-anchor="middle" transform="rotate(90.0 415.0, 215.0)" class="dimension">64cm</text>
     </g>
-    <g id="segment_29633320">
+    <g id="segment_27795000">
       <line x1="385.0" y1="183.0" x2="385.0" y2="198.0" stroke="black"/>
       <line x1="515.0" y1="183.0" x2="515.0" y2="198.0" stroke="black"/>
       <line x1="385.0" y1="198.0" x2="515.0" y2="198.0" stroke="black"/>
       <text x="450.0" y="213.0" text-anchor="middle" transform="rotate(0.0 450.0, 213.0)" class="dimension">130cm</text>
     </g>
-    <g id="segment_29632780">
+    <g id="segment_27794460">
       <line x1="515.0" y1="183.0" x2="500.0" y2="183.0" stroke="black"/>
       <line x1="515.0" y1="247.0" x2="500.0" y2="247.0" stroke="black"/>
       <line x1="500.0" y1="183.0" x2="500.0" y2="247.0" stroke="black"/>
       <text x="485.0" y="215.0" text-anchor="middle" transform="rotate(90.0 485.0, 215.0)" class="dimension">64cm</text>
     </g>
-    <g id="segment_21638060">
+    <g id="segment_19740220">
       <line x1="515.0" y1="247.0" x2="515.0" y2="262.0" stroke="black"/>
       <line x1="603.0" y1="247.0" x2="603.0" y2="262.0" stroke="black"/>
       <line x1="515.0" y1="262.0" x2="603.0" y2="262.0" stroke="black"/>
       <text x="559.0" y="277.0" text-anchor="middle" transform="rotate(0.0 559.0, 277.0)" class="dimension">88cm</text>
     </g>
-    <g id="segment_29694720">
+    <g id="segment_27843700">
       <line x1="603.0" y1="247.0" x2="618.0" y2="247.0" stroke="black"/>
       <line x1="603.0" y1="65.0" x2="618.0" y2="65.0" stroke="black"/>
       <line x1="618.0" y1="247.0" x2="618.0" y2="65.0" stroke="black"/>
@@ -140,25 +140,25 @@
     <polygon points="263.0,65.0 263.0,150.0 263.0,150.0 119.0,150.0 119.0,150.0 119.0,65.0 119.0,65.0 263.0,65.0" class="room-floor"/>
     <text x="191.0" y="107.5" class="room-name" text-anchor="middle">toilets</text>
     <text x="191.0" y="127.5" text-anchor="middle">1.22 m²</text>
-    <g id="segment_28888300">
+    <g id="segment_26990320">
       <line x1="263.0" y1="65.0" x2="278.0" y2="65.0" stroke="black"/>
       <line x1="263.0" y1="150.0" x2="278.0" y2="150.0" stroke="black"/>
       <line x1="278.0" y1="65.0" x2="278.0" y2="150.0" stroke="black"/>
       <text x="293.0" y="107.5" text-anchor="middle" transform="rotate(90.0 293.0, 107.5)" class="dimension">85cm</text>
     </g>
-    <g id="segment_29516020">
+    <g id="segment_27639240">
       <line x1="263.0" y1="150.0" x2="263.0" y2="165.0" stroke="black"/>
       <line x1="119.0" y1="150.0" x2="119.0" y2="165.0" stroke="black"/>
       <line x1="263.0" y1="165.0" x2="119.0" y2="165.0" stroke="black"/>
       <text x="191.0" y="180.0" text-anchor="middle" transform="rotate(0.0 191.0, 180.0)" class="dimension">144cm</text>
     </g>
-    <g id="segment_30052680">
+    <g id="segment_28088140">
       <line x1="119.0" y1="150.0" x2="104.0" y2="150.0" stroke="black"/>
       <line x1="119.0" y1="65.0" x2="104.0" y2="65.0" stroke="black"/>
       <line x1="104.0" y1="150.0" x2="104.0" y2="65.0" stroke="black"/>
       <text x="89.0" y="107.5" text-anchor="middle" transform="rotate(90.0 89.0, 107.5)" class="dimension">85cm</text>
     </g>
-    <g id="segment_29705540">
+    <g id="segment_27860440">
       <line x1="119.0" y1="65.0" x2="119.0" y2="40.0" stroke="black"/>
       <line x1="263.0" y1="65.0" x2="263.0" y2="40.0" stroke="black"/>
       <line x1="119.0" y1="40.0" x2="263.0" y2="40.0" stroke="black"/>
@@ -170,25 +170,25 @@
     <polygon points="114.0,65.0 114.0,150.0 114.0,150.0 65.0,150.0 65.0,150.0 65.0,65.0 65.0,65.0 114.0,65.0" class="room-floor"/>
     <text x="89.5" y="107.5" class="room-name" text-anchor="middle">CMV</text>
     <text x="89.5" y="127.5" text-anchor="middle">0.42 m²</text>
-    <g id="segment_29955640">
+    <g id="segment_28072940">
       <line x1="114.0" y1="65.0" x2="129.0" y2="65.0" stroke="black"/>
       <line x1="114.0" y1="150.0" x2="129.0" y2="150.0" stroke="black"/>
       <line x1="129.0" y1="65.0" x2="129.0" y2="150.0" stroke="black"/>
       <text x="144.0" y="107.5" text-anchor="middle" transform="rotate(90.0 144.0, 107.5)" class="dimension">85cm</text>
     </g>
-    <g id="segment_29522780">
+    <g id="segment_27654720">
       <line x1="114.0" y1="150.0" x2="114.0" y2="165.0" stroke="black"/>
       <line x1="65.0" y1="150.0" x2="65.0" y2="165.0" stroke="black"/>
       <line x1="114.0" y1="165.0" x2="65.0" y2="165.0" stroke="black"/>
       <text x="89.5" y="180.0" text-anchor="middle" transform="rotate(0.0 89.5, 180.0)" class="dimension">49cm</text>
     </g>
-    <g id="segment_29744240">
+    <g id="segment_27873560">
       <line x1="65.0" y1="150.0" x2="40.0" y2="150.0" stroke="black"/>
       <line x1="65.0" y1="65.0" x2="40.0" y2="65.0" stroke="black"/>
       <line x1="40.0" y1="150.0" x2="40.0" y2="65.0" stroke="black"/>
       <text x="25.0" y="107.5" text-anchor="middle" transform="rotate(90.0 25.0, 107.5)" class="dimension">85cm</text>
     </g>
-    <g id="segment_29743700">
+    <g id="segment_27873020">
       <line x1="65.0" y1="65.0" x2="65.0" y2="40.0" stroke="black"/>
       <line x1="114.0" y1="65.0" x2="114.0" y2="40.0" stroke="black"/>
       <line x1="65.0" y1="40.0" x2="114.0" y2="40.0" stroke="black"/>
@@ -200,37 +200,37 @@
     <polygon points="263.0,155.0 65.0,155.0 65.0,155.0 65.0,349.0 65.0,349.0 243.0,349.0 243.0,349.0 243.0,280.0 243.0,280.0 263.0,280.0 263.0,280.0 263.0,155.0" class="room-floor"/>
     <text x="164.0" y="252.0" class="room-name" text-anchor="middle">bathroom</text>
     <text x="164.0" y="272.0" text-anchor="middle">3.7 m²</text>
-    <g id="segment_29440060">
+    <g id="segment_27604340">
       <line x1="263.0" y1="155.0" x2="263.0" y2="140.0" stroke="black"/>
       <line x1="65.0" y1="155.0" x2="65.0" y2="140.0" stroke="black"/>
       <line x1="263.0" y1="140.0" x2="65.0" y2="140.0" stroke="black"/>
       <text x="164.0" y="125.0" text-anchor="middle" transform="rotate(0.0 164.0, 125.0)" class="dimension">198cm</text>
     </g>
-    <g id="segment_29758400">
+    <g id="segment_27886360">
       <line x1="65.0" y1="155.0" x2="40.0" y2="155.0" stroke="black"/>
       <line x1="65.0" y1="349.0" x2="40.0" y2="349.0" stroke="black"/>
       <line x1="40.0" y1="155.0" x2="40.0" y2="349.0" stroke="black"/>
       <text x="25.0" y="252.0" text-anchor="middle" transform="rotate(90.0 25.0, 252.0)" class="dimension">194cm</text>
     </g>
-    <g id="segment_26996600">
+    <g id="segment_25196900">
       <line x1="65.0" y1="349.0" x2="65.0" y2="364.0" stroke="black"/>
       <line x1="243.0" y1="349.0" x2="243.0" y2="364.0" stroke="black"/>
       <line x1="65.0" y1="364.0" x2="243.0" y2="364.0" stroke="black"/>
       <text x="154.0" y="379.0" text-anchor="middle" transform="rotate(0.0 154.0, 379.0)" class="dimension">178cm</text>
     </g>
-    <g id="segment_26703500">
+    <g id="segment_24949000">
       <line x1="243.0" y1="349.0" x2="258.0" y2="349.0" stroke="black"/>
       <line x1="243.0" y1="280.0" x2="258.0" y2="280.0" stroke="black"/>
       <line x1="258.0" y1="349.0" x2="258.0" y2="280.0" stroke="black"/>
       <text x="273.0" y="314.5" text-anchor="middle" transform="rotate(90.0 273.0, 314.5)" class="dimension">69cm</text>
     </g>
-    <g id="segment_26015280">
+    <g id="segment_24189240">
       <line x1="243.0" y1="280.0" x2="243.0" y2="295.0" stroke="black"/>
       <line x1="263.0" y1="280.0" x2="263.0" y2="295.0" stroke="black"/>
       <line x1="243.0" y1="295.0" x2="263.0" y2="295.0" stroke="black"/>
       <text x="253.0" y="310.0" text-anchor="middle" transform="rotate(0.0 253.0, 310.0)" class="dimension">20cm</text>
     </g>
-    <g id="segment_24732000">
+    <g id="segment_22936780">
       <line x1="263.0" y1="280.0" x2="278.0" y2="280.0" stroke="black"/>
       <line x1="263.0" y1="155.0" x2="278.0" y2="155.0" stroke="black"/>
       <line x1="278.0" y1="280.0" x2="278.0" y2="155.0" stroke="black"/>
@@ -242,49 +242,49 @@
     <polygon points="65.0,354.0 248.0,354.0 248.0,354.0 248.0,285.0 248.0,285.0 268.0,285.0 268.0,285.0 268.0,252.0 268.0,252.0 348.0,252.0 348.0,252.0 348.0,635.0 348.0,635.0 65.0,635.0 65.0,635.0 65.0,354.0" class="room-floor"/>
     <text x="206.5" y="443.5" class="room-name" text-anchor="middle">bedroom</text>
     <text x="206.5" y="463.5" text-anchor="middle">8.91 m²</text>
-    <g id="segment_26937260">
+    <g id="segment_25117280">
       <line x1="65.0" y1="354.0" x2="65.0" y2="339.0" stroke="black"/>
       <line x1="248.0" y1="354.0" x2="248.0" y2="339.0" stroke="black"/>
       <line x1="65.0" y1="339.0" x2="248.0" y2="339.0" stroke="black"/>
       <text x="156.5" y="324.0" text-anchor="middle" transform="rotate(0.0 156.5, 324.0)" class="dimension">183cm</text>
     </g>
-    <g id="segment_26626880">
+    <g id="segment_24878040">
       <line x1="248.0" y1="354.0" x2="233.0" y2="354.0" stroke="black"/>
       <line x1="248.0" y1="285.0" x2="233.0" y2="285.0" stroke="black"/>
       <line x1="233.0" y1="354.0" x2="233.0" y2="285.0" stroke="black"/>
       <text x="218.0" y="319.5" text-anchor="middle" transform="rotate(90.0 218.0, 319.5)" class="dimension">69cm</text>
     </g>
-    <g id="segment_25977320">
+    <g id="segment_24143720">
       <line x1="248.0" y1="285.0" x2="248.0" y2="270.0" stroke="black"/>
       <line x1="268.0" y1="285.0" x2="268.0" y2="270.0" stroke="black"/>
       <line x1="248.0" y1="270.0" x2="268.0" y2="270.0" stroke="black"/>
       <text x="258.0" y="255.0" text-anchor="middle" transform="rotate(0.0 258.0, 255.0)" class="dimension">20cm</text>
     </g>
-    <g id="segment_21950720">
+    <g id="segment_22877860">
       <line x1="268.0" y1="285.0" x2="253.0" y2="285.0" stroke="black"/>
       <line x1="268.0" y1="252.0" x2="253.0" y2="252.0" stroke="black"/>
       <line x1="253.0" y1="285.0" x2="253.0" y2="252.0" stroke="black"/>
       <text x="238.0" y="268.5" text-anchor="middle" transform="rotate(90.0 238.0, 268.5)" class="dimension">33cm</text>
     </g>
-    <g id="segment_28879840">
+    <g id="segment_27036040">
       <line x1="268.0" y1="252.0" x2="268.0" y2="237.0" stroke="black"/>
       <line x1="348.0" y1="252.0" x2="348.0" y2="237.0" stroke="black"/>
       <line x1="268.0" y1="237.0" x2="348.0" y2="237.0" stroke="black"/>
       <text x="308.0" y="222.0" text-anchor="middle" transform="rotate(0.0 308.0, 222.0)" class="dimension">80cm</text>
     </g>
-    <g id="segment_28640180">
+    <g id="segment_26904280">
       <line x1="348.0" y1="252.0" x2="363.0" y2="252.0" stroke="black"/>
       <line x1="348.0" y1="635.0" x2="363.0" y2="635.0" stroke="black"/>
       <line x1="363.0" y1="252.0" x2="363.0" y2="635.0" stroke="black"/>
       <text x="378.0" y="443.5" text-anchor="middle" transform="rotate(90.0 378.0, 443.5)" class="dimension">383cm</text>
     </g>
-    <g id="segment_29808380">
+    <g id="segment_27937340">
       <line x1="348.0" y1="635.0" x2="348.0" y2="660.0" stroke="black"/>
       <line x1="65.0" y1="635.0" x2="65.0" y2="660.0" stroke="black"/>
       <line x1="348.0" y1="660.0" x2="65.0" y2="660.0" stroke="black"/>
       <text x="206.5" y="675.0" text-anchor="middle" transform="rotate(0.0 206.5, 675.0)" class="dimension">283cm</text>
     </g>
-    <g id="segment_29807840">
+    <g id="segment_27936800">
       <line x1="65.0" y1="635.0" x2="40.0" y2="635.0" stroke="black"/>
       <line x1="65.0" y1="354.0" x2="40.0" y2="354.0" stroke="black"/>
       <line x1="40.0" y1="635.0" x2="40.0" y2="354.0" stroke="black"/>
@@ -296,37 +296,37 @@
     <polygon points="353.0,635.0 603.0,635.0 603.0,635.0 603.0,252.0 603.0,252.0 413.0,252.0 413.0,252.0 413.0,312.0 413.0,312.0 353.0,312.0 353.0,312.0 353.0,635.0" class="room-floor"/>
     <text x="478.0" y="443.5" class="room-name" text-anchor="middle">kitchen</text>
     <text x="478.0" y="463.5" text-anchor="middle">9.22 m²</text>
-    <g id="segment_24733880">
+    <g id="segment_28023760">
       <line x1="353.0" y1="635.0" x2="353.0" y2="660.0" stroke="black"/>
       <line x1="603.0" y1="635.0" x2="603.0" y2="660.0" stroke="black"/>
       <line x1="353.0" y1="660.0" x2="603.0" y2="660.0" stroke="black"/>
       <text x="478.0" y="675.0" text-anchor="middle" transform="rotate(0.0 478.0, 675.0)" class="dimension">250cm</text>
     </g>
-    <g id="segment_29742600">
+    <g id="segment_27892520">
       <line x1="603.0" y1="635.0" x2="618.0" y2="635.0" stroke="black"/>
       <line x1="603.0" y1="252.0" x2="618.0" y2="252.0" stroke="black"/>
       <line x1="618.0" y1="635.0" x2="618.0" y2="252.0" stroke="black"/>
       <text x="633.0" y="443.5" text-anchor="middle" transform="rotate(90.0 633.0, 443.5)" class="dimension">383cm</text>
     </g>
-    <g id="segment_29951220">
+    <g id="segment_27741060">
       <line x1="603.0" y1="252.0" x2="603.0" y2="237.0" stroke="black"/>
       <line x1="413.0" y1="252.0" x2="413.0" y2="237.0" stroke="black"/>
       <line x1="603.0" y1="237.0" x2="413.0" y2="237.0" stroke="black"/>
       <text x="508.0" y="222.0" text-anchor="middle" transform="rotate(0.0 508.0, 222.0)" class="dimension">190cm</text>
     </g>
-    <g id="segment_29605080">
+    <g id="segment_27774320">
       <line x1="413.0" y1="252.0" x2="398.0" y2="252.0" stroke="black"/>
       <line x1="413.0" y1="312.0" x2="398.0" y2="312.0" stroke="black"/>
       <line x1="398.0" y1="252.0" x2="398.0" y2="312.0" stroke="black"/>
       <text x="383.0" y="282.0" text-anchor="middle" transform="rotate(90.0 383.0, 282.0)" class="dimension">60cm</text>
     </g>
-    <g id="segment_29267020">
+    <g id="segment_27561420">
       <line x1="413.0" y1="312.0" x2="413.0" y2="297.0" stroke="black"/>
       <line x1="353.0" y1="312.0" x2="353.0" y2="297.0" stroke="black"/>
       <line x1="413.0" y1="297.0" x2="353.0" y2="297.0" stroke="black"/>
       <text x="383.0" y="282.0" text-anchor="middle" transform="rotate(0.0 383.0, 282.0)" class="dimension">60cm</text>
     </g>
-    <g id="segment_28496540">
+    <g id="segment_26888080">
       <line x1="353.0" y1="312.0" x2="338.0" y2="312.0" stroke="black"/>
       <line x1="353.0" y1="635.0" x2="338.0" y2="635.0" stroke="black"/>
       <line x1="338.0" y1="312.0" x2="338.0" y2="635.0" stroke="black"/>
@@ -338,25 +338,25 @@
     <polygon points="353.0,252.0 408.0,252.0 408.0,252.0 408.0,307.0 408.0,307.0 353.0,307.0 353.0,307.0 353.0,252.0" class="room-floor"/>
     <text x="380.5" y="279.5" class="room-name" text-anchor="middle">gas line</text>
     <text x="380.5" y="299.5" text-anchor="middle">0.3 m²</text>
-    <g id="segment_28908700">
+    <g id="segment_27080980">
       <line x1="353.0" y1="252.0" x2="353.0" y2="237.0" stroke="black"/>
       <line x1="408.0" y1="252.0" x2="408.0" y2="237.0" stroke="black"/>
       <line x1="353.0" y1="237.0" x2="408.0" y2="237.0" stroke="black"/>
       <text x="380.5" y="222.0" text-anchor="middle" transform="rotate(0.0 380.5, 222.0)" class="dimension">55cm</text>
     </g>
-    <g id="segment_29535660">
+    <g id="segment_27759140">
       <line x1="408.0" y1="252.0" x2="423.0" y2="252.0" stroke="black"/>
       <line x1="408.0" y1="307.0" x2="423.0" y2="307.0" stroke="black"/>
       <line x1="423.0" y1="252.0" x2="423.0" y2="307.0" stroke="black"/>
       <text x="438.0" y="279.5" text-anchor="middle" transform="rotate(90.0 438.0, 279.5)" class="dimension">55cm</text>
     </g>
-    <g id="segment_29233260">
+    <g id="segment_27527820">
       <line x1="408.0" y1="307.0" x2="408.0" y2="322.0" stroke="black"/>
       <line x1="353.0" y1="307.0" x2="353.0" y2="322.0" stroke="black"/>
       <line x1="408.0" y1="322.0" x2="353.0" y2="322.0" stroke="black"/>
       <text x="380.5" y="337.0" text-anchor="middle" transform="rotate(0.0 380.5, 337.0)" class="dimension">55cm</text>
     </g>
-    <g id="segment_28734780">
+    <g id="segment_26923560">
       <line x1="353.0" y1="307.0" x2="338.0" y2="307.0" stroke="black"/>
       <line x1="353.0" y1="252.0" x2="338.0" y2="252.0" stroke="black"/>
       <line x1="338.0" y1="307.0" x2="338.0" y2="252.0" stroke="black"/>
@@ -374,7 +374,7 @@
   <!--dining room_2-->
   <g id="wall_dining_room_2">
     <polygon points="976.0,635.0 608.0,635.0 608.0,650.0 976.0,650.0" class="wall"/>
-    <g id="window_29620260" class="window">
+    <g id="window_27754560" class="window">
       <path d="M 833.5,642.5 L 753.5,642.5 A 80.0,80.0 0 0,1 833.5,562.5 Z" fill="white"/>
       <path d="M 673.5,642.5 L 753.5,642.5 A 80.0,80.0 0 0,0 673.5,562.5 Z" fill="white"/>
       <polygon points="916.0,635.0 916.0,650.0 671.0,650.0 671.0,635.0"/>
@@ -384,7 +384,7 @@
   <!--hall_0-->
   <g id="wall_hall_0">
     <polygon points="603.0,65.0 268.0,65.0 268.0,50.0 603.0,50.0" class="wall"/>
-    <g id="door_29635560" class="door">
+    <g id="door_27771220" class="door">
       <path d="M 389.0,57.50000000000003 L 481.0,57.50000000000001 A 92.0,92.0 0 0,1 389.0,149.50000000000003 Z" fill="white"/>
       <polygon points="486.0,65.00000000000001 486.0,50.000000000000014 384.0,50.00000000000003 384.0,65.00000000000003"/>
     </g>
@@ -420,7 +420,7 @@
   <!--bedroom_6-->
   <g id="wall_bedroom_6">
     <polygon points="348.0,635.0 65.0,635.0 65.0,650.0 348.0,650.0" class="wall"/>
-    <g id="window_29808480" class="window">
+    <g id="window_27937440" class="window">
       <path d="M 322.0,642.5 L 222.0,642.5 A 100.0,100.0 0 0,1 322.0,542.5 Z" fill="white"/>
       <polygon points="327.0,635.0 327.0,650.0 217.0,650.0 217.0,635.0"/>
       <line x1="327.0" y1="642.5" x2="217.0" y2="642.5"/>
@@ -433,7 +433,7 @@
   <!--kitchen_0-->
   <g id="wall_kitchen_0">
     <polygon points="353.0,635.0 603.0,635.0 603.0,650.0 353.0,650.0" class="wall"/>
-    <g id="window_24734320" class="window">
+    <g id="window_28023860" class="window">
       <path d="M 576.0,642.5 L 476.0,642.5 A 100.0,100.0 0 0,1 576.0,542.5 Z" fill="white"/>
       <polygon points="471.0,635.0 471.0,650.0 581.0,650.0 581.0,635.0"/>
       <line x1="471.0" y1="642.5" x2="581.0" y2="642.5"/>
@@ -442,7 +442,7 @@
   <!--hall_toilets_toilets_hall-->
   <g id="wall_hall_toilets_toilets_hall">
     <polygon points="268.0,65.0 268.0,150.0 268.0,247.0 263.0,247.0 263.0,150.0 263.0,65.0" class="wall"/>
-    <g id="door_29707240" class="door">
+    <g id="door_27836880" class="door">
       <path d="M 265.5,67.0 L 265.5,148.0 A 81.0,81.0 0 0,0 346.5,66.99999999999999 Z" fill="white"/>
       <polygon points="268.0,66.0 263.0,66.0 263.0,149.0 268.0,149.0"/>
     </g>
@@ -450,7 +450,7 @@
   <!--hall_6_kitchen_2-->
   <g id="wall_hall_6_kitchen_2">
     <polygon points="413.0,247.0 515.0,247.0 603.0,247.0 603.0,252.0 515.0,252.0 413.0,252.0" class="wall"/>
-    <g id="door_29632240" class="door">
+    <g id="door_27793920" class="door">
       <path d="M 601.0,249.5 L 517.0,249.5 A 84.0,84.0 0 0,0 601.0,333.5 Z" fill="white"/>
       <polygon points="516.0,247.0 516.0,252.0 602.0,252.0 602.0,247.0"/>
     </g>
@@ -478,7 +478,7 @@
   <!--bathroom_hall_bedroom_3-->
   <g id="wall_bathroom_hall_bedroom_3">
     <polygon points="263.0,285.0 263.0,280.0 263.0,252.0 263.0,155.0 268.0,155.0 268.0,252.0 268.0,280.0 268.0,285.0" class="wall"/>
-    <g id="door_29756260" class="door">
+    <g id="door_22932740" class="door">
       <path d="M 265.5,238.0 L 265.5,157.0 A 81.0,81.0 0 0,1 346.5,238.0 Z" fill="white"/>
       <polygon points="263.0,239.0 268.0,239.0 268.0,156.0 263.0,156.0"/>
     </g>
@@ -486,11 +486,11 @@
   <!--kitchen_dining_room_hall_dining_room_hall2-->
   <g id="wall_kitchen_dining_room_hall_dining_room_hall2">
     <polygon points="603.0,635.0 603.0,252.0 603.0,247.0 603.0,65.0 608.0,65.0 608.0,247.0 608.0,252.0 608.0,635.0" class="wall"/>
-    <g id="door_29892520" class="door">
+    <g id="door_28023240" class="door">
       <path d="M 605.5,545.0 L 605.5,459.0 A 86.0,86.0 0 0,1 691.5,545.0 Z" fill="white"/>
       <polygon points="603.0,545.0 608.0,545.0 608.0,457.0 603.0,457.0"/>
     </g>
-    <g id="door_29619620" class="door">
+    <g id="door_24131360" class="door">
       <path d="M 605.4999999999999,193.0 L 605.4999999999999,152.0 A 41.0,41.0 0 0,1 646.4999999999999,193.0 Z" fill="white"/>
       <path d="M 605.4999999999999,72.0 L 605.4999999999999,152.0 A 80.0,80.0 0 0,0 685.4999999999999,72.0 Z" fill="white"/>
       <polygon points="602.9999999999999,195.0 607.9999999999999,195.0 607.9999999999999,65.0 602.9999999999999,65.0"/>
@@ -507,7 +507,7 @@
   <!--gas line_0_hall_2_bedroom_4-->
   <g id="wall_gas_line_0_hall_2_bedroom_4">
     <polygon points="268.0,247.0 348.0,247.0 353.0,247.0 385.0,247.0 408.0,247.0 408.0,252.0 385.0,252.0 353.0,252.0 348.0,252.0 268.0,252.0" class="wall"/>
-    <g id="door_29809640" class="door">
+    <g id="door_27938600" class="door">
       <path d="M 346.0,249.5 L 270.0,249.5 A 76.0,76.0 0 0,0 346.0,325.5 Z" fill="white"/>
       <polygon points="269.0,247.0 269.0,252.0 347.0,252.0 347.0,247.0"/>
     </g>

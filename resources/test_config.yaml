@@ -1,38 +1,208 @@
 ---
 rooms:
-  - name: Dinning Room
-    coordinates: [0, 0]
-    walls:
-        - length: 368
-          direction: right
-          width: 5
-        - length: 570
-          direction: down
-          width: 5
-        - length: 368
-          direction: left
-          width: 5
-        - length: 570
-          direction: up
-          name: dining_room_hall
-
-  - name: 'Hall'
-    anchor: dining_room_hall.b2
-    walls:
-        - length: 335
-          direction: left
-          width: 5
-        - length: 182
-          direction: down
-        - length: 117
-          direction: right
-        - length: 65
-          direction: up
-        - length: 130
-          direction: right
-        - length: 64
-          direction: down
-        - length: 88
-          direction: right
-        - length: 182
-          direction: up
+- name: dining room
+  coordinates:
+  - 0
+  - 0
+  walls:
+  - length: 368
+    direction: right
+    width: 15
+  - length: 570
+    direction: down
+    width: 15
+  - length: 368
+    direction: left
+    width: 15
+    windows:
+    - origin: 60
+      length: 245
+      leaves:
+      - length: 80
+        origin: 82.5
+      - length: 80
+        reverse: true
+  - length: 570
+    direction: up
+    name: dining_room_hall
+    doors:
+    - origin: 440
+      length: 130
+      leaves:
+      - length: 41
+        origin: 2
+      - length: 80
+        reverse: true
+- name: hall
+  anchor: dining_room_hall.b2
+  walls:
+  - length: 335
+    direction: left
+    width: 15
+    doors:
+    - origin: 117
+      length: 102
+      leaves:
+      - length: 92
+        reverse: true
+        outside: true
+        origin: 5
+  - length: 182
+    direction: down
+    name: hall_toilets
+  - length: 117
+    direction: right
+  - length: 64
+    direction: up
+  - length: 130
+    direction: right
+  - length: 64
+    direction: down
+  - length: 88
+    direction: right
+    doors:
+    - origin: 1
+      length: 86
+      leaves:
+      - length: 84
+        reverse: true
+        origin: 1
+  - length: 182
+    direction: up
+    name: dining_room_hall2
+- name: toilets
+  anchor: hall_toilets.b1
+  walls:
+  - length: 85
+    direction: down
+    name: toilets_hall
+    doors:
+    - origin: 1
+      length: 83
+      leaves:
+      - length: 81
+        outside: true
+        origin: 1
+  - length: 144
+    direction: left
+    name: toilets_bathroom
+  - length: 85
+    direction: up
+    name: toilets_cmv
+  - length: 144
+    direction: right
+    width: 15
+- name: CMV
+  anchor: toilets_cmv.b2
+  walls:
+  - length: 85
+    direction: down
+  - length: 49
+    direction: left
+  - length: 85
+    direction: up
+    width: 15
+  - length: 49
+    direction: right
+    width: 15
+- name: bathroom
+  anchor: toilets_bathroom.b1
+  walls:
+  - length: 198
+    direction: left
+  - length: 194
+    direction: down
+    width: 15
+  - length: 178
+    direction: right
+    name: bathroom_bedroom
+  - length: 69
+    direction: up
+  - length: 20
+    direction: right
+  - length: 125
+    direction: up
+    name: bathroom_hall
+    doors:
+    - origin: 41
+      length: 83
+      leaves:
+      - length: 81
+        origin: 1
+- name: bedroom
+  anchor: bathroom_bedroom.b1
+  walls:
+  - length: 183
+    direction: right
+    name: bathroom_bedroom2
+  - length: 69
+    direction: up
+  - length: 20
+    direction: right
+  - length: 33
+    direction: up
+  - length: 80
+    direction: right
+    doors:
+    - origin: 1
+      length: 78
+      leaves:
+      - length: 76
+        reverse: true
+        origin: 1
+  - length: 383
+    direction: down
+    name: bedroom_kitchen
+  - length: 283
+    direction: left
+    width: 15
+    windows:
+    - origin: 21
+      length: 110
+      leaves:
+      - length: 100
+        origin: 5
+  - length: 281
+    direction: up
+    width: 15
+- name: kitchen
+  anchor: bedroom_kitchen.b2
+  walls:
+  - length: 250
+    direction: right
+    width: 15
+    windows:
+    - origin: 118
+      length: 110
+      leaves:
+      - length: 100
+        reverse: true
+        outside: true
+        origin: 5
+  - length: 383
+    direction: up
+    name: kitchen
+    doors:
+    - origin: 90
+      length: 88
+      leaves:
+      - length: 86
+  - length: 190
+    direction: left
+  - length: 60
+    direction: down
+  - length: 60
+    direction: left
+  - length: 323
+    direction: down
+- name: gas line
+  anchor: bedroom_kitchen.b1
+  walls:
+  - length: 55
+    direction: right
+  - length: 55
+    direction: down
+  - length: 55
+    direction: left
+  - length: 55
+    direction: up
