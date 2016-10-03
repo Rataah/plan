@@ -38,24 +38,24 @@ module Plan
       end
 
       def window(origin, length)
-        @hash_subwall = { origin: origin, length: length, leaves: [] }
+        @hash_subwall = { origin: origin, length: length, casements: [] }
         (@hash_wall[:windows] ||= []) << @hash_subwall
         self
       end
 
       def door(origin, length)
-        @hash_subwall = { origin: origin, length: length, leaves: [] }
+        @hash_subwall = { origin: origin, length: length, casements: [] }
         (@hash_wall[:doors] ||= []) << @hash_subwall
         self
       end
 
-      def leave(length, reverse: false, origin: nil, angle: nil, outside: false)
-        hash_leave = { length: length }
-        hash_leave[:reverse] = true if reverse
-        hash_leave[:outside] = true if outside
-        hash_leave[:origin] = origin if origin
-        hash_leave[:angle] = angle if angle
-        @hash_subwall[:leaves] << hash_leave
+      def casement(length, reverse: false, origin: nil, angle: nil, outside: false)
+        hash_casement = { length: length }
+        hash_casement[:reverse] = true if reverse
+        hash_casement[:outside] = true if outside
+        hash_casement[:origin] = origin if origin
+        hash_casement[:angle] = angle if angle
+        @hash_subwall[:casements] << hash_casement
         self
       end
 

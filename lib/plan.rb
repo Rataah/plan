@@ -29,6 +29,7 @@ require 'objects/wall_segment'
 require 'objects/wall_merger'
 require 'objects/room'
 require 'objects/wall'
+require 'objects/opening'
 require 'objects/window'
 require 'objects/door'
 

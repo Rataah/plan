@@ -5,4 +5,8 @@ class String
       id[0] = '' if id.start_with? '-'
     end
   end
+
+  def demodulize
+    gsub(/^.*::/, '')
+  end
 end

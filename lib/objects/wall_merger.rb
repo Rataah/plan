@@ -5,7 +5,6 @@ module Plan
       WallPool.all.each do |wall|
         next unless WallPool.contains? wall.name
 
-        Plan.log.debug("Check #{wall.name}...")
         WallPool.without(wall).each do |other|
           # check if the 2 walls have to be merged
           next unless wall.aligned?(other) && wall.intersect?(other)
@@ -50,28 +49,19 @@ module Plan
           add_vertices(new_wall, sorted_points, *indexed_points[point].first.vertices.first_and_last.deep_dup)
         end
 
-        add_windows_doors(new_wall, wall, other)
+        add_openings(new_wall, wall)
+        add_openings(new_wall, other)
       end
     end
 
-    def add_windows_doors(new_wall, wall, other)
+    def add_openings(wall, new_wall)
       wall.windows.each do |window|
         window.origin += wall.ab1.dist new_wall.ab1
         new_wall.windows << window
       end
 
-      other.windows.each do |window|
-        window.origin += other.ab1.dist new_wall.ab1
-        new_wall.windows << window
-      end
-
       wall.doors.each do |door|
         door.origin += wall.ab1.dist new_wall.ab1
-        new_wall.doors << door
-      end
-
-      other.doors.each do |door|
-        door.origin += other.ab1.dist new_wall.ab1
         new_wall.doors << door
       end
     end

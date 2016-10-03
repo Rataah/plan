@@ -6,16 +6,16 @@ module Plan
       WallFactory.create(wall_name, last_point, wall_def[:length], wall_def[:direction], wall_def[:width]) do
         wall_def[:windows].each do |window_def|
           window = window(window_def[:origin], window_def[:length])
-          window_def[:leaves].each do |leave_def|
-            window.leave(leave_def[:length], leave_def.slice(:reverse, :origin, :angle, :outside))
-          end if window_def.key? :leaves
+          window_def[:casements].each do |casement_def|
+            window.casement(casement_def[:length], casement_def.slice(:reverse, :origin, :angle, :outside))
+          end if window_def.key? :casements
         end if wall_def.key? :windows
 
         wall_def[:doors].each do |door_def|
           door = door(door_def[:origin], door_def[:length])
-          door_def[:leaves].each do |leave_def|
-            door.leave(leave_def[:length], leave_def.slice(:reverse, :origin, :angle, :outside))
-          end if door_def.key? :leaves
+          door_def[:casements].each do |casement_def|
+            door.casement(casement_def[:length], casement_def.slice(:reverse, :origin, :angle, :outside))
+          end if door_def.key? :casements
         end if wall_def.key? :doors
       end
     end
