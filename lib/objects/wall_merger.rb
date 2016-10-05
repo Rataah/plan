@@ -83,16 +83,14 @@ module Plan
           start_vertex = sorted_points.index { |point| point == wall_segment.centers.first }
           end_vertex = sorted_points.index { |point| point == wall_segment.centers.last }
 
-          side_angle = Plan.normal_angle(
-            [merged_wall.a1, merged_wall.a2, merged_wall.b2, merged_wall.b1],
-            merged_wall.vertices_a[start_vertex], merged_wall.vertices_a[end_vertex], merged_wall.angle
+          wall_side = merged_wall.side(
+            room_vertices,
+            Plan.center([merged_wall.vertices_a[start_vertex], merged_wall.vertices_a[end_vertex]])
           )
-          side_a = Plan.center [merged_wall.vertices_a[start_vertex], merged_wall.vertices_a[end_vertex]]
-          side = Plan.point_in_polygon?(side_a.translate(side_angle, merged_wall.width / 2.0), room_vertices) ? :a : :b
 
           new_segment = WallSegment.new(
             merged_wall,
-            SegmentIndex.new(side, start_vertex), SegmentIndex.new(side, end_vertex),
+            SegmentIndex.new(wall_side, start_vertex), SegmentIndex.new(wall_side, end_vertex),
             wall_segment.angle
           )
           WallPool.replace_segment(room, wall_segment, new_segment)

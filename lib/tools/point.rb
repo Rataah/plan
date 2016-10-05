@@ -35,6 +35,10 @@ module Plan
       Point.new(@x.abs, @y.abs)
     end
 
+    def -@
+      Point.new(-@x, -@y)
+    end
+
     def xy
       [@x, @y]
     end

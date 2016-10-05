@@ -74,6 +74,10 @@ module Plan
         @vertices_b.values_at(*filters.select(&:b?).map(&:index))
     end
 
+    def bounds
+      [a1, a2, b2, b1]
+    end
+
     def translate(x, y)
       vertices.each { |vertex| vertex.add!(x, y) }
     end
@@ -93,6 +97,11 @@ module Plan
 
     def intersect?(other)
       [ab1, ab2].count { |vertex| vertex.on_segment(other.ab1, other.ab2) }.nonzero?
+    end
+
+    def side(vertices, center)
+      outside_angle = angle + Plan.normal_angle(bounds, a1, a2, angle)
+      Plan.point_in_polygon?(center.translate(outside_angle, 1), vertices) ? :a : :b
     end
   end
 end

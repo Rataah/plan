@@ -8,7 +8,7 @@ class Numeric
     (self * Math::PI / 180.0) % (2 * Math::PI)
   end
 
-  def rad_modulo
+  def modulo_rad
     self % (2 * Math::PI)
   end
 

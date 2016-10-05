@@ -68,6 +68,11 @@ module Plan
         expect(Plan.angle_aligned?(angle, 3.0 * half_pi)).to be true
         expect(Plan.angle_aligned?(angle, 101.0 * half_pi)).to be true
       end
+
+      it 'check if 2 angles are not aligned' do
+        expect(Plan.angle_aligned?(0, 90.rad)).to be false
+        expect(Plan.angle_aligned?(0, -90.rad)).to be false
+      end
     end
   end
 end
