@@ -29,17 +29,17 @@ module Plan
   end
 
   def self.angle_aligned?(first_angle, second_angle)
-    first_angle % (2 * Math::PI) - second_angle % (2 * Math::PI) < 1E-6 ||
-      (first_angle + Math::PI) % (2 * Math::PI) - second_angle % (2 * Math::PI) < 1E-6
+    (first_angle.modulo_rad - second_angle.modulo_rad).abs < 1E-6 ||
+      ((first_angle + Math::PI).modulo_rad - second_angle.modulo_rad).abs < 1E-6
   end
 
   def self.normal_angle(vertices, vector1, vector2, angle, outside = true)
     center = Plan.center [vector1, vector2]
     normal = center.translate(angle + 90.rad, 0.1)
     if Plan.point_in_polygon?(normal, vertices) == outside
-      angle - 90.rad
+      -90.rad
     else
-      angle + 90.rad
+      +90.rad
     end
   end
 end
