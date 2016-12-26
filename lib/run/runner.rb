@@ -30,7 +30,7 @@ module Plan
     def run
       rooms = eval_configuration_file
 
-      WallMerger.new.merge_walls
+      WallMerger.merge_walls
 
       max_vertex = translate_elements(rooms)
 

@@ -48,14 +48,14 @@ module Plan
       WallPool.link[room].map! { |wall_segment| wall_segment == old_wall_segment ? new_segment : wall_segment }
     end
 
-    def self.rooms(wall)
+    def self.rooms(*walls)
       WallPool.link.select do |_, wall_segments|
-        wall_segments.count { |wall_segment| wall_segment.wall == wall } > 0
+        wall_segments.count { |wall_segment| walls.include? wall_segment.wall } > 0
       end.keys
     end
 
-    def self.segment(room, wall)
-      walls(room).select { |wall_segment| wall_segment.wall == wall }.first
+    def self.segments(room, *walls)
+      walls(room).select { |wall_segment| walls.include? wall_segment.wall }
     end
 
     private_class_method

@@ -84,11 +84,11 @@ module Plan
 
     def svg_elements
       Plan.log.debug("Draw SVG elements for Wall: #{@name}")
-      SVGGroup.new("wall_#{@name}").add([].tap do |group|
+      SVGGroup.new("wall_#{@name}").add do |group|
         group << SVGPolygon.new(vertices).css_class('wall')
         group << @windows.map { |window| window.svg_elements(self) }
         group << @doors.map { |door| door.svg_elements(self) }
-      end).comments(@name).merge!(self)
+      end.comments(@name).merge!(self)
     end
 
     def aligned?(other)
