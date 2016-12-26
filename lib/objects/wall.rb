@@ -62,7 +62,7 @@ module Plan
 
     def apply_width(vertices)
       return if initialized?
-      direction = Plan.normal_angle(vertices, vertex_a1, vertex_a2, @angle)
+      direction = @angle + Plan.normal_angle(vertices, vertex_a1, vertex_a2, @angle)
       @vertices_b << vertex_a1.translate(direction, @width).round(2)
       @vertices_b << vertex_a2.translate(direction, @width).round(2)
     end

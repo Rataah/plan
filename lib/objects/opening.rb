@@ -57,7 +57,7 @@ module Plan
       SVGPath.new(casement_origin).line_to(casement_origin.translate(line_angle, casement.length)).arc(
         Point.new(casement.length.abs, casement.length.abs),
         casement_origin.translate(casement_angle, casement.length), 0, sweep_flag
-      )
+      ).close_path
     end
   end
 end

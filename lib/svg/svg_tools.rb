@@ -1,7 +1,7 @@
 module Plan
   class SVGTools
     def self.dimensions(id, vertices, wall_vertices, wall_angle, offset)
-      angle = Plan.normal_angle(
+      angle = wall_angle + Plan.normal_angle(
         wall_vertices,
         vertices.first,
         vertices.last,
