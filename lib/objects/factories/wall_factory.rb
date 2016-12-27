@@ -21,13 +21,11 @@ module Plan
     end
 
     def window(origin, length)
-      @wall.windows << Window.new(origin, length)
-      @wall.windows.last
+      (@wall.windows << Window.new(origin, length)).last
     end
 
     def door(origin, length)
-      @wall.doors << Door.new(origin, length)
-      @wall.doors.last
+      (@wall.doors << Door.new(origin, length)).last
     end
   end
 end

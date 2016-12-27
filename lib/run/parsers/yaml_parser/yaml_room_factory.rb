@@ -2,7 +2,7 @@ module Plan
   class YamlRoomFactory
     def self.parse_room(room_def)
       coordinates = room_def[:coordinates] || [nil, nil]
-      anchor = room_def.key?(:anchor) ? retrieve_anchor(room_def[:anchor]) : Point.new(*coordinates)
+      anchor = room_def.key?(:anchor) ? DataLoader.retrieve_anchor(room_def[:anchor]) : Point.new(*coordinates)
 
       # create a new Room
       RoomFactory.create(room_def[:name], nil, nil, anchor: anchor) do |room|
@@ -15,14 +15,6 @@ module Plan
           last_point = new_wall.a2
         end
       end
-    end
-
-    def self.retrieve_anchor(anchor)
-      anchor_name, _, anchor_point = anchor.rpartition('.')
-      raise "Anchor #{anchor_name} not found" unless WallPool.contains? anchor_name
-      raise 'Incorrect anchor point' unless %w(a1 a2 b1 b2).include? anchor_point
-
-      WallPool[anchor_name].send(anchor_point.to_sym)
     end
   end
 end

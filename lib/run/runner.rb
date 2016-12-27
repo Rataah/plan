@@ -28,7 +28,7 @@ module Plan
     end
 
     def run
-      rooms = eval_configuration_file
+      rooms = DataLoader.load(@options.configuration_file)
 
       WallMerger.merge_walls
       WallFiller.fill_walls
@@ -41,21 +41,6 @@ module Plan
       FileUtils.mkdir_p(File.dirname(@options.output_file))
       svg.write File.new(@options.output_file, 'w'), max_vertex.x + 100, max_vertex.y + 100
       Plan.log.info('Generation done')
-    end
-
-    def eval_configuration_file
-      Plan.log.info("Loading configuration from #{@options.configuration_file}")
-      case File.extname(@options.configuration_file)
-      when '.yml', '.yaml'
-        YamlDataLoader.load_data_from_file(@options.configuration_file)
-      else
-        if @options.ruby_to_yaml
-          RubyToYamlLoader.load_data_from_file(@options.configuration_file, @options.ruby_to_yaml)
-          exit
-        else
-          RubyDataLoader.load_data_from_file(@options.configuration_file)
-        end
-      end
     end
 
     def translate_elements(rooms)

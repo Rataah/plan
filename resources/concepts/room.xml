@@ -1,0 +1,28 @@
+<plan>
+  <room name="test" coordinates="0:0">
+    <wall length="447.21" direction="45">
+      <window origin="60" length="245">
+        <casement length="80" origin="82.5"/>
+        <casement length="80" reverse="true"/>
+      </window>
+    </wall>
+    <wall length="447.21" direction="135">
+      <window origin="60" length="245">
+        <casement length="80" origin="82.5"/>
+        <casement length="80" reverse="true"/>
+      </window>
+    </wall>
+    <wall length="447.21" direction="-135">
+      <window origin="60" length="245">
+        <casement length="80" origin="82.5"/>
+        <casement length="80" reverse="true"/>
+      </window>
+    </wall>
+    <wall length="447.21" direction="-45">
+      <window origin="60" length="245">
+        <casement length="80" origin="82.5"/>
+        <casement length="80" reverse="true"/>
+      </window>
+    </wall>
+  </room>
+</plan>

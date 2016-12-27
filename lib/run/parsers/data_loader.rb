@@ -1,0 +1,34 @@
+module Plan
+  class ParserError < StandardError
+  end
+
+  class DataLoader
+    def self.load(filename)
+      Plan.log.info("Loading configuration from #{filename}")
+      content = load_data_from_file(filename)
+
+      case File.extname(filename)
+      when '.rb'
+        RubyDataLoader.parse(content, filename)
+      when '.yml', '.yaml'
+        YamlDataLoader.parse(content, filename)
+      when '.xml'
+        XMLDataLoader.parse(content, filename)
+      else
+        raise ParserError, "File format #{File.extname(filename)} unknown"
+      end
+    end
+
+    def self.load_data_from_file(filename)
+      File.read(filename, encoding: 'BOM|UTF-8', mode: 'rb')
+    end
+
+    def self.retrieve_anchor(anchor)
+      anchor_name, _, anchor_point = anchor.rpartition('.')
+      raise "Anchor #{anchor_name} not found" unless WallPool.contains? anchor_name
+      raise 'Incorrect anchor point' unless %w(a1 a2 b1 b2).include? anchor_point
+
+      WallPool[anchor_name].send(anchor_point.to_sym)
+    end
+  end
+end

@@ -2,14 +2,10 @@ module Plan
   # Merge walls
   class WallMerger
     def self.merge_walls
-      WallPool.all.each do |wall|
+      WallPool.all.combination(2) do |wall, other|
+        # not yet in pool
         next unless WallPool.contains? wall.name
-
-        WallPool.without(wall).each do |other|
-          # check if the 2 walls have to be merged
-          next unless wall.aligned?(other) && wall.intersect?(other)
-          WallMerger.merge_wall(wall, other)
-        end
+        WallMerger.merge_wall(wall, other) if wall.aligned?(other) && wall.intersect?(other)
       end
     end
 

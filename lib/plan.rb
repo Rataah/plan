@@ -33,13 +33,20 @@ require 'objects/opening'
 require 'objects/window'
 require 'objects/door'
 
-# main
+# transformations
 require 'run/transformations/wall_merger'
 require 'run/transformations/wall_filler'
-require 'run/ruby_parser/ruby_data_loader'
-require 'run/ruby_parser/ruby_to_yaml_loader'
+
+# parser
+require 'run/parsers/data_loader'
+require 'run/parsers/ruby_parser/ruby_data_loader'
+require 'run/parsers/yaml_parser/yaml_data_loader'
+require 'run/parsers/yaml_parser/yaml_room_factory'
+require 'run/parsers/yaml_parser/yaml_wall_factory'
+require 'run/parsers/xml_parser/xml_data_loader'
+require 'run/parsers/xml_parser/xml_room_factory'
+require 'run/parsers/xml_parser/xml_wall_factory'
+
+# main
 require 'run/runner'
 require 'run/wall_pool'
-require 'run/yaml_parser/yaml_data_loader'
-require 'run/yaml_parser/yaml_room_factory'
-require 'run/yaml_parser/yaml_wall_factory'

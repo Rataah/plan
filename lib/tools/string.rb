@@ -9,4 +9,10 @@ class String
   def demodulize
     gsub(/^.*::/, '')
   end
+
+  def numeric?
+    !Float(self).nil?
+  rescue
+    false
+  end
 end
