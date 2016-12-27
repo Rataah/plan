@@ -33,12 +33,14 @@ module Plan
     end
 
     def vertices
-      @wall.vertices [@vertex1, @vertex2]
+      @wall.filter_vertices [@vertex1, @vertex2]
     end
 
     def centers
       [].tap do |center_points|
-        @wall.vertices([@vertex1, @vertex2]).zip @wall.vertices([@vertex1.other_side, @vertex2.other_side]) do |points|
+        @wall.filter_vertices([@vertex1, @vertex2]).zip(
+          @wall.filter_vertices([@vertex1.other_side, @vertex2.other_side])
+        ) do |points|
           center_points << Plan.center(points)
         end
       end

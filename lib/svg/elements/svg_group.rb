@@ -8,7 +8,7 @@ module Plan
       yield self if block_given?
     end
 
-    def add(*elements, &block)
+    def add(*elements)
       yield elements if block_given?
       @elements.concat(elements.flatten)
 

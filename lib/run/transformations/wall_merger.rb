@@ -50,7 +50,7 @@ module Plan
 
         sorted_points.each do |point|
           WallMerger.add_vertices(new_wall, sorted_points,
-            *indexed_points[point].first.vertices.first_and_last.deep_dup)
+                                  *indexed_points[point].first.vertices.first_and_last.deep_dup)
         end
 
         add_openings(new_wall, wall)
@@ -82,14 +82,13 @@ module Plan
 
     def self.rebuild_segments(merged_wall, wall, other, sorted_points)
       WallPool.rooms(wall, other).each do |room|
-        room_vertices = room.vertices.uniq
         WallPool.segments(room, wall, other).each do |wall_segment|
-          start_vertex = sorted_points.index { |point| point == wall_segment.centers.first }
-          end_vertex = sorted_points.index { |point| point == wall_segment.centers.last }
+          start_vertex = sorted_points.index(wall_segment.centers.first)
+          end_vertex = sorted_points.index(wall_segment.centers.last)
 
           wall_side = merged_wall.side(
-            room_vertices,
-            Plan.center([merged_wall.vertices_a[start_vertex], merged_wall.vertices_a[end_vertex]])
+            room.vertices,
+            Plan.center(merged_wall.vertices_a.values_at(start_vertex, end_vertex))
           )
 
           new_segment = WallSegment.new(

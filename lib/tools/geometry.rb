@@ -7,8 +7,8 @@ module Plan
     [Point.new(min_x, min_y), Point.new(max_x, max_y)]
   end
 
-  def self.center(points)
-    Plan.bounds(points).reduce(&:+) / 2
+  def self.center(*points)
+    Plan.bounds(points.flatten).reduce(&:+) / 2
   end
 
   def self.point_in_polygon?(point, vertices)
@@ -34,7 +34,7 @@ module Plan
   end
 
   def self.normal_angle(vertices, vector1, vector2, angle, outside = true)
-    center = Plan.center [vector1, vector2]
+    center = Plan.center(vector1, vector2)
     normal = center.translate(angle + 90.rad, 0.1)
     if Plan.point_in_polygon?(normal, vertices) == outside
       -90.rad

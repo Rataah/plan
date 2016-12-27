@@ -10,6 +10,8 @@ module Plan
 
   # Represent a wall.
   class Wall < SVGArgument
+    include WallHelper
+
     attr_accessor :vertices_a, :vertices_b, :name, :angle, :length, :width, :windows, :doors
 
     def vertex_a1
@@ -35,43 +37,46 @@ module Plan
       @vertices_b = []
       @windows = []
       @doors = []
+
+      @angle = 0
+      @name = 'wall'
+      @width = 0
     end
 
     def ab1
-      Plan.center([vertex_a1, vertex_b1])
+      Plan.center(vertex_a1, vertex_b1)
     end
 
     def ab2
-      Plan.center([vertex_a2, vertex_b2])
+      Plan.center(vertex_a2, vertex_b2)
     end
 
     def vertices_center
       {}.tap do |vertices_indexed|
-        @vertices_a.each_with_index do |v_a, index|
-          vertices_center = Plan.center([v_a, @vertices_b[index]])
-          vertices_indexed[vertices_center] = [
+        @vertices_a.zip(@vertices_b).each_with_index do |vertices, index|
+          vertices_indexed[Plan.center(vertices)] = [
             WallSegment.new(self, SegmentIndex.new(:a, index), SegmentIndex.new(:b, index), @angle)
           ]
         end
       end
     end
 
-    def initialized?
-      @vertices_b.any?
-    end
-
     def apply_width(vertices)
-      return if initialized?
-      direction = @angle + Plan.normal_angle(vertices, vertex_a1, vertex_a2, @angle)
+      return if @vertices_b.any?
+      direction = angle + Plan.normal_angle(vertices, vertex_a1, vertex_a2, angle)
       @vertices_b << vertex_a1.translate(direction, @width).round(2)
       @vertices_b << vertex_a2.translate(direction, @width).round(2)
     end
 
-    def vertices(filters = [])
-      return @vertices_a + @vertices_b.reverse if filters.empty?
+    def vertices
+      @vertices_a + @vertices_b.reverse
+    end
 
-      @vertices_a.values_at(*filters.select(&:a?).map(&:index)) +
-        @vertices_b.values_at(*filters.select(&:b?).map(&:index))
+    def filter_vertices(filters = [])
+      side_filters = filters.group_by(&:side)
+      side_filters.each_value { |value| value.map!(&:index) }
+
+      @vertices_a.values_at(*side_filters[:a]) + @vertices_b.values_at(*side_filters[:b])
     end
 
     def bounds
@@ -86,22 +91,8 @@ module Plan
       Plan.log.debug("Draw SVG elements for Wall: #{@name}")
       SVGGroup.new("wall_#{@name}").add do |group|
         group << SVGPolygon.new(vertices).css_class('wall')
-        group << @windows.map { |window| window.svg_elements(self) }
-        group << @doors.map { |door| door.svg_elements(self) }
+        group << (@windows + @doors).map { |opening| opening.svg_elements(self) }
       end.comments(@name).merge!(self)
-    end
-
-    def aligned?(other)
-      Plan.angle_aligned?(@angle, other.angle)
-    end
-
-    def intersect?(other)
-      [ab1, ab2].count { |vertex| vertex.on_segment(other.ab1, other.ab2) }.nonzero?
-    end
-
-    def side(vertices, center)
-      outside_angle = angle + Plan.normal_angle(bounds, a1, a2, angle)
-      Plan.point_in_polygon?(center.translate(outside_angle, 1), vertices) ? :a : :b
     end
   end
 end

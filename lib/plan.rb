@@ -23,10 +23,10 @@ require 'svg/elements/svg_polygon'
 require 'svg/elements/svg_path'
 
 # elements
+require 'objects/helpers/wall_helper'
 require 'objects/factories/room_factory'
 require 'objects/factories/wall_factory'
 require 'objects/wall_segment'
-require 'objects/wall_merger'
 require 'objects/room'
 require 'objects/wall'
 require 'objects/opening'
@@ -34,6 +34,8 @@ require 'objects/window'
 require 'objects/door'
 
 # main
+require 'run/transformations/wall_merger'
+require 'run/transformations/wall_filler'
 require 'run/ruby_parser/ruby_data_loader'
 require 'run/ruby_parser/ruby_to_yaml_loader'
 require 'run/runner'

@@ -58,6 +58,12 @@ module Plan
       walls(room).select { |wall_segment| walls.include? wall_segment.wall }
     end
 
+    def self.wall_at_position(point)
+      WallPool.all.select do |wall|
+        Plan.point_in_polygon?(point, wall.bounds)
+      end.first
+    end
+
     private_class_method
 
     def self.pool

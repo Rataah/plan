@@ -31,11 +31,12 @@ module Plan
       rooms = eval_configuration_file
 
       WallMerger.merge_walls
+      WallFiller.fill_walls
 
       max_vertex = translate_elements(rooms)
 
       svg = SVG.new
-      svg.contents.push(*svg_elements(rooms, max_vertex))
+      svg.contents.concat(svg_elements(rooms, max_vertex))
 
       FileUtils.mkdir_p(File.dirname(@options.output_file))
       svg.write File.new(@options.output_file, 'w'), max_vertex.x + 100, max_vertex.y + 100
@@ -63,7 +64,7 @@ module Plan
 
       rooms.each { |room| room.translate(*min_vertex.xy) }
       WallPool.each { |wall| wall.translate(*min_vertex.xy) }
-      max_vertex += min_vertex
+      max_vertex + min_vertex
     end
 
     def svg_elements(rooms, max_vertex)

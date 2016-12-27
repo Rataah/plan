@@ -9,7 +9,5 @@ Metrics/AbcSize:
   Enabled: false
 Metrics/ParameterLists:
   Max: 6
-Style/VariableNumber:
-  Enabled: false
 Documentation:
   Enabled: false

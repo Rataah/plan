@@ -5,13 +5,22 @@ svg {
 .show_hover {
     opacity: 0.0;
 }
+
 .show_hover:hover {
     opacity: 1.0;
 }
 
+.room-stroke {
+    fill: rgba(255, 255, 255, 0);
+    stroke: #4f4f4f;
+    stroke-width: 5px;
+}
+
 .room-floor {
     fill: rgba(245, 245, 220, 0.72);
+    stroke-width: 3px;
 }
+
 .room-name {
     font-weight: bold;
     text-decoration: underline;
@@ -23,27 +32,31 @@ svg {
 
 .wall {
     fill: darkgrey;
-    stroke: #4f4f4f;
+    /*stroke: #4f4f4f;*/
 }
 
 .window {
     fill: none;
     stroke: blue;
 }
+
 .window path {
     opacity: 0.3;
 }
+
 .window:hover path {
-    opacity:  1.0
+    opacity: 1.0
 }
 
 .door {
     fill: white;
     stroke: maroon;
 }
+
 .door path {
     opacity: 0.3;
 }
+
 .door:hover path {
-    opacity:  1.0
+    opacity: 1.0
 }
