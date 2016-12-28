@@ -21,6 +21,7 @@ require 'svg/elements/svg_line'
 require 'svg/elements/svg_text'
 require 'svg/elements/svg_polygon'
 require 'svg/elements/svg_path'
+require 'svg/elements/svg_rect'
 
 # elements
 require 'objects/helpers/wall_helper'

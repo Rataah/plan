@@ -51,10 +51,11 @@ module Plan
       max_vertex = translate_elements(rooms)
 
       svg = SVG.new
+      svg.use_pattern('blueprint')
       svg.contents.concat(svg_elements(rooms, max_vertex))
 
       FileUtils.mkdir_p(File.dirname(@options.output_file))
-      svg.write File.new(@options.output_file, 'w'), max_vertex.x + 100, max_vertex.y + 100
+      svg.write File.new(@options.output_file, 'w')
       Plan.log.info('Generation done')
     end
 
