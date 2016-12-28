@@ -18,18 +18,19 @@ module Plan
     end
 
     def svg_elements(wall)
-      Plan.log.debug("Draw SVG elements for #{self.class.name.demodulize} of wall: #{wall.name}")
+      class_name = self.class.name.demodulize
+      Plan.log.debug("Draw SVG elements for #{class_name} of wall: #{wall.name}")
       opening_a1 = wall.vertex_a1.translate(wall.angle, @origin)
       opening_b1 = wall.vertex_b1.translate(wall.angle, @origin)
       opening_a2 = opening_a1.translate(wall.angle, @length)
       opening_b2 = opening_b1.translate(wall.angle, @length)
 
       opening_center = wall.ab1.translate(wall.angle, @origin)
-      SVGGroup.new("#{self.class.name.demodulize}_#{object_id}".to_id).add([].tap do |group|
+      SVGGroup.new("#{class_name}_#{object_id}".to_id).add do |group|
         group.push(@casements.map { |casement| casement_svg_element(wall.angle, casement, opening_center) })
         group << SVGPolygon.new([opening_a1, opening_b1, opening_b2, opening_a2])
         group << SVGLine.new(opening_center, opening_center.translate(wall.angle, @length))
-      end)
+      end
     end
 
     def casement_svg_element(angle, casement, opening_anchor)

@@ -5,9 +5,8 @@ require 'fileutils'
 module Plan
   # Run the generation of the SVG file based on the config file
   class Runner
-    def initialize(args)
-      @options = OpenStruct.new(wall_merger: true, wall_filler: true, display_area: true)
-      option_parser = OptionParser.new do |opts|
+    def options
+      OptionParser.new do |opts|
         opts.on('-f', '--file FILE', 'Blueprint definition file') do |conf_file|
           @options.configuration_file = conf_file
         end
@@ -33,6 +32,11 @@ module Plan
           exit
         end
       end
+    end
+
+    def initialize(args)
+      @options = OpenStruct.new(wall_merger: true, wall_filler: true, display_area: true)
+      option_parser = options
       option_parser.parse!(args)
 
       if @options.configuration_file.nil? || @options.output_file.nil?
@@ -43,41 +47,45 @@ module Plan
     end
 
     def run
-      rooms = DataLoader.load(@options.configuration_file)
+      floors = DataLoader.load(@options.configuration_file)
+      floors.each do |floor|
+        WallMerger.new(floor.wall_pool).merge_walls if @options.wall_merger
+        WallFiller.new(floor.wall_pool).fill_walls if @options.wall_filler
+      end
 
-      WallMerger.merge_walls if @options.wall_merger
-      WallFiller.fill_walls if @options.wall_filler
-
-      max_vertex = translate_elements(rooms)
+      max_vertex = translate_elements(floors)
 
       svg = SVG.new
       svg.use_pattern('blueprint')
-      svg.contents.concat(svg_elements(rooms, max_vertex))
+      svg.contents.concat(svg_elements(floors, max_vertex))
 
       FileUtils.mkdir_p(File.dirname(@options.output_file))
       svg.write File.new(@options.output_file, 'w')
       Plan.log.info('Generation done')
     end
 
-    def translate_elements(rooms)
-      min_vertex, max_vertex = Plan.bounds(WallPool.all.map(&:vertices).flatten)
+    def translate_elements(floors)
+      min_vertex, max_vertex = Plan.bounds(floors.map { |floor| floor.wall_pool.all.map(&:vertices) }.flatten)
       min_vertex = (-min_vertex).add(50, 50)
 
-      rooms.each { |room| room.translate(*min_vertex.xy) }
-      WallPool.each { |wall| wall.translate(*min_vertex.xy) }
+      floors.each do |floor|
+        floor.translate(*min_vertex.xy)
+        floor.wall_pool.each { |wall| wall.translate(*min_vertex.xy) }
+      end
+
       max_vertex + min_vertex
     end
 
-    def svg_elements(rooms, max_vertex)
-      (rooms.map(&:svg_elements) + WallPool.all.map(&:svg_elements) + svg_document_elements(rooms, max_vertex)).flatten
+    def svg_elements(floors, max_vertex)
+      (floors.map(&:svg_elements) + svg_document_elements(floors, max_vertex)).flatten
     end
 
-    def svg_document_elements(rooms, max_vertex)
+    def svg_document_elements(floors, max_vertex)
       return [] unless @options.display_area
 
       [
         SVGText.new(
-          "Total: #{rooms.map(&:area).reduce(0, :+).round(2)} m²",
+          "Total: #{floors.map(&:area).reduce(0, :+).round(2)} m²",
           Point.new(max_vertex.x / 2, max_vertex.y + 50)
         ).anchor(:middle)
       ]

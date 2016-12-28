@@ -17,7 +17,7 @@ module Plan
     end
 
     def translate(angle, length)
-      add(length * Math.cos(angle), length * Math.sin(angle))
+      add(length * Math.cos(angle), length * Math.sin(angle)).round(2)
     end
 
     def round(digit)

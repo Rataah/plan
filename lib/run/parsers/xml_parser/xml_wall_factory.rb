@@ -1,16 +1,16 @@
 module Plan
   class XMLWallFactory
     CASEMENT_ATTRIBUTES = {
-      reverse: -> (value) { value.to_s == 'true' ? true : false},
+      reverse: -> (value) { value.to_s == 'true' ? true : false },
       origin: -> (value) { value.to_f },
       angle: -> (value) { value.to_f },
-      outside: -> (value) { value.to_s == 'true' ? true : false},
+      outside: -> (value) { value.to_s == 'true' ? true : false }
     }.freeze
 
-    def self.parse_wall(wall_name, last_point, wall_node)
+    def self.parse_wall(wall_pool, wall_name, last_point, wall_node)
       width, direction = setup_default(wall_node)
 
-      WallFactory.create(wall_name, last_point, wall_node['length'].to_f, direction, width) do
+      WallFactory.create(wall_pool, wall_name, last_point, wall_node['length'].to_f, direction, width) do
         XMLWallFactory.parse_openings(self, 'window', wall_node.css('window'))
         XMLWallFactory.parse_openings(self, 'door', wall_node.css('door'))
       end

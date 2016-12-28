@@ -6,8 +6,8 @@ module Plan
 
       yaml_content = Plan.symbolize_keys(YAML.load(content))
       [].tap do |result|
-        yaml_content[:rooms].each do |room_def|
-          result << YamlRoomFactory.parse_room(room_def)
+        yaml_content[:floors].each do |floor_def|
+          result << YamlFloorFactory.parse_floor(floor_def)
         end
       end
     end

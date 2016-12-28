@@ -23,12 +23,12 @@ module Plan
       File.read(filename, encoding: 'BOM|UTF-8', mode: 'rb')
     end
 
-    def self.retrieve_anchor(anchor)
+    def self.retrieve_anchor(wall_pool, anchor)
       anchor_name, _, anchor_point = anchor.rpartition('.')
-      raise "Anchor #{anchor_name} not found" unless WallPool.contains? anchor_name
+      raise "Anchor #{anchor_name} not found" unless wall_pool.contains? anchor_name
       raise 'Incorrect anchor point' unless %w(a1 a2 b1 b2).include? anchor_point
 
-      WallPool[anchor_name].send(anchor_point.to_sym)
+      wall_pool[anchor_name].send(anchor_point.to_sym)
     end
   end
 end

@@ -20,9 +20,9 @@ module Plan
       when Array then
         value.map { |item| prepare_value(item) }.join(' ')
       when Point then
-        value.to_svg
+        value.round(2).to_svg
       else
-        value.to_f.to_s
+        value.to_f.round(2).to_s
       end
     end
   end

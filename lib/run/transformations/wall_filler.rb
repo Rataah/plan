@@ -1,27 +1,31 @@
 module Plan
   # fill walls
   class WallFiller
-    def self.fill_walls
-      WallPool.all.each do |wall|
-        next unless WallPool.contains? wall.name
+    def initialize(wall_pool)
+      @wall_pool = wall_pool
+    end
 
-        WallPool.without(wall).each do |other|
+    def fill_walls
+      @wall_pool.all.each do |wall|
+        next unless @wall_pool.contains? wall.name
+
+        @wall_pool.without(wall).each do |other|
           # check if the 2 walls have to be merged
           next unless (wall.bounds & other.bounds).count == 1
-          WallFiller.add_wall(wall, other)
+          add_wall(wall, other)
         end
       end
     end
 
-    def self.add_wall(wall, other)
+    def add_wall(wall, other)
       shared_vertex = (wall.bounds & other.bounds).first
       corner_wall_point = wall.cross_point(shared_vertex)
       corner_other_point = other.cross_point(shared_vertex)
 
       center = Plan.center(shared_vertex, corner_wall_point, corner_other_point)
-      return unless WallPool.wall_at_position(center).nil?
+      return unless @wall_pool.wall_at_position(center).nil?
 
-      WallPool.create_and_store do |corner_wall|
+      @wall_pool.create_and_store do |corner_wall|
         corner_wall.name = "corner_#{wall.name}_#{other.name}"
         corner_wall.angle = wall.angle
         corner_wall.width = wall.width
