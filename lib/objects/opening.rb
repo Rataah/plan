@@ -12,7 +12,6 @@ module Plan
     end
 
     def casement(length, reverse: false, origin: nil, angle: Math::PI / 2.0, outside: false)
-      p reverse
       origin ||= @casements.any? ? @casements.last.origin + @casements.last.length : 0
       @casements << Casement.new(origin, length, angle, reverse, outside)
       self

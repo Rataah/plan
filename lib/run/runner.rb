@@ -6,8 +6,8 @@ module Plan
   # Run the generation of the SVG file based on the config file
   class Runner
     def initialize(args)
-      @options = OpenStruct.new
-      OptionParser.new do |opts|
+      @options = OpenStruct.new(wall_merger: true, wall_filler: true, display_area: true)
+      option_parser = OptionParser.new do |opts|
         opts.on('-f', '--file FILE', 'Blueprint definition file') do |conf_file|
           @options.configuration_file = conf_file
         end
@@ -16,22 +16,37 @@ module Plan
           @options.output_file = output_file
         end
 
-        opts.on('--ruby-to-yaml FILE', 'Translate Ruby blueprint to this YAML file') do |to_yaml_file|
-          @options.ruby_to_yaml = to_yaml_file
+        opts.on('--disable-wall-merger', 'Disable the wall merger step') do
+          @options.wall_merger = false
+        end
+
+        opts.on('--disable-wall-filler', 'Disable the wall filler step') do
+          @options.wall_filler = false
+        end
+
+        opts.on('--disable-display-area', 'Disable the display of the total area') do
+          @options.display_area = false
         end
 
         opts.on('-h', '--help', 'Display this screen') do
           puts opts
           exit
         end
-      end.parse!(args)
+      end
+      option_parser.parse!(args)
+
+      if @options.configuration_file.nil? || @options.output_file.nil?
+        puts 'Missing Argument(s)'
+        puts option_parser
+        exit
+      end
     end
 
     def run
       rooms = DataLoader.load(@options.configuration_file)
 
-      WallMerger.merge_walls
-      WallFiller.fill_walls
+      WallMerger.merge_walls if @options.wall_merger
+      WallFiller.fill_walls if @options.wall_filler
 
       max_vertex = translate_elements(rooms)
 
@@ -57,6 +72,8 @@ module Plan
     end
 
     def svg_document_elements(rooms, max_vertex)
+      return [] unless @options.display_area
+
       [
         SVGText.new(
           "Total: #{rooms.map(&:area).reduce(0, :+).round(2)} m²",
