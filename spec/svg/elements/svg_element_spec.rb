@@ -7,7 +7,6 @@ module Plan
       subject(:element) { SVGElement.new('unit_test', 'ut_id') }
 
       before :each do
-        expect(xml_builder).to receive(:comment).with('this is the comment')
         expect(xml_builder).to receive(:unit_test_).with(nil, 'id' => 'ut_id', 'arg1' => 'value1', 'arg2' => '1.0')
       end
 
