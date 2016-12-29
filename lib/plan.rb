@@ -23,6 +23,10 @@ require 'svg/elements/svg_polygon'
 require 'svg/elements/svg_path'
 require 'svg/elements/svg_rect'
 
+require 'svg/ui/svg_button'
+require 'svg/ui/svg_floor'
+require 'svg/ui/svg_interaction'
+
 # elements
 require 'objects/helpers/wall_helper'
 require 'objects/factories/floor_factory'
@@ -53,5 +57,6 @@ require 'run/parsers/xml_parser/xml_room_factory'
 require 'run/parsers/xml_parser/xml_wall_factory'
 
 # main
+require 'run/plan_options'
 require 'run/runner'
 require 'run/wall_pool'

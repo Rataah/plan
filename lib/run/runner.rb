@@ -5,45 +5,10 @@ require 'fileutils'
 module Plan
   # Run the generation of the SVG file based on the config file
   class Runner
-    def options
-      OptionParser.new do |opts|
-        opts.on('-f', '--file FILE', 'Blueprint definition file') do |conf_file|
-          @options.configuration_file = conf_file
-        end
 
-        opts.on('-o', '--output FILE', 'Output file') do |output_file|
-          @options.output_file = output_file
-        end
-
-        opts.on('--disable-wall-merger', 'Disable the wall merger step') do
-          @options.wall_merger = false
-        end
-
-        opts.on('--disable-wall-filler', 'Disable the wall filler step') do
-          @options.wall_filler = false
-        end
-
-        opts.on('--disable-display-area', 'Disable the display of the total area') do
-          @options.display_area = false
-        end
-
-        opts.on('-h', '--help', 'Display this screen') do
-          puts opts
-          exit
-        end
-      end
-    end
 
     def initialize(args)
-      @options = OpenStruct.new(wall_merger: true, wall_filler: true, display_area: true)
-      option_parser = options
-      option_parser.parse!(args)
-
-      if @options.configuration_file.nil? || @options.output_file.nil?
-        puts 'Missing Argument(s)'
-        puts option_parser
-        exit
-      end
+      @options = PlanOptions.parse(args)
     end
 
     def run
@@ -56,8 +21,8 @@ module Plan
       max_vertex = translate_elements(floors)
 
       svg = SVG.new
-      svg.use_pattern('blueprint')
-      svg.contents.concat(svg_elements(floors, max_vertex))
+      svg.components.concat svg_interactions(floors)
+      svg.contents.concat svg_elements(floors, max_vertex)
 
       FileUtils.mkdir_p(File.dirname(@options.output_file))
       svg.write File.new(@options.output_file, 'w')
@@ -74,6 +39,12 @@ module Plan
       end
 
       max_vertex + min_vertex
+    end
+
+    def svg_interactions(floors)
+      interactions = SVGInteraction.new
+      interactions.add_floor_chooser(floors)
+      interactions.components
     end
 
     def svg_elements(floors, max_vertex)

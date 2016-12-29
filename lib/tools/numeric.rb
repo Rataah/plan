@@ -23,10 +23,8 @@ class Numeric
   def to_file_size
     {
       B: 1024.0,
-      KB: 1024.0 * 1024.0,
-      MB: 1024.0 * 1024.0 * 1024.0,
-      GB: 1024.0 * 1024.0 * 1024.0 * 1024.0,
-      TB: 1024.0 * 1024.0 * 1024.0 * 1024.0 * 1024.0
+      KB: 1048576.0,
+      MB: 1073741824.0
     }.each_pair do |label, value|
       return "#{(to_f / (value / 1024.0)).round(2)}#{label}" if self < value
     end

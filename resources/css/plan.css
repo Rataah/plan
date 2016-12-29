@@ -2,6 +2,33 @@ svg {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+/** INTERACTIONS **/
+.component-panel {
+    fill: url(#steel_gradient);
+    stroke: #dcdcdc;
+    stroke-width: 1px;
+}
+.component-title {
+    font-family: Arial, sans-serif;
+    font-weight:bold;
+}
+.button {
+    fill: url(#steel_gradient);
+    stroke: #dcdcdc;
+    stroke-width: 1px;
+    pointer-events: all;
+    cursor: pointer;
+}
+.button:hover {
+    fill: url(#steel_gradient_hover);
+}
+.button-content {
+    fill: #666666;
+    pointer-events: none;
+    font-family: Arial, sans-serif;
+    font-weight:bold;
+}
+
 .show_hover {
     opacity: 0.0;
 }
@@ -17,7 +44,8 @@ svg {
 }
 
 .room-floor {
-    fill: rgba(245, 245, 220, 0.72);
+    fill:  url(#steel_gradient); /*rgba(245, 245, 220, 0.72);*/
+    opacity: 0.8;
     stroke-width: 3px;
 }
 

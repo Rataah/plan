@@ -46,6 +46,16 @@ module Plan
       self
     end
 
+    def on_click(value)
+      @args['onclick'] = SVGArg.new(value, false)
+      self
+    end
+
+    def transform(value)
+      @args['transform'] = SVGArg.new(value, false)
+      self
+    end
+
     def comments(comment)
       @xml_comments = comment
       self
