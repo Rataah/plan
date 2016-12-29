@@ -83,14 +83,9 @@ module Plan
     def rebuild_segments(merged_wall, wall, other, sorted_points)
       @wall_pool.rooms(wall, other).each do |room|
         @wall_pool.segments(room, wall, other).each do |wall_segment|
-          start_vertex = sorted_points.index(wall_segment.centers.first)
-          end_vertex = sorted_points.index(wall_segment.centers.last)
+          start_vertex, end_vertex = sorted_points.indexes(wall_segment.centers.first_and_last)
 
-          wall_side = merged_wall.side(
-            room.vertices,
-            Plan.center(merged_wall.vertices_a.values_at(start_vertex, end_vertex))
-          )
-
+          wall_side = merged_wall.side(room.vertices, start_vertex, end_vertex)
           new_segment = WallSegment.new(
             merged_wall,
             SegmentIndex.new(wall_side, start_vertex), SegmentIndex.new(wall_side, end_vertex),

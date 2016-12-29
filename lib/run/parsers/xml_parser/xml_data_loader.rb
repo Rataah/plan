@@ -1,4 +1,5 @@
 module Plan
+  # Load and parse XML config file
   class XMLDataLoader
     def self.parse(content, _)
       [].tap do |result|
