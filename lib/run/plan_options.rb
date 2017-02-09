@@ -1,6 +1,7 @@
 module Plan
   class PlanOptions
     def self.parse(args)
+      Plan.configure_logger
       options = OpenStruct.new(wall_merger: true, wall_filler: true, display_area: true)
       option_parser = PlanOptions.create_options(options)
       option_parser.parse!(args)
@@ -15,8 +16,6 @@ module Plan
     end
 
     def self.create_options(options)
-      Plan.configure_logger
-
       OptionParser.new do |opts|
         opts.on('-f', '--file FILE', 'Blueprint definition file') do |conf_file|
           options.configuration_file = conf_file

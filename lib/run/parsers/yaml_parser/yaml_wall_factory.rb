@@ -12,9 +12,11 @@ module Plan
     def self.parse_openings(wall_factory, method, openings)
       openings.each do |opening_def|
         opening = wall_factory.send(method, opening_def[:origin], opening_def[:length])
+
+        next unless opening_def.key? :casements
         opening_def[:casements].each do |casement_def|
           opening.casement(casement_def[:length], casement_def.slice(:reverse, :origin, :angle, :outside))
-        end if opening_def.key? :casements
+        end
       end
     end
 

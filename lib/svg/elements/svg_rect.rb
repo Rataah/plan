@@ -7,7 +7,7 @@ module Plan
         x: SVGArg.new(x, true),
         y: SVGArg.new(y, true),
         width: SVGArg.new(width, true),
-        height: SVGArg.new(height, true),
+        height: SVGArg.new(height, true)
       )
 
       @args['rx'] = SVGArg.new(rx, true) if rx

@@ -1,8 +1,14 @@
 floor('first') do
   room('1th', 0, 0) do
     wall(500, :right)
-    wall(300, :down)
+    wall(300, :down, name: 'stairs')
     wall(500, :left)
+    wall(300, :up)
+  end
+  room('stairs', anchor: 'stairs.b1') do
+    wall(300, :right)
+    wall(300, :down)
+    wall(300, :left)
     wall(300, :up)
   end
 end

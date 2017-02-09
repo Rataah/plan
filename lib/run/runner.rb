@@ -5,8 +5,6 @@ require 'fileutils'
 module Plan
   # Run the generation of the SVG file based on the config file
   class Runner
-
-
     def initialize(args)
       @options = PlanOptions.parse(args)
     end
