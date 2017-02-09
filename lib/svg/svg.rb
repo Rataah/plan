@@ -28,7 +28,7 @@ module Plan
     end
 
     def write(output)
-      Plan.log.info("Generating SVG file #{output.path}")
+      Plan.log.info("Generating SVG file #{File.expand_path(output.path)}")
       svg = Nokogiri::XML::Builder.new(encoding: 'UTF-8') do |xml|
         xml.doc.create_internal_subset('svg', '-//W3C//DTD SVG 1.1//EN',
                                        'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd')

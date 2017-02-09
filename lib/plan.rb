@@ -1,6 +1,8 @@
 require 'nokogiri'
 require 'logger'
 
+require 'version'
+
 # tools
 require 'tools/tools'
 require 'tools/point'
