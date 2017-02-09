@@ -15,6 +15,8 @@ module Plan
     end
 
     def self.create_options(options)
+      Plan.configure_logger
+
       OptionParser.new do |opts|
         opts.on('-f', '--file FILE', 'Blueprint definition file') do |conf_file|
           options.configuration_file = conf_file
@@ -36,7 +38,12 @@ module Plan
           options.display_area = false
         end
 
+        opts.on('-v', '--verbose') do
+          Plan.configure_logger(true)
+        end
+
         opts.on('-h', '--help', 'Display this screen') do
+          puts "Plan version:#{Plan::VERSION}"
           puts opts
           exit
         end
