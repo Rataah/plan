@@ -41,8 +41,8 @@ module Plan
 
     def svg_interactions(floors)
       interactions = SVGInteraction.new
-      interactions.add_floor_chooser(floors)
-      interactions.components
+      interactions.add_floor_chooser(floors) if floors.size > 1
+      interactions.finalized
     end
 
     def svg_elements(floors, max_vertex)

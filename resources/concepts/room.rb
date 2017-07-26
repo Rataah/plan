@@ -23,9 +23,16 @@ floor('second') do
 
   room('3rd', anchor: '2nd_3rd.b1') do
     wall(245, :right)
-    wall(300, :down)
+    wall(300, :down, name: '2nd_stairs')
     wall(245, :left)
     wall(300, :up, width: 10)
+  end
+
+  room('2nd_stairs', anchor: '2nd_stairs.b1') do
+    wall(300, :right)
+    wall(300, :down)
+    wall(300, :left)
+    wall(300, :up)
   end
 end
 
@@ -39,7 +46,7 @@ floor('third') do
 
   room('5th', anchor: '4th_5th.b1') do
     wall(245, :right)
-    wall(145, :down)
+    wall(145, :down, name: '3rd_stairs')
     wall(245, :left, width: 10)
     wall(145, :up, width: 10)
   end
@@ -56,5 +63,12 @@ floor('third') do
     wall(145, :down)
     wall(245, :left)
     wall(145, :up, width: 10)
+  end
+
+  room('3rd_stairs', anchor: '3rd_stairs.b1') do
+    wall(300, :right)
+    wall(300, :down)
+    wall(300, :left)
+    wall(300, :up)
   end
 end
