@@ -14,5 +14,7 @@ Metrics/AbcSize:
   Enabled: false
 Metrics/ParameterLists:
   Max: 7
+Layout/EndOfLine:
+  Enabled: false
 Documentation:
   Enabled: false

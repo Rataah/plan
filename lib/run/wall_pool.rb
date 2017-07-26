@@ -22,7 +22,7 @@ module Plan
     end
 
     def without(wall)
-      pool.values.select { |other_wall| other_wall != wall }
+      pool.values.reject { |other_wall| other_wall == wall }
     end
 
     def delete(*wall_names)

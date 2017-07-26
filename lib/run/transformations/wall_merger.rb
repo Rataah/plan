@@ -52,9 +52,8 @@ module Plan
           add_vertices(new_wall, sorted_points,
                        *indexed_points[point].first.vertices.first_and_last.deep_dup)
         end
-
-        add_openings(new_wall, wall)
-        add_openings(new_wall, other)
+        add_openings(wall, new_wall)
+        add_openings(other, new_wall)
       end
     end
 

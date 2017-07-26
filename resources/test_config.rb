@@ -20,7 +20,7 @@ floor('apartment') do
     wall(130, :right)
     wall(64, :down)
     wall(88, :right) do
-      door(1, 86).casement(84, origin: 1, reverse: true)
+      door(1, 86).casement(84, origin: 1, reverse: false)
     end
     wall(182, :up, name: 'dining_room_hall2')
   end
