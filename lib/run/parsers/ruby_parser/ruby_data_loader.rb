@@ -13,12 +13,8 @@ module Plan
         @data = result
       end
 
-      def room(*args, &block)
-        if args.last.is_a?(Hash) && args.last.key?(:anchor)
-          args.last[:anchor] = DataLoader.retrieve_anchor(args.last[:anchor])
-        end
-
-        @data << RoomFactory.create(*args, &block)
+      def floor(*args, &block)
+        @data << FloorFactory.create(*args, &block)
       end
     end
   end

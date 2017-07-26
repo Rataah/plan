@@ -3,6 +3,7 @@ class String
   def to_id
     downcase.tr(': ', '_').tap do |id|
       id[0] = '' if id.start_with? '-'
+      id.insert(0, '_') if id =~ /\A[0-9]/
     end
   end
 

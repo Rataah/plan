@@ -1,5 +1,9 @@
 # Override Array class
 class Array
+  def indexes(values)
+    values.map { |value| index(value) }
+  end
+
   def first_and_last
     [first, last]
   end

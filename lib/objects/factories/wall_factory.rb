@@ -1,10 +1,10 @@
 module Plan
   # Wall factory. Create a wall
   class WallFactory
-    def self.create(name, origin, length, angle, width, &block)
-      WallFactory.new.instance_eval do
+    def self.create(wall_pool, name, origin, length, angle, width, &block)
+      WallFactory.new(wall_pool).instance_eval do
         Plan.log.debug("Creating new Wall:#{name}")
-        @wall = WallPool.create_and_store do |wall|
+        @wall = @wall_pool.create_and_store do |wall|
           wall.name = name
           wall.width = width
 
@@ -13,11 +13,15 @@ module Plan
           wall.length = length
 
           # compute the points
-          wall.vertices_a = [origin.dup.round(2), origin.translate(wall.angle, wall.length).round(2)]
+          wall.vertices_a = [origin.dup, origin.translate(wall.angle, wall.length)]
         end
         instance_eval(&block) if block_given?
         @wall
       end
+    end
+
+    def initialize(wall_pool)
+      @wall_pool = wall_pool
     end
 
     def window(origin, length)

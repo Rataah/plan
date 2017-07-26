@@ -4,10 +4,10 @@ module Plan
     def self.parse(content, _)
       require 'yaml'
 
-      yaml_content = Plan.symbolize_keys(YAML.load(content))
+      yaml_content = Plan.symbolize_keys(YAML.safe_load(content))
       [].tap do |result|
-        yaml_content[:rooms].each do |room_def|
-          result << YamlRoomFactory.parse_room(room_def)
+        yaml_content[:floors].each do |floor_def|
+          result << YamlFloorFactory.parse_floor(floor_def)
         end
       end
     end

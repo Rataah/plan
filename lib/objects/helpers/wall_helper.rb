@@ -1,4 +1,5 @@
 module Plan
+  # Helper methods for a wall
   module WallHelper
     def aligned?(other)
       Plan.angle_aligned?(angle, other.angle)
@@ -8,7 +9,8 @@ module Plan
       [ab1, ab2].count { |vertex| vertex.on_segment(other.ab1, other.ab2) }.nonzero?
     end
 
-    def side(vertices, center)
+    def side(vertices, start_index, end_index)
+      center = Plan.center(vertices_a.values_at(start_index, end_index))
       outside_angle = angle + Plan.normal_angle(bounds, a1, a2, angle)
       Plan.point_in_polygon?(center.translate(outside_angle, 1), vertices) ? :a : :b
     end

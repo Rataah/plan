@@ -3,13 +3,14 @@ module Plan
   class Room
     attr_accessor :name, :center, :origin
 
-    def initialize(name, origin)
+    def initialize(wall_pool, name, origin)
+      @wall_pool = wall_pool
       @name = name
       @origin = origin
     end
 
     def vertices
-      WallPool.walls(self).map(&:vertices).flatten.uniq
+      @wall_pool.walls(self).map(&:vertices).flatten.uniq
     end
 
     def translate(x, y)
@@ -30,11 +31,11 @@ module Plan
       Plan.log.debug("Draw SVG elements for Room: #{@name}")
       [
         SVGPolygon.new(vertices).css_class('room-stroke'),
-        SVGGroup.new(@name).add([].tap do |elements|
+        SVGGroup.new("room_#{@name}").add([].tap do |elements|
           elements << SVGPolygon.new(vertices).css_class('room-floor')
           elements << SVGText.new(@name.to_s, @center).css_class('room-name').anchor(:middle)
           elements << SVGText.new("#{area.round(2)} m²", @center.add(0, 20)).anchor(:middle)
-          WallPool.walls(self).each { |wall_segment| elements.push(wall_segment.svg_elements) }
+          @wall_pool.walls(self).each { |wall_segment| elements.push(wall_segment.svg_elements) }
         end.flatten).comments(@name).css_class('show_hover')
       ]
     end

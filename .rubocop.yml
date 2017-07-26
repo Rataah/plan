@@ -1,3 +1,8 @@
+AllCops:
+  Exclude:
+    - 'resources/**/*'
+    - 'spec/**/*'
+
 Metrics/LineLength:
   Max: 120
 Metrics/MethodLength:
@@ -8,6 +13,8 @@ Metrics/ModuleLength:
 Metrics/AbcSize:
   Enabled: false
 Metrics/ParameterLists:
-  Max: 6
+  Max: 7
+Layout/EndOfLine:
+  Enabled: false
 Documentation:
   Enabled: false

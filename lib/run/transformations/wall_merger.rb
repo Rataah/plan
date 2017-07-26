@@ -1,15 +1,19 @@
 module Plan
   # Merge walls
   class WallMerger
-    def self.merge_walls
-      WallPool.all.combination(2) do |wall, other|
+    def initialize(wall_pool)
+      @wall_pool = wall_pool
+    end
+
+    def merge_walls
+      @wall_pool.all.combination(2) do |wall, other|
         # not yet in pool
-        next unless WallPool.contains? wall.name
-        WallMerger.merge_wall(wall, other) if wall.aligned?(other) && wall.intersect?(other)
+        next unless @wall_pool.contains? wall.name
+        merge_wall(wall, other) if wall.aligned?(other) && wall.intersect?(other)
       end
     end
 
-    def self.merge_wall(wall, other)
+    def merge_wall(wall, other)
       Plan.log.debug("Wall links #{wall.name} - #{other.name}")
 
       # retrieve all the couple of vertices (A/B) of the 2 walls and merge them.
@@ -22,10 +26,10 @@ module Plan
       sorted_points = WallMerger.sort_indexed_points(indexed_points, wall.ab1, -wall.angle)
 
       # create the new wall
-      merged_wall = WallMerger.build_wall(wall, other, sorted_points, indexed_points)
+      merged_wall = build_wall(wall, other, sorted_points, indexed_points)
 
-      WallMerger.rebuild_segments(merged_wall, wall, other, sorted_points)
-      WallPool.delete(wall.name, other.name)
+      rebuild_segments(merged_wall, wall, other, sorted_points)
+      @wall_pool.delete(wall.name, other.name)
     end
 
     def self.sort_indexed_points(indexed_points, origin, angle)
@@ -38,23 +42,22 @@ module Plan
       left_point.x * cos_angle - left_point.y * sin_angle <=> right_point.x * cos_angle - right_point.y * sin_angle
     end
 
-    def self.build_wall(wall, other, sorted_points, indexed_points)
-      WallPool.create_and_store do |new_wall|
+    def build_wall(wall, other, sorted_points, indexed_points)
+      @wall_pool.create_and_store do |new_wall|
         new_wall.name = "#{wall.name}_#{other.name}"
         new_wall.width = wall.width
         new_wall.angle = wall.angle
 
         sorted_points.each do |point|
-          WallMerger.add_vertices(new_wall, sorted_points,
-                                  *indexed_points[point].first.vertices.first_and_last.deep_dup)
+          add_vertices(new_wall, sorted_points,
+                       *indexed_points[point].first.vertices.first_and_last.deep_dup)
         end
-
-        add_openings(new_wall, wall)
-        add_openings(new_wall, other)
+        add_openings(wall, new_wall)
+        add_openings(other, new_wall)
       end
     end
 
-    def self.add_openings(wall, new_wall)
+    def add_openings(wall, new_wall)
       wall.windows.each do |window|
         window.origin += wall.ab1.dist new_wall.ab1
         new_wall.windows << window
@@ -66,7 +69,7 @@ module Plan
       end
     end
 
-    def self.add_vertices(wall, segment, first_ref_point, last_ref_point)
+    def add_vertices(wall, segment, first_ref_point, last_ref_point)
       if Plan.position_against(first_ref_point, segment.first, segment.last) == 1
         wall.vertices_b << first_ref_point
         wall.vertices_a << last_ref_point
@@ -76,23 +79,18 @@ module Plan
       end
     end
 
-    def self.rebuild_segments(merged_wall, wall, other, sorted_points)
-      WallPool.rooms(wall, other).each do |room|
-        WallPool.segments(room, wall, other).each do |wall_segment|
-          start_vertex = sorted_points.index(wall_segment.centers.first)
-          end_vertex = sorted_points.index(wall_segment.centers.last)
+    def rebuild_segments(merged_wall, wall, other, sorted_points)
+      @wall_pool.rooms(wall, other).each do |room|
+        @wall_pool.segments(room, wall, other).each do |wall_segment|
+          start_vertex, end_vertex = sorted_points.indexes(wall_segment.centers.first_and_last)
 
-          wall_side = merged_wall.side(
-            room.vertices,
-            Plan.center(merged_wall.vertices_a.values_at(start_vertex, end_vertex))
-          )
-
+          wall_side = merged_wall.side(room.vertices, start_vertex, end_vertex)
           new_segment = WallSegment.new(
             merged_wall,
             SegmentIndex.new(wall_side, start_vertex), SegmentIndex.new(wall_side, end_vertex),
             wall_segment.angle
           )
-          WallPool.replace_segment(room, wall_segment, new_segment)
+          @wall_pool.replace_segment(room, wall_segment, new_segment)
         end
       end
     end

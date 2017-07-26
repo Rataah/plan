@@ -9,7 +9,7 @@ module Plan
 
     def xml_element(xml_builder, &block)
       svg_args = Hash[@args.map { |key, value| [key, SVGElement.prepare_value(value.value)] }]
-      xml_builder.send(:comment, @xml_comments) if @xml_comments
+      # xml_builder.send(:comment, @xml_comments) if @xml_comments
       xml_builder.send("#{@name.downcase}_".to_sym, @data, svg_args, &block)
     end
 
@@ -20,9 +20,9 @@ module Plan
       when Array then
         value.map { |item| prepare_value(item) }.join(' ')
       when Point then
-        value.to_svg
+        value.round(2).to_svg
       else
-        value.to_f.to_s
+        value.to_f.round(2).to_s
       end
     end
   end

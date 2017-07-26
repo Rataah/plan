@@ -15,8 +15,8 @@ module Plan
           group << SVGLine.new(vertex, label_vertices[index]).stroke('black')
         end
         group << SVGLine.new(label_vertices.first, label_vertices.last).stroke('black')
-        label_vertices.each_cons(2) do |vertex_1, vertex_2|
-          group << SVGText.new("#{vertex_1.dist(vertex_2).to_i}cm", Plan.center(vertex_1, vertex_2)
+        label_vertices.each_cons(2) do |vertex1, vertex2|
+          group << SVGText.new("#{vertex1.dist(vertex2).to_i}cm", Plan.center(vertex1, vertex2)
             .translate(angle, 15)).anchor(:middle).rotate(angle).css_class('dimension')
         end
       end)
