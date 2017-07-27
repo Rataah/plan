@@ -6,12 +6,12 @@ require 'version'
 # tools
 require 'tools/tools'
 require 'tools/point'
-require 'tools/geometry'
 require 'tools/array'
 require 'tools/string'
 require 'tools/numeric'
 require 'tools/logger'
 require 'tools/hash'
+require 'tools/geometry'
 
 # svg
 require 'svg/svg'

@@ -1,19 +1,22 @@
 module Plan
   class Point
-    attr_reader :x, :y
+    attr_reader :coord_x, :coord_y
 
-    def initialize(x, y)
-      @x = x.to_f
-      @y = y.to_f
+    alias_method :x, :coord_x
+    alias_method :y, :coord_y
+
+    def initialize(coord_x, coord_y)
+      @coord_x = coord_x.to_f
+      @coord_y = coord_y.to_f
     end
 
-    def add(x, y)
-      Point.new(@x + x, @y + y)
+    def add(amount_x, amount_y)
+      Point.new(@coord_x + amount_x, @coord_y + amount_y)
     end
 
-    def add!(x, y)
-      @x += x
-      @y += y
+    def add!(amount_x, amount_y)
+      @coord_x += amount_x
+      @coord_y += amount_y
     end
 
     def translate(angle, length)
@@ -21,47 +24,51 @@ module Plan
     end
 
     def round(digit)
-      @x = @x.round(digit)
-      @y = @y.round(digit)
+      @coord_x = @coord_x.round(digit)
+      @coord_y = @coord_y.round(digit)
 
       self
     end
 
     def dist(point = ZERO)
-      Math.hypot(@x - point.x, @y - point.y)
+      Math.hypot(@coord_x - point.x, @coord_y - point.y)
     end
 
     def abs
-      Point.new(@x.abs, @y.abs)
+      Point.new(@coord_x.abs, @coord_y.abs)
     end
 
     def -@
-      Point.new(-@x, -@y)
+      Point.new(-@coord_x, -@coord_y)
     end
 
     def xy
-      [@x, @y]
+      [@coord_x, @coord_y]
     end
 
-    def on_segment(a, b)
-      dist(a) + dist(b) == a.dist(b)
+    def on_segment(point_a, point_b)
+      dist(point_a) + dist(point_b) == point_a.dist(point_b)
+    end
+
+    def orientation(cos_angle, sin_angle)
+      @coord_x * cos_angle - @coord_y * sin_angle
     end
 
     def !=(other)
-      @x != other.x || @y != other.y
+      @coord_x != other.x || @coord_y != other.y
     end
 
     def +(other)
-      Point.new(@x + other.x, @y + other.y)
+      Point.new(@coord_x + other.x, @coord_y + other.y)
     end
 
     def -(other)
-      Point.new(@x - other.x, @y - other.y)
+      Point.new(@coord_x - other.x, @coord_y - other.y)
     end
 
     def /(other)
       raise ZeroDivisionError if other.zero?
-      Point.new(@x / other, @y / other)
+      Point.new(@coord_x / other, @coord_y / other)
     end
 
     def ==(other)
@@ -69,11 +76,11 @@ module Plan
     end
 
     def to_s
-      "#{@x}:#{@y}"
+      "#{@coord_x}:#{@coord_y}"
     end
 
     def to_svg
-      %(#{@x},#{@y})
+      %(#{@coord_x},#{@coord_y})
     end
 
     def hash
@@ -81,7 +88,7 @@ module Plan
     end
 
     def eql?(other)
-      @x == other.x && @y == other.y
+      @coord_x == other.x && @coord_y == other.y
     end
 
     ZERO = Point.new(0, 0).freeze

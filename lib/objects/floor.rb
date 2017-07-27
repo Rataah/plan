@@ -11,8 +11,13 @@ module Plan
       "floor_#{@name}"
     end
 
+    def vertices
+      @wall_pool.all.map(&:vertices).flatten
+    end
+
     def translate(x, y)
       @rooms.each { |room| room.translate(x, y) }
+      @wall_pool.each { |wall| wall.translate(x, y) }
     end
 
     def area

@@ -31,13 +31,19 @@ module Plan
       Plan.log.debug("Draw SVG elements for Room: #{@name}")
       [
         SVGPolygon.new(vertices).css_class('room-stroke'),
-        SVGGroup.new("room_#{@name}").add([].tap do |elements|
-          elements << SVGPolygon.new(vertices).css_class('room-floor')
-          elements << SVGText.new(@name.to_s, @center).css_class('room-name').anchor(:middle)
-          elements << SVGText.new("#{area.round(2)} m²", @center.add(0, 20)).anchor(:middle)
-          @wall_pool.walls(self).each { |wall_segment| elements.push(wall_segment.svg_elements) }
-        end.flatten).comments(@name).css_class('show_hover')
+        svg_elements_group.comments(@name).css_class('show_hover')
       ]
+    end
+
+    private
+
+    def svg_elements_group
+      SVGGroup.new("room_#{@name}").add([].tap do |elements|
+        elements << SVGPolygon.new(vertices).css_class('room-floor')
+        elements << SVGText.new(@name.to_s, @center).css_class('room-name').anchor(:middle)
+        elements << SVGText.new("#{area.round(2)} m²", @center.add(0, 20)).anchor(:middle)
+        @wall_pool.walls(self).each { |wall_segment| elements.push(wall_segment.svg_elements) }
+      end.flatten)
     end
   end
 end

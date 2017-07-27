@@ -4,11 +4,11 @@ module Plan
     WIDTH = 1600
     HEIGHT = 900
 
-    attr_accessor :contents, :components, :defs
+    attr_reader :contents, :components, :defs
 
-    def initialize
-      @contents = []
-      @components = []
+    def initialize(contents, components)
+      @contents = contents
+      @components = components
 
       @patterns = []
       @gradients = []
@@ -23,41 +23,52 @@ module Plan
       @gradients << gradient_name
     end
 
-    def load(prefix, pattern_name)
-      Nokogiri::XML::DocumentFragment.parse(File.read("./resources/#{prefix}/#{pattern_name}.xml")).to_xml
-    end
-
     def write(output)
-      Plan.log.info("Generating SVG file #{File.expand_path(output.path)}")
-      svg = Nokogiri::XML::Builder.new(encoding: 'UTF-8') do |xml|
-        xml.doc.create_internal_subset('svg', '-//W3C//DTD SVG 1.1//EN',
-                                       'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd')
-        xml.svg(width: '100%', height: '100%', xmlns: 'http://www.w3.org/2000/svg') do
-          css = File.read('./resources/css/plan.css')
-          xml.style(css, type: 'text/css')
-          script = File.read('./resources/javascript/plan.js')
-          xml.script(script, type: 'text/ecmascript')
+      Plan.log.info('Generating SVG file')
+      svg = Nokogiri::XML::Builder.new(encoding: 'UTF-8') { |xml| build_svg xml }
 
-          xml.defs do |defs|
-            @patterns.each { |pattern_name| defs << load('patterns', pattern_name) }
-            @gradients.each { |gradient_name| defs << load('gradients', gradient_name) }
-          end
-
-          SVGGroup.new('root_component').add do |root_component|
-            root_component.concat(@components)
-          end.xml_element(xml)
-          SVGGroup.new('root_content').add do |root_content|
-            root_content.concat(@contents)
-          end.transform('translate(140)').xml_element(xml)
-        end
-      end
-
-      validate(svg.doc)
+      SVG.validate(svg.doc)
       output.write(svg.to_xml.gsub(%(<?xml version="1.0"?>), %(<?xml version="1.0" standalone="no"?>)))
       Plan.log.info("File size: #{File.size(output.path).to_file_size}")
     end
 
-    def validate(doc)
+    def build_svg(xml)
+      xml.svg(width: '2000', height: '2000', xmlns: 'http://www.w3.org/2000/svg') do
+        xml.doc.create_internal_subset('svg', '-//W3C//DTD SVG 1.1//EN',
+                                       'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd')
+        insert_css_scripts xml
+        insert_shared xml
+        
+        insert_components xml
+        insert_content xml
+      end
+    end
+
+    def insert_css_scripts(xml)
+      xml.style(File.read('./resources/css/plan.css'), type: 'text/css')
+      xml.script(File.read('./resources/javascript/plan.js'), type: 'text/ecmascript')
+    end
+
+    def insert_shared(xml)
+      xml.defs do |defs|
+        @patterns.each { |pattern_name| defs << SVG.load('patterns', pattern_name) }
+        @gradients.each { |gradient_name| defs << SVG.load('gradients', gradient_name) }
+      end
+    end
+
+    def insert_components(xml)
+      SVGGroup.new('root_component').add do |root_component|
+        root_component.concat(@components)
+      end.xml_element(xml)
+    end
+
+    def insert_content(xml)
+      SVGGroup.new('root_content').add do |root_content|
+        root_content.concat(@contents)
+      end.transform('translate(140)').xml_element(xml)
+    end
+
+    def self.validate(doc)
       Dir.chdir('./resources/xsd/') do
         Plan.log.debug('Validating XML')
         xsd = Nokogiri::XML::Schema(File.read('SVG.xsd'))
@@ -65,6 +76,10 @@ module Plan
           Plan.log.error(error.message)
         end
       end
+    end
+
+    def self.load(prefix, pattern_name)
+      Nokogiri::XML::DocumentFragment.parse(File.read("./resources/#{prefix}/#{pattern_name}.xml")).to_xml
     end
   end
 end

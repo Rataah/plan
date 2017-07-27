@@ -11,7 +11,7 @@ module Plan
 
     def side(vertices, start_index, end_index)
       center = Plan.center(vertices_a.values_at(start_index, end_index))
-      outside_angle = angle + Plan.normal_angle(bounds, a1, a2, angle)
+      outside_angle = angle + Plan.normal_angle(bounds, a1, a2, angle, false)
       Plan.point_in_polygon?(center.translate(outside_angle, 1), vertices) ? :a : :b
     end
 

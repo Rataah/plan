@@ -63,7 +63,7 @@ module Plan
 
     def apply_width(vertices)
       return if @vertices_b.any?
-      direction = angle + Plan.normal_angle(vertices, vertex_a1, vertex_a2, angle)
+      direction = angle + Plan.normal_angle(vertices, vertex_a1, vertex_a2, angle, false)
       @vertices_b << vertex_a1.translate(direction, @width).round(2)
       @vertices_b << vertex_a2.translate(direction, @width).round(2)
     end
@@ -93,6 +93,10 @@ module Plan
         group << SVGPolygon.new(vertices).css_class('wall')
         group << (@windows + @doors).map { |opening| opening.svg_elements(self) }
       end.comments(@name).merge!(self)
+    end
+
+    def to_s
+      name
     end
   end
 end
