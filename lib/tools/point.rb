@@ -2,8 +2,8 @@ module Plan
   class Point
     attr_reader :coord_x, :coord_y
 
-    alias_method :x, :coord_x
-    alias_method :y, :coord_y
+    alias x coord_x
+    alias y coord_y
 
     def initialize(coord_x, coord_y)
       @coord_x = coord_x.to_f

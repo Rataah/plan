@@ -10,28 +10,26 @@ module Plan
     end
 
     def run
-      elements = Runner.load_elements(@options.configuration_file, @options.wall_merger, @options.wall_filler)
+      data_loaded = Runner.load_elements(@options.configuration_file, @options.wall_merger, @options.wall_filler)
+      elements = data_loaded.elements
       max_vertex = Runner.translate_elements(elements)
-      svg = SVG.new(
-        @options.display_area ? Runner.svg_elements(elements, max_vertex) : [], 
-        Runner.svg_interactions(elements)
-      )
+      svg = SVG.new(data_loaded.metadata, Runner.svg_interactions(elements))
+      svg.add_contents(Runner.svg_elements(elements))
+      svg.add_contents(Runner.svg_document_elements(elements, max_vertex)) if @options.display_area
       Runner.save_plan(svg, @options.output_file)
     end
 
     def self.load_elements(configuration_file, wall_merger, wall_filler)
-      DataLoader.load(configuration_file).tap do |floors|
-        floors.each do |floor|
-          WallMerger.new(floor.wall_pool).merge_walls if wall_merger
-          WallFiller.new(floor.wall_pool).fill_walls if wall_filler
+      DataLoader.load(configuration_file).tap do |data_loaded|
+        data_loaded.elements.each do |element|
+          WallMerger.new(element.wall_pool).merge_walls if wall_merger
+          WallFiller.new(element.wall_pool).fill_walls if wall_filler
         end
       end
     end
 
-    def self.svg_elements(floors, max_vertex)
-      (
-        floors.map(&:svg_elements) + Runner.svg_document_elements(floors, max_vertex)
-      ).flatten
+    def self.svg_elements(floors)
+      floors.map(&:svg_elements).flatten
     end
 
     def self.save_plan(svg, output_file)

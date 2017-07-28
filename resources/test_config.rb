@@ -1,3 +1,9 @@
+metadata {
+  title 'Apartment'
+  author 'Rataah'
+  version '0.1.0'
+}
+
 floor('apartment') {
   room('dining room', 0, 0) {
     wall(368, :right, width: 15)

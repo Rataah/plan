@@ -6,13 +6,18 @@ module Plan
 
     attr_reader :contents, :components, :defs
 
-    def initialize(contents, components)
-      @contents = contents
+    def initialize(metadata, components)
+      @metadata = metadata
+      @contents = []
       @components = components
 
       @patterns = []
       @gradients = []
       use_gradient('steel')
+    end
+
+    def add_contents(contents)
+      @contents.push(contents)
     end
 
     def use_pattern(pattern_name)
@@ -33,15 +38,24 @@ module Plan
     end
 
     def build_svg(xml)
-      xml.svg(width: '2000', height: '2000', xmlns: 'http://www.w3.org/2000/svg') do
+      xml.svg(
+        width: '2000',
+        height: '2000',
+        xmlns: 'http://www.w3.org/2000/svg'
+      ) do
         xml.doc.create_internal_subset('svg', '-//W3C//DTD SVG 1.1//EN',
                                        'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd')
+        insert_metadata xml
         insert_css_scripts xml
         insert_shared xml
-        
+
         insert_components xml
         insert_content xml
       end
+    end
+
+    def insert_metadata(xml)
+      @metadata.svg_elements.each { |element| element.xml_element(xml) }
     end
 
     def insert_css_scripts(xml)
@@ -71,7 +85,7 @@ module Plan
     def self.validate(doc)
       Dir.chdir('./resources/xsd/') do
         Plan.log.debug('Validating XML')
-        xsd = Nokogiri::XML::Schema(File.read('SVG.xsd'))
+        xsd = Nokogiri::XML::Schema(File.read('schema.xsd'))
         xsd.validate(doc).each do |error|
           Plan.log.error(error.message)
         end
