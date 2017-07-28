@@ -55,30 +55,19 @@ module Plan
 
     def casement_svg_element(angle, casement, opening_anchor)
       casement_angle = angle.rotate_rad(casement.angle)
-      line_angle = angle
-      if casement.reverse
-        line_angle += Math::PI
-        casement_origin = opening_anchor.translate(angle, casement.origin + casement.length)
-        if casement.side
-          casement_angle += Math::PI
-          sweep_flag = 1
-        else
-          sweep_flag = 0
-        end
-      else
-        casement_origin = opening_anchor.translate(angle, casement.origin)
-        if casement.side
-          casement_angle += Math::PI
-          sweep_flag = 0
-        else
-          sweep_flag = 1
-        end
-      end
+      line_angle = angle + (casement.reverse ? Math::PI : 0)
+      casement_origin = opening_anchor.translate(angle, casement.origin + (casement.reverse ? casement.length : 0))
+      sweep_flag = casement.reverse == casement.side ? 1 : 0
+      casement_angle += Math::PI if casement.side
 
-      SVGPath.new(casement_origin).line_to(casement_origin.translate(line_angle, casement.length)).arc(
-        Point.new(casement.length.abs, casement.length.abs),
-        casement_origin.translate(casement_angle, casement.length), 0, sweep_flag
-      ).close_path
+      [
+        SVGPath.new(casement_origin).line_to(casement_origin.translate(line_angle, casement.length)).arc(
+          Point.new(casement.length.abs, casement.length.abs),
+          casement_origin.translate(casement_angle, casement.length), 0, sweep_flag
+        ),
+        SVGLine.new(casement_origin, casement_origin.translate(casement_angle, casement.length))
+               .css_class('casement_panel')
+      ]
     end
   end
 end
