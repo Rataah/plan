@@ -12,6 +12,8 @@ module Plan
       @components = components
 
       @patterns = []
+      use_pattern('stripes')
+
       @gradients = []
       use_gradient('steel')
     end

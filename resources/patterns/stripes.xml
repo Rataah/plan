@@ -1,0 +1,8 @@
+<pattern id="stripes"  x="0" y="0" width="6" height="6" patternUnits="userSpaceOnUse">
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g fill="#111">
+            <polygon points="0 6 6 0 3 0 0 3"></polygon>
+            <polygon points="6 6 6 3 3 6"></polygon>
+        </g>
+    </g>
+</pattern>
