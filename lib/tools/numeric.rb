@@ -4,6 +4,10 @@ class Numeric
     self >= 0
   end
 
+  def negative?
+    self <= 0
+  end
+
   def one?
     self == 1
   end

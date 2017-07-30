@@ -46,6 +46,10 @@ module Plan
       end
     end
 
+    def add_rooms_coordinates(room)
+      @wall.rooms_coordinates[room.name] = room.center
+    end
+
     def distance
       segment = vertices
       segment.first.dist segment.last

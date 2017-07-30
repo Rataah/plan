@@ -12,7 +12,7 @@ module Plan
   class Wall < SVGArgument
     include WallHelper
 
-    attr_accessor :vertices_a, :vertices_b, :name, :angle, :length, :width, :windows, :doors
+    attr_accessor :vertices_a, :vertices_b, :name, :angle, :length, :width, :rooms_coordinates, :windows, :doors
 
     def vertex_a1
       @vertices_a.first
@@ -37,6 +37,7 @@ module Plan
       @vertices_b = []
       @windows = []
       @doors = []
+      @rooms_coordinates = {}
 
       @angle = 0
       @name = 'wall'

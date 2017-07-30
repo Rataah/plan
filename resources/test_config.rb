@@ -13,12 +13,15 @@ floor('apartment') {
     }
     wall(570, :up, name: 'dining_room_hall') {
       door(440, 130).casement(41, origin: 2).casement(80, reverse: true)
+      # switch('dining_room_light', 420)
     }
+
+    # ceiling_light(60, 60).link('dining_room_light')
   }
 
   room('hall', anchor: 'dining_room_hall.b2') {
     wall(335, :left, width: 15) {
-      door(117, 102).casement(92, origin: 5, outside: true, reverse: true)
+      door(117, 102).casement(92, origin: 5, reverse: true)
     }
     wall(182, :down, name: 'hall_toilets')
     wall(117, :right)
@@ -26,7 +29,7 @@ floor('apartment') {
     wall(130, :right)
     wall(64, :down)
     wall(88, :right) {
-      door(1, 86).casement(84, origin: 1, reverse: false)
+      door(1, 86).casement(84, origin: 1, reverse: true, outside: true)
     }
     wall(182, :up, name: 'dining_room_hall2')
   }
@@ -54,7 +57,7 @@ floor('apartment') {
     wall(69, :up)
     wall(20, :right)
     wall(125, :up, name: 'bathroom_hall') {
-      door(41, 83).casement(81, origin: 1)
+      door(41, 83).casement(81, origin: 1, outside: true)
     }
   }
 
@@ -75,10 +78,10 @@ floor('apartment') {
 
   room('kitchen', anchor: 'bedroom_kitchen.b2') {
     wall(250, :right, width: 15) {
-      window(118, 110).casement(100, origin: 5, reverse: true, outside: true)
+      window(118, 110).casement(100, origin: 5, reverse: true)
     }
     wall(383, :up, name: 'kitchen') {
-      door(90, 88).casement(86)
+      door(90, 88).casement(86, outside: true)
     }
     wall(190, :left)
     wall(60, :down)

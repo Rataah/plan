@@ -48,6 +48,8 @@ module Plan
         new_wall.width = wall.width
         new_wall.angle = wall.angle
 
+        new_wall.rooms_coordinates = wall.rooms_coordinates.merge(other.rooms_coordinates)
+
         sorted_points.each do |point|
           add_vertices(new_wall, sorted_points,
                        *indexed_points[point].first.vertices.first_and_last.deep_dup)

@@ -1,9 +1,10 @@
 module Plan
   # Wall factory. Create a wall
   class WallFactory
-    def self.create(wall_pool, name, origin, length, angle, width, &block)
+    def self.create(room, wall_pool, name, origin, length, angle, width, &block)
       WallFactory.new(wall_pool).instance_eval do
         Plan.log.debug("Creating new Wall:#{name}")
+        @room = room
         @wall = @wall_pool.create_and_store do |wall|
           wall.name = name
           wall.width = width
@@ -25,11 +26,11 @@ module Plan
     end
 
     def window(origin, length)
-      (@wall.windows << Window.new(origin, length)).last
+      (@wall.windows << Window.new(@room.name, origin, length)).last
     end
 
     def door(origin, length)
-      (@wall.doors << Door.new(origin, length)).last
+      (@wall.doors << Door.new(@room.name, origin, length)).last
     end
   end
 end
