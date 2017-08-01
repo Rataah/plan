@@ -10,11 +10,12 @@ module Plan
     # Parse the data. A ruby config file is evaluated on the DataParser instance
     class DataParser
       def initialize(result)
+        @floor_factory = FloorFactory.new
         @data = result
       end
 
       def floor(*args, &block)
-        @data.elements << FloorFactory.create(*args, &block)
+        @data.elements << @floor_factory.create(*args, &block)
       end
 
       def metadata(*args, &block)

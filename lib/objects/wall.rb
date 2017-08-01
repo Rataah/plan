@@ -12,7 +12,7 @@ module Plan
   class Wall < SVGArgument
     include WallHelper
 
-    attr_accessor :vertices_a, :vertices_b, :name, :angle, :length, :width, :rooms_coordinates, :windows, :doors
+    attr_accessor :vertices_a, :vertices_b, :name, :angle, :length, :width, :windows, :doors
 
     def vertex_a1
       @vertices_a.first
@@ -37,7 +37,6 @@ module Plan
       @vertices_b = []
       @windows = []
       @doors = []
-      @rooms_coordinates = {}
 
       @angle = 0
       @name = 'wall'
@@ -62,9 +61,8 @@ module Plan
       end
     end
 
-    def apply_width(vertices)
+    def apply_width(direction)
       return if @vertices_b.any?
-      direction = angle + Plan.normal_angle(vertices, vertex_a1, vertex_a2, angle, false)
       @vertices_b << vertex_a1.translate(direction, @width).round(2)
       @vertices_b << vertex_a2.translate(direction, @width).round(2)
     end
@@ -82,10 +80,6 @@ module Plan
 
     def bounds
       [a1, a2, b2, b1]
-    end
-
-    def translate(x, y)
-      vertices.each { |vertex| vertex.add!(x, y) }
     end
 
     def svg_elements

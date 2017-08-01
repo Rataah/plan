@@ -13,11 +13,6 @@ module Plan
       @wall_pool.walls(self).map(&:vertices).flatten.uniq
     end
 
-    def translate(x, y)
-      @origin.add!(x, y)
-      @center.add!(x, y)
-    end
-
     def area
       sum = 0.0
       area_vertices = vertices

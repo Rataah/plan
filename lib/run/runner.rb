@@ -12,9 +12,9 @@ module Plan
     def run
       data_loaded = Runner.load_elements(@options.configuration_file, @options.wall_merger, @options.wall_filler)
       elements = data_loaded.elements
-      max_vertex = Runner.translate_elements(elements)
+      min_vertex, max_vertex = Runner.bounds(elements)
       svg = SVG.new(data_loaded.metadata, Runner.svg_interactions(elements))
-      svg.add_contents(Runner.svg_elements(elements))
+      svg.add_contents(Runner.svg_elements(elements, min_vertex))
       svg.add_contents(Runner.svg_document_elements(elements, max_vertex)) if @options.display_area
       Runner.save_plan(svg, @options.output_file)
     end
@@ -28,8 +28,8 @@ module Plan
       end
     end
 
-    def self.svg_elements(floors)
-      floors.map(&:svg_elements).flatten
+    def self.svg_elements(floors, translation)
+      SVGGroup.new('root_panel').add(floors.map(&:svg_elements).flatten).translate(translation)
     end
 
     def self.save_plan(svg, output_file)
@@ -38,13 +38,11 @@ module Plan
       Plan.log.info('Generation done')
     end
 
-    def self.translate_elements(floors)
+    def self.bounds(floors)
       min_vertex, max_vertex = Plan.bounds(floors.map(&:vertices).flatten)
       min_vertex = (-min_vertex).add(50, 50)
 
-      floors.each { |floor| floor.translate(*min_vertex.xy) }
-
-      max_vertex + min_vertex
+      [min_vertex, max_vertex + min_vertex]
     end
 
     def self.svg_interactions(floors)

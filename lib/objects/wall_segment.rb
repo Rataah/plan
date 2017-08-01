@@ -46,17 +46,13 @@ module Plan
       end
     end
 
-    def add_rooms_coordinates(room)
-      @wall.rooms_coordinates[room.name] = room.center
-    end
-
     def distance
       segment = vertices
       segment.first.dist segment.last
     end
 
-    def apply_width(vertices)
-      @wall.apply_width(vertices)
+    def apply_width(direction)
+      @wall.apply_width(direction)
     end
 
     def svg_elements

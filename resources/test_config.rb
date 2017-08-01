@@ -13,7 +13,8 @@ floor('apartment') {
     }
     wall(570, :up, name: 'dining_room_hall') {
       door(440, 130).casement(41, origin: 2).casement(80, reverse: true)
-      # switch('dining_room_light', 420)
+      switch('dining_room_light_1', 185)
+      switch('dining_room_light_2', 420)
     }
 
     # ceiling_light(60, 60).link('dining_room_light')
@@ -22,12 +23,17 @@ floor('apartment') {
   room('hall', anchor: 'dining_room_hall.b2') {
     wall(335, :left, width: 15) {
       door(117, 102).casement(92, origin: 5, reverse: true)
+      switch('hall_light_1', 100)
     }
     wall(182, :down, name: 'hall_toilets')
-    wall(117, :right)
+    wall(117, :right) {
+      switch('hall_light_2', 95)
+    }
     wall(64, :up)
     wall(130, :right)
-    wall(64, :down)
+    wall(64, :down) {
+      switch('hall_light_3', 30)
+    }
     wall(88, :right) {
       door(1, 86).casement(84, origin: 1, reverse: true, outside: true)
     }
@@ -38,7 +44,9 @@ floor('apartment') {
     wall(85, :down, name: 'toilets_hall') {
       door(1, 83).casement(81, origin: 1, outside: true)
     }
-    wall(144, :left, name: 'toilets_bathroom')
+    wall(144, :left, name: 'toilets_bathroom') {
+      switch('toilets_light', 15)
+    }
     wall(85, :up, name: 'toilets_cmv')
     wall(144, :right, width: 15)
   }
@@ -51,7 +59,9 @@ floor('apartment') {
   }
 
   room('bathroom', anchor: 'toilets_bathroom.b1') {
-    wall(198, :left)
+    wall(198, :left) {
+      switch('bathroom_light', 15)
+    }
     wall(194, :down, width: 15)
     wall(178, :right, name: 'bathroom_bedroom')
     wall(69, :up)
@@ -69,7 +79,9 @@ floor('apartment') {
     wall(80, :right) {
       door(1, 78).casement(76, origin: 1, reverse: true)
     }
-    wall(383, :down, name: 'bedroom_kitchen')
+    wall(383, :down, name: 'bedroom_kitchen') {
+      switch('bedroom_light', 85)
+    }
     wall(283, :left, width: 15) {
       window(21, 110).casement(100, origin: 5)
     }
@@ -82,8 +94,11 @@ floor('apartment') {
     }
     wall(383, :up, name: 'kitchen') {
       door(90, 88).casement(86, outside: true)
+      switch('kitchen_light_1', 185)
     }
-    wall(190, :left)
+    wall(190, :left) {
+      switch('kitchen_light_2', 100)
+    }
     wall(60, :down)
     wall(60, :left)
     wall(323, :down)

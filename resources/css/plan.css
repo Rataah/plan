@@ -89,3 +89,8 @@ svg {
 .door:hover path {
     opacity: 1.0
 }
+
+use.switch {
+    stroke: red;
+    fill: none;
+}

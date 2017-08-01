@@ -4,7 +4,7 @@ module Plan
     WIDTH = 1600
     HEIGHT = 900
 
-    attr_reader :contents, :components, :defs
+    attr_reader :contents, :components, :symbols, :defs
 
     def initialize(metadata, components)
       @metadata = metadata
@@ -16,6 +16,9 @@ module Plan
 
       @gradients = []
       use_gradient('steel')
+
+      @symbols = []
+      use_symbol('switch_simple')
     end
 
     def add_contents(contents)
@@ -28,6 +31,10 @@ module Plan
 
     def use_gradient(gradient_name)
       @gradients << gradient_name
+    end
+
+    def use_symbol(symbol_name)
+      @symbols << symbol_name
     end
 
     def write(output)
@@ -69,6 +76,7 @@ module Plan
       xml.defs do |defs|
         @patterns.each { |pattern_name| defs << SVG.load('patterns', pattern_name) }
         @gradients.each { |gradient_name| defs << SVG.load('gradients', gradient_name) }
+        @symbols.each { |symbol_name| defs << SVG.load('symbols', symbol_name) }
       end
     end
 

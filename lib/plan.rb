@@ -26,6 +26,7 @@ require 'svg/elements/svg_path'
 require 'svg/elements/svg_rect'
 require 'svg/elements/svg_title'
 require 'svg/elements/svg_metadata'
+require 'svg/elements/svg_use'
 
 require 'svg/ui/svg_button'
 require 'svg/ui/svg_floor'
@@ -44,6 +45,9 @@ require 'objects/wall'
 require 'objects/opening'
 require 'objects/window'
 require 'objects/door'
+
+# symbols
+require 'objects/symbols/switch'
 
 # transformations
 require 'run/transformations/wall_merger'
@@ -67,3 +71,4 @@ require 'run/parsers/xml_parser/xml_wall_factory'
 require 'run/plan_options'
 require 'run/runner'
 require 'run/wall_pool'
+require 'run/symbol_pool'

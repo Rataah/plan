@@ -3,25 +3,22 @@ module Plan
   class FloorFactory
     attr_reader :room
 
-    def self.create(name, &block)
-      FloorFactory.new.instance_eval do
-        @floor = Floor.new(name)
-        @floor.wall_pool = WallPool[@floor]
+    def create(name, &block)
+      @floor = Floor.new(name)
+      @floor.wall_pool = WallPool[@floor]
+      @floor.symbol_pool = SymbolPool[@floor]
 
-        @rooms = []
-        instance_exec(@floor, &block)
+      @room_factory = RoomFactory.new(@floor.wall_pool, @floor.symbol_pool)
+      instance_exec(@floor, &block)
 
-        @floor.rooms.concat(@rooms)
-        @floor
-      end
+      @floor.rooms = @room_factory.rooms
+      @floor
     end
 
-    def room(*args, &block)
-      if args.last.is_a?(Hash) && args.last.key?(:anchor)
-        args.last[:anchor] = DataLoader.retrieve_anchor(@floor.wall_pool, args.last[:anchor])
-      end
-
-      @rooms << RoomFactory.create(WallPool[@floor], *args, &block)
+    def room(name, coord_x = 0, coord_y = 0, anchor: nil, &block)
+      coordinates = Point.new(coord_x, coord_y)
+      coordinates = DataLoader.retrieve_anchor(@floor.wall_pool, anchor) if anchor
+      @room_factory.create(name, coordinates, &block)
     end
   end
 end
