@@ -25,7 +25,7 @@ module Plan
         SVGGroup.new(id).add do |elements|
           elements.concat(@rooms.map(&:svg_elements))
           elements.concat(@wall_pool.all.map(&:svg_elements))
-          elements.concat(@symbol_pool.all.map(&:svg_elements))
+          elements.concat(@symbol_pool.all.map { |symbol| symbol.svg_elements(@symbol_pool) })
         end.css_class('floor')
       ]
     end

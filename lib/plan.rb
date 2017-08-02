@@ -48,6 +48,7 @@ require 'objects/door'
 
 # symbols
 require 'objects/symbols/switch'
+require 'objects/symbols/ceiling_light'
 
 # transformations
 require 'run/transformations/wall_merger'

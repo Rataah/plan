@@ -19,7 +19,7 @@ module Plan
       @coordinates = @coordinates.translate(angle, amount)
     end
 
-    def svg_elements
+    def svg_elements(_)
       Plan.log.debug("Draw SVG elements for Switch: #{@name}")
       SVGUse.new(*@coordinates.xy, SYMBOL).css_class('symbol').css_class('switch')
     end

@@ -3,6 +3,7 @@ module Plan
   class SymbolPool
     def store(symbol)
       pool[symbol.name] = symbol if symbol.name
+      symbol
     end
 
     def contains?(symbol_name)

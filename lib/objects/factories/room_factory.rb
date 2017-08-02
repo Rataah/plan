@@ -34,5 +34,9 @@ module Plan
       @last_point = wall.a2
       @wall_pool.add_link(@room, wall, SegmentIndex.new(:a, 0), SegmentIndex.new(:a, 1), wall.angle)
     end
+
+    def ceiling_light(name, coord_x, coord_y)
+      @symbol_pool.store(CeilingLight.new(name, @room.origin.add(coord_x, coord_y)))
+    end
   end
 end

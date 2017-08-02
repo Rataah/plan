@@ -71,6 +71,16 @@ module Plan
       Point.new(@coord_x / other, @coord_y / other)
     end
 
+    def norm
+      Point.new(@coord_x / dist, @coord_y / dist)
+    end
+
+    def cross(other)
+      other_normalized = other.norm
+      self_normalized = norm
+      (self_normalized.x * other_normalized.x + self_normalized.y * other_normalized.y)
+    end
+
     def ==(other)
       eql?(other)
     end

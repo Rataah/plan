@@ -90,7 +90,7 @@ svg {
     opacity: 1.0
 }
 
-use.switch {
+use.symbol {
     stroke: red;
     fill: none;
 }

@@ -19,6 +19,7 @@ module Plan
 
       @symbols = []
       use_symbol('switch_simple')
+      use_symbol('ceiling_light')
     end
 
     def add_contents(contents)
