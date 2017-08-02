@@ -59,12 +59,14 @@ svg {
 }
 
 .wall {
-    fill: darkgrey;
+    fill: url(#stripes);
+    stroke: black;
+    stroke-width: 1px;
 }
 
 .window {
-    fill: none;
-    stroke: blue;
+    fill: white;
+    stroke: black;
 }
 
 .window path {
@@ -77,7 +79,7 @@ svg {
 
 .door {
     fill: white;
-    stroke: maroon;
+    stroke: black;
 }
 
 .door path {
@@ -86,4 +88,8 @@ svg {
 
 .door:hover path {
     opacity: 1.0
+}
+
+use.symbol {
+    stroke: red;
 }

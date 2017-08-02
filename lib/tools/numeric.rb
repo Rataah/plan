@@ -4,6 +4,14 @@ class Numeric
     self >= 0
   end
 
+  def negative?
+    self <= 0
+  end
+
+  def one?
+    self == 1
+  end
+
   def rad
     (self * Math::PI / 180.0) % (2 * Math::PI)
   end

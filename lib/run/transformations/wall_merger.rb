@@ -14,7 +14,7 @@ module Plan
     end
 
     def merge_wall(wall, other)
-      Plan.log.debug("Wall links #{wall.name} - #{other.name}")
+      Plan.log.debug("Wall links #{wall} - #{other}")
 
       # retrieve all the couple of vertices (A/B) of the 2 walls and merge them.
       # the vertices are referenced by the center of the segment build with this 2 vertices
@@ -39,12 +39,12 @@ module Plan
     end
 
     def self.comparator(left_point, right_point, cos_angle, sin_angle)
-      left_point.x * cos_angle - left_point.y * sin_angle <=> right_point.x * cos_angle - right_point.y * sin_angle
+      left_point.orientation(cos_angle, sin_angle) <=> right_point.orientation(cos_angle, sin_angle)
     end
 
     def build_wall(wall, other, sorted_points, indexed_points)
       @wall_pool.create_and_store do |new_wall|
-        new_wall.name = "#{wall.name}_#{other.name}"
+        new_wall.name = "#{wall}_#{other}"
         new_wall.width = wall.width
         new_wall.angle = wall.angle
 
@@ -52,25 +52,19 @@ module Plan
           add_vertices(new_wall, sorted_points,
                        *indexed_points[point].first.vertices.first_and_last.deep_dup)
         end
-        add_openings(wall, new_wall)
-        add_openings(other, new_wall)
+        WallMerger.add_openings(wall, new_wall)
+        WallMerger.add_openings(other, new_wall)
       end
     end
 
-    def add_openings(wall, new_wall)
-      wall.windows.each do |window|
-        window.origin += wall.ab1.dist new_wall.ab1
-        new_wall.windows << window
-      end
-
-      wall.doors.each do |door|
-        door.origin += wall.ab1.dist new_wall.ab1
-        new_wall.doors << door
-      end
+    def self.add_openings(wall, new_wall)
+      translation = wall.ab1.dist new_wall.ab1
+      new_wall.windows.concat(wall.windows.map { |window| window.translate(translation) })
+      new_wall.doors.concat(wall.doors.map { |door| door.translate(translation) })
     end
 
     def add_vertices(wall, segment, first_ref_point, last_ref_point)
-      if Plan.position_against(first_ref_point, segment.first, segment.last) == 1
+      if Plan.position_against(first_ref_point, segment.first, segment.last).one?
         wall.vertices_b << first_ref_point
         wall.vertices_a << last_ref_point
       else

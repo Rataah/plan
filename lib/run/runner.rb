@@ -10,48 +10,48 @@ module Plan
     end
 
     def run
-      floors = DataLoader.load(@options.configuration_file)
-      floors.each do |floor|
-        WallMerger.new(floor.wall_pool).merge_walls if @options.wall_merger
-        WallFiller.new(floor.wall_pool).fill_walls if @options.wall_filler
+      data_loaded = Runner.load_elements(@options.configuration_file, @options.wall_merger, @options.wall_filler)
+      elements = data_loaded.elements
+      min_vertex, max_vertex = Runner.bounds(elements)
+      svg = SVG.new(data_loaded.metadata, Runner.svg_interactions(elements))
+      svg.add_contents(Runner.svg_elements(elements, min_vertex))
+      svg.add_contents(Runner.svg_document_elements(elements, max_vertex)) if @options.display_area
+      Runner.save_plan(svg, @options.output_file, *max_vertex.xy)
+    end
+
+    def self.load_elements(configuration_file, wall_merger, wall_filler)
+      DataLoader.load(configuration_file).tap do |data_loaded|
+        data_loaded.elements.each do |element|
+          WallMerger.new(element.wall_pool).merge_walls if wall_merger
+          WallFiller.new(element.wall_pool).fill_walls if wall_filler
+        end
       end
+    end
 
-      max_vertex = translate_elements(floors)
+    def self.svg_elements(floors, translation)
+      SVGGroup.new('root_panel').add(floors.map(&:svg_elements).flatten).translate(translation)
+    end
 
-      svg = SVG.new
-      svg.components.concat svg_interactions(floors)
-      svg.contents.concat svg_elements(floors, max_vertex)
-
-      FileUtils.mkdir_p(File.dirname(@options.output_file))
-      svg.write File.new(@options.output_file, 'w')
+    def self.save_plan(svg, output_file, width, height)
+      FileUtils.mkdir_p(File.dirname(output_file))
+      svg.write File.new(output_file, 'w'), width, height
       Plan.log.info('Generation done')
     end
 
-    def translate_elements(floors)
-      min_vertex, max_vertex = Plan.bounds(floors.map { |floor| floor.wall_pool.all.map(&:vertices) }.flatten)
+    def self.bounds(floors)
+      min_vertex, max_vertex = Plan.bounds(floors.map(&:vertices).flatten)
       min_vertex = (-min_vertex).add(50, 50)
 
-      floors.each do |floor|
-        floor.translate(*min_vertex.xy)
-        floor.wall_pool.each { |wall| wall.translate(*min_vertex.xy) }
-      end
-
-      max_vertex + min_vertex
+      [min_vertex, max_vertex + min_vertex]
     end
 
-    def svg_interactions(floors)
+    def self.svg_interactions(floors)
       interactions = SVGInteraction.new
       interactions.add_floor_chooser(floors) if floors.size > 1
       interactions.finalized
     end
 
-    def svg_elements(floors, max_vertex)
-      (floors.map(&:svg_elements) + svg_document_elements(floors, max_vertex)).flatten
-    end
-
-    def svg_document_elements(floors, max_vertex)
-      return [] unless @options.display_area
-
+    def self.svg_document_elements(floors, max_vertex)
       [
         SVGText.new(
           "Total: #{floors.map(&:area).reduce(0, :+).round(2)} m²",

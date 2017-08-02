@@ -1,6 +1,6 @@
 module Plan
   class Floor
-    attr_accessor :wall_pool, :name, :rooms
+    attr_accessor :wall_pool, :symbol_pool, :name, :rooms, :symbols
 
     def initialize(name)
       @name = name
@@ -11,8 +11,8 @@ module Plan
       "floor_#{@name}"
     end
 
-    def translate(x, y)
-      @rooms.each { |room| room.translate(x, y) }
+    def vertices
+      @wall_pool.all.map(&:vertices).flatten
     end
 
     def area
@@ -25,6 +25,7 @@ module Plan
         SVGGroup.new(id).add do |elements|
           elements.concat(@rooms.map(&:svg_elements))
           elements.concat(@wall_pool.all.map(&:svg_elements))
+          elements.concat(@symbol_pool.all.map { |symbol| symbol.svg_elements(@symbol_pool) })
         end.css_class('floor')
       ]
     end

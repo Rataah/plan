@@ -51,8 +51,8 @@ module Plan
       segment.first.dist segment.last
     end
 
-    def apply_width(vertices)
-      @wall.apply_width(vertices)
+    def apply_width(direction)
+      @wall.apply_width(direction)
     end
 
     def svg_elements

@@ -11,7 +11,7 @@ module Plan
 
         @wall_pool.without(wall).each do |other|
           # check if the 2 walls have to be merged
-          next unless (wall.bounds & other.bounds).count == 1
+          next unless (wall.bounds & other.bounds).one?
           add_wall(wall, other)
         end
       end
@@ -23,7 +23,7 @@ module Plan
       corner_other_point = other.cross_point(shared_vertex)
 
       center = Plan.center(shared_vertex, corner_wall_point, corner_other_point)
-      return unless @wall_pool.wall_at_position(center).nil?
+      return if @wall_pool.wall_at_position(center)
 
       @wall_pool.create_and_store do |corner_wall|
         corner_wall.name = "corner_#{wall.name}_#{other.name}"

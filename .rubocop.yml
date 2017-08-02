@@ -13,7 +13,7 @@ Metrics/ModuleLength:
 Metrics/AbcSize:
   Enabled: false
 Metrics/ParameterLists:
-  Max: 7
+  Enabled: false
 Layout/EndOfLine:
   Enabled: false
 Documentation:

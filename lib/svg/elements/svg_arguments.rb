@@ -56,6 +56,20 @@ module Plan
       self
     end
 
+    def translate(amount)
+      transform("translate(#{amount.x},#{amount.y})")
+      self
+    end
+
+    def rotate(amount, cx = nil, cy = nil)
+      transform("rotate(#{amount} #{cx} #{cy})")
+      self
+    end
+
+    def namespace(namespace, url)
+      @args["xmlns:#{namespace}"] = SVGArg.new(url, false)
+    end
+
     def comments(comment)
       @xml_comments = comment
       self

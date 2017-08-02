@@ -1,4 +1,6 @@
 module Plan
+  NORMAL_ANGLE = 90.rad.freeze
+
   def self.bounds(points)
     min_x = points.min_by(&:x).x
     min_y = points.min_by(&:y).y
@@ -11,6 +13,7 @@ module Plan
     Plan.bounds(points.flatten).reduce(&:+) / 2
   end
 
+  # https://wrf.ecse.rpi.edu//Research/Short_Notes/pnpoly.html#Explanation
   def self.point_in_polygon?(point, vertices)
     inside = false
     (vertices + [vertices.first]).each_cons(2) do |vertex1, vertex2|
@@ -33,13 +36,9 @@ module Plan
       ((first_angle + Math::PI).modulo_rad - second_angle.modulo_rad).abs < 1E-6
   end
 
-  def self.normal_angle(vertices, vector1, vector2, angle, outside = true)
+  def self.normal_angle(vertices, vector1, vector2, angle, outside)
     center = Plan.center(vector1, vector2)
-    normal = center.translate(angle + 90.rad, 0.1)
-    if Plan.point_in_polygon?(normal, vertices) == outside
-      -90.rad
-    else
-      +90.rad
-    end
+    normal = center.translate(angle + NORMAL_ANGLE, 0.1)
+    Plan.point_in_polygon?(normal, vertices) == outside ? NORMAL_ANGLE : -NORMAL_ANGLE
   end
 end
