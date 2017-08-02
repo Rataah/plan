@@ -22,6 +22,10 @@ module Plan
       (sum / 2.0).abs / 10_000.0
     end
 
+    def min_bound
+      Plan.bounds(vertices).first
+    end
+
     def svg_elements
       Plan.log.debug("Draw SVG elements for Room: #{@name}")
       [

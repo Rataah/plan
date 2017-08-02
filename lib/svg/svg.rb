@@ -38,19 +38,19 @@ module Plan
       @symbols << symbol_name
     end
 
-    def write(output)
+    def write(output, width, height)
       Plan.log.info('Generating SVG file')
-      svg = Nokogiri::XML::Builder.new(encoding: 'UTF-8') { |xml| build_svg xml }
+      svg = Nokogiri::XML::Builder.new(encoding: 'UTF-8') { |xml| build_svg xml, width, height }
 
       SVG.validate(svg.doc)
       output.write(svg.to_xml.gsub(%(<?xml version="1.0"?>), %(<?xml version="1.0" standalone="no"?>)))
       Plan.log.info("File size: #{File.size(output.path).to_file_size}")
     end
 
-    def build_svg(xml)
+    def build_svg(xml, _, _)
       xml.svg(
-        width: '2000',
-        height: '2000',
+        width: '297mm',
+        height: '210mm',
         xmlns: 'http://www.w3.org/2000/svg'
       ) do
         xml.doc.create_internal_subset('svg', '-//W3C//DTD SVG 1.1//EN',
@@ -90,7 +90,7 @@ module Plan
     def insert_content(xml)
       SVGGroup.new('root_content').add do |root_content|
         root_content.concat(@contents)
-      end.transform('translate(140)').xml_element(xml)
+      end.xml_element(xml)
     end
 
     def self.validate(doc)

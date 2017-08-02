@@ -9,7 +9,10 @@ module Plan
 
     def self.curve(start_point, end_point)
       control_point = Plan.center(start_point, end_point)
-                          .translate(start_point.cross(end_point), 100)
+                          .translate(
+                            start_point.angle_with(end_point).rotate_rad,
+                            start_point.dist(end_point) / 2.0
+                          )
       SVGPath.new(start_point).quadratic_bezier(end_point, control_point)
     end
 

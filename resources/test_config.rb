@@ -38,6 +38,11 @@ floor('apartment') {
       door(1, 86).casement(84, origin: 1, reverse: true, outside: true)
     }
     wall(182, :up, name: 'dining_room_hall2')
+
+    ceiling_light('hall_light', 200, 60)
+      .link('hall_switch_1')
+      .link('hall_switch_2')
+      .link('hall_switch_3')
   }
 
   room('toilets', anchor: 'hall_toilets.b1') {
@@ -49,6 +54,8 @@ floor('apartment') {
     }
     wall(85, :up, name: 'toilets_cmv')
     wall(144, :right, width: 15)
+
+    ceiling_light('toilets_light', 110, 42).link('toilets_switch')
   }
 
   room('CMV', anchor: 'toilets_cmv.b2') {
@@ -69,6 +76,9 @@ floor('apartment') {
     wall(125, :up, name: 'bathroom_hall') {
       door(41, 83).casement(81, origin: 1, outside: true)
     }
+
+    ceiling_light('bathroom_light', 140, 45).link('bathroom_switch')    
+    ceiling_light('bathroom_light_mirror', 10, 60).link('bathroom_switch')
   }
 
   room('bedroom', anchor: 'bathroom_bedroom.b1') {
@@ -86,6 +96,8 @@ floor('apartment') {
       window(21, 110).casement(100, origin: 5)
     }
     wall(281, :up, width: 15)
+
+    ceiling_light('bedroom_light', 141, 240).link('bedroom_switch')
   }
 
   room('kitchen', anchor: 'bedroom_kitchen.b2') {
@@ -102,6 +114,8 @@ floor('apartment') {
     wall(60, :down)
     wall(60, :left)
     wall(323, :down)
+
+    ceiling_light('kitchen_light', 125, 180).link('kitchen_switch_1').link('kitchen_switch_2')
   }
 
   room('gas line', anchor: 'bedroom_kitchen.b1') {

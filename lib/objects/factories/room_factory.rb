@@ -36,7 +36,7 @@ module Plan
     end
 
     def ceiling_light(name, coord_x, coord_y)
-      @symbol_pool.store(CeilingLight.new(name, @room.origin.add(coord_x, coord_y)))
+      @symbol_pool.store(CeilingLight.new(name, @room.min_bound.add(coord_x, coord_y)))
     end
   end
 end

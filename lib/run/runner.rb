@@ -16,7 +16,7 @@ module Plan
       svg = SVG.new(data_loaded.metadata, Runner.svg_interactions(elements))
       svg.add_contents(Runner.svg_elements(elements, min_vertex))
       svg.add_contents(Runner.svg_document_elements(elements, max_vertex)) if @options.display_area
-      Runner.save_plan(svg, @options.output_file)
+      Runner.save_plan(svg, @options.output_file, *max_vertex.xy)
     end
 
     def self.load_elements(configuration_file, wall_merger, wall_filler)
@@ -32,9 +32,9 @@ module Plan
       SVGGroup.new('root_panel').add(floors.map(&:svg_elements).flatten).translate(translation)
     end
 
-    def self.save_plan(svg, output_file)
+    def self.save_plan(svg, output_file, width, height)
       FileUtils.mkdir_p(File.dirname(output_file))
-      svg.write File.new(output_file, 'w')
+      svg.write File.new(output_file, 'w'), width, height
       Plan.log.info('Generation done')
     end
 
