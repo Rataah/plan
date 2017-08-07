@@ -8,6 +8,10 @@ class Array
     [first, last]
   end
 
+  def loop_array
+    self << first
+  end
+
   def one?
     size == 1
   end

@@ -1,5 +1,9 @@
 # Override Numeric class
 class Numeric
+  PIx2 = (Math::PI * 2.0).freeze
+  PI_2 = (Math::PI / 2.0).freeze
+  PI_4 = (PI_2 / 2.0).freeze
+
   def positive?
     self >= 0
   end
@@ -13,19 +17,19 @@ class Numeric
   end
 
   def rad
-    (self * Math::PI / 180.0) % (2 * Math::PI)
+    (self * Math::PI / 180.0) % PIx2
   end
 
   def modulo_rad
-    self % (2 * Math::PI)
+    self % PIx2
   end
 
   def deg
     (self / Math::PI * 180.0) % 360.0
   end
 
-  def rotate_rad(amount = Math::PI / 2.0)
-    (self + amount) % (2 * Math::PI)
+  def rotate_rad(amount = PI_2)
+    (self + amount) % PIx2
   end
 
   def to_file_size

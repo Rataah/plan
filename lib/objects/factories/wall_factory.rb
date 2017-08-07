@@ -40,6 +40,10 @@ module Plan
       @symbols[@wall.name] << Switch.create_from_wall(name, origin, @wall)
     end
 
+    def power_outlet(name, origin)
+      @symbols[@wall.name] << PowerOutlet.create_from_wall(name, origin, @wall)
+    end
+
     def post_process(room)
       @walls.each do |wall|
         (wall.windows + wall.doors).each { |opening| opening.add_center(room.center) }
@@ -49,7 +53,7 @@ module Plan
         wall.apply_width(direction)
 
         @symbols[wall.name].each do |symbol|
-          symbol.translate(direction + Math::PI, 10)
+          symbol.translate(direction + Math::PI, 10, room.clockwise?)
           @symbol_pool.store symbol
         end
       end

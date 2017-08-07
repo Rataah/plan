@@ -6,14 +6,25 @@ metadata {
 
 floor('apartment') {
   room('dining room', 0, 0) {
-    wall(368, :right, width: 15)
-    wall(570, :down, width: 15)
+    wall(368, :right, width: 15) {
+      power_outlet('dining_room_power_outlet_1', 220)
+    }
+    wall(570, :down, width: 15) {
+      power_outlet('dining_room_power_outlet_3', 130)
+      
+      power_outlet('dining_room_power_outlet_4', 270)
+      power_outlet('dining_room_power_outlet_5', 290)
+
+      power_outlet('dining_room_power_outlet_6', 550)
+    }
     wall(368, :left, width: 15) {
       window(60, 245).casement(80, origin: 82.5).casement(80, reverse: true)
+      power_outlet('dining_room_power_outlet_7', 340)
     }
     wall(570, :up, name: 'dining_room_hall') {
       door(440, 130).casement(41, origin: 2).casement(80, reverse: true)
       switch('dining_room_switch_1', 185)
+      power_outlet('dining_room_power_outlet_8', 405)
       switch('dining_room_switch_2', 420)
     }
 
@@ -22,15 +33,18 @@ floor('apartment') {
 
   room('hall', anchor: 'dining_room_hall.b2') {
     wall(335, :left, width: 15) {
+      switch('hall_switch_1', 100)  
       door(117, 102).casement(92, origin: 5, reverse: true)
-      switch('hall_switch_1', 100)
+      power_outlet('hall_power_outlet_1', 230)
     }
     wall(182, :down, name: 'hall_toilets')
     wall(117, :right) {
       switch('hall_switch_2', 95)
     }
     wall(64, :up)
-    wall(130, :right)
+    wall(130, :right) {
+      power_outlet('hall_power_outlet_2', 110)
+    }
     wall(64, :down) {
       switch('hall_switch_3', 30)
     }
@@ -68,8 +82,11 @@ floor('apartment') {
   room('bathroom', anchor: 'toilets_bathroom.b1') {
     wall(198, :left) {
       switch('bathroom_switch', 15)
+      power_outlet('bathroom_power_outlet_1', 30)
     }
-    wall(194, :down, width: 15)
+    wall(194, :down, width: 15) {
+      power_outlet('bathroom_power_outlet_2', 100)
+    }
     wall(178, :right, name: 'bathroom_bedroom')
     wall(69, :up)
     wall(20, :right)
@@ -91,11 +108,16 @@ floor('apartment') {
     }
     wall(383, :down, name: 'bedroom_kitchen') {
       switch('bedroom_switch', 85)
+      power_outlet('bedroom_power_outlet_1', 100)
+      power_outlet('bedroom_power_outlet_2', 225)
     }
     wall(283, :left, width: 15) {
       window(21, 110).casement(100, origin: 5)
     }
-    wall(281, :up, width: 15)
+    wall(281, :up, width: 15) {
+      power_outlet('bedroom_power_outlet_3', 65)
+      power_outlet('bedroom_power_outlet_4', 255)
+    }
 
     ceiling_light('bedroom_light', 141, 240).link('bedroom_switch')
   }
@@ -105,15 +127,20 @@ floor('apartment') {
       window(118, 110).casement(100, origin: 5, reverse: true)
     }
     wall(383, :up, name: 'kitchen') {
+      power_outlet('kitchen_power_outlet_1', 85)
       door(90, 88).casement(86, outside: true)
       switch('kitchen_switch_1', 185)
     }
     wall(190, :left) {
       switch('kitchen_switch_2', 100)
+      power_outlet('kitchen_power_outlet_2', 115)
     }
     wall(60, :down)
     wall(60, :left)
-    wall(323, :down)
+    wall(323, :down) {
+      power_outlet('kitchen_power_outlet_3', 30)
+      power_outlet('kitchen_power_outlet_4', 150)
+    }
 
     ceiling_light('kitchen_light', 125, 180).link('kitchen_switch_1').link('kitchen_switch_2')
   }

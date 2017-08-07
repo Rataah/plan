@@ -15,11 +15,18 @@ module Plan
 
     def area
       sum = 0.0
-      area_vertices = vertices
-      (area_vertices + [area_vertices.first]).each_cons(2) do |v1, v2|
+      vertices.loop_array.each_cons(2) do |v1, v2|
         sum += ((v1.x * v2.y) - (v1.y * v2.x))
       end
       (sum / 2.0).abs / 10_000.0
+    end
+
+    def clockwise?
+      sum = 0.0
+      vertices.loop_array.each_cons(2) do |v1, v2|
+        sum += (v2.x - v1.x) * (v2.y + v1.y)
+      end
+      sum.positive?
     end
 
     def min_bound

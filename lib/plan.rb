@@ -47,8 +47,10 @@ require 'objects/window'
 require 'objects/door'
 
 # symbols
+require 'objects/symbols/wall_symbol'
 require 'objects/symbols/switch'
 require 'objects/symbols/ceiling_light'
+require 'objects/symbols/power_outlet'
 
 # transformations
 require 'run/transformations/wall_merger'
