@@ -6,10 +6,12 @@ module Plan
     end
 
     def merge_walls
-      @wall_pool.all.combination(2) do |wall, other|
-        # not yet in pool
-        next unless @wall_pool.contains? wall.name
-        merge_wall(wall, other) if wall.aligned?(other) && wall.intersect?(other)
+      @wall_pool.all.each do |wall|
+        @wall_pool.without(wall).each do |other|
+          # not yet in pool
+          next unless @wall_pool.contains? wall.name
+          merge_wall(wall, other) if wall.aligned?(other) && wall.intersect?(other)
+        end
       end
     end
 

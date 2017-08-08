@@ -126,7 +126,7 @@ floor('apartment') {
     wall(250, :right, width: 15) {
       window(118, 110).casement(100, origin: 5, reverse: true)
     }
-    wall(383, :up, name: 'kitchen') {
+    wall(383, :up, name: 'kitchen_dining_room') {
       power_outlet('kitchen_power_outlet_1', 85)
       door(90, 88).casement(86, outside: true)
       switch('kitchen_switch_1', 185)

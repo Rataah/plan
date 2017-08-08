@@ -6,7 +6,7 @@ module Plan
     end
 
     def intersect?(other)
-      [ab1, ab2].count { |vertex| vertex.on_segment(other.ab1, other.ab2) }.nonzero?
+      [ab1, ab2].count { |vertex| vertex.on_segment(other.ab1, other.ab2) } > 0
     end
 
     def side(vertices, start_index, end_index)
