@@ -5,7 +5,7 @@ metadata {
 }
 
 floor('apartment') {
-  room('dining room', 0, 0) {
+  room('dining room') {
     wall(368, :right, width: 15) {
       power_outlet('dining_room_power_outlet_1', 220)
     }
