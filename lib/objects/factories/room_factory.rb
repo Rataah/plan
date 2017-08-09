@@ -24,9 +24,16 @@ module Plan
       @rooms << @room
     end
 
+    def respond_to_missing?(method_name)
+      @plugins.key? method_name
+    end
+
     def method_missing(method_name, *args)
-      raise "#{method_name.to_s} with (#{args.join(', ')}) unkown at this context" unless @plugins.key? method_name
-      @plugins[method_name].create_from_room(*args, @room)
+      if @plugins.key? method_name
+        @plugins[method_name].create_from_room(*args, @room)
+      else
+        super
+      end
     end
 
     def wall(wall_size, angle, width: DEFAULT_WALL_WIDTH, name: nil, &block)

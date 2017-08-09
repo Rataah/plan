@@ -30,8 +30,16 @@ module Plan
       (@walls << @wall).last
     end
 
+    def respond_to_missing?(method_name)
+      @plugins.key? method_name
+    end
+
     def method_missing(method_name, *args)
-      @symbols[@wall.name] << @plugins[method_name].create_from_wall(*args, @wall)
+      if @plugins.key? method_name
+        @symbols[@wall.name] << @plugins[method_name].create_from_wall(*args, @wall)
+      else
+        super
+      end
     end
 
     def window(origin, length)

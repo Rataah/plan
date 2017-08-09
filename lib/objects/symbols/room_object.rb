@@ -14,15 +14,17 @@ module Plan
     def svg_elements(_)
       class_name = self.class.name.demodulize
       Plan.log.debug("Draw SVG elements for #{class_name}: #{@name}")
-      SVGUse.new(*@coordinates.xy, @@room_object)
+      SVGUse.new(*@coordinates.xy, self.class.room_object)
             .css_class('symbol')
             .css_class(class_name.downcase)
     end
 
-    private
+    class << self
+      attr_reader :room_object
 
-    def self.object(room_object)
-      @@room_object = room_object
+      def object(room_object)
+        @room_object = room_object
+      end
     end
   end
 end

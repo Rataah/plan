@@ -25,16 +25,18 @@ module Plan
     def svg_elements(_)
       class_name = self.class.name.demodulize
       Plan.log.debug("Draw SVG elements for #{class_name}: #{@name}")
-      SVGUse.new(*@coordinates.xy, @@wall_object)
+      SVGUse.new(*@coordinates.xy, self.class.wall_object)
             .rotate(@angle.rotate_rad.deg, *@coordinates.xy)
             .css_class('symbol')
             .css_class(class_name.downcase)
     end
 
-    private
+    class << self
+      attr_reader :wall_object
 
-    def self.object(wall_object)
-      @@wall_object = wall_object
+      def object(wall_object)
+        @wall_object = wall_object
+      end
     end
   end
 end
