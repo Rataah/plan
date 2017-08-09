@@ -1,5 +1,13 @@
 # Tools for Plan module
 module Plan
+  def self.descendants(parent_class)
+    descendants = []
+    ObjectSpace.each_object(parent_class.singleton_class) do |k|
+      descendants.unshift k unless k == parent_class
+    end
+    descendants
+  end
+
   # http://www.virtuouscode.com/2009/07/14/recursively-symbolize-keys/
   def self.symbolize_keys(hash)
     hash.each_with_object({}) do |(key, value), result|

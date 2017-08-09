@@ -1,3 +1,7 @@
+module Plan
+  ROOT = File.expand_path('..', File.dirname(__FILE__)).freeze
+end
+
 require 'nokogiri'
 require 'logger'
 
@@ -12,6 +16,11 @@ require 'tools/numeric'
 require 'tools/logger'
 require 'tools/hash'
 require 'tools/geometry'
+
+# plugins
+require 'plugins/plugin_loader'
+require 'plugins/room_plugin'
+require 'plugins/wall_plugin'
 
 # svg
 require 'svg/svg'
@@ -47,10 +56,8 @@ require 'objects/window'
 require 'objects/door'
 
 # symbols
-require 'objects/symbols/wall_symbol'
-require 'objects/symbols/switch'
-require 'objects/symbols/ceiling_light'
-require 'objects/symbols/power_outlet'
+require 'objects/symbols/wall_object'
+require 'objects/symbols/room_object'
 
 # transformations
 require 'run/transformations/wall_merger'
@@ -60,15 +67,7 @@ require 'run/transformations/wall_filler'
 require 'run/parsers/data_loader'
 require 'run/parsers/data_loaded'
 require 'run/parsers/metadata'
-require 'run/parsers/ruby_parser/ruby_data_loader'
-require 'run/parsers/yaml_parser/yaml_data_loader'
-require 'run/parsers/yaml_parser/yaml_floor_factory'
-require 'run/parsers/yaml_parser/yaml_room_factory'
-require 'run/parsers/yaml_parser/yaml_wall_factory'
-require 'run/parsers/xml_parser/xml_data_loader'
-require 'run/parsers/xml_parser/xml_floor_factory'
-require 'run/parsers/xml_parser/xml_room_factory'
-require 'run/parsers/xml_parser/xml_wall_factory'
+require 'run/parsers/ruby_data_loader'
 
 # main
 require 'run/plan_options'

@@ -7,6 +7,8 @@ module Plan
       @wall_pool = wall_pool
       @symbol_pool = symbol_pool
       @rooms = []
+
+      @plugins = PluginLoader.room_plugin_methods
     end
 
     def create(name, coordinates, &block)
@@ -22,6 +24,11 @@ module Plan
       @rooms << @room
     end
 
+    def method_missing(method_name, *args)
+      raise "#{method_name.to_s} with (#{args.join(', ')}) unkown at this context" unless @plugins.key? method_name
+      @plugins[method_name].create_from_room(*args, @room)
+    end
+
     def wall(wall_size, angle, width: DEFAULT_WALL_WIDTH, name: nil, &block)
       wall = @wall_factory.create(
         name ? name : "#{@room.name}_#{@wall_pool.walls(@room).size}",
@@ -33,10 +40,6 @@ module Plan
       )
       @last_point = wall.a2
       @wall_pool.add_link(@room, wall, SegmentIndex.new(:a, 0), SegmentIndex.new(:a, 1), wall.angle)
-    end
-
-    def ceiling_light(name, coord_x, coord_y)
-      @symbol_pool.store(CeilingLight.new(name, @room.min_bound.add(coord_x, coord_y)))
     end
   end
 end

@@ -1,5 +1,5 @@
 module Plan
-  class WallSymbol
+  class WallObject
     attr_accessor :name, :coordinates
 
     def initialize(name, coordinates, angle)
@@ -13,6 +13,10 @@ module Plan
       new(name, coordinates, wall.angle)
     end
 
+    def finalize(angle, clockwise)
+      translate(angle, 10, clockwise)
+    end
+
     def translate(angle, amount, clockwise)
       @coordinates = @coordinates.translate(angle, amount)
       @angle = @angle.rotate_rad(Math::PI) if clockwise
@@ -21,7 +25,7 @@ module Plan
     def svg_elements(_)
       class_name = self.class.name.demodulize
       Plan.log.debug("Draw SVG elements for #{class_name}: #{@name}")
-      SVGUse.new(*@coordinates.xy, symbol)
+      SVGUse.new(*@coordinates.xy, @@wall_object)
             .rotate(@angle.rotate_rad.deg, *@coordinates.xy)
             .css_class('symbol')
             .css_class(class_name.downcase)
@@ -29,8 +33,8 @@ module Plan
 
     private
 
-    def symbol
-      raise NotImplementedError
+    def self.object(wall_object)
+      @@wall_object = wall_object
     end
   end
 end

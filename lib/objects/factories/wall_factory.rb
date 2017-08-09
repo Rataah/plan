@@ -8,6 +8,8 @@ module Plan
       @symbol_pool = symbol_pool
       @walls = []
       @symbols = {}
+
+      @plugins = PluginLoader.wall_plugin_methods
     end
 
     def create(name, origin, length, angle, width, &block)
@@ -28,20 +30,16 @@ module Plan
       (@walls << @wall).last
     end
 
+    def method_missing(method_name, *args)
+      @symbols[@wall.name] << @plugins[method_name].create_from_wall(*args, @wall)
+    end
+
     def window(origin, length)
       (@wall.windows << Window.new(origin, length)).last
     end
 
     def door(origin, length)
       (@wall.doors << Door.new(origin, length)).last
-    end
-
-    def switch(name, origin)
-      @symbols[@wall.name] << Switch.create_from_wall(name, origin, @wall)
-    end
-
-    def power_outlet(name, origin)
-      @symbols[@wall.name] << PowerOutlet.create_from_wall(name, origin, @wall)
     end
 
     def post_process(room)
@@ -53,7 +51,7 @@ module Plan
         wall.apply_width(direction)
 
         @symbols[wall.name].each do |symbol|
-          symbol.translate(direction + Math::PI, 10, room.clockwise?)
+          symbol.finalize(direction + Math::PI, room.clockwise?)
           @symbol_pool.store symbol
         end
       end
