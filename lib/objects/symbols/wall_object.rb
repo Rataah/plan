@@ -14,7 +14,7 @@ module Plan
     end
 
     def finalize(angle, clockwise)
-      translate(angle, 10, clockwise)
+      translate(angle, self.class.amount || 10, clockwise)
     end
 
     def translate(angle, amount, clockwise)
@@ -22,20 +22,27 @@ module Plan
       @angle = @angle.rotate_rad(Math::PI) if clockwise
     end
 
-    def svg_elements(_)
+    def svg_elements(symbol_pool)
       class_name = self.class.name.demodulize
       Plan.log.debug("Draw SVG elements for #{class_name}: #{@name}")
+      respond_to?(:custom_svg_elements) ? custom_svg_elements(symbol_pool) : build_svg_elements(symbol_pool)
+    end
+
+    def build_svg_elements(_)
       SVGUse.new(*@coordinates.xy, self.class.wall_object)
             .rotate(@angle.rotate_rad.deg, *@coordinates.xy)
             .css_class('symbol')
-            .css_class(class_name.downcase)
     end
 
     class << self
-      attr_reader :wall_object
+      attr_reader :wall_object, :amount
 
       def object(wall_object)
         @wall_object = wall_object
+      end
+
+      def amount_translation(amount)
+        @amount = amount
       end
     end
   end

@@ -24,7 +24,7 @@ class CeilingLight < Plan::RoomObject
   def svg_elements(symbol_pool)
     elements = @links.map do |link|
       symbol = symbol_pool[link]
-      SVGPath.curve(@coordinates, symbol.coordinates).fill('transparent').stroke('red')
+      Plan::SVGPath.curve(@coordinates, symbol.coordinates).fill('transparent').stroke('red')
     end
     (elements << super(symbol_pool))
   end

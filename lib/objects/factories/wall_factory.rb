@@ -36,18 +36,10 @@ module Plan
 
     def method_missing(method_name, *args)
       if @plugins.key? method_name
-        @symbols[@wall.name] << @plugins[method_name].create_from_wall(*args, @wall)
+        (@symbols[@wall.name] << @plugins[method_name].create_from_wall(*args, @wall)).last
       else
         super
       end
-    end
-
-    def window(origin, length)
-      (@wall.windows << Window.new(origin, length)).last
-    end
-
-    def door(origin, length)
-      (@wall.doors << Door.new(origin, length)).last
     end
 
     def post_process(room)

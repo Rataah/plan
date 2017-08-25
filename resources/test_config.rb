@@ -11,7 +11,7 @@ floor('apartment') {
     }
     wall(570, :down, width: 15) {
       power_outlet('dining_room_power_outlet_3', 130)
-      
+
       power_outlet('dining_room_power_outlet_4', 270)
       power_outlet('dining_room_power_outlet_5', 290)
 
@@ -33,7 +33,7 @@ floor('apartment') {
 
   room('hall', anchor: 'dining_room_hall.b2') {
     wall(335, :left, width: 15) {
-      switch('hall_switch_1', 100)  
+      switch('hall_switch_1', 100)
       door(117, 102).casement(92, origin: 5, reverse: true)
       power_outlet('hall_power_outlet_1', 230)
     }
@@ -94,7 +94,7 @@ floor('apartment') {
       door(41, 83).casement(81, origin: 1, outside: true)
     }
 
-    ceiling_light('bathroom_light', 140, 45).link('bathroom_switch')    
+    ceiling_light('bathroom_light', 140, 45).link('bathroom_switch')
     ceiling_light('bathroom_light_mirror', 10, 60).link('bathroom_switch')
   }
 

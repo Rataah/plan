@@ -13,7 +13,7 @@ module Plan
     end
 
     def self.svg_includes
-      [Plan.descendants(RoomPlugin) + Plan.descendants(WallPlugin)].flatten.map(&:svg_include).flatten
+      [Plan.descendants(RoomPlugin) + Plan.descendants(WallPlugin)].flatten.map(&:svg_include).compact.flatten
     end
   end
 end

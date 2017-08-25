@@ -2,7 +2,8 @@ module Plan
   # Pool of symbol
   class SymbolPool
     def store(symbol)
-      pool[symbol.name] = symbol if symbol.name
+      symbol.name = "symbol_#{pool.size}" if symbol.name.nil?
+      pool[symbol.name] = symbol
       symbol
     end
 
