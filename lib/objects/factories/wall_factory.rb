@@ -36,12 +36,12 @@ module Plan
       (@wall.doors << Door.new(origin, length)).last
     end
 
-    def switch(name, origin)
-      @symbols[@wall.name] << Switch.create_from_wall(name, origin, @wall)
+    def switch(name, origin, type: nil)
+      @symbols[@wall.name] << Switch.create_from_wall(name, origin, @wall, type)
     end
 
     def power_outlet(name, origin)
-      @symbols[@wall.name] << PowerOutlet.create_from_wall(name, origin, @wall)
+      @symbols[@wall.name] << PowerOutlet.create_from_wall(name, origin, @wall, nil)
     end
 
     def post_process(room)

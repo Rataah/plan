@@ -18,7 +18,7 @@ module Plan
       use_gradient('steel')
 
       @symbols = []
-      use_symbol('switch_simple')
+      use_symbol('switch')
       use_symbol('ceiling_light')
       use_symbol('power_outlet')
     end

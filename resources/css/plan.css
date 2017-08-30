@@ -92,4 +92,10 @@ svg {
 
 use.symbol {
     stroke: red;
+    fill: none;
+}
+
+.symbol-link {
+    stroke: red;
+    stroke-opacity: 0.4;
 }

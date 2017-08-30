@@ -20,7 +20,8 @@ module Plan
       [].tap do |elements|
         @links.each do |link|
           symbol = symbol_pool[link]
-          elements << SVGPath.curve(@coordinates, symbol.coordinates).fill('transparent').stroke('red')
+          elements << SVGPath.curve(@coordinates, 
+            symbol.coordinates).css_class('symbol-link').fill('transparent').stroke('red')
         end
 
         elements << SVGUse.new(*@coordinates.xy, SYMBOL).css_class('symbol').css_class('ceiling-light')

@@ -7,5 +7,9 @@ module Plan
     def symbol
       SYMBOL
     end
+    
+    def rotate?
+      false
+    end
   end
 end
