@@ -64,32 +64,6 @@ svg {
     stroke-width: 1px;
 }
 
-.window {
-    fill: white;
-    stroke: black;
-}
-
-.window path {
-    opacity: 0.3;
-}
-
-.window:hover path {
-    opacity: 1.0
-}
-
-.door {
-    fill: white;
-    stroke: black;
-}
-
-.door path {
-    opacity: 0.3;
-}
-
-.door:hover path {
-    opacity: 1.0
-}
-
 use.symbol {
     stroke: red;
 }

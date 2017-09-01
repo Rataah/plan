@@ -3,8 +3,8 @@ class OpeningPlugin < Plan::WallPlugin
     { door: Door, window: Window }
   end
 
-  def self.svg_include
-    nil
+  def self.css_include
+    File.join(File.dirname(__FILE__), 'opening.css')
   end
 end
 
@@ -31,7 +31,6 @@ class Opening < Plan::WallObject
   end
 
   def custom_svg_elements(_)
-    clockwise_angle = @clockwise ? @angle.rotate_rad(Math::PI) : @angle
     right_angle = @clockwise ? @angle.rotate_rad : @angle.rotate_rad(-Numeric::PI_2)
     Plan::SVGGroup.new(@name.to_id).add do |group|
       vertices = [
@@ -40,8 +39,8 @@ class Opening < Plan::WallObject
         @coordinates.translate(@angle, @length).translate(right_angle, @width),
         @coordinates.translate(right_angle, @width)
       ]
-      group << Plan::SVGPolygon.new(vertices).fill('none')
-      group.concat(@casements.map { |casement| casement.svg_elements(@clockwise, clockwise_angle) })
+      group << Plan::SVGPolygon.new(vertices).css_class('opening-base')
+      group.concat(@casements.map { |casement| casement.svg_elements(@clockwise, @angle, @width) })
     end
   end
 
@@ -63,14 +62,25 @@ class Casement
     @outside = outside
   end
 
-  def svg_elements(_, angle)
-    base_point, final_point = [@coordinates, @coordinates.translate(angle, @length)].reverse_if(@reverse)
-    casement_coordinates = base_point.translate(@outside.to_i * Numeric::PI_2, @length)
+  def svg_elements(clockwise, angle, width)
+    @outside = !@outside if clockwise
+    @coordinates = @coordinates.translate(angle.rotate_rad(clockwise.to_i * Numeric::PI_2), width / 2.0)
+
+    base_point, final_point = [
+      @coordinates,
+      @coordinates.translate(angle, @length)
+    ].reverse_if @reverse
+
+    casement_coordinates = base_point.translate(
+      angle.rotate_rad(@outside.to_i * -Numeric::PI_2), @length
+    )
+
     [
       Plan::SVGPath.new(base_point)
                    .line_to(final_point)
-                   .arc(Plan::Point.new(@length, @length).abs, casement_coordinates, 0, 0)
-                   .close_path
+                   .arc(Plan::Point.new(@length, @length).abs,
+                        casement_coordinates, 0, @outside ^ @reverse ? 0 : 1)
+                   .close_path.css_class('casement')
     ]
   end
 end

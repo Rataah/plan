@@ -18,6 +18,7 @@ module Plan
       use_gradient('steel')
 
       @symbols = PluginLoader.svg_includes
+      @css = PluginLoader.css_includes
     end
 
     def add_contents(contents)
@@ -68,6 +69,9 @@ module Plan
 
     def insert_css_scripts(xml)
       xml.style(File.read('./resources/css/plan.css'), type: 'text/css')
+      @css.each do |css|
+        xml.style(File.read(css), type: 'text/css')
+      end
       xml.script(File.read('./resources/javascript/plan.js'), type: 'text/ecmascript')
     end
 
