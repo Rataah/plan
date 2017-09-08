@@ -29,9 +29,10 @@ module Plan
     end
 
     def build_svg_elements(_)
-      SVGUse.new(*@coordinates.xy, self.class.wall_object)
-            .rotate(@angle.rotate_rad.deg, *@coordinates.xy)
-            .css_class('symbol')
+      SVGUse.new(*@coordinates.xy, self.class.wall_object).tap do |svg_use|
+        svg_use.css_class('symbol')
+        svg_use.rotate(@angle.rotate_rad.deg, *@coordinates.xy) if @rotation
+      end
     end
 
     class << self
@@ -43,6 +44,10 @@ module Plan
 
       def amount_translation(amount)
         @amount = amount
+      end
+
+      def rotate(rotation)
+        @rotation = rotation
       end
     end
   end

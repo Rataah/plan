@@ -5,7 +5,7 @@ metadata {
 }
 
 floor('apartment') {
-  room('dining room', 0, 0) {
+  room('dining room') {
     wall(368, :right, width: 15) {
       power_outlet('dining_room_power_outlet_1', 220)
     }
@@ -126,7 +126,7 @@ floor('apartment') {
     wall(250, :right, width: 15) {
       window(118, 110).casement(100, origin: 5, reverse: true)
     }
-    wall(383, :up, name: 'kitchen') {
+    wall(383, :up, name: 'kitchen_dining_room') {
       power_outlet('kitchen_power_outlet_1', 85)
       door(90, 88).casement(86, outside: true)
       switch('kitchen_switch_1', 185)
@@ -139,10 +139,11 @@ floor('apartment') {
     wall(60, :left)
     wall(323, :down) {
       power_outlet('kitchen_power_outlet_3', 30)
-      power_outlet('kitchen_power_outlet_4', 150)
+      power_outlet('kitchen_power_outlet_4', 180)
     }
 
-    ceiling_light('kitchen_light', 125, 180).link('kitchen_switch_1').link('kitchen_switch_2')
+    ceiling_light('kitchen_light_1', 125, 180).link('kitchen_switch_1').link('kitchen_switch_2')
+    ceiling_light('kitchen_light_2', 10, 200).link('kitchen_switch_2')
   }
 
   room('gas line', anchor: 'bedroom_kitchen.b1') {
