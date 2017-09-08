@@ -17,10 +17,8 @@ module Plan
       @gradients = []
       use_gradient('steel')
 
-      @symbols = []
-      use_symbol('switch')
-      use_symbol('ceiling_light')
-      use_symbol('power_outlet')
+      @symbols = PluginLoader.svg_includes
+      @css = PluginLoader.css_includes
     end
 
     def add_contents(contents)
@@ -71,6 +69,9 @@ module Plan
 
     def insert_css_scripts(xml)
       xml.style(File.read('./resources/css/plan.css'), type: 'text/css')
+      @css.each do |css|
+        xml.style(File.read(css), type: 'text/css')
+      end
       xml.script(File.read('./resources/javascript/plan.js'), type: 'text/ecmascript')
     end
 
@@ -78,7 +79,7 @@ module Plan
       xml.defs do |defs|
         @patterns.each { |pattern_name| defs << SVG.load('patterns', pattern_name) }
         @gradients.each { |gradient_name| defs << SVG.load('gradients', gradient_name) }
-        @symbols.each { |symbol_name| defs << SVG.load('symbols', symbol_name) }
+        @symbols.each { |symbol_path| defs << SVG.load_file(symbol_path) }
       end
     end
 
@@ -105,7 +106,11 @@ module Plan
     end
 
     def self.load(prefix, pattern_name)
-      Nokogiri::XML::DocumentFragment.parse(File.read("./resources/#{prefix}/#{pattern_name}.xml")).to_xml
+      SVG.load_file("./resources/#{prefix}/#{pattern_name}.xml")
+    end
+
+    def self.load_file(path)
+      Nokogiri::XML::DocumentFragment.parse(File.read(path)).to_xml
     end
   end
 end

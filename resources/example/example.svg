@@ -73,32 +73,6 @@
     stroke-width: 1px;
 }
 
-.window {
-    fill: white;
-    stroke: black;
-}
-
-.window path {
-    opacity: 0.3;
-}
-
-.window:hover path {
-    opacity: 1.0
-}
-
-.door {
-    fill: white;
-    stroke: black;
-}
-
-.door path {
-    opacity: 0.3;
-}
-
-.door:hover path {
-    opacity: 1.0
-}
-
 use.symbol {
     stroke: red;
     fill: none;
@@ -107,6 +81,16 @@ use.symbol {
 .symbol-link {
     stroke: red;
     stroke-opacity: 0.4;
+}</style>
+  <style type="text/css">.opening-base {
+  stroke: black;
+  fill: white;
+}
+
+.casement {
+  fill: none;
+  stroke: black;
+  opacity: 0.5;
 }</style>
   <script type="text/ecmascript">function floors_interaction(floor_id)
 {
@@ -139,26 +123,22 @@ use.symbol {
   <stop offset="5%" style="stop-color:rgb(246,246,246);stop-opacity:1"/>
   <stop offset="100%" style="stop-color:rgb(255,255,255);stop-opacity:1"/>
 </linearGradient>
-<g id="symbol-switch-simple">
-  <ellipse ry="5" rx="5" cy="2" cx="-2" fill="#fff"/>
-  <line y2="-7" x2="7" y1="-1" x1="1"/>
-</g>
-<g id="symbol-switch-double">
-  <ellipse ry="5" rx="5" cy="2" cx="-2" fill="#fff"/>
-  <line y2="-7" x2="7" y1="-1" x1="1"/>
-  <line y2="11" x2="7" y1="5" x1="1"/>
-</g>
-<g id="symbol-ceiling-light">
+<g id="room-object-ceiling_light">
   <ellipse ry="7" rx="7" cy="0" cx="0" fill="#fff"/>
   <line y2="5" x2="5" y1="-5" x1="-5"/>
   <line y2="-5" x2="5" y1="5" x1="-5"/>
 </g>
-<g id="symbol-power-outlet">
+<g id="wall-object-power-outlet">
   <ellipse ry="5" rx="5" cy="0" cx="0"/>
   <ellipse ry="1" rx="1" cy="1" cx="-2"/>
   <ellipse ry="1" rx="1" cy="1" cx="2"/>
   <ellipse ry="1" rx="1" cy="-2" cx="0"/>
-</g></defs>
+</g>
+<g id="wall-object-switch-simple">
+  <ellipse ry="5" rx="5" cy="2" cx="-2" fill="#fff"/>
+  <line y2="-7" x2="7" y1="-1" x1="1"/>
+</g>
+</defs>
   <g id="root_component"/>
   <g id="root_content">
     <g id="root_panel" transform="translate(608.0,65.0)">
@@ -168,25 +148,25 @@ use.symbol {
           <polygon points="0.0,0.0 368.0,0.0 368.0,570.0 0.0,570.0" class="room-floor"/>
           <text x="184.0" y="285.0" class="room-name" text-anchor="middle">dining room</text>
           <text x="184.0" y="305.0" text-anchor="middle">20.98 m²</text>
-          <g id="segment_47364841233160">
+          <g id="segment_47295692526180">
             <line x1="0.0" y1="0.0" x2="0.0" y2="35.0" stroke="black"/>
             <line x1="368.0" y1="0.0" x2="368.0" y2="35.0" stroke="black"/>
             <line x1="0.0" y1="35.0" x2="368.0" y2="35.0" stroke="black"/>
             <text x="184.0" y="50.0" text-anchor="middle" transform="rotate(0.0 184.0, 50.0)" class="dimension">368cm</text>
           </g>
-          <g id="segment_47364841232260">
+          <g id="segment_47295692525000">
             <line x1="368.0" y1="0.0" x2="333.0" y2="0.0" stroke="black"/>
             <line x1="368.0" y1="570.0" x2="333.0" y2="570.0" stroke="black"/>
             <line x1="333.0" y1="0.0" x2="333.0" y2="570.0" stroke="black"/>
             <text x="318.0" y="285.0" text-anchor="middle" transform="rotate(90.0 318.0, 285.0)" class="dimension">570cm</text>
           </g>
-          <g id="segment_47364841231620">
+          <g id="segment_47295692524120">
             <line x1="368.0" y1="570.0" x2="368.0" y2="535.0" stroke="black"/>
             <line x1="0.0" y1="570.0" x2="0.0" y2="535.0" stroke="black"/>
             <line x1="368.0" y1="535.0" x2="0.0" y2="535.0" stroke="black"/>
             <text x="184.0" y="520.0" text-anchor="middle" transform="rotate(0.0 184.0, 520.0)" class="dimension">368cm</text>
           </g>
-          <g id="segment_47364839324840">
+          <g id="segment_47295690578740">
             <line x1="0.0" y1="570.0" x2="25.0" y2="570.0" stroke="black"/>
             <line x1="0.0" y1="0.0" x2="25.0" y2="0.0" stroke="black"/>
             <line x1="25.0" y1="570.0" x2="25.0" y2="0.0" stroke="black"/>
@@ -198,49 +178,49 @@ use.symbol {
           <polygon points="-5.0,0.0 -340.0,0.0 -340.0,182.0 -223.0,182.0 -223.0,118.0 -93.0,118.0 -93.0,182.0 -5.0,182.0" class="room-floor"/>
           <text x="-172.5" y="91.0" class="room-name" text-anchor="middle">hall</text>
           <text x="-172.5" y="111.0" text-anchor="middle">5.27 m²</text>
-          <g id="segment_47364841161260">
+          <g id="segment_47295689097220">
             <line x1="-5.0" y1="0.0" x2="-5.0" y2="35.0" stroke="black"/>
             <line x1="-340.0" y1="0.0" x2="-340.0" y2="35.0" stroke="black"/>
             <line x1="-5.0" y1="35.0" x2="-340.0" y2="35.0" stroke="black"/>
             <text x="-172.5" y="50.0" text-anchor="middle" transform="rotate(0.0 -172.5, 50.0)" class="dimension">335cm</text>
           </g>
-          <g id="segment_47364841217600">
+          <g id="segment_47295692442960">
             <line x1="-340.0" y1="0.0" x2="-315.0" y2="0.0" stroke="black"/>
             <line x1="-340.0" y1="182.0" x2="-315.0" y2="182.0" stroke="black"/>
             <line x1="-315.0" y1="0.0" x2="-315.0" y2="182.0" stroke="black"/>
             <text x="-300.0" y="91.0" text-anchor="middle" transform="rotate(90.0 -300.0, 91.0)" class="dimension">182cm</text>
           </g>
-          <g id="segment_47364837867560">
+          <g id="segment_47295689089720">
             <line x1="-340.0" y1="182.0" x2="-340.0" y2="157.0" stroke="black"/>
             <line x1="-223.0" y1="182.0" x2="-223.0" y2="157.0" stroke="black"/>
             <line x1="-340.0" y1="157.0" x2="-223.0" y2="157.0" stroke="black"/>
             <text x="-281.5" y="142.0" text-anchor="middle" transform="rotate(0.0 -281.5, 142.0)" class="dimension">117cm</text>
           </g>
-          <g id="segment_47364841143660">
+          <g id="segment_47295689111080">
             <line x1="-223.0" y1="182.0" x2="-248.0" y2="182.0" stroke="black"/>
             <line x1="-223.0" y1="118.0" x2="-248.0" y2="118.0" stroke="black"/>
             <line x1="-248.0" y1="182.0" x2="-248.0" y2="118.0" stroke="black"/>
             <text x="-263.0" y="150.0" text-anchor="middle" transform="rotate(90.0 -263.0, 150.0)" class="dimension">64cm</text>
           </g>
-          <g id="segment_47364841142760">
+          <g id="segment_47295689110500">
             <line x1="-223.0" y1="118.0" x2="-223.0" y2="93.0" stroke="black"/>
             <line x1="-93.0" y1="118.0" x2="-93.0" y2="93.0" stroke="black"/>
             <line x1="-223.0" y1="93.0" x2="-93.0" y2="93.0" stroke="black"/>
             <text x="-158.0" y="78.0" text-anchor="middle" transform="rotate(0.0 -158.0, 78.0)" class="dimension">130cm</text>
           </g>
-          <g id="segment_47364841141920">
+          <g id="segment_47295689109800">
             <line x1="-93.0" y1="118.0" x2="-68.0" y2="118.0" stroke="black"/>
             <line x1="-93.0" y1="182.0" x2="-68.0" y2="182.0" stroke="black"/>
             <line x1="-68.0" y1="118.0" x2="-68.0" y2="182.0" stroke="black"/>
             <text x="-53.0" y="150.0" text-anchor="middle" transform="rotate(90.0 -53.0, 150.0)" class="dimension">64cm</text>
           </g>
-          <g id="segment_47364840431780">
+          <g id="segment_47295691688560">
             <line x1="-93.0" y1="182.0" x2="-93.0" y2="157.0" stroke="black"/>
             <line x1="-5.0" y1="182.0" x2="-5.0" y2="157.0" stroke="black"/>
             <line x1="-93.0" y1="157.0" x2="-5.0" y2="157.0" stroke="black"/>
             <text x="-49.0" y="142.0" text-anchor="middle" transform="rotate(0.0 -49.0, 142.0)" class="dimension">88cm</text>
           </g>
-          <g id="segment_47364839317380">
+          <g id="segment_47295690571440">
             <line x1="-5.0" y1="182.0" x2="-30.0" y2="182.0" stroke="black"/>
             <line x1="-5.0" y1="0.0" x2="-30.0" y2="0.0" stroke="black"/>
             <line x1="-30.0" y1="182.0" x2="-30.0" y2="0.0" stroke="black"/>
@@ -252,25 +232,25 @@ use.symbol {
           <polygon points="-345.0,0.0 -345.0,85.0 -489.0,85.0 -489.0,0.0" class="room-floor"/>
           <text x="-417.0" y="42.5" class="room-name" text-anchor="middle">toilets</text>
           <text x="-417.0" y="62.5" text-anchor="middle">1.22 m²</text>
-          <g id="segment_47364841212920">
+          <g id="segment_47295692422260">
             <line x1="-345.0" y1="0.0" x2="-370.0" y2="0.0" stroke="black"/>
             <line x1="-345.0" y1="85.0" x2="-370.0" y2="85.0" stroke="black"/>
             <line x1="-370.0" y1="0.0" x2="-370.0" y2="85.0" stroke="black"/>
             <text x="-385.0" y="42.5" text-anchor="middle" transform="rotate(90.0 -385.0, 42.5)" class="dimension">85cm</text>
           </g>
-          <g id="segment_47364838845140">
+          <g id="segment_47295689172460">
             <line x1="-345.0" y1="85.0" x2="-345.0" y2="60.0" stroke="black"/>
             <line x1="-489.0" y1="85.0" x2="-489.0" y2="60.0" stroke="black"/>
             <line x1="-345.0" y1="60.0" x2="-489.0" y2="60.0" stroke="black"/>
             <text x="-417.0" y="45.0" text-anchor="middle" transform="rotate(0.0 -417.0, 45.0)" class="dimension">144cm</text>
           </g>
-          <g id="segment_47364839338780">
+          <g id="segment_47295690598840">
             <line x1="-489.0" y1="85.0" x2="-464.0" y2="85.0" stroke="black"/>
             <line x1="-489.0" y1="0.0" x2="-464.0" y2="0.0" stroke="black"/>
             <line x1="-464.0" y1="85.0" x2="-464.0" y2="0.0" stroke="black"/>
             <text x="-449.0" y="42.5" text-anchor="middle" transform="rotate(90.0 -449.0, 42.5)" class="dimension">85cm</text>
           </g>
-          <g id="segment_47364841014000">
+          <g id="segment_47295690158580">
             <line x1="-489.0" y1="0.0" x2="-489.0" y2="35.0" stroke="black"/>
             <line x1="-345.0" y1="0.0" x2="-345.0" y2="35.0" stroke="black"/>
             <line x1="-489.0" y1="35.0" x2="-345.0" y2="35.0" stroke="black"/>
@@ -282,25 +262,25 @@ use.symbol {
           <polygon points="-494.0,0.0 -494.0,85.0 -543.0,85.0 -543.0,0.0" class="room-floor"/>
           <text x="-518.5" y="42.5" class="room-name" text-anchor="middle">CMV</text>
           <text x="-518.5" y="62.5" text-anchor="middle">0.42 m²</text>
-          <g id="segment_47364839334200">
+          <g id="segment_47295690590260">
             <line x1="-494.0" y1="0.0" x2="-519.0" y2="0.0" stroke="black"/>
             <line x1="-494.0" y1="85.0" x2="-519.0" y2="85.0" stroke="black"/>
             <line x1="-519.0" y1="0.0" x2="-519.0" y2="85.0" stroke="black"/>
             <text x="-534.0" y="42.5" text-anchor="middle" transform="rotate(90.0 -534.0, 42.5)" class="dimension">85cm</text>
           </g>
-          <g id="segment_47364838725960">
+          <g id="segment_47295689138720">
             <line x1="-494.0" y1="85.0" x2="-494.0" y2="60.0" stroke="black"/>
             <line x1="-543.0" y1="85.0" x2="-543.0" y2="60.0" stroke="black"/>
             <line x1="-494.0" y1="60.0" x2="-543.0" y2="60.0" stroke="black"/>
             <text x="-518.5" y="45.0" text-anchor="middle" transform="rotate(0.0 -518.5, 45.0)" class="dimension">49cm</text>
           </g>
-          <g id="segment_47364840993120">
+          <g id="segment_47295690226740">
             <line x1="-543.0" y1="85.0" x2="-508.0" y2="85.0" stroke="black"/>
             <line x1="-543.0" y1="0.0" x2="-508.0" y2="0.0" stroke="black"/>
             <line x1="-508.0" y1="85.0" x2="-508.0" y2="0.0" stroke="black"/>
             <text x="-493.0" y="42.5" text-anchor="middle" transform="rotate(90.0 -493.0, 42.5)" class="dimension">85cm</text>
           </g>
-          <g id="segment_47364840992740">
+          <g id="segment_47295690225460">
             <line x1="-543.0" y1="0.0" x2="-543.0" y2="35.0" stroke="black"/>
             <line x1="-494.0" y1="0.0" x2="-494.0" y2="35.0" stroke="black"/>
             <line x1="-543.0" y1="35.0" x2="-494.0" y2="35.0" stroke="black"/>
@@ -312,37 +292,37 @@ use.symbol {
           <polygon points="-345.0,90.0 -543.0,90.0 -543.0,284.0 -365.0,284.0 -365.0,215.0 -345.0,215.0" class="room-floor"/>
           <text x="-444.0" y="187.0" class="room-name" text-anchor="middle">bathroom</text>
           <text x="-444.0" y="207.0" text-anchor="middle">3.7 m²</text>
-          <g id="segment_47364838690300">
+          <g id="segment_47295689117380">
             <line x1="-345.0" y1="90.0" x2="-345.0" y2="115.0" stroke="black"/>
             <line x1="-543.0" y1="90.0" x2="-543.0" y2="115.0" stroke="black"/>
             <line x1="-345.0" y1="115.0" x2="-543.0" y2="115.0" stroke="black"/>
             <text x="-444.0" y="130.0" text-anchor="middle" transform="rotate(0.0 -444.0, 130.0)" class="dimension">198cm</text>
           </g>
-          <g id="segment_47364840924580">
+          <g id="segment_47295690571160">
             <line x1="-543.0" y1="90.0" x2="-508.0" y2="90.0" stroke="black"/>
             <line x1="-543.0" y1="284.0" x2="-508.0" y2="284.0" stroke="black"/>
             <line x1="-508.0" y1="90.0" x2="-508.0" y2="284.0" stroke="black"/>
             <text x="-493.0" y="187.0" text-anchor="middle" transform="rotate(90.0 -493.0, 187.0)" class="dimension">194cm</text>
           </g>
-          <g id="segment_47364841116920">
+          <g id="segment_47295692314980">
             <line x1="-543.0" y1="284.0" x2="-543.0" y2="259.0" stroke="black"/>
             <line x1="-365.0" y1="284.0" x2="-365.0" y2="259.0" stroke="black"/>
             <line x1="-543.0" y1="259.0" x2="-365.0" y2="259.0" stroke="black"/>
             <text x="-454.0" y="244.0" text-anchor="middle" transform="rotate(0.0 -454.0, 244.0)" class="dimension">178cm</text>
           </g>
-          <g id="segment_47364841012440">
+          <g id="segment_47295692263220">
             <line x1="-365.0" y1="284.0" x2="-390.0" y2="284.0" stroke="black"/>
             <line x1="-365.0" y1="215.0" x2="-390.0" y2="215.0" stroke="black"/>
             <line x1="-390.0" y1="284.0" x2="-390.0" y2="215.0" stroke="black"/>
             <text x="-405.0" y="249.5" text-anchor="middle" transform="rotate(90.0 -405.0, 249.5)" class="dimension">69cm</text>
           </g>
-          <g id="segment_47364840867620">
+          <g id="segment_47295692122080">
             <line x1="-365.0" y1="215.0" x2="-365.0" y2="190.0" stroke="black"/>
             <line x1="-345.0" y1="215.0" x2="-345.0" y2="190.0" stroke="black"/>
             <line x1="-365.0" y1="190.0" x2="-345.0" y2="190.0" stroke="black"/>
             <text x="-355.0" y="175.0" text-anchor="middle" transform="rotate(0.0 -355.0, 175.0)" class="dimension">20cm</text>
           </g>
-          <g id="segment_47364840823140">
+          <g id="segment_47295692081660">
             <line x1="-345.0" y1="215.0" x2="-370.0" y2="215.0" stroke="black"/>
             <line x1="-345.0" y1="90.0" x2="-370.0" y2="90.0" stroke="black"/>
             <line x1="-370.0" y1="215.0" x2="-370.0" y2="90.0" stroke="black"/>
@@ -354,49 +334,49 @@ use.symbol {
           <polygon points="-543.0,289.0 -360.0,289.0 -360.0,220.0 -340.0,220.0 -340.0,187.0 -260.0,187.0 -260.0,570.0 -543.0,570.0" class="room-floor"/>
           <text x="-401.5" y="378.5" class="room-name" text-anchor="middle">bedroom</text>
           <text x="-401.5" y="398.5" text-anchor="middle">8.91 m²</text>
-          <g id="segment_47364841112020">
+          <g id="segment_47295692299800">
             <line x1="-543.0" y1="289.0" x2="-543.0" y2="314.0" stroke="black"/>
             <line x1="-360.0" y1="289.0" x2="-360.0" y2="314.0" stroke="black"/>
             <line x1="-543.0" y1="314.0" x2="-360.0" y2="314.0" stroke="black"/>
             <text x="-451.5" y="329.0" text-anchor="middle" transform="rotate(0.0 -451.5, 329.0)" class="dimension">183cm</text>
           </g>
-          <g id="segment_47364841007920">
+          <g id="segment_47295692250360">
             <line x1="-360.0" y1="289.0" x2="-335.0" y2="289.0" stroke="black"/>
             <line x1="-360.0" y1="220.0" x2="-335.0" y2="220.0" stroke="black"/>
             <line x1="-335.0" y1="289.0" x2="-335.0" y2="220.0" stroke="black"/>
             <text x="-320.0" y="254.5" text-anchor="middle" transform="rotate(90.0 -320.0, 254.5)" class="dimension">69cm</text>
           </g>
-          <g id="segment_47364840854660">
+          <g id="segment_47295692109140">
             <line x1="-360.0" y1="220.0" x2="-360.0" y2="245.0" stroke="black"/>
             <line x1="-340.0" y1="220.0" x2="-340.0" y2="245.0" stroke="black"/>
             <line x1="-360.0" y1="245.0" x2="-340.0" y2="245.0" stroke="black"/>
             <text x="-350.0" y="260.0" text-anchor="middle" transform="rotate(0.0 -350.0, 260.0)" class="dimension">20cm</text>
           </g>
-          <g id="segment_47364840818560">
+          <g id="segment_47295692076900">
             <line x1="-340.0" y1="220.0" x2="-315.0" y2="220.0" stroke="black"/>
             <line x1="-340.0" y1="187.0" x2="-315.0" y2="187.0" stroke="black"/>
             <line x1="-315.0" y1="220.0" x2="-315.0" y2="187.0" stroke="black"/>
             <text x="-300.0" y="203.5" text-anchor="middle" transform="rotate(90.0 -300.0, 203.5)" class="dimension">33cm</text>
           </g>
-          <g id="segment_47364837853060">
+          <g id="segment_47295689082880">
             <line x1="-340.0" y1="187.0" x2="-340.0" y2="212.0" stroke="black"/>
             <line x1="-260.0" y1="187.0" x2="-260.0" y2="212.0" stroke="black"/>
             <line x1="-340.0" y1="212.0" x2="-260.0" y2="212.0" stroke="black"/>
             <text x="-300.0" y="227.0" text-anchor="middle" transform="rotate(0.0 -300.0, 227.0)" class="dimension">80cm</text>
           </g>
-          <g id="segment_47364841546500">
+          <g id="segment_47295692755760">
             <line x1="-260.0" y1="187.0" x2="-285.0" y2="187.0" stroke="black"/>
             <line x1="-260.0" y1="570.0" x2="-285.0" y2="570.0" stroke="black"/>
             <line x1="-285.0" y1="187.0" x2="-285.0" y2="570.0" stroke="black"/>
             <text x="-300.0" y="378.5" text-anchor="middle" transform="rotate(90.0 -300.0, 378.5)" class="dimension">383cm</text>
           </g>
-          <g id="segment_47364840844600">
+          <g id="segment_47295691718660">
             <line x1="-260.0" y1="570.0" x2="-260.0" y2="535.0" stroke="black"/>
             <line x1="-543.0" y1="570.0" x2="-543.0" y2="535.0" stroke="black"/>
             <line x1="-260.0" y1="535.0" x2="-543.0" y2="535.0" stroke="black"/>
             <text x="-401.5" y="520.0" text-anchor="middle" transform="rotate(0.0 -401.5, 520.0)" class="dimension">283cm</text>
           </g>
-          <g id="segment_47364840843880">
+          <g id="segment_47295691730840">
             <line x1="-543.0" y1="570.0" x2="-508.0" y2="570.0" stroke="black"/>
             <line x1="-543.0" y1="289.0" x2="-508.0" y2="289.0" stroke="black"/>
             <line x1="-508.0" y1="570.0" x2="-508.0" y2="289.0" stroke="black"/>
@@ -408,37 +388,37 @@ use.symbol {
           <polygon points="-255.0,570.0 -5.0,570.0 -5.0,187.0 -195.0,187.0 -195.0,247.0 -255.0,247.0" class="room-floor"/>
           <text x="-130.0" y="378.5" class="room-name" text-anchor="middle">kitchen</text>
           <text x="-130.0" y="398.5" text-anchor="middle">9.22 m²</text>
-          <g id="segment_47364840714660">
+          <g id="segment_47295691928900">
             <line x1="-255.0" y1="570.0" x2="-255.0" y2="535.0" stroke="black"/>
             <line x1="-5.0" y1="570.0" x2="-5.0" y2="535.0" stroke="black"/>
             <line x1="-255.0" y1="535.0" x2="-5.0" y2="535.0" stroke="black"/>
             <text x="-130.0" y="520.0" text-anchor="middle" transform="rotate(0.0 -130.0, 520.0)" class="dimension">250cm</text>
           </g>
-          <g id="segment_47364839311600">
+          <g id="segment_47295690564140">
             <line x1="-5.0" y1="570.0" x2="-30.0" y2="570.0" stroke="black"/>
             <line x1="-5.0" y1="187.0" x2="-30.0" y2="187.0" stroke="black"/>
             <line x1="-30.0" y1="570.0" x2="-30.0" y2="187.0" stroke="black"/>
             <text x="-45.0" y="378.5" text-anchor="middle" transform="rotate(90.0 -45.0, 378.5)" class="dimension">383cm</text>
           </g>
-          <g id="segment_47364839665080">
+          <g id="segment_47295690921340">
             <line x1="-5.0" y1="187.0" x2="-5.0" y2="212.0" stroke="black"/>
             <line x1="-195.0" y1="187.0" x2="-195.0" y2="212.0" stroke="black"/>
             <line x1="-5.0" y1="212.0" x2="-195.0" y2="212.0" stroke="black"/>
             <text x="-100.0" y="227.0" text-anchor="middle" transform="rotate(0.0 -100.0, 227.0)" class="dimension">190cm</text>
           </g>
-          <g id="segment_47364838984560">
+          <g id="segment_47295690234360">
             <line x1="-195.0" y1="187.0" x2="-170.0" y2="187.0" stroke="black"/>
             <line x1="-195.0" y1="247.0" x2="-170.0" y2="247.0" stroke="black"/>
             <line x1="-170.0" y1="187.0" x2="-170.0" y2="247.0" stroke="black"/>
             <text x="-155.0" y="217.0" text-anchor="middle" transform="rotate(90.0 -155.0, 217.0)" class="dimension">60cm</text>
           </g>
-          <g id="segment_47364838882780">
+          <g id="segment_47295689974120">
             <line x1="-195.0" y1="247.0" x2="-195.0" y2="272.0" stroke="black"/>
             <line x1="-255.0" y1="247.0" x2="-255.0" y2="272.0" stroke="black"/>
             <line x1="-195.0" y1="272.0" x2="-255.0" y2="272.0" stroke="black"/>
             <text x="-225.0" y="287.0" text-anchor="middle" transform="rotate(0.0 -225.0, 287.0)" class="dimension">60cm</text>
           </g>
-          <g id="segment_47364841541000">
+          <g id="segment_47295692742200">
             <line x1="-255.0" y1="247.0" x2="-230.0" y2="247.0" stroke="black"/>
             <line x1="-255.0" y1="570.0" x2="-230.0" y2="570.0" stroke="black"/>
             <line x1="-230.0" y1="247.0" x2="-230.0" y2="570.0" stroke="black"/>
@@ -450,25 +430,25 @@ use.symbol {
           <polygon points="-255.0,187.0 -200.0,187.0 -200.0,242.0 -255.0,242.0" class="room-floor"/>
           <text x="-227.5" y="214.5" class="room-name" text-anchor="middle">gas line</text>
           <text x="-227.5" y="234.5" text-anchor="middle">0.3 m²</text>
-          <g id="segment_47364837848520">
+          <g id="segment_47295689076380">
             <line x1="-255.0" y1="187.0" x2="-255.0" y2="212.0" stroke="black"/>
             <line x1="-200.0" y1="187.0" x2="-200.0" y2="212.0" stroke="black"/>
             <line x1="-255.0" y1="212.0" x2="-200.0" y2="212.0" stroke="black"/>
             <text x="-227.5" y="227.0" text-anchor="middle" transform="rotate(0.0 -227.5, 227.0)" class="dimension">55cm</text>
           </g>
-          <g id="segment_47364838979240">
+          <g id="segment_47295690226340">
             <line x1="-200.0" y1="187.0" x2="-225.0" y2="187.0" stroke="black"/>
             <line x1="-200.0" y1="242.0" x2="-225.0" y2="242.0" stroke="black"/>
             <line x1="-225.0" y1="187.0" x2="-225.0" y2="242.0" stroke="black"/>
             <text x="-240.0" y="214.5" text-anchor="middle" transform="rotate(90.0 -240.0, 214.5)" class="dimension">55cm</text>
           </g>
-          <g id="segment_47364838876620">
+          <g id="segment_47295689943120">
             <line x1="-200.0" y1="242.0" x2="-200.0" y2="217.0" stroke="black"/>
             <line x1="-255.0" y1="242.0" x2="-255.0" y2="217.0" stroke="black"/>
             <line x1="-200.0" y1="217.0" x2="-255.0" y2="217.0" stroke="black"/>
             <text x="-227.5" y="202.0" text-anchor="middle" transform="rotate(0.0 -227.5, 202.0)" class="dimension">55cm</text>
           </g>
-          <g id="segment_47364841528800">
+          <g id="segment_47295692736880">
             <line x1="-255.0" y1="242.0" x2="-230.0" y2="242.0" stroke="black"/>
             <line x1="-255.0" y1="187.0" x2="-230.0" y2="187.0" stroke="black"/>
             <line x1="-230.0" y1="242.0" x2="-230.0" y2="187.0" stroke="black"/>
@@ -483,23 +463,9 @@ use.symbol {
         </g>
         <g id="wall_dining_room_2">
           <polygon points="368.0,570.0 0.0,570.0 0.0,585.0 368.0,585.0" class="wall"/>
-          <g id="window_47364841231840" class="window">
-            <path d="M 225.5,577.5 L 225.5,497.5 A 80.0,80.0 0 0,0 145.5,577.5 "/>
-            <line x1="225.5" y1="577.5" x2="145.5" y2="577.5" class="casement_panel"/>
-            <path d="M 65.5,577.5 L 145.5,577.5 A 80.0,80.0 0 0,0 65.5,497.5 "/>
-            <line x1="65.5" y1="577.5" x2="65.5" y2="497.5" class="casement_panel"/>
-            <polygon points="308.0,570.0 308.0,585.0 63.0,585.0 63.0,570.0"/>
-            <line x1="308.0" y1="577.5" x2="63.0" y2="577.5"/>
-          </g>
         </g>
         <g id="wall_hall_0">
           <polygon points="-5.0,0.0 -340.0,0.0 -340.0,-15.0 -5.0,-15.0" class="wall"/>
-          <g id="door_47364841161440" class="door">
-            <path d="M -219.0,-7.5 L -219.0,84.5 A 92.0,92.0 0 0,0 -127.0,-7.5 "/>
-            <line x1="-219.0" y1="-7.5" x2="-127.0" y2="-7.5" class="casement_panel"/>
-            <polygon points="-122.0,0.0 -122.0,-15.0 -224.0,-15.0 -224.0,0.0"/>
-            <line x1="-122.0" y1="-7.5" x2="-224.0" y2="-7.5"/>
-          </g>
         </g>
         <g id="wall_hall_3">
           <polygon points="-223.0,182.0 -223.0,118.0 -218.0,118.0 -218.0,182.0" class="wall"/>
@@ -524,42 +490,18 @@ use.symbol {
         </g>
         <g id="wall_bedroom_6">
           <polygon points="-260.0,570.0 -543.0,570.0 -543.0,585.0 -260.0,585.0" class="wall"/>
-          <g id="window_47364840844700" class="window">
-            <path d="M -286.0,577.5 L -286.0,477.5 A 100.0,100.0 0 0,0 -386.0,577.5 "/>
-            <line x1="-286.0" y1="577.5" x2="-386.0" y2="577.5" class="casement_panel"/>
-            <polygon points="-281.0,570.0 -281.0,585.0 -391.0,585.0 -391.0,570.0"/>
-            <line x1="-281.0" y1="577.5" x2="-391.0" y2="577.5"/>
-          </g>
         </g>
         <g id="wall_bedroom_7">
           <polygon points="-543.0,570.0 -543.0,289.0 -558.0,289.0 -558.0,570.0" class="wall"/>
         </g>
         <g id="wall_kitchen_0">
           <polygon points="-255.0,570.0 -5.0,570.0 -5.0,585.0 -255.0,585.0" class="wall"/>
-          <g id="window_47364840714840" class="window">
-            <path d="M -32.0,577.5 L -32.0,477.5 A 100.0,100.0 0 0,0 -132.0,577.5 "/>
-            <line x1="-32.0" y1="577.5" x2="-132.0" y2="577.5" class="casement_panel"/>
-            <polygon points="-137.0,570.0 -137.0,585.0 -27.0,585.0 -27.0,570.0"/>
-            <line x1="-137.0" y1="577.5" x2="-27.0" y2="577.5"/>
-          </g>
         </g>
         <g id="wall_hall_toilets_toilets_hall">
           <polygon points="-340.0,0.0 -340.0,85.0 -340.0,182.0 -345.0,182.0 -345.0,85.0 -345.0,0.0" class="wall"/>
-          <g id="door_47364841015440" class="door">
-            <path d="M -342.5,2.0 L -342.5,83.0 A 81.0,81.0 0 0,0 -261.5,2.0 "/>
-            <line x1="-342.5" y1="2.0" x2="-261.5" y2="2.0" class="casement_panel"/>
-            <polygon points="-340.0,1.0 -345.0,1.0 -345.0,84.0 -340.0,84.0"/>
-            <line x1="-342.5" y1="1.0" x2="-342.5" y2="84.0"/>
-          </g>
         </g>
         <g id="wall_hall_6_kitchen_2">
           <polygon points="-195.0,182.0 -93.0,182.0 -5.0,182.0 -5.0,187.0 -93.0,187.0 -195.0,187.0" class="wall"/>
-          <g id="door_47364841140660" class="door">
-            <path d="M -7.0,184.5 L -91.0,184.5 A 84.0,84.0 0 0,0 -7.0,268.5 "/>
-            <line x1="-7.0" y1="184.5" x2="-7.0" y2="268.5" class="casement_panel"/>
-            <polygon points="-92.0,182.0 -92.0,187.0 -6.0,187.0 -6.0,182.0"/>
-            <line x1="-92.0" y1="184.5" x2="-6.0" y2="184.5"/>
-          </g>
         </g>
         <g id="wall_toilets_cmv_cmv_0">
           <polygon points="-494.0,85.0 -494.0,0.0 -489.0,0.0 -489.0,85.0" class="wall"/>
@@ -578,29 +520,9 @@ use.symbol {
         </g>
         <g id="wall_bathroom_hall_bedroom_3">
           <polygon points="-345.0,220.0 -345.0,215.0 -345.0,187.0 -345.0,90.0 -340.0,90.0 -340.0,187.0 -340.0,215.0 -340.0,220.0" class="wall"/>
-          <g id="door_47364840923140" class="door">
-            <path d="M -342.5,173.0 L -261.5,173.0 A 81.0,81.0 0 0,0 -342.5,92.0 "/>
-            <line x1="-342.5" y1="173.0" x2="-342.5" y2="92.0" class="casement_panel"/>
-            <polygon points="-345.0,174.0 -340.0,174.0 -340.0,91.0 -345.0,91.0"/>
-            <line x1="-342.5" y1="174.0" x2="-342.5" y2="91.0"/>
-          </g>
         </g>
         <g id="wall_kitchen_dining_room_dining_room_hall_dining_room_hall2">
           <polygon points="-5.0,570.0 -5.0,187.0 -5.0,182.0 -5.0,0.0 0.0,0.0 0.0,182.0 0.0,187.0 0.0,570.0" class="wall"/>
-          <g id="door_47364840713980" class="door">
-            <path d="M -2.5,480.0 L 83.5,480.0 A 86.0,86.0 0 0,0 -2.5,394.0 "/>
-            <line x1="-2.5" y1="480.0" x2="-2.5" y2="394.0" class="casement_panel"/>
-            <polygon points="-5.0,480.0 0.0,480.0 0.0,392.0 -5.0,392.0"/>
-            <line x1="-2.5" y1="480.0" x2="-2.5" y2="392.0"/>
-          </g>
-          <g id="door_47364841231220" class="door">
-            <path d="M -2.5,128.0 L 38.5,128.0 A 41.0,41.0 0 0,0 -2.5,87.0 "/>
-            <line x1="-2.5" y1="128.0" x2="-2.5" y2="87.0" class="casement_panel"/>
-            <path d="M -2.5,7.0 L -2.5,87.0 A 80.0,80.0 0 0,0 77.5,7.0 "/>
-            <line x1="-2.5" y1="7.0" x2="77.5" y2="7.0" class="casement_panel"/>
-            <polygon points="-5.0,130.0 0.0,130.0 0.0,0.0 -5.0,0.0"/>
-            <line x1="-2.5" y1="130.0" x2="-2.5" y2="0.0"/>
-          </g>
         </g>
         <g id="wall_kitchen_3_gas_line_1">
           <polygon points="-195.0,187.0 -195.0,242.0 -195.0,247.0 -200.0,247.0 -200.0,242.0 -200.0,187.0" class="wall"/>
@@ -610,12 +532,6 @@ use.symbol {
         </g>
         <g id="wall_gas_line_0_hall_2_bedroom_4">
           <polygon points="-340.0,182.0 -260.0,182.0 -255.0,182.0 -223.0,182.0 -200.0,182.0 -200.0,187.0 -223.0,187.0 -255.0,187.0 -260.0,187.0 -340.0,187.0" class="wall"/>
-          <g id="door_47364840846060" class="door">
-            <path d="M -262.0,184.5 L -338.0,184.5 A 76.0,76.0 0 0,0 -262.0,260.5 "/>
-            <line x1="-262.0" y1="184.5" x2="-262.0" y2="260.5" class="casement_panel"/>
-            <polygon points="-339.0,182.0 -339.0,187.0 -261.0,187.0 -261.0,182.0"/>
-            <line x1="-339.0" y1="184.5" x2="-261.0" y2="184.5"/>
-          </g>
         </g>
         <g id="wall_gas_line_3_bedroom_kitchen_kitchen_5">
           <polygon points="-260.0,570.0 -260.0,247.0 -260.0,242.0 -260.0,187.0 -255.0,187.0 -255.0,242.0 -255.0,247.0 -255.0,570.0" class="wall"/>
@@ -656,55 +572,97 @@ use.symbol {
         <g id="wall_corner_hall_6_kitchen_2_kitchen_3_gas_line_1">
           <polygon points="-195.0,187.0 -200.0,187.0 -200.0,182.0 -195.0,182.0" class="wall"/>
         </g>
-        <path d="M 180.0,280.0 Q 42.5,247.5 10.0,385.0" class="symbol-link" fill="transparent" stroke="red"/>
-        <path d="M 180.0,280.0 Q 160.0,130.0 10.0,150.0" class="symbol-link" fill="transparent" stroke="red"/>
-        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="180.0" y="280.0" xlink:href="#symbol-ceiling-light" class="symbol ceiling-light"/>
-        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="220.0" y="10.0" xlink:href="#symbol-power-outlet" class="symbol poweroutlet"/>
-        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="358.0" y="130.0" xlink:href="#symbol-power-outlet" class="symbol poweroutlet"/>
-        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="358.0" y="270.0" xlink:href="#symbol-power-outlet" class="symbol poweroutlet"/>
-        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="358.0" y="290.0" xlink:href="#symbol-power-outlet" class="symbol poweroutlet"/>
-        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="358.0" y="550.0" xlink:href="#symbol-power-outlet" class="symbol poweroutlet"/>
-        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="28.0" y="560.0" xlink:href="#symbol-power-outlet" class="symbol poweroutlet"/>
-        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="10.0" y="385.0" xlink:href="#symbol-switch-simple" class="symbol switch" transform="rotate(0.0 10.0 385.0)"/>
-        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="10.0" y="165.0" xlink:href="#symbol-power-outlet" class="symbol poweroutlet"/>
-        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="10.0" y="150.0" xlink:href="#symbol-switch-simple" class="symbol switch" transform="rotate(0.0 10.0 150.0)"/>
-        <path d="M -140.0,60.0 Q -97.5,52.5 -105.0,10.0" class="symbol-link" fill="transparent" stroke="red"/>
-        <path d="M -140.0,60.0 Q -248.5,63.5 -245.0,172.0" class="symbol-link" fill="transparent" stroke="red"/>
-        <path d="M -140.0,60.0 Q -155.5,132.5 -83.0,148.0" class="symbol-link" fill="transparent" stroke="red"/>
-        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-140.0" y="60.0" xlink:href="#symbol-ceiling-light" class="symbol ceiling-light"/>
-        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-105.0" y="10.0" xlink:href="#symbol-switch-simple" class="symbol switch" transform="rotate(90.0 -105.0 10.0)"/>
-        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-235.0" y="10.0" xlink:href="#symbol-power-outlet" class="symbol poweroutlet"/>
-        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-245.0" y="172.0" xlink:href="#symbol-switch-simple" class="symbol switch" transform="rotate(270.0 -245.0 172.0)"/>
-        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-113.0" y="108.0" xlink:href="#symbol-power-outlet" class="symbol poweroutlet"/>
-        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-83.0" y="148.0" xlink:href="#symbol-switch-simple" class="symbol switch" transform="rotate(0.0 -83.0 148.0)"/>
-        <path d="M -379.0,42.0 Q -386.0,68.0 -360.0,75.0" class="symbol-link" fill="transparent" stroke="red"/>
-        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-379.0" y="42.0" xlink:href="#symbol-ceiling-light" class="symbol ceiling-light"/>
-        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-360.0" y="75.0" xlink:href="#symbol-switch-simple" class="symbol switch" transform="rotate(270.0 -360.0 75.0)"/>
-        <path d="M -403.0,135.0 Q -364.0,139.0 -360.0,100.0" class="symbol-link" fill="transparent" stroke="red"/>
-        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-403.0" y="135.0" xlink:href="#symbol-ceiling-light" class="symbol ceiling-light"/>
-        <path d="M -533.0,150.0 Q -421.5,211.5 -360.0,100.0" class="symbol-link" fill="transparent" stroke="red"/>
-        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-533.0" y="150.0" xlink:href="#symbol-ceiling-light" class="symbol ceiling-light"/>
-        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-360.0" y="100.0" xlink:href="#symbol-switch-simple" class="symbol switch" transform="rotate(90.0 -360.0 100.0)"/>
-        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-375.0" y="100.0" xlink:href="#symbol-power-outlet" class="symbol poweroutlet"/>
-        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-533.0" y="190.0" xlink:href="#symbol-power-outlet" class="symbol poweroutlet"/>
-        <path d="M -402.0,427.0 Q -258.5,415.5 -270.0,272.0" class="symbol-link" fill="transparent" stroke="red"/>
-        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-402.0" y="427.0" xlink:href="#symbol-ceiling-light" class="symbol ceiling-light"/>
-        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-270.0" y="272.0" xlink:href="#symbol-switch-simple" class="symbol switch" transform="rotate(180.0 -270.0 272.0)"/>
-        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-270.0" y="287.0" xlink:href="#symbol-power-outlet" class="symbol poweroutlet"/>
-        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-270.0" y="412.0" xlink:href="#symbol-power-outlet" class="symbol poweroutlet"/>
-        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-533.0" y="505.0" xlink:href="#symbol-power-outlet" class="symbol poweroutlet"/>
-        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-533.0" y="315.0" xlink:href="#symbol-power-outlet" class="symbol poweroutlet"/>
-        <path d="M -130.0,367.0 Q -81.5,433.5 -15.0,385.0" class="symbol-link" fill="transparent" stroke="red"/>
-        <path d="M -130.0,367.0 Q -32.5,294.5 -105.0,197.0" class="symbol-link" fill="transparent" stroke="red"/>
-        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-130.0" y="367.0" xlink:href="#symbol-ceiling-light" class="symbol ceiling-light"/>
-        <path d="M -245.0,387.0 Q -80.0,362.0 -105.0,197.0" class="symbol-link" fill="transparent" stroke="red"/>
-        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-245.0" y="387.0" xlink:href="#symbol-ceiling-light" class="symbol ceiling-light"/>
-        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-15.0" y="485.0" xlink:href="#symbol-power-outlet" class="symbol poweroutlet"/>
-        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-15.0" y="385.0" xlink:href="#symbol-switch-simple" class="symbol switch" transform="rotate(180.0 -15.0 385.0)"/>
-        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-105.0" y="197.0" xlink:href="#symbol-switch-double" class="symbol switch" transform="rotate(90.0 -105.0 197.0)"/>
-        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-120.0" y="197.0" xlink:href="#symbol-power-outlet" class="symbol poweroutlet"/>
-        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-245.0" y="277.0" xlink:href="#symbol-power-outlet" class="symbol poweroutlet"/>
-        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-245.0" y="427.0" xlink:href="#symbol-power-outlet" class="symbol poweroutlet"/>
+        <path d="M 180.0,280.0 Q 42.5,247.5 10.0,385.0" fill="transparent" stroke="red"/>
+        <path d="M 180.0,280.0 Q 160.0,130.0 10.0,150.0" fill="transparent" stroke="red"/>
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="180.0" y="280.0" xlink:href="#room-object-ceiling_light" class="symbol ceilinglight"/>
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="220.0" y="10.0" xlink:href="#wall-object-power-outlet" class="symbol"/>
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="358.0" y="130.0" xlink:href="#wall-object-power-outlet" class="symbol"/>
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="358.0" y="270.0" xlink:href="#wall-object-power-outlet" class="symbol"/>
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="358.0" y="290.0" xlink:href="#wall-object-power-outlet" class="symbol"/>
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="358.0" y="550.0" xlink:href="#wall-object-power-outlet" class="symbol"/>
+        <g id="symbol_6">
+          <polygon points="308.0,570.0 63.0,570.0 63.0,585.0 308.0,585.0" class="opening-base"/>
+          <path d="M 225.5,577.5 L 145.5,577.5 A 80.0,80.0 0 0,1 225.5,497.5 Z" class="casement"/>
+          <path d="M 65.5,577.5 L 145.5,577.5 A 80.0,80.0 0 0,0 65.5,497.5 Z" class="casement"/>
+        </g>
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="28.0" y="560.0" xlink:href="#wall-object-power-outlet" class="symbol"/>
+        <g id="symbol_8">
+          <polygon points="0.0,130.0 0.0,0.0 -5.0,0.0 -5.0,130.0" class="opening-base"/>
+          <path d="M -2.5,128.0 L -2.5,87.0 A 41.0,41.0 0 0,1 38.5,128.0 Z" class="casement"/>
+          <path d="M -2.5,7.0 L -2.5,87.0 A 80.0,80.0 0 0,0 77.5,7.0 Z" class="casement"/>
+        </g>
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="10.0" y="385.0" xlink:href="#wall-object-switch-simple" class="symbol"/>
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="10.0" y="165.0" xlink:href="#wall-object-power-outlet" class="symbol"/>
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="10.0" y="150.0" xlink:href="#wall-object-switch-simple" class="symbol"/>
+        <path d="M -140.0,60.0 Q -97.5,52.5 -105.0,10.0" fill="transparent" stroke="red"/>
+        <path d="M -140.0,60.0 Q -248.5,63.5 -245.0,172.0" fill="transparent" stroke="red"/>
+        <path d="M -140.0,60.0 Q -155.5,132.5 -83.0,148.0" fill="transparent" stroke="red"/>
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-140.0" y="60.0" xlink:href="#room-object-ceiling_light" class="symbol ceilinglight"/>
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-105.0" y="10.0" xlink:href="#wall-object-switch-simple" class="symbol"/>
+        <g id="symbol_14">
+          <polygon points="-122.0,0.0 -224.0,0.0 -224.0,-15.0 -122.0,-15.0" class="opening-base"/>
+          <path d="M -219.0,-7.5 L -127.0,-7.5 A 92.0,92.0 0 0,1 -219.0,84.5 Z" class="casement"/>
+        </g>
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-235.0" y="10.0" xlink:href="#wall-object-power-outlet" class="symbol"/>
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-245.0" y="172.0" xlink:href="#wall-object-switch-simple" class="symbol"/>
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-113.0" y="108.0" xlink:href="#wall-object-power-outlet" class="symbol"/>
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-83.0" y="148.0" xlink:href="#wall-object-switch-simple" class="symbol"/>
+        <g id="symbol_19">
+          <polygon points="-92.0,182.0 -6.0,182.0 -6.0,187.0 -92.0,187.0" class="opening-base"/>
+          <path d="M -7.0,184.5 L -91.0,184.5 A 84.0,84.0 0 0,0 -7.0,268.5 Z" class="casement"/>
+        </g>
+        <path d="M -379.0,42.0 Q -386.0,68.0 -360.0,75.0" fill="transparent" stroke="red"/>
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-379.0" y="42.0" xlink:href="#room-object-ceiling_light" class="symbol ceilinglight"/>
+        <g id="symbol_21">
+          <polygon points="-345.0,1.0 -345.0,84.0 -340.0,84.0 -340.0,1.0" class="opening-base"/>
+          <path d="M -342.5,2.0 L -342.5,83.0 A 81.0,81.0 0 0,0 -261.5,2.0 Z" class="casement"/>
+        </g>
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-360.0" y="75.0" xlink:href="#wall-object-switch-simple" class="symbol"/>
+        <path d="M -403.0,135.0 Q -364.0,139.0 -360.0,100.0" fill="transparent" stroke="red"/>
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-403.0" y="135.0" xlink:href="#room-object-ceiling_light" class="symbol ceilinglight"/>
+        <path d="M -533.0,150.0 Q -421.5,211.5 -360.0,100.0" fill="transparent" stroke="red"/>
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-533.0" y="150.0" xlink:href="#room-object-ceiling_light" class="symbol ceilinglight"/>
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-360.0" y="100.0" xlink:href="#wall-object-switch-simple" class="symbol"/>
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-375.0" y="100.0" xlink:href="#wall-object-power-outlet" class="symbol"/>
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-533.0" y="190.0" xlink:href="#wall-object-power-outlet" class="symbol"/>
+        <g id="symbol_28">
+          <polygon points="-345.0,174.0 -345.0,91.0 -340.0,91.0 -340.0,174.0" class="opening-base"/>
+          <path d="M -342.5,173.0 L -342.5,92.0 A 81.0,81.0 0 0,1 -261.5,173.0 Z" class="casement"/>
+        </g>
+        <path d="M -402.0,427.0 Q -258.5,415.5 -270.0,272.0" fill="transparent" stroke="red"/>
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-402.0" y="427.0" xlink:href="#room-object-ceiling_light" class="symbol ceilinglight"/>
+        <g id="symbol_30">
+          <polygon points="-339.0,187.0 -261.0,187.0 -261.0,182.0 -339.0,182.0" class="opening-base"/>
+          <path d="M -262.0,184.5 L -338.0,184.5 A 76.0,76.0 0 0,0 -262.0,260.5 Z" class="casement"/>
+        </g>
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-270.0" y="272.0" xlink:href="#wall-object-switch-simple" class="symbol"/>
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-270.0" y="287.0" xlink:href="#wall-object-power-outlet" class="symbol"/>
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-270.0" y="412.0" xlink:href="#wall-object-power-outlet" class="symbol"/>
+        <g id="symbol_34">
+          <polygon points="-281.0,570.0 -391.0,570.0 -391.0,585.0 -281.0,585.0" class="opening-base"/>
+          <path d="M -286.0,577.5 L -386.0,577.5 A 100.0,100.0 0 0,1 -286.0,477.5 Z" class="casement"/>
+        </g>
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-533.0" y="505.0" xlink:href="#wall-object-power-outlet" class="symbol"/>
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-533.0" y="315.0" xlink:href="#wall-object-power-outlet" class="symbol"/>
+        <path d="M -130.0,367.0 Q -81.5,433.5 -15.0,385.0" fill="transparent" stroke="red"/>
+        <path d="M -130.0,367.0 Q -32.5,294.5 -105.0,197.0" fill="transparent" stroke="red"/>
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-130.0" y="367.0" xlink:href="#room-object-ceiling_light" class="symbol ceilinglight"/>
+        <path d="M -245.0,387.0 Q -80.0,362.0 -105.0,197.0" fill="transparent" stroke="red"/>
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-245.0" y="387.0" xlink:href="#room-object-ceiling_light" class="symbol ceilinglight"/>
+        <g id="symbol_39">
+          <polygon points="-137.0,570.0 -27.0,570.0 -27.0,585.0 -137.0,585.0" class="opening-base"/>
+          <path d="M -32.0,577.5 L -132.0,577.5 A 100.0,100.0 0 0,1 -32.0,477.5 Z" class="casement"/>
+        </g>
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-15.0" y="485.0" xlink:href="#wall-object-power-outlet" class="symbol"/>
+        <g id="symbol_41">
+          <polygon points="-5.0,480.0 -5.0,392.0 0.0,392.0 0.0,480.0" class="opening-base"/>
+          <path d="M -2.5,480.0 L -2.5,394.0 A 86.0,86.0 0 0,1 83.5,480.0 Z" class="casement"/>
+        </g>
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-15.0" y="385.0" xlink:href="#wall-object-switch-simple" class="symbol"/>
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-105.0" y="197.0" xlink:href="#wall-object-switch-simple" class="symbol"/>
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-120.0" y="197.0" xlink:href="#wall-object-power-outlet" class="symbol"/>
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-245.0" y="277.0" xlink:href="#wall-object-power-outlet" class="symbol"/>
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-245.0" y="427.0" xlink:href="#wall-object-power-outlet" class="symbol"/>
       </g>
     </g>
     <text x="495.5" y="700.0" text-anchor="middle">Total: 50.01 m²</text>

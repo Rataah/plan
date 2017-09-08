@@ -7,16 +7,7 @@ module Plan
       Plan.log.info("Loading configuration from #{filename}")
       content = load_data_from_file(filename)
 
-      case File.extname(filename)
-      when '.rb'
-        RubyDataLoader.parse(content, filename)
-      when '.yml', '.yaml'
-        YamlDataLoader.parse(content, filename)
-      when '.xml'
-        XMLDataLoader.parse(content, filename)
-      else
-        raise ParserError, "File format #{File.extname(filename)} unknown"
-      end
+      RubyDataLoader.parse(content, filename)
     end
 
     def self.load_data_from_file(filename)

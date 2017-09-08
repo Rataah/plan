@@ -7,6 +7,7 @@ module Plan
   class Runner
     def initialize(args)
       @options = PlanOptions.parse(args)
+      PluginLoader.load_plugins
     end
 
     def run

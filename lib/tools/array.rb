@@ -8,6 +8,14 @@ class Array
     [first, last]
   end
 
+  def rotate_if(condition)
+    condition ? rotate : self
+  end
+
+  def reverse_if(condition)
+    condition ? reverse : self
+  end
+
   def loop_array
     self << first
   end
