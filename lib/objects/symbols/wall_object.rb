@@ -14,12 +14,13 @@ module Plan
     end
 
     def finalize(angle, clockwise)
-      translate(angle, self.class.amount || 10, clockwise)
+      @clockwise = clockwise
+      translate(angle, self.class.amount || 10)
     end
 
-    def translate(angle, amount, clockwise)
+    def translate(angle, amount)
       @coordinates = @coordinates.translate(angle, amount)
-      @angle = @angle.rotate_rad(Math::PI) if clockwise
+      @angle = @angle.rotate_rad(Math::PI) if @clockwise
     end
 
     def svg_elements(symbol_pool)

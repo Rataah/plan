@@ -15,6 +15,7 @@ floor('apartment') {
       power_outlet('dining_room_power_outlet_4', 270)
       power_outlet('dining_room_power_outlet_5', 290)
 
+      radiator(440, 100)
       power_outlet('dining_room_power_outlet_6', 550)
     }
     wall(368, :left, width: 15) {
@@ -33,6 +34,7 @@ floor('apartment') {
 
   room('hall', anchor: 'dining_room_hall.b2') {
     wall(335, :left, width: 15) {
+      radiator(20, 60)
       switch('hall_switch_1', 100)
       door(117, 102).casement(92, origin: 5, reverse: true)
       power_outlet('hall_power_outlet_1', 230)
@@ -83,6 +85,7 @@ floor('apartment') {
     wall(198, :left) {
       switch('bathroom_switch', 15)
       power_outlet('bathroom_power_outlet_1', 30)
+      radiator(40, 60)
     }
     wall(194, :down, width: 15) {
       power_outlet('bathroom_power_outlet_2', 100)
@@ -113,6 +116,7 @@ floor('apartment') {
     }
     wall(283, :left, width: 15) {
       window(21, 110).casement(100, origin: 5)
+      radiator(140, 80)
     }
     wall(281, :up, width: 15) {
       power_outlet('bedroom_power_outlet_3', 65)
@@ -127,6 +131,7 @@ floor('apartment') {
       window(118, 110).casement(100, origin: 5, reverse: true)
     }
     wall(383, :up, name: 'kitchen_dining_room') {
+      radiator(10, 60)
       power_outlet('kitchen_power_outlet_1', 85)
       door(90, 88).casement(86, outside: true)
       switch('kitchen_switch_1', 185)

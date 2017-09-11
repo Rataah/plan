@@ -40,7 +40,7 @@ class Opening < Plan::WallObject
         @coordinates.translate(right_angle, @width)
       ]
       group << Plan::SVGPolygon.new(vertices).css_class('opening-base')
-      group.concat(@casements.map { |casement| casement.svg_elements(@clockwise, @angle, @width) })
+      group.concat(casements.map { |casement| casement.svg_elements(@clockwise, @angle, @width) })
     end
   end
 
