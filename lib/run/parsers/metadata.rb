@@ -17,7 +17,7 @@ module Plan
     end
 
     def svg_elements
-      [ @compass.svg_elements ]
+      [@compass.svg_elements]
     end
   end
 end
