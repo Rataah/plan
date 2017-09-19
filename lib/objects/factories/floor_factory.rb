@@ -1,8 +1,6 @@
 module Plan
   # Room factory. Create a room and manage his walls (with WallSegment)
   class FloorFactory
-    attr_reader :room
-
     def create(name, &block)
       @floor = Floor.new(name)
       @floor.wall_pool = WallPool[@floor]

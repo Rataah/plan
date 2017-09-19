@@ -44,11 +44,11 @@ module Plan
     end
 
     def ab1
-      Plan.center(vertex_a1, vertex_b1)
+      @vertices_a.first.center(@vertices_b.first)
     end
 
     def ab2
-      Plan.center(vertex_a2, vertex_b2)
+      @vertices_a.last.center(@vertices_b.last)
     end
 
     def vertices_center

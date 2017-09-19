@@ -2,3 +2,4 @@
 output/*.svg
 Gemfile.lock
 tmp
+profile.*
