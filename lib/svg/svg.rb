@@ -64,7 +64,7 @@ module Plan
     end
 
     def insert_metadata(xml)
-      @metadata.svg_elements.each { |element| element.xml_element(xml) }
+      @metadata.svg_metadata_elements.each { |element| element.xml_element(xml) }
     end
 
     def insert_css_scripts(xml)
@@ -80,6 +80,7 @@ module Plan
         @patterns.each { |pattern_name| defs << SVG.load('patterns', pattern_name) }
         @gradients.each { |gradient_name| defs << SVG.load('gradients', gradient_name) }
         @symbols.each { |symbol_path| defs << SVG.load_file(symbol_path) }
+        defs << SVG.load('symbols', 'compass')
       end
     end
 
@@ -92,6 +93,7 @@ module Plan
     def insert_content(xml)
       SVGGroup.new('root_content').add do |root_content|
         root_content.concat(@contents)
+        root_content.concat(@metadata.svg_elements)
       end.xml_element(xml)
     end
 
