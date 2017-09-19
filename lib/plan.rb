@@ -59,6 +59,7 @@ require 'objects/door'
 # symbols
 require 'objects/symbols/wall_object'
 require 'objects/symbols/room_object'
+require 'objects/symbols/compass'
 
 # transformations
 require 'run/transformations/wall_merger'

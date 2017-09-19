@@ -1,0 +1,7 @@
+ <g id="symbol-compass">
+  <ellipse ry="12" rx="12" cy="16" cx="16" stroke="black" fill="none" />
+  <path d="m16,1l6,30l-12,0z" stroke="black" fill="none" />
+  <line y2="16" x2="7" y1="16" x1="1" stroke="black" fill="none" />
+  <line y2="16" x2="31" y1="16" x1="25" stroke="black" fill="none" />
+  <text y="25" x="16" text-anchor="middle" font-weight="bold" fill="red">N</text>
+ </g>

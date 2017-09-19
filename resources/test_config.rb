@@ -2,6 +2,7 @@ metadata {
   title 'Apartment'
   author 'Rataah'
   version '0.1.0'
+  compass 40, 1000, 700
 }
 
 floor('apartment') {

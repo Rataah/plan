@@ -40,6 +40,8 @@ module Plan
     end
 
     def self.bounds(floors)
+      return [Point::ZERO, Point::ZERO] if floors.empty?
+
       min_vertex, max_vertex = Plan.bounds(floors.map(&:vertices).flatten)
       min_vertex = (-min_vertex).add(50, 50)
 

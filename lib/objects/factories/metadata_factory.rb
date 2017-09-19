@@ -22,5 +22,9 @@ module Plan
     def version(version)
       @metadata.version = version
     end
+
+    def compass(angle, coordinate_x, coordinate_y)
+      @metadata.compass = Compass.new(angle, Point.new(coordinate_x, coordinate_y))
+    end
   end
 end

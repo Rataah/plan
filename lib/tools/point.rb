@@ -54,6 +54,10 @@ module Plan
       @coord_x * cos_angle - @coord_y * sin_angle
     end
 
+    def center(other)
+      Point.new((@coord_x + other.x) / 2.0, (@coord_y + other.y) / 2.0)
+    end
+
     def !=(other)
       @coord_x != other.x || @coord_y != other.y
     end
