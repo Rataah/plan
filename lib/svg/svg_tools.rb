@@ -6,7 +6,7 @@ module Plan
         vertices.first,
         vertices.last,
         wall_angle,
-        false
+        true
       )
 
       label_vertices = vertices.map { |vertex| vertex.translate(angle, offset) }
