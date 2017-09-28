@@ -37,11 +37,11 @@ module Plan
       @symbols << symbol_name
     end
 
-    def write(output, width, height)
+    def write(output, width, height, validate)
       Plan.log.info('Generating SVG file')
       svg = Nokogiri::XML::Builder.new(encoding: 'UTF-8') { |xml| build_svg xml, width, height }
 
-      SVG.validate(svg.doc)
+      SVG.validate(svg.doc) if validate
       output.write(svg.to_xml.gsub(%(<?xml version="1.0"?>), %(<?xml version="1.0" standalone="no"?>)))
       Plan.log.info("File size: #{File.size(output.path).to_file_size}")
     end

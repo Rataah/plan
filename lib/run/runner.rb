@@ -17,7 +17,8 @@ module Plan
       svg = SVG.new(data_loaded.metadata, Runner.svg_interactions(elements))
       svg.add_contents(Runner.svg_elements(elements, min_vertex))
       svg.add_contents(Runner.svg_document_elements(elements, max_vertex)) if @options.display_area
-      Runner.save_plan(svg, @options.output_file, *max_vertex.xy)
+      Runner.save_plan(svg, @options.output_file, *max_vertex.xy, @options.validation)
+      open_result(@options.output_file) if @options.open_result
     end
 
     def self.load_elements(configuration_file, wall_merger, wall_filler)
@@ -33,9 +34,9 @@ module Plan
       SVGGroup.new('root_panel').add(floors.map(&:svg_elements).flatten).translate(translation)
     end
 
-    def self.save_plan(svg, output_file, width, height)
+    def self.save_plan(svg, output_file, width, height, validate)
       FileUtils.mkdir_p(File.dirname(output_file))
-      svg.write File.new(output_file, 'w'), width, height
+      svg.write File.new(output_file, 'w'), width, height, validate
       Plan.log.info('Generation done')
     end
 
@@ -61,6 +62,13 @@ module Plan
           Point.new(max_vertex.x / 2, max_vertex.y + 50)
         ).anchor(:middle)
       ]
+    end
+
+    def open_result(file)
+      require 'launchy'
+      Launchy.open("file://#{File.absolute_path(file)}") do |exception|
+        Plan.log.error("Attempted to open #{file} and failed because #{exception}")
+      end
     end
   end
 end

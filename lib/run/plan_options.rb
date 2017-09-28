@@ -2,7 +2,13 @@ module Plan
   class PlanOptions
     def self.parse(args)
       Plan.configure_logger
-      options = OpenStruct.new(wall_merger: true, wall_filler: true, display_area: true)
+      options = OpenStruct.new(
+        wall_merger: true,
+        wall_filler: true,
+        display_area: true,
+        validation: true,
+        open_result: false
+      )
       option_parser = PlanOptions.create_options(options)
       option_parser.parse!(args)
 
@@ -15,7 +21,9 @@ module Plan
       options
     end
 
+    # rubocop:disable Metrics/MethodLength
     def self.create_options(options)
+      # rubocop:disable Metrics/BlockLength
       OptionParser.new do |opts|
         opts.on('-f', '--file FILE', 'Blueprint definition file') do |conf_file|
           options.configuration_file = conf_file
@@ -35,6 +43,14 @@ module Plan
 
         opts.on('--disable-display-area', 'Disable the display of the total area') do
           options.display_area = false
+        end
+
+        opts.on('--disable-validation', 'Disable the XML validation') do
+          options.validation = false
+        end
+
+        opts.on('--open-result', 'Open the result in the default browser') do
+          options.open_result = true
         end
 
         opts.on('-v', '--verbose') do
