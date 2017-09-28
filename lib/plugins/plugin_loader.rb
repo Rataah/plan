@@ -16,14 +16,14 @@ module Plan
       [Plan.descendants(RoomPlugin) + Plan.descendants(WallPlugin)]
         .flatten
         .select { |plugin| plugin.respond_to?(:svg_include) }
-        .map(&:svg_include).compact.flatten
+        .map(&:svg_include).compact.flatten.sort
     end
 
     def self.css_includes
       [Plan.descendants(RoomPlugin) + Plan.descendants(WallPlugin)]
         .flatten
         .select { |plugin| plugin.respond_to?(:css_include) }
-        .map(&:css_include).compact.flatten
+        .map(&:css_include).compact.flatten.sort
     end
   end
 end

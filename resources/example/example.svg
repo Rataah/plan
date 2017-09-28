@@ -131,15 +131,15 @@ use.symbol {
   <line y2="5" x2="5" y1="-5" x1="-5"/>
   <line y2="-5" x2="5" y1="5" x1="-5"/>
 </g>
-<g id="wall-object-switch-simple">
-  <ellipse ry="5" rx="5" cy="2" cx="-2" fill="#fff"/>
-  <line y2="-7" x2="7" y1="-1" x1="1"/>
-</g>
 <g id="wall-object-power-outlet">
   <ellipse ry="5" rx="5" cy="0" cx="0"/>
   <ellipse ry="1" rx="1" cy="1" cx="-2"/>
   <ellipse ry="1" rx="1" cy="1" cx="2"/>
   <ellipse ry="1" rx="1" cy="-2" cx="0"/>
+</g>
+<g id="wall-object-switch-simple">
+  <ellipse ry="5" rx="5" cy="2" cx="-2" fill="#fff"/>
+  <line y2="-7" x2="7" y1="-1" x1="1"/>
 </g>
  <g id="symbol-compass">
   <ellipse ry="12" rx="12" cy="16" cx="16" stroke="black" fill="none"/>
