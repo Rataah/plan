@@ -56,7 +56,7 @@ module Plan
     end
 
     def svg_elements
-      SVGTools.dimensions("segment_#{object_id}", vertices, @wall.vertices, @wall.angle, @wall.width + 20)
+      SVGTools.dimensions(Plan.id(WallSegment), vertices, @wall.vertices, @wall.angle, @wall.width + 20)
     end
   end
 end

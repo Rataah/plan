@@ -1,5 +1,7 @@
 # Tools for Plan module
 module Plan
+  @object_ids={}
+
   def self.descendants(parent_class)
     descendants = []
     ObjectSpace.each_object(parent_class.singleton_class) do |k|
@@ -41,5 +43,10 @@ module Plan
       result[new_key] = new_value
       result
     end
+  end
+
+  def self.id(klass)
+    @object_ids[klass] = 0 unless @object_ids.key? klass
+    "#{klass.name.split('::').last}_#{@object_ids[klass] += 1}".downcase
   end
 end
