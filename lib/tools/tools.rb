@@ -1,6 +1,6 @@
 # Tools for Plan module
 module Plan
-  @object_ids={}
+  @object_ids = {}
 
   def self.descendants(parent_class)
     descendants = []
