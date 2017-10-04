@@ -82,6 +82,10 @@ use.symbol {
     stroke: red;
     stroke-opacity: 0.4;
 }</style>
+  <style type="text/css">.block {
+  fill: beige;
+  stroke: brown;
+}</style>
   <style type="text/css">.opening-base {
   stroke: black;
 }
@@ -92,8 +96,8 @@ use.symbol {
   opacity: 0.5;
 }</style>
   <style type="text/css">.radiator {
-  fill: #FE9A2E;
-  stroke: #FF8000;
+  fill: #CE297C;
+  stroke: #973E6F;
 }</style>
   <script type="text/ecmascript">function floors_interaction(floor_id)
 {
@@ -162,25 +166,25 @@ use.symbol {
             <line x1="0.0" y1="0.0" x2="0.0" y2="-35.0" stroke="black"/>
             <line x1="368.0" y1="0.0" x2="368.0" y2="-35.0" stroke="black"/>
             <line x1="0.0" y1="-35.0" x2="368.0" y2="-35.0" stroke="black"/>
-            <text x="184.0" y="-50.0" text-anchor="middle" transform="rotate(0.0 184.0, -50.0)" class="dimension">368cm</text>
+            <text x="184.0" y="-50.0" text-anchor="middle" transform="rotate(-1.5707963267948966  )" class="dimension">368cm</text>
           </g>
           <g id="wallsegment_2">
             <line x1="368.0" y1="0.0" x2="403.0" y2="0.0" stroke="black"/>
             <line x1="368.0" y1="570.0" x2="403.0" y2="570.0" stroke="black"/>
             <line x1="403.0" y1="0.0" x2="403.0" y2="570.0" stroke="black"/>
-            <text x="418.0" y="285.0" text-anchor="middle" transform="rotate(90.0 418.0, 285.0)" class="dimension">570cm</text>
+            <text x="418.0" y="285.0" text-anchor="middle" transform="rotate(0.0  )" class="dimension">570cm</text>
           </g>
           <g id="wallsegment_3">
             <line x1="368.0" y1="570.0" x2="368.0" y2="605.0" stroke="black"/>
             <line x1="0.0" y1="570.0" x2="0.0" y2="605.0" stroke="black"/>
             <line x1="368.0" y1="605.0" x2="0.0" y2="605.0" stroke="black"/>
-            <text x="184.0" y="620.0" text-anchor="middle" transform="rotate(0.0 184.0, 620.0)" class="dimension">368cm</text>
+            <text x="184.0" y="620.0" text-anchor="middle" transform="rotate(1.5707963267948966  )" class="dimension">368cm</text>
           </g>
           <g id="wallsegment_4">
             <line x1="0.0" y1="570.0" x2="-25.0" y2="570.0" stroke="black"/>
             <line x1="0.0" y1="0.0" x2="-25.0" y2="0.0" stroke="black"/>
             <line x1="-25.0" y1="570.0" x2="-25.0" y2="0.0" stroke="black"/>
-            <text x="-40.0" y="285.0" text-anchor="middle" transform="rotate(90.0 -40.0, 285.0)" class="dimension">570cm</text>
+            <text x="-40.0" y="285.0" text-anchor="middle" transform="rotate(3.141592653589793  )" class="dimension">570cm</text>
           </g>
         </g>
         <polygon points="-5.0,0.0 -340.0,0.0 -340.0,182.0 -223.0,182.0 -223.0,118.0 -93.0,118.0 -93.0,182.0 -5.0,182.0" class="room-stroke"/>
@@ -192,49 +196,49 @@ use.symbol {
             <line x1="-5.0" y1="0.0" x2="-5.0" y2="-35.0" stroke="black"/>
             <line x1="-340.0" y1="0.0" x2="-340.0" y2="-35.0" stroke="black"/>
             <line x1="-5.0" y1="-35.0" x2="-340.0" y2="-35.0" stroke="black"/>
-            <text x="-172.5" y="-50.0" text-anchor="middle" transform="rotate(0.0 -172.5, -50.0)" class="dimension">335cm</text>
+            <text x="-172.5" y="-50.0" text-anchor="middle" transform="rotate(4.71238898038469  )" class="dimension">335cm</text>
           </g>
           <g id="wallsegment_6">
             <line x1="-340.0" y1="0.0" x2="-365.0" y2="0.0" stroke="black"/>
             <line x1="-340.0" y1="182.0" x2="-365.0" y2="182.0" stroke="black"/>
             <line x1="-365.0" y1="0.0" x2="-365.0" y2="182.0" stroke="black"/>
-            <text x="-380.0" y="91.0" text-anchor="middle" transform="rotate(90.0 -380.0, 91.0)" class="dimension">182cm</text>
+            <text x="-380.0" y="91.0" text-anchor="middle" transform="rotate(3.141592653589793  )" class="dimension">182cm</text>
           </g>
           <g id="wallsegment_7">
             <line x1="-340.0" y1="182.0" x2="-340.0" y2="207.0" stroke="black"/>
             <line x1="-223.0" y1="182.0" x2="-223.0" y2="207.0" stroke="black"/>
             <line x1="-340.0" y1="207.0" x2="-223.0" y2="207.0" stroke="black"/>
-            <text x="-281.5" y="222.0" text-anchor="middle" transform="rotate(0.0 -281.5, 222.0)" class="dimension">117cm</text>
+            <text x="-281.5" y="222.0" text-anchor="middle" transform="rotate(1.5707963267948966  )" class="dimension">117cm</text>
           </g>
           <g id="wallsegment_8">
             <line x1="-223.0" y1="182.0" x2="-198.0" y2="182.0" stroke="black"/>
             <line x1="-223.0" y1="118.0" x2="-198.0" y2="118.0" stroke="black"/>
             <line x1="-198.0" y1="182.0" x2="-198.0" y2="118.0" stroke="black"/>
-            <text x="-183.0" y="150.0" text-anchor="middle" transform="rotate(90.0 -183.0, 150.0)" class="dimension">64cm</text>
+            <text x="-183.0" y="150.0" text-anchor="middle" transform="rotate(6.283185307179586  )" class="dimension">64cm</text>
           </g>
           <g id="wallsegment_9">
             <line x1="-223.0" y1="118.0" x2="-223.0" y2="143.0" stroke="black"/>
             <line x1="-93.0" y1="118.0" x2="-93.0" y2="143.0" stroke="black"/>
             <line x1="-223.0" y1="143.0" x2="-93.0" y2="143.0" stroke="black"/>
-            <text x="-158.0" y="158.0" text-anchor="middle" transform="rotate(0.0 -158.0, 158.0)" class="dimension">130cm</text>
+            <text x="-158.0" y="158.0" text-anchor="middle" transform="rotate(1.5707963267948966  )" class="dimension">130cm</text>
           </g>
           <g id="wallsegment_10">
             <line x1="-93.0" y1="118.0" x2="-118.0" y2="118.0" stroke="black"/>
             <line x1="-93.0" y1="182.0" x2="-118.0" y2="182.0" stroke="black"/>
             <line x1="-118.0" y1="118.0" x2="-118.0" y2="182.0" stroke="black"/>
-            <text x="-133.0" y="150.0" text-anchor="middle" transform="rotate(90.0 -133.0, 150.0)" class="dimension">64cm</text>
+            <text x="-133.0" y="150.0" text-anchor="middle" transform="rotate(3.141592653589793  )" class="dimension">64cm</text>
           </g>
           <g id="wallsegment_11">
             <line x1="-93.0" y1="182.0" x2="-93.0" y2="207.0" stroke="black"/>
             <line x1="-5.0" y1="182.0" x2="-5.0" y2="207.0" stroke="black"/>
             <line x1="-93.0" y1="207.0" x2="-5.0" y2="207.0" stroke="black"/>
-            <text x="-49.0" y="222.0" text-anchor="middle" transform="rotate(0.0 -49.0, 222.0)" class="dimension">88cm</text>
+            <text x="-49.0" y="222.0" text-anchor="middle" transform="rotate(1.5707963267948966  )" class="dimension">88cm</text>
           </g>
           <g id="wallsegment_12">
             <line x1="-5.0" y1="182.0" x2="20.0" y2="182.0" stroke="black"/>
             <line x1="-5.0" y1="0.0" x2="20.0" y2="0.0" stroke="black"/>
             <line x1="20.0" y1="182.0" x2="20.0" y2="0.0" stroke="black"/>
-            <text x="35.0" y="91.0" text-anchor="middle" transform="rotate(90.0 35.0, 91.0)" class="dimension">182cm</text>
+            <text x="35.0" y="91.0" text-anchor="middle" transform="rotate(6.283185307179586  )" class="dimension">182cm</text>
           </g>
         </g>
         <polygon points="-345.0,0.0 -345.0,85.0 -489.0,85.0 -489.0,0.0" class="room-stroke"/>
@@ -246,25 +250,25 @@ use.symbol {
             <line x1="-345.0" y1="0.0" x2="-320.0" y2="0.0" stroke="black"/>
             <line x1="-345.0" y1="85.0" x2="-320.0" y2="85.0" stroke="black"/>
             <line x1="-320.0" y1="0.0" x2="-320.0" y2="85.0" stroke="black"/>
-            <text x="-305.0" y="42.5" text-anchor="middle" transform="rotate(90.0 -305.0, 42.5)" class="dimension">85cm</text>
+            <text x="-305.0" y="42.5" text-anchor="middle" transform="rotate(0.0  )" class="dimension">85cm</text>
           </g>
           <g id="wallsegment_14">
             <line x1="-345.0" y1="85.0" x2="-345.0" y2="110.0" stroke="black"/>
             <line x1="-489.0" y1="85.0" x2="-489.0" y2="110.0" stroke="black"/>
             <line x1="-345.0" y1="110.0" x2="-489.0" y2="110.0" stroke="black"/>
-            <text x="-417.0" y="125.0" text-anchor="middle" transform="rotate(0.0 -417.0, 125.0)" class="dimension">144cm</text>
+            <text x="-417.0" y="125.0" text-anchor="middle" transform="rotate(1.5707963267948966  )" class="dimension">144cm</text>
           </g>
           <g id="wallsegment_15">
             <line x1="-489.0" y1="85.0" x2="-514.0" y2="85.0" stroke="black"/>
             <line x1="-489.0" y1="0.0" x2="-514.0" y2="0.0" stroke="black"/>
             <line x1="-514.0" y1="85.0" x2="-514.0" y2="0.0" stroke="black"/>
-            <text x="-529.0" y="42.5" text-anchor="middle" transform="rotate(90.0 -529.0, 42.5)" class="dimension">85cm</text>
+            <text x="-529.0" y="42.5" text-anchor="middle" transform="rotate(3.141592653589793  )" class="dimension">85cm</text>
           </g>
           <g id="wallsegment_16">
             <line x1="-489.0" y1="0.0" x2="-489.0" y2="-35.0" stroke="black"/>
             <line x1="-345.0" y1="0.0" x2="-345.0" y2="-35.0" stroke="black"/>
             <line x1="-489.0" y1="-35.0" x2="-345.0" y2="-35.0" stroke="black"/>
-            <text x="-417.0" y="-50.0" text-anchor="middle" transform="rotate(0.0 -417.0, -50.0)" class="dimension">144cm</text>
+            <text x="-417.0" y="-50.0" text-anchor="middle" transform="rotate(-1.5707963267948966  )" class="dimension">144cm</text>
           </g>
         </g>
         <polygon points="-494.0,0.0 -494.0,85.0 -543.0,85.0 -543.0,0.0" class="room-stroke"/>
@@ -276,25 +280,25 @@ use.symbol {
             <line x1="-494.0" y1="0.0" x2="-469.0" y2="0.0" stroke="black"/>
             <line x1="-494.0" y1="85.0" x2="-469.0" y2="85.0" stroke="black"/>
             <line x1="-469.0" y1="0.0" x2="-469.0" y2="85.0" stroke="black"/>
-            <text x="-454.0" y="42.5" text-anchor="middle" transform="rotate(90.0 -454.0, 42.5)" class="dimension">85cm</text>
+            <text x="-454.0" y="42.5" text-anchor="middle" transform="rotate(6.283185307179586  )" class="dimension">85cm</text>
           </g>
           <g id="wallsegment_18">
             <line x1="-494.0" y1="85.0" x2="-494.0" y2="110.0" stroke="black"/>
             <line x1="-543.0" y1="85.0" x2="-543.0" y2="110.0" stroke="black"/>
             <line x1="-494.0" y1="110.0" x2="-543.0" y2="110.0" stroke="black"/>
-            <text x="-518.5" y="125.0" text-anchor="middle" transform="rotate(0.0 -518.5, 125.0)" class="dimension">49cm</text>
+            <text x="-518.5" y="125.0" text-anchor="middle" transform="rotate(1.5707963267948966  )" class="dimension">49cm</text>
           </g>
           <g id="wallsegment_19">
             <line x1="-543.0" y1="85.0" x2="-578.0" y2="85.0" stroke="black"/>
             <line x1="-543.0" y1="0.0" x2="-578.0" y2="0.0" stroke="black"/>
             <line x1="-578.0" y1="85.0" x2="-578.0" y2="0.0" stroke="black"/>
-            <text x="-593.0" y="42.5" text-anchor="middle" transform="rotate(90.0 -593.0, 42.5)" class="dimension">85cm</text>
+            <text x="-593.0" y="42.5" text-anchor="middle" transform="rotate(3.141592653589793  )" class="dimension">85cm</text>
           </g>
           <g id="wallsegment_20">
             <line x1="-543.0" y1="0.0" x2="-543.0" y2="-35.0" stroke="black"/>
             <line x1="-494.0" y1="0.0" x2="-494.0" y2="-35.0" stroke="black"/>
             <line x1="-543.0" y1="-35.0" x2="-494.0" y2="-35.0" stroke="black"/>
-            <text x="-518.5" y="-50.0" text-anchor="middle" transform="rotate(0.0 -518.5, -50.0)" class="dimension">49cm</text>
+            <text x="-518.5" y="-50.0" text-anchor="middle" transform="rotate(-1.5707963267948966  )" class="dimension">49cm</text>
           </g>
         </g>
         <polygon points="-345.0,90.0 -543.0,90.0 -543.0,284.0 -365.0,284.0 -365.0,215.0 -345.0,215.0" class="room-stroke"/>
@@ -306,37 +310,37 @@ use.symbol {
             <line x1="-345.0" y1="90.0" x2="-345.0" y2="65.0" stroke="black"/>
             <line x1="-543.0" y1="90.0" x2="-543.0" y2="65.0" stroke="black"/>
             <line x1="-345.0" y1="65.0" x2="-543.0" y2="65.0" stroke="black"/>
-            <text x="-444.0" y="50.0" text-anchor="middle" transform="rotate(0.0 -444.0, 50.0)" class="dimension">198cm</text>
+            <text x="-444.0" y="50.0" text-anchor="middle" transform="rotate(4.71238898038469  )" class="dimension">198cm</text>
           </g>
           <g id="wallsegment_22">
             <line x1="-543.0" y1="90.0" x2="-578.0" y2="90.0" stroke="black"/>
             <line x1="-543.0" y1="284.0" x2="-578.0" y2="284.0" stroke="black"/>
             <line x1="-578.0" y1="90.0" x2="-578.0" y2="284.0" stroke="black"/>
-            <text x="-593.0" y="187.0" text-anchor="middle" transform="rotate(90.0 -593.0, 187.0)" class="dimension">194cm</text>
+            <text x="-593.0" y="187.0" text-anchor="middle" transform="rotate(3.141592653589793  )" class="dimension">194cm</text>
           </g>
           <g id="wallsegment_23">
             <line x1="-543.0" y1="284.0" x2="-543.0" y2="309.0" stroke="black"/>
             <line x1="-365.0" y1="284.0" x2="-365.0" y2="309.0" stroke="black"/>
             <line x1="-543.0" y1="309.0" x2="-365.0" y2="309.0" stroke="black"/>
-            <text x="-454.0" y="324.0" text-anchor="middle" transform="rotate(0.0 -454.0, 324.0)" class="dimension">178cm</text>
+            <text x="-454.0" y="324.0" text-anchor="middle" transform="rotate(1.5707963267948966  )" class="dimension">178cm</text>
           </g>
           <g id="wallsegment_24">
             <line x1="-365.0" y1="284.0" x2="-340.0" y2="284.0" stroke="black"/>
             <line x1="-365.0" y1="215.0" x2="-340.0" y2="215.0" stroke="black"/>
             <line x1="-340.0" y1="284.0" x2="-340.0" y2="215.0" stroke="black"/>
-            <text x="-325.0" y="249.5" text-anchor="middle" transform="rotate(90.0 -325.0, 249.5)" class="dimension">69cm</text>
+            <text x="-325.0" y="249.5" text-anchor="middle" transform="rotate(6.283185307179586  )" class="dimension">69cm</text>
           </g>
           <g id="wallsegment_25">
             <line x1="-365.0" y1="215.0" x2="-365.0" y2="240.0" stroke="black"/>
             <line x1="-345.0" y1="215.0" x2="-345.0" y2="240.0" stroke="black"/>
             <line x1="-365.0" y1="240.0" x2="-345.0" y2="240.0" stroke="black"/>
-            <text x="-355.0" y="255.0" text-anchor="middle" transform="rotate(0.0 -355.0, 255.0)" class="dimension">20cm</text>
+            <text x="-355.0" y="255.0" text-anchor="middle" transform="rotate(1.5707963267948966  )" class="dimension">20cm</text>
           </g>
           <g id="wallsegment_26">
             <line x1="-345.0" y1="215.0" x2="-320.0" y2="215.0" stroke="black"/>
             <line x1="-345.0" y1="90.0" x2="-320.0" y2="90.0" stroke="black"/>
             <line x1="-320.0" y1="215.0" x2="-320.0" y2="90.0" stroke="black"/>
-            <text x="-305.0" y="152.5" text-anchor="middle" transform="rotate(90.0 -305.0, 152.5)" class="dimension">125cm</text>
+            <text x="-305.0" y="152.5" text-anchor="middle" transform="rotate(6.283185307179586  )" class="dimension">125cm</text>
           </g>
         </g>
         <polygon points="-543.0,289.0 -360.0,289.0 -360.0,220.0 -340.0,220.0 -340.0,187.0 -260.0,187.0 -260.0,570.0 -543.0,570.0" class="room-stroke"/>
@@ -348,49 +352,49 @@ use.symbol {
             <line x1="-543.0" y1="289.0" x2="-543.0" y2="264.0" stroke="black"/>
             <line x1="-360.0" y1="289.0" x2="-360.0" y2="264.0" stroke="black"/>
             <line x1="-543.0" y1="264.0" x2="-360.0" y2="264.0" stroke="black"/>
-            <text x="-451.5" y="249.0" text-anchor="middle" transform="rotate(0.0 -451.5, 249.0)" class="dimension">183cm</text>
+            <text x="-451.5" y="249.0" text-anchor="middle" transform="rotate(-1.5707963267948966  )" class="dimension">183cm</text>
           </g>
           <g id="wallsegment_28">
             <line x1="-360.0" y1="289.0" x2="-385.0" y2="289.0" stroke="black"/>
             <line x1="-360.0" y1="220.0" x2="-385.0" y2="220.0" stroke="black"/>
             <line x1="-385.0" y1="289.0" x2="-385.0" y2="220.0" stroke="black"/>
-            <text x="-400.0" y="254.5" text-anchor="middle" transform="rotate(90.0 -400.0, 254.5)" class="dimension">69cm</text>
+            <text x="-400.0" y="254.5" text-anchor="middle" transform="rotate(3.141592653589793  )" class="dimension">69cm</text>
           </g>
           <g id="wallsegment_29">
             <line x1="-360.0" y1="220.0" x2="-360.0" y2="195.0" stroke="black"/>
             <line x1="-340.0" y1="220.0" x2="-340.0" y2="195.0" stroke="black"/>
             <line x1="-360.0" y1="195.0" x2="-340.0" y2="195.0" stroke="black"/>
-            <text x="-350.0" y="180.0" text-anchor="middle" transform="rotate(0.0 -350.0, 180.0)" class="dimension">20cm</text>
+            <text x="-350.0" y="180.0" text-anchor="middle" transform="rotate(-1.5707963267948966  )" class="dimension">20cm</text>
           </g>
           <g id="wallsegment_30">
             <line x1="-340.0" y1="220.0" x2="-365.0" y2="220.0" stroke="black"/>
             <line x1="-340.0" y1="187.0" x2="-365.0" y2="187.0" stroke="black"/>
             <line x1="-365.0" y1="220.0" x2="-365.0" y2="187.0" stroke="black"/>
-            <text x="-380.0" y="203.5" text-anchor="middle" transform="rotate(90.0 -380.0, 203.5)" class="dimension">33cm</text>
+            <text x="-380.0" y="203.5" text-anchor="middle" transform="rotate(3.141592653589793  )" class="dimension">33cm</text>
           </g>
           <g id="wallsegment_31">
             <line x1="-340.0" y1="187.0" x2="-340.0" y2="162.0" stroke="black"/>
             <line x1="-260.0" y1="187.0" x2="-260.0" y2="162.0" stroke="black"/>
             <line x1="-340.0" y1="162.0" x2="-260.0" y2="162.0" stroke="black"/>
-            <text x="-300.0" y="147.0" text-anchor="middle" transform="rotate(0.0 -300.0, 147.0)" class="dimension">80cm</text>
+            <text x="-300.0" y="147.0" text-anchor="middle" transform="rotate(-1.5707963267948966  )" class="dimension">80cm</text>
           </g>
           <g id="wallsegment_32">
             <line x1="-260.0" y1="187.0" x2="-235.0" y2="187.0" stroke="black"/>
             <line x1="-260.0" y1="570.0" x2="-235.0" y2="570.0" stroke="black"/>
             <line x1="-235.0" y1="187.0" x2="-235.0" y2="570.0" stroke="black"/>
-            <text x="-220.0" y="378.5" text-anchor="middle" transform="rotate(90.0 -220.0, 378.5)" class="dimension">383cm</text>
+            <text x="-220.0" y="378.5" text-anchor="middle" transform="rotate(6.283185307179586  )" class="dimension">383cm</text>
           </g>
           <g id="wallsegment_33">
             <line x1="-260.0" y1="570.0" x2="-260.0" y2="605.0" stroke="black"/>
             <line x1="-543.0" y1="570.0" x2="-543.0" y2="605.0" stroke="black"/>
             <line x1="-260.0" y1="605.0" x2="-543.0" y2="605.0" stroke="black"/>
-            <text x="-401.5" y="620.0" text-anchor="middle" transform="rotate(0.0 -401.5, 620.0)" class="dimension">283cm</text>
+            <text x="-401.5" y="620.0" text-anchor="middle" transform="rotate(1.5707963267948966  )" class="dimension">283cm</text>
           </g>
           <g id="wallsegment_34">
             <line x1="-543.0" y1="570.0" x2="-578.0" y2="570.0" stroke="black"/>
             <line x1="-543.0" y1="289.0" x2="-578.0" y2="289.0" stroke="black"/>
             <line x1="-578.0" y1="570.0" x2="-578.0" y2="289.0" stroke="black"/>
-            <text x="-593.0" y="429.5" text-anchor="middle" transform="rotate(90.0 -593.0, 429.5)" class="dimension">281cm</text>
+            <text x="-593.0" y="429.5" text-anchor="middle" transform="rotate(3.141592653589793  )" class="dimension">281cm</text>
           </g>
         </g>
         <polygon points="-255.0,570.0 -5.0,570.0 -5.0,187.0 -195.0,187.0 -195.0,247.0 -255.0,247.0" class="room-stroke"/>
@@ -402,37 +406,37 @@ use.symbol {
             <line x1="-255.0" y1="570.0" x2="-255.0" y2="605.0" stroke="black"/>
             <line x1="-5.0" y1="570.0" x2="-5.0" y2="605.0" stroke="black"/>
             <line x1="-255.0" y1="605.0" x2="-5.0" y2="605.0" stroke="black"/>
-            <text x="-130.0" y="620.0" text-anchor="middle" transform="rotate(0.0 -130.0, 620.0)" class="dimension">250cm</text>
+            <text x="-130.0" y="620.0" text-anchor="middle" transform="rotate(1.5707963267948966  )" class="dimension">250cm</text>
           </g>
           <g id="wallsegment_36">
             <line x1="-5.0" y1="570.0" x2="20.0" y2="570.0" stroke="black"/>
             <line x1="-5.0" y1="187.0" x2="20.0" y2="187.0" stroke="black"/>
             <line x1="20.0" y1="570.0" x2="20.0" y2="187.0" stroke="black"/>
-            <text x="35.0" y="378.5" text-anchor="middle" transform="rotate(90.0 35.0, 378.5)" class="dimension">383cm</text>
+            <text x="35.0" y="378.5" text-anchor="middle" transform="rotate(6.283185307179586  )" class="dimension">383cm</text>
           </g>
           <g id="wallsegment_37">
             <line x1="-5.0" y1="187.0" x2="-5.0" y2="162.0" stroke="black"/>
             <line x1="-195.0" y1="187.0" x2="-195.0" y2="162.0" stroke="black"/>
             <line x1="-5.0" y1="162.0" x2="-195.0" y2="162.0" stroke="black"/>
-            <text x="-100.0" y="147.0" text-anchor="middle" transform="rotate(0.0 -100.0, 147.0)" class="dimension">190cm</text>
+            <text x="-100.0" y="147.0" text-anchor="middle" transform="rotate(-1.5707963267948966  )" class="dimension">190cm</text>
           </g>
           <g id="wallsegment_38">
             <line x1="-195.0" y1="187.0" x2="-220.0" y2="187.0" stroke="black"/>
             <line x1="-195.0" y1="247.0" x2="-220.0" y2="247.0" stroke="black"/>
             <line x1="-220.0" y1="187.0" x2="-220.0" y2="247.0" stroke="black"/>
-            <text x="-235.0" y="217.0" text-anchor="middle" transform="rotate(90.0 -235.0, 217.0)" class="dimension">60cm</text>
+            <text x="-235.0" y="217.0" text-anchor="middle" transform="rotate(3.141592653589793  )" class="dimension">60cm</text>
           </g>
           <g id="wallsegment_39">
             <line x1="-195.0" y1="247.0" x2="-195.0" y2="222.0" stroke="black"/>
             <line x1="-255.0" y1="247.0" x2="-255.0" y2="222.0" stroke="black"/>
             <line x1="-195.0" y1="222.0" x2="-255.0" y2="222.0" stroke="black"/>
-            <text x="-225.0" y="207.0" text-anchor="middle" transform="rotate(0.0 -225.0, 207.0)" class="dimension">60cm</text>
+            <text x="-225.0" y="207.0" text-anchor="middle" transform="rotate(4.71238898038469  )" class="dimension">60cm</text>
           </g>
           <g id="wallsegment_40">
             <line x1="-255.0" y1="247.0" x2="-280.0" y2="247.0" stroke="black"/>
             <line x1="-255.0" y1="570.0" x2="-280.0" y2="570.0" stroke="black"/>
             <line x1="-280.0" y1="247.0" x2="-280.0" y2="570.0" stroke="black"/>
-            <text x="-295.0" y="408.5" text-anchor="middle" transform="rotate(90.0 -295.0, 408.5)" class="dimension">323cm</text>
+            <text x="-295.0" y="408.5" text-anchor="middle" transform="rotate(3.141592653589793  )" class="dimension">323cm</text>
           </g>
         </g>
         <polygon points="-255.0,187.0 -200.0,187.0 -200.0,242.0 -255.0,242.0" class="room-stroke"/>
@@ -444,25 +448,25 @@ use.symbol {
             <line x1="-255.0" y1="187.0" x2="-255.0" y2="162.0" stroke="black"/>
             <line x1="-200.0" y1="187.0" x2="-200.0" y2="162.0" stroke="black"/>
             <line x1="-255.0" y1="162.0" x2="-200.0" y2="162.0" stroke="black"/>
-            <text x="-227.5" y="147.0" text-anchor="middle" transform="rotate(0.0 -227.5, 147.0)" class="dimension">55cm</text>
+            <text x="-227.5" y="147.0" text-anchor="middle" transform="rotate(-1.5707963267948966  )" class="dimension">55cm</text>
           </g>
           <g id="wallsegment_42">
             <line x1="-200.0" y1="187.0" x2="-175.0" y2="187.0" stroke="black"/>
             <line x1="-200.0" y1="242.0" x2="-175.0" y2="242.0" stroke="black"/>
             <line x1="-175.0" y1="187.0" x2="-175.0" y2="242.0" stroke="black"/>
-            <text x="-160.0" y="214.5" text-anchor="middle" transform="rotate(90.0 -160.0, 214.5)" class="dimension">55cm</text>
+            <text x="-160.0" y="214.5" text-anchor="middle" transform="rotate(0.0  )" class="dimension">55cm</text>
           </g>
           <g id="wallsegment_43">
             <line x1="-200.0" y1="242.0" x2="-200.0" y2="267.0" stroke="black"/>
             <line x1="-255.0" y1="242.0" x2="-255.0" y2="267.0" stroke="black"/>
             <line x1="-200.0" y1="267.0" x2="-255.0" y2="267.0" stroke="black"/>
-            <text x="-227.5" y="282.0" text-anchor="middle" transform="rotate(0.0 -227.5, 282.0)" class="dimension">55cm</text>
+            <text x="-227.5" y="282.0" text-anchor="middle" transform="rotate(1.5707963267948966  )" class="dimension">55cm</text>
           </g>
           <g id="wallsegment_44">
             <line x1="-255.0" y1="242.0" x2="-280.0" y2="242.0" stroke="black"/>
             <line x1="-255.0" y1="187.0" x2="-280.0" y2="187.0" stroke="black"/>
             <line x1="-280.0" y1="242.0" x2="-280.0" y2="187.0" stroke="black"/>
-            <text x="-295.0" y="214.5" text-anchor="middle" transform="rotate(90.0 -295.0, 214.5)" class="dimension">55cm</text>
+            <text x="-295.0" y="214.5" text-anchor="middle" transform="rotate(3.141592653589793  )" class="dimension">55cm</text>
           </g>
         </g>
         <g id="wall_dining_room_0">
@@ -666,20 +670,23 @@ use.symbol {
         </g>
         <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-533.0" y="505.0" xlink:href="#wall-object-power-outlet" class="symbol"/>
         <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-533.0" y="315.0" xlink:href="#wall-object-power-outlet" class="symbol"/>
+        <rect x="-254.0" y="307.0" width="60.0" height="262.0" class="block"/>
+        <text x="-224.0" y="438.0" text-anchor="middle" transform="rotate(-90 -224.0 438.0)">kitchen</text>
+        <rect x="-45.0" y="275.0" width="38.0" height="120.0" class="block"/>
         <path d="M -130.0,367.0 Q -81.5,433.5 -15.0,385.0" fill="transparent" stroke="red"/>
         <path d="M -130.0,367.0 Q -32.5,294.5 -105.0,197.0" fill="transparent" stroke="red"/>
         <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-130.0" y="367.0" xlink:href="#room-object-ceiling_light" class="symbol ceilinglight"/>
         <path d="M -245.0,387.0 Q -80.0,362.0 -105.0,197.0" fill="transparent" stroke="red"/>
         <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-245.0" y="387.0" xlink:href="#room-object-ceiling_light" class="symbol ceilinglight"/>
-        <g id="symbol_43">
+        <g id="symbol_45">
           <polygon points="-137.0,570.0 -27.0,570.0 -27.0,585.0 -137.0,585.0" class="opening-base"/>
           <path d="M -32.0,577.5 L -132.0,577.5 A 100.0,100.0 0 0,1 -32.0,477.5 Z" class="casement"/>
         </g>
-        <g id="symbol_44">
+        <g id="symbol_46">
           <polygon points="-21.0,560.0 -21.0,500.0 -5.0,500.0 -5.0,560.0" class="radiator"/>
         </g>
         <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-15.0" y="485.0" xlink:href="#wall-object-power-outlet" class="symbol"/>
-        <g id="symbol_46">
+        <g id="symbol_48">
           <polygon points="-5.0,480.0 -5.0,392.0 0.0,392.0 0.0,480.0" class="opening-base"/>
           <path d="M -2.5,480.0 L -2.5,394.0 A 86.0,86.0 0 0,1 83.5,480.0 Z" class="casement"/>
         </g>

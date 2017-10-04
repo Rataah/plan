@@ -8,12 +8,6 @@ module Plan
       @data = text
     end
 
-    def rotate(angle)
-      @args['transform'] = SVGArg.new("rotate(#{(angle.deg + 90.0) % 180.0} #{@args['x'].value}, #{@args['y'].value})",
-                                      false)
-      self
-    end
-
     def anchor(value)
       @args['text-anchor'] = SVGArg.new(value.to_s, false)
       self
