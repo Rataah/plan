@@ -30,7 +30,7 @@ module Plan
 
     def method_missing(method_name, *args)
       if @plugins.key? method_name
-        @symbol_pool.store @plugins[method_name].create_from_room(*args, @room)
+        @symbol_pool.store @plugins[method_name].create_from_room(@room, *args)
       else
         super
       end

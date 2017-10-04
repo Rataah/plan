@@ -1,0 +1,7 @@
+<g id="room-object-sink">>
+  <rect height="48" width="64" x="0"/>
+  <rect rx="4" height="38" width="58" y="7" x="3" />
+  <rect rx="4" height="34" width="56" y="10" x="4"/>
+  <ellipse ry="4" rx="4" cy="24" cx="32"/>
+  <rect height="12" width="4" y="4" x="30" class="tap" />
+ </g>

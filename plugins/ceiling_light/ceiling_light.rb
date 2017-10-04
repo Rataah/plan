@@ -11,8 +11,8 @@ end
 class CeilingLight < Plan::RoomObject
   object 'room-object-ceiling_light'.freeze
 
-  def initialize(name, coordinates)
-    super(name, coordinates)
+  def initialize(name, coordinates, _)
+    super(name, coordinates, nil)
     @links = []
   end
 

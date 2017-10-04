@@ -23,7 +23,7 @@ class Block < Plan::RoomObject
     @text_rotation = rotation
   end
 
-  def self.create_from_room(coordinate_x, coordinate_y, width, height, room)
+  def self.create_from_room(room, coordinate_x, coordinate_y, width, height)
     new(room.min_bound.add(coordinate_x, coordinate_y), width, height)
   end
 
