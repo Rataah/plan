@@ -1,0 +1,9 @@
+<g id="room-object-cooktop">
+  <rect height="49" width="58" y="6" x="4"/>
+  <ellipse ry="14" rx="14" cy="30" cx="45"/>
+  <ellipse ry="9" rx="9" cy="42" cx="17"/>
+  <ellipse ry="8" rx="8" cy="19" cx="17"/>
+  <ellipse ry="9" rx="9" cy="30" cx="45"/>
+  <line y2="50" x2="45" y1="50" x1="30"/>
+  <line y2="50" x2="57" y1="50" x1="47"/>
+</g>
