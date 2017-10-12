@@ -154,6 +154,7 @@ floor('apartment') {
     block(1, 120, 60, 262)
     sink('sink_kitchen', 0, 360, -90)
     cooktop('cooktop_kitchen', 0, 280, -90)
+    fridge('fridge_kitchen', 64, 2)
 
     block(210, 88, 38, 120)
 

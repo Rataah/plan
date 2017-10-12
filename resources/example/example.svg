@@ -91,6 +91,11 @@ use.symbol {
   stroke: black;
 }
 </style>
+  <style type="text/css">.fridge.symbol {
+  fill: white;
+  stroke: black;
+}
+</style>
   <style type="text/css">.opening-base {
   stroke: black;
 }
@@ -156,6 +161,32 @@ use.symbol {
   <ellipse ry="9" rx="9" cy="30" cx="45"/>
   <line y2="50" x2="45" y1="50" x1="30"/>
   <line y2="50" x2="57" y1="50" x1="47"/>
+</g><g id="room-object-fridge">
+  <rect height="52" width="60" y="0" x="0"/>
+  <rect height="8" width="60" y="52" x="0" rx="2" ry="2"/>
+  <g stroke-width="2" stroke="blue">
+    <g>
+      <line y2="41" x2="30" y1="11" x1="30"/>
+      <line y2="17" x2="30" y1="13" x1="25"/>
+      <line y2="13" x2="35" y1="17" x1="30"/>
+      <line y2="35" x2="30" y1="38" x1="25"/>
+      <line y2="38" x2="35" y1="35" x1="30"/>
+    </g>
+    <g transform="rotate(55 30, 26)">
+      <line y2="41" x2="30" y1="11" x1="30"/>
+      <line y2="17" x2="30" y1="13" x1="25"/>
+      <line y2="13" x2="35" y1="17" x1="30"/>
+      <line y2="35" x2="30" y1="38" x1="25"/>
+      <line y2="38" x2="35" y1="35" x1="30"/>
+    </g>
+    <g transform="rotate(-55 30, 26)">
+      <line y2="41" x2="30" y1="11" x1="30"/>
+      <line y2="17" x2="30" y1="13" x1="25"/>
+      <line y2="13" x2="35" y1="17" x1="30"/>
+      <line y2="35" x2="30" y1="38" x1="25"/>
+      <line y2="38" x2="35" y1="35" x1="30"/>
+    </g>
+  </g>
 </g><g id="wall-object-power-outlet">
   <ellipse ry="5" rx="5" cy="0" cx="0"/>
   <ellipse ry="1" rx="1" cy="1" cx="-2"/>
@@ -702,21 +733,22 @@ use.symbol {
         <rect x="-254.0" y="307.0" width="60.0" height="262.0" class="block"/>
         <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-255.0" y="547.0" xlink:href="#room-object-sink" class="symbol sink sink" transform="rotate(-90 -255.0 547.0)"/>
         <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-255.0" y="467.0" xlink:href="#room-object-cooktop" class="symbol cooktop cooktop" transform="rotate(-90 -255.0 467.0)"/>
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-191.0" y="189.0" xlink:href="#room-object-fridge" class="symbol fridge fridge"/>
         <rect x="-45.0" y="275.0" width="38.0" height="120.0" class="block"/>
         <path d="M -130.0,367.0 Q -80.5,434.5 -13.0,385.0" fill="transparent" stroke="red"/>
         <path d="M -130.0,367.0 Q -31.5,293.5 -105.0,195.0" fill="transparent" stroke="red"/>
         <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-130.0" y="367.0" xlink:href="#room-object-ceiling_light" class="symbol ceilinglight"/>
         <path d="M -245.0,387.0 Q -79.0,361.0 -105.0,195.0" fill="transparent" stroke="red"/>
         <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-245.0" y="387.0" xlink:href="#room-object-ceiling_light" class="symbol ceilinglight"/>
-        <g id="symbol_49">
+        <g id="symbol_50">
           <polygon points="-137.0,570.0 -27.0,570.0 -27.0,585.0 -137.0,585.0" class="opening-base"/>
           <path d="M -32.0,577.5 L -132.0,577.5 A 100.0,100.0 0 0,1 -32.0,477.5 Z" class="casement"/>
         </g>
-        <g id="symbol_50">
+        <g id="symbol_51">
           <polygon points="-21.0,560.0 -21.0,500.0 -5.0,500.0 -5.0,560.0" class="radiator"/>
         </g>
         <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-13.0" y="485.0" xlink:href="#wall-object-power-outlet" class="symbol power-outlet"/>
-        <g id="symbol_52">
+        <g id="symbol_53">
           <polygon points="-5.0,480.0 -5.0,392.0 0.0,392.0 0.0,480.0" class="opening-base"/>
           <path d="M -2.5,480.0 L -2.5,394.0 A 86.0,86.0 0 0,1 83.5,480.0 Z" class="casement"/>
         </g>
