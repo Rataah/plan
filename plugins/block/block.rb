@@ -1,13 +1,3 @@
-class BlockPlugin < Plan::RoomPlugin
-  def self.register
-    { block: Block }
-  end
-
-  def self.css_include
-    File.join(File.dirname(__FILE__), 'block.css')
-  end
-end
-
 class Block < Plan::RoomObject
   attr_accessor :width, :height
 
@@ -42,4 +32,9 @@ class Block < Plan::RoomObject
       svg_text.rotate(@text_rotation, *text_coordinates.xy) if @text_rotation
     end
   end
+end
+
+class BlockPlugin < Plan::RoomPlugin
+  register block: Block
+  css 'block.css'
 end

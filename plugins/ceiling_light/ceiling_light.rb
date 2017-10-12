@@ -1,13 +1,3 @@
-class CeilingLightPlugin < Plan::RoomPlugin
-  def self.register
-    { ceiling_light: CeilingLight }
-  end
-
-  def self.svg_include
-    File.join(File.dirname(__FILE__), 'ceiling_light.xml')
-  end
-end
-
 class CeilingLight < Plan::RoomObject
   object 'room-object-ceiling_light'.freeze
 
@@ -28,4 +18,9 @@ class CeilingLight < Plan::RoomObject
     end
     (elements << super(symbol_pool))
   end
+end
+
+class CeilingLightPlugin < Plan::RoomPlugin
+  register ceiling_light: CeilingLight
+  svg 'ceiling_light.xml'
 end

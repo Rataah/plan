@@ -1,13 +1,3 @@
-class RadiatorPlugin < Plan::WallPlugin
-  def self.register
-    { radiator: Radiator }
-  end
-
-  def self.css_include
-    File.join(File.dirname(__FILE__), 'radiator.css')
-  end
-end
-
 class Radiator < Plan::WallObject
   RADIATOR_WIDTH = 16
 
@@ -40,4 +30,9 @@ class Radiator < Plan::WallObject
       group << Plan::SVGPolygon.new(vertices).css_class('radiator')
     end
   end
+end
+
+class RadiatorPlugin < Plan::WallPlugin
+  register radiator: Radiator
+  css 'radiator.css'
 end

@@ -19,6 +19,7 @@ require 'tools/hash'
 require 'tools/geometry'
 
 # plugins
+require 'plugins/plugin'
 require 'plugins/plugin_loader'
 require 'plugins/room_plugin'
 require 'plugins/wall_plugin'

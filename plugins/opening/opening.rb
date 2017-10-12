@@ -1,13 +1,3 @@
-class OpeningPlugin < Plan::WallPlugin
-  def self.register
-    { door: Door, window: Window }
-  end
-
-  def self.css_include
-    File.join(File.dirname(__FILE__), 'opening.css')
-  end
-end
-
 class Opening < Plan::WallObject
   attr_accessor :length, :width
   amount_translation 0
@@ -87,3 +77,8 @@ end
 
 class Door < Opening; end
 class Window < Opening; end
+
+class OpeningPlugin < Plan::WallPlugin
+  register door: Door, window: Window
+  css 'opening.css'.freeze
+end

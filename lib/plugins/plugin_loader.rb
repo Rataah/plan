@@ -5,25 +5,25 @@ module Plan
     end
 
     def self.room_plugin_methods
-      Plan.descendants(RoomPlugin).map(&:register).reduce(&:merge)
+      Plan.descendants(RoomPlugin).map(&:registration).reduce(&:merge)
     end
 
     def self.wall_plugin_methods
-      Plan.descendants(WallPlugin).map(&:register).reduce(&:merge)
+      Plan.descendants(WallPlugin).map(&:registration).reduce(&:merge)
     end
 
     def self.svg_includes
       [Plan.descendants(RoomPlugin) + Plan.descendants(WallPlugin)]
         .flatten
-        .select { |plugin| plugin.respond_to?(:svg_include) }
-        .map(&:svg_include).compact.flatten.sort
+        .select { |plugin| plugin.svg_file }
+        .map(&:svg_file).compact.flatten.sort
     end
 
     def self.css_includes
       [Plan.descendants(RoomPlugin) + Plan.descendants(WallPlugin)]
         .flatten
-        .select { |plugin| plugin.respond_to?(:css_include) }
-        .map(&:css_include).compact.flatten.sort
+        .select { |plugin| plugin.css_file }
+        .map(&:css_file).compact.flatten.sort
     end
   end
 end
