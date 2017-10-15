@@ -99,7 +99,8 @@ floor('apartment') {
     }
 
     block(1, 1, 60, 120)
-    sink('bathroom_kitchen', 0, 110, -90)
+    sink('bathroom_sink', 0, 110, -90)
+    bath('bathroom_bath', 1, 194, -90).size(70, 176)
 
     ceiling_light('bathroom_light', 140, 45).link('bathroom_switch')
     ceiling_light('bathroom_light_mirror', 10, 60).link('bathroom_switch')
