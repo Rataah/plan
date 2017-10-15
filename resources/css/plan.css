@@ -40,11 +40,11 @@ svg {
 .room-stroke {
     fill: rgba(255, 255, 255, 0);
     stroke: #4f4f4f;
-    stroke-width: 5px;
+    stroke-width: 4px;
 }
 
 .room-floor {
-    fill:  url(#steel_gradient); /*rgba(245, 245, 220, 0.72);*/
+    fill:  url(#steel_gradient);
     opacity: 0.8;
     stroke-width: 3px;
 }
@@ -70,6 +70,7 @@ use.symbol {
 }
 
 .symbol-link {
+    fill: none;
     stroke: red;
     stroke-opacity: 0.4;
 }

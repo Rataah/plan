@@ -49,11 +49,11 @@
 .room-stroke {
     fill: rgba(255, 255, 255, 0);
     stroke: #4f4f4f;
-    stroke-width: 5px;
+    stroke-width: 4px;
 }
 
 .room-floor {
-    fill:  url(#steel_gradient); /*rgba(245, 245, 220, 0.72);*/
+    fill:  url(#steel_gradient);
     opacity: 0.8;
     stroke-width: 3px;
 }
@@ -79,6 +79,7 @@ use.symbol {
 }
 
 .symbol-link {
+    fill: none;
     stroke: red;
     stroke-opacity: 0.4;
 }</style>
@@ -132,12 +133,12 @@ use.symbol {
 }
 </script>
   <defs><pattern id="stripes" x="0" y="0" width="6" height="6" patternUnits="userSpaceOnUse">
-    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g fill="#111">
-            <polygon points="0 6 6 0 3 0 0 3"/>
-            <polygon points="6 6 6 3 3 6"/>
-        </g>
+  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g fill="#111">
+      <polygon points="0 6 6 0 3 0 0 3"/>
+      <polygon points="6 6 6 3 3 6"/>
     </g>
+  </g>
 </pattern><linearGradient id="steel_gradient" x1="50%" y1="100%" x2="50%" y2="0%">
   <stop offset="0%" style="stop-color:rgb(255,255,255);stop-opacity:1"/>
   <stop offset="5%" style="stop-color:rgb(255,255,255);stop-opacity:1"/>
@@ -697,7 +698,7 @@ use.symbol {
         </g>
         <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-360.0" y="77.0" xlink:href="#wall-object-switch-simple" class="symbol"/>
         <rect x="-542.0" y="91.0" width="60.0" height="120.0" class="block"/>
-        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-537.0" y="200.0" xlink:href="#room-object-sink" class="symbol sink sink" transform="rotate(-90 -537.0 200.0)"/>
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-543.0" y="200.0" xlink:href="#room-object-sink" class="symbol sink sink" transform="rotate(-90 -543.0 200.0)"/>
         <path d="M -403.0,135.0 Q -363.0,138.0 -360.0,98.0" fill="transparent" stroke="red"/>
         <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-403.0" y="135.0" xlink:href="#room-object-ceiling_light" class="symbol ceilinglight"/>
         <path d="M -533.0,150.0 Q -420.5,210.5 -360.0,98.0" fill="transparent" stroke="red"/>
