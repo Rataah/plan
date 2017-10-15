@@ -15,14 +15,12 @@ module Plan
     def self.svg_includes
       [Plan.descendants(RoomPlugin) + Plan.descendants(WallPlugin)]
         .flatten
-        .select { |plugin| plugin.svg_file }
         .map(&:svg_file).compact.flatten.sort
     end
 
     def self.css_includes
       [Plan.descendants(RoomPlugin) + Plan.descendants(WallPlugin)]
         .flatten
-        .select { |plugin| plugin.css_file }
         .map(&:css_file).compact.flatten.sort
     end
   end
