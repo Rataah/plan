@@ -129,6 +129,7 @@ floor('apartment') {
       power_outlet('bedroom_power_outlet_4', 255)
     }
 
+    bed('bedroom_bed', 0, 300, -90)
     ceiling_light('bedroom_light', 141, 240).link('bedroom_switch')
   }
 

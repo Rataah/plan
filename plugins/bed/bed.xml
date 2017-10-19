@@ -1,0 +1,12 @@
+ <g id="room-object-bed">
+  <rect height="204" width="148" y="1" x="1"/>
+  <rect fill="none" style="fill: var(--bed-cushion-color)" height="35" width="50" y="12" x="15"/>
+  <rect fill="none" style="fill: var(--bed-bedframe-color)" height="5" width="148" y="01" x="1"/>
+  <rect fill="none" style="fill: var(--bed-cushion-color)" height="35" width="50" y="13" x="85"/>
+  <rect fill="none" style="fill: var(--bed-bedframe-color)" height="5" width="148" y="200" x="1"/>
+  <line y2="40" x2="20" y1="12" x1="20"/>
+  <line y2="40" x2="90" y1="12" x1="90"/>
+  <rect fill="none" style="fill: var(--bed-cover-color)" height="140" width="146" y="60" x="2"/>
+  <line y2="90" x2="20" y1="60" x1="50"/>
+  <line y2="90" x2="20" y1="60" x1="1"/>
+ </g>

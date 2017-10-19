@@ -1,0 +1,7 @@
+.bed.symbol {
+  fill: white;
+  stroke: black;
+  --bed-bedframe-color: white;
+  --bed-cushion-color: white;
+  --bed-cover-color: white;
+}

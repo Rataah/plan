@@ -92,6 +92,14 @@ use.symbol {
   fill: none;
   stroke: black;
 }</style>
+  <style type="text/css">.bed.symbol {
+  fill: white;
+  stroke: black;
+  --bed-bedframe-color: white;
+  --bed-cushion-color: white;
+  --bed-cover-color: white;
+}
+</style>
   <style type="text/css">.block {
   fill: beige;
   stroke: brown;
@@ -169,6 +177,17 @@ use.symbol {
   <line y2="140" x2="50" y1="30" x1="55"/>
   <ellipse ry="3" rx="3" cy="20" cx="35" fill="#000000"/>
   <rect height="10" width="6" y="1" x="32"/>
+ </g> <g id="room-object-bed">
+  <rect height="204" width="148" y="1" x="1"/>
+  <rect fill="none" style="fill: var(--bed-cushion-color)" height="35" width="50" y="12" x="15"/>
+  <rect fill="none" style="fill: var(--bed-bedframe-color)" height="5" width="148" y="01" x="1"/>
+  <rect fill="none" style="fill: var(--bed-cushion-color)" height="35" width="50" y="13" x="85"/>
+  <rect fill="none" style="fill: var(--bed-bedframe-color)" height="5" width="148" y="200" x="1"/>
+  <line y2="40" x2="20" y1="12" x1="20"/>
+  <line y2="40" x2="90" y1="12" x1="90"/>
+  <rect fill="none" style="fill: var(--bed-cover-color)" height="140" width="146" y="60" x="2"/>
+  <line y2="90" x2="20" y1="60" x1="50"/>
+  <line y2="90" x2="20" y1="60" x1="1"/>
  </g><g id="room-object-ceiling_light">
   <ellipse ry="7" rx="7" cy="0" cx="0" fill="#fff"/>
   <line y2="5" x2="5" y1="-5" x1="-5"/>
@@ -743,20 +762,21 @@ use.symbol {
           <polygon points="-345.0,174.0 -345.0,91.0 -340.0,91.0 -340.0,174.0" class="opening-base"/>
           <path d="M -342.5,173.0 L -342.5,92.0 A 81.0,81.0 0 0,1 -261.5,173.0 Z" class="casement"/>
         </g>
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-543.0" y="487.0" xlink:href="#room-object-bed" class="symbol bed bed" transform="rotate(-90 -543.0 487.0)"/>
         <path d="M -402.0,427.0 Q -257.5,416.5 -268.0,272.0" fill="transparent" stroke="red"/>
         <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-402.0" y="427.0" xlink:href="#room-object-ceiling_light" class="symbol ceilinglight"/>
-        <g id="symbol_37">
+        <g id="symbol_38">
           <polygon points="-339.0,187.0 -261.0,187.0 -261.0,182.0 -339.0,182.0" class="opening-base"/>
           <path d="M -262.0,184.5 L -338.0,184.5 A 76.0,76.0 0 0,0 -262.0,260.5 Z" class="casement"/>
         </g>
         <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-268.0" y="272.0" xlink:href="#wall-object-switch-simple" class="symbol"/>
         <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-268.0" y="287.0" xlink:href="#wall-object-power-outlet" class="symbol power-outlet"/>
         <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-268.0" y="412.0" xlink:href="#wall-object-power-outlet" class="symbol power-outlet"/>
-        <g id="symbol_41">
+        <g id="symbol_42">
           <polygon points="-281.0,570.0 -391.0,570.0 -391.0,585.0 -281.0,585.0" class="opening-base"/>
           <path d="M -286.0,577.5 L -386.0,577.5 A 100.0,100.0 0 0,1 -286.0,477.5 Z" class="casement"/>
         </g>
-        <g id="symbol_42">
+        <g id="symbol_43">
           <polygon points="-400.0,554.0 -480.0,554.0 -480.0,570.0 -400.0,570.0" class="radiator"/>
         </g>
         <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-535.0" y="505.0" xlink:href="#wall-object-power-outlet" class="symbol power-outlet"/>
@@ -771,15 +791,15 @@ use.symbol {
         <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-130.0" y="367.0" xlink:href="#room-object-ceiling_light" class="symbol ceilinglight"/>
         <path d="M -245.0,387.0 Q -79.0,361.0 -105.0,195.0" fill="transparent" stroke="red"/>
         <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-245.0" y="387.0" xlink:href="#room-object-ceiling_light" class="symbol ceilinglight"/>
-        <g id="symbol_52">
+        <g id="symbol_53">
           <polygon points="-137.0,570.0 -27.0,570.0 -27.0,585.0 -137.0,585.0" class="opening-base"/>
           <path d="M -32.0,577.5 L -132.0,577.5 A 100.0,100.0 0 0,1 -32.0,477.5 Z" class="casement"/>
         </g>
-        <g id="symbol_53">
+        <g id="symbol_54">
           <polygon points="-21.0,560.0 -21.0,500.0 -5.0,500.0 -5.0,560.0" class="radiator"/>
         </g>
         <use xmlns:xlink="http://www.w3.org/1999/xlink" x="-13.0" y="485.0" xlink:href="#wall-object-power-outlet" class="symbol power-outlet"/>
-        <g id="symbol_55">
+        <g id="symbol_56">
           <polygon points="-5.0,480.0 -5.0,392.0 0.0,392.0 0.0,480.0" class="opening-base"/>
           <path d="M -2.5,480.0 L -2.5,394.0 A 86.0,86.0 0 0,1 83.5,480.0 Z" class="casement"/>
         </g>
