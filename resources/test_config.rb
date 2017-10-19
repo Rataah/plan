@@ -73,6 +73,7 @@ floor('apartment') {
     wall(144, :right, width: 15)
 
     ceiling_light('toilets_light', 110, 42).link('toilets_switch')
+    toilet('toilets_toilet', 0, 63, -90)
   }
 
   room('CMV', anchor: 'toilets_cmv.b2') {

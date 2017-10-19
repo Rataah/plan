@@ -1,0 +1,8 @@
+<g id="room-object-toilet">
+  <ellipse ry="30" rx="16" cy="36" cx="20" fill="#ffffff"/>
+  <ellipse ry="24" rx="14" cy="38" cx="20"/>
+  <rect rx="2" height="12" width="36" y="1" x="2" fill="#ffffff"/>
+  <ellipse ry="3" rx="3" cy="6" cx="20"/>
+  <rect height="6" width="18" y="13" x="11" fill="#ffffff"/>
+  <line y2="9" x2="20" y1="3" x1="20"/>
+ </g>
