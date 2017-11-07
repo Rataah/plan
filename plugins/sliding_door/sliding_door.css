@@ -1,0 +1,9 @@
+.sliding-door {
+  fill: white;
+  stroke: lightgray;
+}
+
+.sliding-door-door {
+  fill: white;
+  stroke: black;
+}

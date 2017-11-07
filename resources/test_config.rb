@@ -46,7 +46,8 @@ floor('apartment') {
     }
     wall(64, :up)
     wall(130, :right) {
-      power_outlet('hall_power_outlet_2', 110)
+      sliding_door(10, 110).door(60).door(60, 50)
+      power_outlet('hall_power_outlet_2', 120)
     }
     wall(64, :down) {
       switch('hall_switch_3', 30)
